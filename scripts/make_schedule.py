@@ -412,6 +412,15 @@ def phase_of(d):
     return 4
 
 
+SENTENCES_FROM = date(2027, 1, 4)
+SENTENCES_PER_DAY = 8
+
+
+def sent_new(d):
+    """New reading sentences (French → English flashcards) per study day, 4 Jan → 2 Apr."""
+    return SENTENCES_PER_DAY if SENTENCES_FROM <= d <= BOOKS[2][4] and not is_sunday(d) else 0
+
+
 def anki_new(d):
     if d < date(2027, 3, 1):
         return 25
@@ -533,6 +542,7 @@ for d in all_days():
         "day": fmt(d),
         "phase": ph,
         "anki": anki_new(d),
+        "sent": sent_new(d),
         "tv5": tv5(d),
         "yt": vincent[d]["text"] if d in vincent else youtube(d),
         "yt_kind": youtube(d),
@@ -727,6 +737,9 @@ for wi, wk in enumerate(weeks, 1):
     tv5s = sorted({r["tv5"] for r in wk}, key=lambda s: [r["tv5"] for r in wk].index(s))
     yts = sorted({r["yt_kind"] for r in wk}, key=lambda s: [r["yt_kind"] for r in wk].index(s))
     ankis = sorted({r["anki"] for r in wk}, reverse=True)
+    sents = sorted({r["sent"] for r in wk if r["sent"]})
+    if sents:
+        L.append(f"- **New sentences (evening):** {sents[0]}/day (French → English reading flashcards)")
     L.append(f"- **New words (evening):** flashcards, {' → '.join(str(a) for a in ankis)}/day, "
              f"or the vocabulary book on the days it is listed")
     L.append(f"- **Afternoon input:** {' → '.join(tv5s)}")
@@ -741,6 +754,8 @@ for wi, wk in enumerate(weeks, 1):
             sundays.append(r)
             continue
         words = f"Vocab. {r['vocab']}" if r["vocab"] else f"Flashcards: {r['anki']} new"
+        if r["sent"]:
+            words += f" + {r['sent']} sentences"
         L.append(f"| {r['day']} | {r['book']} | {r['write']} | {r['speak']} | {words} | {r['retest']} |")
     L.append("")
     vrows = [r for r in wk if r.get("yt_links")]
@@ -776,14 +791,14 @@ with open(OUT_MD, "w", encoding="utf-8") as f:
 with open(OUT_CSV, "w", newline="", encoding="utf-8") as f:
     w = csv.writer(f)
     w.writerow(["Date", "Day", "Phase", "Book chapters", "Writing", "Speaking", "Evening re-test",
-                "New words", "Vocabulary book", "TV5MONDE / input", "YouTube", "Sunday tasks", "Done"])
+                "New words", "New sentences", "Vocabulary book", "TV5MONDE / input", "YouTube", "Sunday tasks", "Done"])
     for r in rows:
         if r["sunday"]:
-            w.writerow([r["date"], r["day"], r["phase"], "REVIEW DAY", "", "", "", r["anki"], "", "", "",
+            w.writerow([r["date"], r["day"], r["phase"], "REVIEW DAY", "", "", "", r["anki"], r["sent"], "", "", "",
                         " | ".join(r["sunday_items"]), ""])
         else:
             w.writerow([r["date"], r["day"], r["phase"], r["book"], r["write"], r["speak"], r["retest"],
-                        r["anki"], r["vocab"] or "", r["tv5"], r["yt"], "", ""])
+                        r["anki"], r["sent"], r["vocab"] or "", r["tv5"], r["yt"], "", ""])
 
 if len(sys.argv) > 3:
     import json

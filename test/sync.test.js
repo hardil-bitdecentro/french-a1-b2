@@ -84,6 +84,16 @@ describe('sync client ↔ worker', () => {
     expect(await c.put('state', { a: 3 }, 1)).toEqual({ conflict: true, v: 2 });
   });
 
+  it('lets the deck (only) be overwritten with base "*"', async () => {
+    const { fetchImpl } = setup();
+    const keys = await deriveKeys(newSyncKey());
+    const c = client('https://sync.example', keys, fetchImpl);
+    await c.put('deck', { n: 1 }, null);
+    expect(await c.put('deck', { n: 2 }, '*')).toEqual({ ok: true, v: 2 });
+    await c.put('state', { a: 1 }, null);
+    expect(await c.put('state', { a: 2 }, '*')).toEqual({ conflict: true, v: 1 });
+  });
+
   it('refuses a different token for the same id', async () => {
     const { env, fetchImpl } = setup();
     const keys = await deriveKeys(newSyncKey());

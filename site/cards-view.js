@@ -4,6 +4,7 @@ import { putCard, deleteCard, liveCards, setting, setSetting } from './store.js'
 import {
   RATINGS,
   newDeckCard,
+  newSentenceCard,
   newOwnCard,
   review,
   preview,
@@ -11,7 +12,9 @@ import {
   queueStats,
   reviewedToday,
   deckNewToday,
+  sentNewToday,
   deckWord,
+  sentence,
   validDeck,
 } from './cards.js';
 
@@ -25,6 +28,7 @@ function frenchOf(card, deck) {
     const w = deckWord(deck, card.rank);
     return w ? w.a.replace(/\s*\((m|f|mf|m\/f)\)\s*/g, ' ').trim() : '';
   }
+  if (card.kind === 'sent') return sentence(deck, card.idx)?.fr || '';
   return card.front;
 }
 
@@ -48,6 +52,12 @@ function frontHtml(card, deck) {
     return `<p class="flash-meta">#${w.r + 1} · ${esc(w.pos || '')}</p>
       <p class="flash-word g-${esc(w.g || 'x')}">${esc(w.a)}</p>`;
   }
+  if (card.kind === 'sent') {
+    const t = sentence(deck, card.idx);
+    if (!t) return '<p class="flash-word">(sentence missing from deck)</p>';
+    return `<p class="flash-meta">Sentence ${t.i + 1} · ${t.level === 'i' ? 'intermediate' : 'basic'} · read it aloud, then translate</p>
+      <p class="flash-word flash-sentence">${esc(t.fr)}</p>`;
+  }
   return `<p class="flash-meta">${esc(SOURCES[card.src] || 'My card')}</p><p class="flash-word">${esc(card.front)}</p>`;
 }
 
@@ -62,14 +72,15 @@ function backHtml(card, deck) {
       <p class="sub">${esc(w.ipa || '')}${w.d ? ` · ${esc(w.d)}` : ''}</p>
       ${ex ? `<ul class="examples">${ex}</ul>` : ''}`;
   }
+  if (card.kind === 'sent') return `<p class="flash-answer">${esc(sentence(deck, card.idx)?.en || '')}</p>`;
   return `<p class="flash-answer">${esc(card.back)}</p>`;
 }
 
 function reviewHtml(ctx) {
-  const { state, deck, newLimit } = ctx;
+  const { state, deck, newLimit, sentLimit = 0 } = ctx;
   const now = new Date();
   if (!current || !state.cards[current.id] || state.cards[current.id].del) {
-    const next = nextCard(state, deck, newLimit, now);
+    const next = nextCard(state, deck, newLimit, now, sentLimit);
     if (!next) {
       current = null;
       const st = queueStats(state, deck, newLimit, now);
@@ -88,7 +99,7 @@ function reviewHtml(ctx) {
     }
     let card = next.card;
     if (!card) {
-      card = newDeckCard(next.rank, now);
+      card = next.sentence !== undefined ? newSentenceCard(next.sentence, now) : newDeckCard(next.rank, now);
       putCard(state, card);
       ctx.save();
     }
@@ -116,10 +127,11 @@ function reviewHtml(ctx) {
 }
 
 export function renderCards(ctx, sub) {
-  const { state, deck, newLimit } = ctx;
+  const { state, deck, newLimit, sentLimit = 0 } = ctx;
   const now = new Date();
   const reviewBlock = reviewHtml(ctx); // may start a new deck word, so count after it
-  const st = queueStats(state, deck, newLimit, now);
+  const st = queueStats(state, deck, newLimit, now, 20, sentLimit);
+  const sentStarted = liveCards(state).filter((c) => c.kind === 'sent').length;
   const mine = liveCards(state)
     .filter((c) => c.kind === 'mine')
     .sort((a, b) => (a.created < b.created ? 1 : -1));
@@ -129,7 +141,9 @@ export function renderCards(ctx, sub) {
   const src = lastSrc;
   return `
     <h1>Flashcards</h1>
-    <p class="sub"><b>${st.due}</b> due now · <b>${deckNewToday(state, now)}</b> of ${newLimit} new words started today · <b>${reviewedToday(state, now)}</b> reviewed today</p>
+    <p class="sub"><b>${st.due}</b> due now · <b>${deckNewToday(state, now)}</b> of ${newLimit} new words${
+      sentLimit ? ` and <b>${sentNewToday(state, now)}</b> of ${sentLimit} sentences` : ''
+    } started today · <b>${reviewedToday(state, now)}</b> reviewed today</p>
     ${reviewBlock}
 
     <section class="card" id="add">
@@ -166,7 +180,12 @@ export function renderCards(ctx, sub) {
       ${
         deck
           ? `<p>${esc(deck.name || 'Word deck')}: <b>${deck.words.length.toLocaleString('en')}</b> words, <b>${started}</b> started.</p>
-             <p class="sub">New words come in frequency order, ${newLimit} a day on plan days (none on Sundays and vocabulary-book evenings).</p>`
+             ${
+               deck.sentences
+                 ? `<p><b>${deck.sentences.length.toLocaleString('en')}</b> reading sentences, <b>${sentStarted}</b> started.</p>`
+                 : `<p class="sub"><b>No sentences in this copy of the deck.</b> Re-import the latest <code>french-5000-words.json</code> to add the 3,464 reading sentences.</p>`
+             }
+             <p class="sub">New words come in frequency order, 25 → 15 a day on plan days (none on Sundays and vocabulary-book evenings). Sentences start on 4 Jan: 8 a day, easy ones first, until 2 Apr.</p>`
           : `<p class="sub">Import <code>french-5000-words.json</code> (made from your Anki deck, in <code>~/projects/french-private/</code>). It stays on your device and in your encrypted sync, never on the website.</p>`
       }
       <label class="act file">${deck ? 'Replace deck' : 'Import word deck'}<input type="file" id="deck-file" accept="application/json,.json" /></label>

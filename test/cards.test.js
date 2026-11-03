@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   RATINGS,
   newDeckCard,
+  newSentenceCard,
   newOwnCard,
   review,
   preview,
@@ -13,11 +14,15 @@ import {
   deckWord,
   validDeck,
   newLimitFor,
+  sentLimitFor,
+  sentence,
+  sentNewToday,
 } from '../site/cards.js';
 import { emptyState, putCard, deleteCard } from '../site/store.js';
 
 const deck = {
   words: Array.from({ length: 30 }, (_, r) => ({ r, w: `mot${r}`, a: `le mot${r}`, g: 'm', m: `word ${r}`, ex: [] })),
+  sentences: Array.from({ length: 5 }, (_, i) => [`Phrase ${i}.`, `Sentence ${i}.`, i < 3 ? 'b' : 'i']),
 };
 const at = (iso) => new Date(iso);
 const AGAIN = RATINGS[0].value;
@@ -136,5 +141,44 @@ describe('deck + plan', () => {
     expect(newLimitFor({ sunday: false, vocab: null, anki: 25 })).toBe(25);
     expect(newLimitFor({ sunday: true, vocab: null, anki: 25 })).toBe(0);
     expect(newLimitFor({ sunday: false, vocab: 'ch. 1, first half', anki: 25 })).toBe(0);
+  });
+});
+
+describe('reading sentences', () => {
+  const now = at('2027-01-04T20:00:00');
+
+  it('come after the day’s new words, in deck order, up to the sentence limit', () => {
+    const s = emptyState();
+    const shown = [];
+    for (let i = 0; i < 10; i++) {
+      const next = nextCard(s, deck, 2, now, 3);
+      if (!next) break;
+      const card =
+        next.card || (next.sentence !== undefined ? newSentenceCard(next.sentence, now) : newDeckCard(next.rank, now));
+      shown.push(card.kind === 'sent' ? `s${card.idx}` : `w${card.rank}`);
+      putCard(s, review(card, EASY, now), now.getTime());
+    }
+    expect(shown).toEqual(['w0', 'w1', 's0', 's1', 's2']);
+    expect(sentNewToday(s, now)).toBe(3);
+  });
+
+  it('none without a sentence limit, or when the deck has no sentences', () => {
+    const s = emptyState();
+    for (const r of [0, 1]) putCard(s, review(newDeckCard(r, now), EASY, now), 1);
+    expect(nextCard(s, deck, 2, now, 0)).toBeNull();
+    expect(nextCard(s, { words: deck.words }, 2, now, 5)).toBeNull();
+  });
+
+  it('looks sentences up and validates them in imported decks', () => {
+    expect(sentence(deck, 3)).toEqual({ i: 3, fr: 'Phrase 3.', en: 'Sentence 3.', level: 'i' });
+    expect(sentence(deck, 99)).toBeNull();
+    expect(validDeck(deck)).toBe(true);
+    expect(validDeck({ ...deck, sentences: [['only french']] })).toBe(false);
+  });
+
+  it('takes 8 a day from the plan, none on Sundays', () => {
+    expect(sentLimitFor({ sunday: false, sent: 8 })).toBe(8);
+    expect(sentLimitFor({ sunday: true, sent: 8 })).toBe(0);
+    expect(sentLimitFor({ sunday: false, sent: 0 })).toBe(0);
   });
 });

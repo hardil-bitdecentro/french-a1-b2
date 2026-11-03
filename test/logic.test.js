@@ -271,3 +271,16 @@ describe('Vincent course (November)', () => {
     expect(hms(28105)).toBe('7:48:25');
   });
 });
+
+describe('sentences in the plan', () => {
+  it('8 a day on study days from 4 Jan to 2 Apr, and the evening task says so', () => {
+    const withSent = plan.days.filter((d) => d.sent);
+    expect(withSent[0].date).toBe('2027-01-04');
+    expect(withSent.at(-1).date).toBe('2027-04-02');
+    expect(withSent.every((d) => d.sent === 8 && !d.sunday)).toBe(true);
+    const day = withSent.find((d) => !d.vocab);
+    const t = sessionsFor(day)[2].tasks.find((x) => x.id === 'anki-new');
+    expect(t.title).toBe(`Flashcards: ${day.anki} new words + 8 sentences`);
+    expect(totalMinutes(day)).toBe(240);
+  });
+});

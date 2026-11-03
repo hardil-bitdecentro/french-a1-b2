@@ -243,13 +243,16 @@ export function sessionsFor(day) {
         id: 'anki-new',
         title: `Vocabulary book: ${day.vocab}`,
         detail:
-          'Read the lesson page, do its exercises, check the Corrigés, then add 15–20 key phrases as flashcards (whole phrases, not single words)',
+          'Read the lesson page, do its exercises, check the Corrigés, then add 15–20 key phrases as flashcards (whole phrases, not single words)' +
+          (day.sent ? `. Then ${day.sent} new sentences in Cards.` : ''),
         minutes: m.ankiNew,
         action: { label: 'Add cards', href: '#/cards/add/vocab' },
       }
     : {
         id: 'anki-new',
-        title: `Flashcards: ${day.anki} new words`,
+        title: day.sent
+          ? `Flashcards: ${day.anki} new words + ${day.sent} sentences`
+          : `Flashcards: ${day.anki} new words`,
         minutes: m.ankiNew,
         action: { label: 'Start', href: '#/cards' },
       };

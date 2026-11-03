@@ -17,6 +17,7 @@ import zipfile
 from pathlib import Path
 
 MODEL = "5000 French Words 2.0 (F to E)"
+SENTENCES = "French sentences Read Training"  # Front = French, Back = English
 POS = {"n", "v", "adj", "adv", "prep", "conj", "pron", "det", "interj", "num", "art"}
 
 
@@ -50,16 +51,31 @@ def meaning(field: str) -> tuple:
     return pos, rest
 
 
-def read_deck(apkg: Path) -> list:
+def read_deck(apkg: Path) -> tuple:
     with tempfile.TemporaryDirectory() as tmp:
         db = Path(tmp) / "c.anki2"
         with zipfile.ZipFile(apkg) as z:
             db.write_bytes(z.read("collection.anki2"))
         con = sqlite3.connect(db)
         models = json.loads(con.execute("select models from col").fetchone()[0])
+        decks = json.loads(con.execute("select decks from col").fetchone()[0])
         mid = next(int(k) for k, m in models.items() if m["name"] == MODEL)
         names = [f["name"] for f in models[str(mid)]["flds"]]
         rows = con.execute("select flds, tags from notes where mid = ?", (mid,)).fetchall()
+        sentences = []
+        smid = next((int(k) for k, m in models.items() if m["name"] == SENTENCES), None)
+        if smid is not None:
+            # The deck's own new-card order (easy → harder), basic subdeck before intermediate.
+            srows = con.execute(
+                "select n.flds, c.did from notes n join cards c on c.nid = n.id where n.mid = ? order by c.due",
+                (smid,),
+            ).fetchall()
+            for flds, did in srows:
+                fr, en = (flds.split("\x1f") + ["", ""])[:2]
+                level = "i" if "Intermediate" in decks[str(did)]["name"] else "b"
+                if strip(fr) and strip(en):
+                    sentences.append([strip(fr), strip(en), level])
+            sentences.sort(key=lambda x: x[2] != "b")  # stable: basic first, deck order kept
         con.close()
     out = []
     for flds, tags in rows:
@@ -81,25 +97,29 @@ def read_deck(apkg: Path) -> list:
             "d": strip(f.get("Noun declension", "")).strip("[]"),
             "ex": examples(f.get("Example sentences", "")),
         })
-    return out
+    return out, sentences
 
 
 def main() -> None:
     out_path, *decks = sys.argv[1:]
-    words = {}
+    words, sentences = {}, []
     for d in decks:
-        for w in read_deck(Path(d)):
+        ws, ss = read_deck(Path(d))
+        for w in ws:
             words.setdefault(w["r"], w)
+        sentences = sentences or ss
     ordered = [words[r] for r in sorted(words)]
     data = {
         "name": "5000 most frequently used French words [v. 6.0]",
         "source": "AnkiWeb shared decks 893324022 + 1543609595 (personal use)",
         "count": len(ordered),
         "words": ordered,
+        "sentences": sentences,
     }
     Path(out_path).write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     missing = [r for r in range(1, max(words) + 1) if r not in words]
     print(f"{len(ordered)} words, ranks {min(words)}–{max(words)}, missing ranks: {len(missing)} {missing[:10]}")
+    print(f"{len(sentences)} sentences ({sum(1 for s in sentences if s[2] == 'b')} basic)")
 
 
 if __name__ == "__main__":

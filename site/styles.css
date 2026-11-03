@@ -702,3 +702,8 @@ code {
     grid-template-columns: 1fr;
   }
 }
+.flash-word.flash-sentence {
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.35;
+}

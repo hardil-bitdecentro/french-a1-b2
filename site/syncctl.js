@@ -1,7 +1,7 @@
 // Sync controller: pairing, pull → merge → push with conflict retry, and the word deck.
 // No DOM access, so it can be tested in Node with an in-memory storage and the real Worker.
 import { deriveKeys, client, newSyncKey, validSyncKey, pairLink } from './sync.js';
-import { merge, differs } from './store.js';
+import { merge, differs, setting, setSetting } from './store.js';
 
 export const SYNC_KEY_STORAGE = 'fr-a1-b2:sync-key';
 
@@ -48,23 +48,42 @@ export function createSync(opts) {
     throw new Error('sync: too many concurrent writes');
   }
 
-  async function syncDeck() {
+  /**
+   * The deck is big, so it only moves when needed. The synced state carries two timestamps:
+   * "deckAt" (newest import on any device) and "deckUp" (newest import that reached the server).
+   * full = true (pairing / turning sync on) also handles decks imported before those existed.
+   * Returns true when it changed the state (so the caller pushes the state again).
+   */
+  async function syncDeck(full) {
     const local = await getDeck();
-    if (local) {
-      const remote = await api.get('deck');
-      if (!remote) await api.put('deck', stripDeck(local), null);
-    } else {
-      const remote = await api.get('deck');
-      if (remote) await setDeck(remote.value);
+    const state = getState();
+    const wantAt = setting(state, 'deckAt', 0);
+    const upAt = setting(state, 'deckUp', 0);
+    const localAt = (local && local.importedAt) || 0;
+    if (local && localAt && localAt >= wantAt && localAt > upAt) {
+      await api.put('deck', stripDeck(local), '*');
+      setState(setSetting(setSetting(state, 'deckAt', localAt), 'deckUp', localAt));
+      return true;
     }
+    if (local && localAt >= wantAt && !full) return false;
+    if (!local || localAt < wantAt) {
+      if (!full && upAt < wantAt) return false; // the newer deck hasn't been uploaded yet; try next time
+      const remote = await api.get('deck');
+      if (remote && (remote.value.importedAt || 0) >= localAt) await setDeck(remote.value);
+      return false;
+    }
+    // full sync with a legacy local deck: make sure the server has a copy
+    const remote = await api.get('deck');
+    if (!remote) await api.put('deck', stripDeck(local), '*');
+    return false;
   }
 
-  async function run({ deck = false } = {}) {
+  async function run({ deck = true, full = false } = {}) {
     if (!api && !(await connect())) return;
     status('syncing');
     try {
       await syncState();
-      if (deck) await syncDeck();
+      if (deck && (await syncDeck(full))) await syncState();
       lastOk = Date.now();
       status('ok');
     } catch (err) {
@@ -92,7 +111,7 @@ export function createSync(opts) {
       key = newSyncKey();
       storage.setItem(SYNC_KEY_STORAGE, key);
       api = null;
-      await syncNow({ deck: true });
+      await syncNow({ full: true });
       return key;
     },
     /** Other devices: accept a key (or a full pairing link) and download everything. */
@@ -104,7 +123,7 @@ export function createSync(opts) {
       key = k;
       storage.setItem(SYNC_KEY_STORAGE, key);
       api = null;
-      await syncNow({ deck: true });
+      await syncNow({ full: true });
     },
     disable() {
       key = null;

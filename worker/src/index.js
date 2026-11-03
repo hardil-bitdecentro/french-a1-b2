@@ -2,6 +2,7 @@
 //
 //   GET  /v1/:id/:name   → 200 { v, data, t }  (v = 0, data = null when nothing is stored yet)
 //   PUT  /v1/:id/:name   body { base, data } → 200 { v } | 409 { v } (someone wrote first: pull, merge, retry)
+//                        (for the deck, base "*" overwrites unconditionally)
 //
 // :id is a 64-hex value derived from the user's sync key; :name is "state" or "deck".
 // Auth: "Authorization: Bearer <64-hex token>". The first write for an id stores SHA-256(token);
@@ -82,7 +83,9 @@ export default {
       if (!stored) await env.SYNC.put(authKey, tokenHash);
       const current = await env.SYNC.get(blobKey, 'json');
       const v = current ? current.v : 0;
-      if (current && body.base !== v) return json(409, { v }, h);
+      // The deck has a single writer at a time (the device that imported it), so it may overwrite with base "*".
+      const force = name === 'deck' && body.base === '*';
+      if (current && !force && body.base !== v) return json(409, { v }, h);
       const next = { v: v + 1, data: body.data, t: Date.now() };
       await env.SYNC.put(blobKey, JSON.stringify(next));
       return json(200, { v: next.v }, h);

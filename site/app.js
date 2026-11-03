@@ -15,7 +15,7 @@ import {
   esc,
 } from './logic.js';
 import * as S from './store.js';
-import { queueStats, newLimitFor } from './cards.js';
+import { queueStats, newLimitFor, sentLimitFor } from './cards.js';
 import { renderCards, cardsClick, cardsKey, cardsSubmit, cardsChange, resetReview } from './cards-view.js';
 import { createSync } from './syncctl.js';
 import { idbGet, idbSet } from './db.js';
@@ -89,6 +89,7 @@ const longDate = (iso) =>
   });
 /** The plan's new-word limit for today (before the start: day 1's; after the end: the last day's). */
 const todaysNewLimit = () => newLimitFor(byDate.get(todayISO()));
+const todaysSentLimit = () => sentLimitFor(byDate.get(todayISO()));
 
 // ---------- views ----------
 
@@ -105,7 +106,8 @@ function viewDay(iso) {
     plan.days,
     Object.fromEntries(plan.days.map((d) => [d.date, S.doneIds(state, d.date)])),
   );
-  const cardStats = isToday || iso === todayISO() ? queueStats(state, deck, todaysNewLimit(), new Date()) : null;
+  const cardStats =
+    isToday || iso === todayISO() ? queueStats(state, deck, todaysNewLimit(), new Date(), 20, todaysSentLimit()) : null;
   let notice = '';
   if (real < plan.start) notice = `<p class="notice">Your plan starts on ${esc(longDate(plan.start))}.</p>`;
   if (real > plan.end)
@@ -174,7 +176,9 @@ function taskRow(iso, t, done, cardStats) {
   let detail = t.detail || '';
   if (cardStats && t.id === 'anki-review') detail = `${cardStats.due} due now`;
   if (cardStats && t.id === 'anki-new' && !t.detail)
-    detail = deck ? `${cardStats.newLeft} new words left today` : 'Import your word deck on the Cards page first';
+    detail = deck
+      ? `${cardStats.newLeft} new words${t.title.includes('sentences') ? ` and ${cardStats.sentLeft} sentences` : ''} left today`
+      : 'Import your word deck on the Cards page first';
   return `
     <li class="task${isDone ? ' done' : ''}">
       <button class="check" type="button" role="checkbox" aria-checked="${isDone}" data-task="${esc(t.id)}" data-date="${iso}" aria-label="Mark done: ${esc(t.title)}"></button>
@@ -466,12 +470,18 @@ const cardsCtx = () => ({
   state,
   deck,
   newLimit: todaysNewLimit(),
+  sentLimit: todaysSentLimit(),
   save,
   rerender,
   setDeck: async (d, { upload } = {}) => {
+    if (upload) {
+      d.importedAt = Date.now();
+      S.setSetting(state, 'deckAt', d.importedAt);
+      save();
+    }
     deck = d;
     await idbSet('deck', d);
-    if (upload && sync.enabled) sync.syncNow({ deck: true });
+    if (upload && sync.enabled) sync.syncNow();
   },
 });
 
@@ -585,7 +595,7 @@ app.addEventListener('click', async (e) => {
     showPair = true;
     rerender();
   } else if (id === 'sync-now') {
-    await sync.syncNow({ deck: true });
+    await sync.syncNow({ full: true });
   } else if (id === 'sync-pair') {
     showPair = !showPair;
     rerender();
@@ -643,7 +653,7 @@ document.addEventListener('keydown', (e) => {
 document.addEventListener('visibilitychange', () => {
   if (!sync.enabled) return;
   if (document.visibilityState === 'hidden') sync.flush();
-  else sync.syncNow({ deck: !deck });
+  else sync.syncNow();
 });
 
 window.addEventListener('hashchange', route);
@@ -657,7 +667,7 @@ Promise.all([
     byDate = new Map(plan.days.map((d) => [d.date, d]));
     deck = savedDeck || null;
     route();
-    if (sync.enabled) sync.syncNow({ deck: true });
+    if (sync.enabled) sync.syncNow({ full: !deck });
   })
   .catch(() => {
     app.innerHTML = '<p class="loading">Could not load the plan. Check your connection and reload.</p>';

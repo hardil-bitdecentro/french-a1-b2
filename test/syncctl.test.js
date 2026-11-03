@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { createSync, SYNC_KEY_STORAGE } from '../site/syncctl.js';
-import { emptyState, setDone, setNote, doneIds, noteText, putCard, liveCards } from '../site/store.js';
+import { emptyState, setDone, setNote, doneIds, noteText, putCard, liveCards, setSetting } from '../site/store.js';
 import worker from '../worker/src/index.js';
 
 const ORIGIN = 'https://hardil-bitdecentro.github.io';
@@ -69,6 +69,39 @@ describe('two devices syncing through the Worker', () => {
       expect(noteText(d.state, '2026-11-04')).toBe('je suis allé');
       expect(liveCards(d.state).map((c) => c.front)).toEqual(['le loyer']);
     }
+  });
+
+  it('sends a re-imported deck (e.g. with sentences) to the other device on a normal sync', async () => {
+    const env = { SYNC: memoryKV(), ALLOWED_ORIGINS: ORIGIN };
+    const laptop = device(env, { name: 'v1', words: [{ r: 0, w: 'de', a: 'de', m: 'of', g: '' }] });
+    const key = await laptop.sync.enable();
+    const phone = device(env);
+    await phone.sync.pair(key);
+    expect(phone.deck.name).toBe('v1');
+
+    // Re-import on the laptop (what the app's setDeck does): new deck + newer "deckAt" in the state.
+    laptop.deck = {
+      name: 'v2',
+      importedAt: 5000,
+      words: laptop.deck.words,
+      sentences: [['Est-ce vous ?', 'Is it you?', 'b']],
+    };
+    setSetting(laptop.state, 'deckAt', 5000, 5000);
+    await laptop.sync.syncNow();
+    await phone.sync.syncNow();
+    expect(phone.deck.name).toBe('v2');
+    expect(phone.deck.sentences).toHaveLength(1);
+
+    // Afterwards neither device keeps downloading the deck.
+    let deckGets = 0;
+    const orig = env.SYNC.get;
+    env.SYNC.get = async (k, t) => {
+      if (k.endsWith(':deck')) deckGets++;
+      return orig(k, t);
+    };
+    await phone.sync.syncNow();
+    await laptop.sync.syncNow();
+    expect(deckGets).toBe(0);
   });
 
   it('rejects a bad pairing code and can be turned off', async () => {
