@@ -305,6 +305,34 @@ export function overallProgress(days, doneMap = {}) {
   return { complete, total: days.length, pct: Math.round((complete / days.length) * 100) };
 }
 
+/** A day keeps the streak alive once at least half of its tasks are ticked (the "minimum day" rule). */
+export function streakTarget(day) {
+  return Math.ceil(taskIds(day).length / 2);
+}
+
+export function dayCounts(day, doneIds = []) {
+  return dayProgress(day, doneIds).done >= streakTarget(day);
+}
+
+/**
+ * Current and best streak up to `todayIso`. Today only adds to the streak once it counts; until then the
+ * streak still stands from yesterday (the day isn't over yet).
+ */
+export function streaks(days, doneMap = {}, todayIso) {
+  let run = 0;
+  let best = 0;
+  let todayCounts = false;
+  for (const d of days) {
+    if (d.date > todayIso) break;
+    if (dayCounts(d, doneMap[d.date])) {
+      run++;
+      best = Math.max(best, run);
+      if (d.date === todayIso) todayCounts = true;
+    } else if (d.date !== todayIso) run = 0;
+  }
+  return { current: run, best, todayCounts };
+}
+
 export function groupByWeek(days) {
   const weeks = new Map();
   for (const d of days) {

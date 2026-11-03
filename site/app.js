@@ -12,6 +12,8 @@ import {
   dayProgress,
   overallProgress,
   groupByWeek,
+  streaks,
+  streakTarget,
   esc,
 } from './logic.js';
 import * as S from './store.js';
@@ -103,10 +105,8 @@ function viewDay(iso) {
   const isToday = iso === real;
   const done = S.doneIds(state, iso);
   const prog = dayProgress(day, done);
-  const overall = overallProgress(
-    plan.days,
-    Object.fromEntries(plan.days.map((d) => [d.date, S.doneIds(state, d.date)])),
-  );
+  const doneMap = Object.fromEntries(plan.days.map((d) => [d.date, S.doneIds(state, d.date)]));
+  const overall = overallProgress(plan.days, doneMap);
   const cardStats =
     isToday || iso === todayISO()
       ? queueStats(state, deck, todaysNewLimit(), new Date(), 20, todaysSentLimit(), todaysSayLimit())
@@ -147,6 +147,7 @@ function viewDay(iso) {
         <span style="width:${Math.round((prog.done / prog.total) * 100)}%"></span>
       </div>
       <p class="sub"><b>${prog.done}/${prog.total}</b> tasks today · <b>${overall.complete}</b> of ${overall.total} days complete</p>
+      ${isToday ? streakLine(doneMap, day, prog.done) : ''}
     </div>
     ${sessions}
     <section class="card">
@@ -155,6 +156,21 @@ function viewDay(iso) {
       <textarea id="notes" data-date="${iso}" rows="5" placeholder="j'ai allé → je suis allé (aller takes être)">${esc(S.noteText(state, iso))}</textarea>
       <div class="acts"><a class="act" href="#/cards/add/mistake">Make a flashcard from a mistake</a></div>
     </section>`;
+}
+
+/** "🔥 5-day streak" line for today's view. */
+function streakLine(doneMap, today, doneToday) {
+  const real = localISO(new Date());
+  if (real < plan.start || real > plan.end) return '';
+  const st = streaks(plan.days, doneMap, real);
+  const need = Math.max(0, streakTarget(today) - doneToday);
+  const best = st.best > st.current ? ` · best ${st.best}` : '';
+  let text;
+  if (st.todayCounts) text = `🔥 <b>${st.current}</b>-day streak · today counts ✓${best}`;
+  else if (st.current > 0)
+    text = `🔥 <b>${st.current}</b>-day streak · tick ${need} more task${need === 1 ? '' : 's'} today to make it ${st.current + 1}${best}`;
+  else text = `Start a streak: tick at least ${streakTarget(today)} of today's tasks (half the day)${best}.`;
+  return `<p class="streak${st.todayCounts ? ' on' : ''}">${text}</p>`;
 }
 
 const COPY_LABELS = {
@@ -223,7 +239,10 @@ function viewPlan() {
     <p class="sub">4 Nov 2026 → 4 May 2027. Tap a day to open its checklist.</p>
     <div class="progress-row">
       <div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="${overall.total}" aria-valuenow="${overall.complete}" aria-label="Days complete"><span style="width:${overall.pct}%"></span></div>
-      <p class="sub"><b>${overall.complete}</b> of ${overall.total} days complete (${overall.pct}%)</p>
+      <p class="sub"><b>${overall.complete}</b> of ${overall.total} days complete (${overall.pct}%)${(() => {
+        const st = streaks(plan.days, doneMap, real);
+        return st.best ? ` · 🔥 streak <b>${st.current}</b> (best ${st.best})` : '';
+      })()}</p>
     </div>
     ${weeks}`;
 }

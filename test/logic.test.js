@@ -15,6 +15,9 @@ import {
   dayProgress,
   overallProgress,
   groupByWeek,
+  streaks,
+  streakTarget,
+  dayCounts,
   esc,
 } from '../site/logic.js';
 
@@ -294,5 +297,38 @@ describe('speaking cards in the plan', () => {
     const day = withSay.find((d) => !d.vocab);
     const t = sessionsFor(day)[2].tasks.find((x) => x.id === 'anki-new');
     expect(t.title).toBe(`Flashcards: ${day.anki} new words + 8 sentences + 6 to say`);
+  });
+});
+
+describe('streak', () => {
+  const days = plan.days.slice(0, 10);
+  const half = (d) => taskIds(d).slice(0, Math.ceil(taskIds(d).length / 2));
+  const all = (d) => taskIds(d);
+
+  it('a day counts from half of its tasks', () => {
+    const d = days[0];
+    expect(dayCounts(d, half(d))).toBe(true);
+    expect(dayCounts(d, half(d).slice(1))).toBe(false);
+    expect(streakTarget(d)).toBe(Math.ceil(taskIds(d).length / 2));
+  });
+
+  it('counts consecutive days; today only adds once it counts', () => {
+    const map = { [days[0].date]: all(days[0]), [days[1].date]: half(days[1]), [days[2].date]: half(days[2]) };
+    expect(streaks(days, map, days[2].date)).toEqual({ current: 3, best: 3, todayCounts: true });
+    expect(streaks(days, map, days[3].date)).toEqual({ current: 3, best: 3, todayCounts: false }); // day 4 not done yet
+  });
+
+  it('a missed day resets the streak but keeps the best', () => {
+    const map = {
+      [days[0].date]: all(days[0]),
+      [days[1].date]: all(days[1]),
+      [days[3].date]: all(days[3]),
+    };
+    expect(streaks(days, map, days[4].date)).toEqual({ current: 1, best: 2, todayCounts: false });
+    expect(streaks(days, {}, days[0].date)).toEqual({ current: 0, best: 0, todayCounts: false });
+  });
+
+  it('nothing before the plan starts', () => {
+    expect(streaks(days, {}, '2026-11-01')).toEqual({ current: 0, best: 0, todayCounts: false });
   });
 });
