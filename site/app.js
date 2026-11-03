@@ -213,6 +213,19 @@ function viewMaterials() {
     </section>
 
     <section class="card">
+      <h2>Where to buy in Paris: Fnac stock</h2>
+      <p class="sub">"On the shelf" (en rayon) stock as checked on 3 Nov 2026. It changes daily, so check the Fnac page before you go. "Retrait 1H en magasin" on each page reserves a copy for free pickup within an hour.</p>
+      <p><b>Go to Fnac Paris – Forum des Halles:</b> it's the only store with all four books on the shelf (€81.10 together).</p>
+      <ul class="plain volumes">
+        <li><p class="vol-when">Grammar · €26.80 · 176 pages</p><p class="task-title">Grammaire progressive du français, débutant + appli, 3e éd.</p><p class="sub">In stock: Forum des Halles, Ternes. Limited: Saint-Lazare, Gare Montparnasse, Bercy Village, La Défense-CNIT, Thiais, Créteil, Vélizy, Parinor. Not at Gare Châtelet, Gare Auber, Gare de l'Est. <a href="https://www.fnac.com/a21695847/Maia-Gregoire-Grammaire-progressive-du-francais-debutant-appli-3e-ed" target="_blank" rel="noopener">Fnac page ↗</a></p></li>
+        <li><p class="vol-when">Grammar answer key · €12.70 · 40 pages</p><p class="task-title">Grammaire progressive du français A1 débutant, corrigés 3e éd.</p><p class="sub">Limited: Forum des Halles, Montparnasse, Ternes, Beaugrenelle, Boulogne. <a href="https://www.fnac.com/a12795338/Maia-Gregoire-Grammaire-progressive-du-francais-A1-debutant-corriges-3eme-edition" target="_blank" rel="noopener">Fnac page ↗</a></p></li>
+        <li><p class="vol-when">Vocabulary · €28.10 · 208 pages</p><p class="task-title">Vocabulaire progressif intermédiaire + appli, 3e éd.</p><p class="sub">In stock: Forum des Halles. Limited: Montparnasse, Ternes, Gennevilliers, La Défense-CNIT, Herblay, Cergy, Carré Sénart, Val d'Europe. <a href="https://www.fnac.com/a21695846/Claire-Leroy-Miquel-Vocabulaire-progressif-intermediaire-appli-3e-edition" target="_blank" rel="noopener">Fnac page ↗</a></p></li>
+        <li><p class="vol-when">Vocabulary answer key · €13.50 · 32 pages</p><p class="task-title">Corrigés vocabulaire progressif, niveau intermédiaire, 3e éd.</p><p class="sub"><b>Only at Forum des Halles</b>, limited, so buy or reserve it early even though you only need the book from 4 Dec. <a href="https://www.fnac.com/a11187087/Claire-Miquel-Corriges-vocabulaire-progressif-niveau-intermediaire-3e-edition" target="_blank" rel="noopener">Fnac page ↗</a></p></li>
+      </ul>
+      <p class="sub">Intermédiaire and Avancé grammar volumes: buy in late Nov / late Jan; use the Amazon.fr / Fnac links in the book list above.</p>
+    </section>
+
+    <section class="card">
       <h2>Course: TV5MONDE EDU (free)</h2>
       <p>Video exercises from A1 to B2. France Éducation International, which runs the TCF, points candidates here for training. App on iOS/Android, or the website.</p>
       <div class="acts"><a class="act" href="${LINKS.tv5}" target="_blank" rel="noopener">apprendre.tv5monde.com ↗</a></div>
