@@ -434,7 +434,7 @@ app.addEventListener('change', async (e) => {
 
 window.addEventListener('hashchange', route);
 
-fetch('data/schedule.json')
+fetch('data/schedule.json', { cache: 'no-cache' })
   .then((r) => r.json())
   .then((data) => {
     plan = data;
