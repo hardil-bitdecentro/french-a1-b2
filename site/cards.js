@@ -41,6 +41,17 @@ export function sentence(deck, i) {
   return s ? { i, fr: s[0], en: s[1], level: s[2] } : null;
 }
 
+export function speakCardId(i) {
+  return `p${i}`;
+}
+
+/** Speaking card: English shown, you say the French. Same sentence index as the reading card. */
+export function newSpeakCard(i, now = new Date()) {
+  return { id: speakCardId(i), kind: 'say', idx: i, created: now.toISOString(), s: fromFsrs(createEmptyCard(now)) };
+}
+
+export const SAY_UNLOCK_DAYS = 2;
+
 export function newSentenceCard(i, now = new Date()) {
   return { id: sentenceCardId(i), kind: 'sent', idx: i, created: now.toISOString(), s: fromFsrs(createEmptyCard(now)) };
 }
@@ -98,6 +109,28 @@ export function sentNewToday(state, now = new Date()) {
   return liveCards(state).filter((c) => c.kind === 'sent' && isToday(c.created, now)).length;
 }
 
+/** Speaking cards already started today. */
+export function sayNewToday(state, now = new Date()) {
+  return liveCards(state).filter((c) => c.kind === 'say' && isToday(c.created, now)).length;
+}
+
+/**
+ * Sentences you can now practise saying: their reading card was started at least SAY_UNLOCK_DAYS ago
+ * and has no speaking card yet. Reading order (easy → harder).
+ */
+export function nextSay(state, deck, n, now = new Date()) {
+  if (!deck || !deck.sentences || n <= 0) return [];
+  const cutoff = now.getTime() - SAY_UNLOCK_DAYS * 86400000;
+  const out = [];
+  for (let i = 0; i < deck.sentences.length && out.length < n; i++) {
+    const read = state.cards[sentenceCardId(i)];
+    if (!read) break; // reading cards are started in order, so nothing later is unlocked
+    if (read.del || speakCardId(i) in state.cards) continue;
+    if (new Date(read.created).getTime() <= cutoff) out.push(i);
+  }
+  return out;
+}
+
 /** The next sentence indexes not yet started, in the deck's order (easy → harder). */
 export function nextSentences(state, deck, n) {
   if (!deck || !deck.sentences || n <= 0) return [];
@@ -133,7 +166,7 @@ export function nextDeckRanks(state, deck, n) {
  * Today's counts. `newLimit` is the plan's number for the day (0 on vocabulary-book days and Sundays).
  * Learning cards due within `aheadMin` minutes are reported separately so the UI can say "back in 4 min".
  */
-export function queueStats(state, deck, newLimit, now = new Date(), aheadMin = 20, sentLimit = 0) {
+export function queueStats(state, deck, newLimit, now = new Date(), aheadMin = 20, sentLimit = 0, sayLimit = 0) {
   const cards = liveCards(state);
   const t = now.getTime();
   const due = cards.filter((c) => new Date(c.s.due).getTime() <= t);
@@ -146,9 +179,11 @@ export function queueStats(state, deck, newLimit, now = new Date(), aheadMin = 2
   const sentTotal = deck && deck.sentences ? deck.sentences.length : 0;
   const sentStarted = Object.keys(state.cards).filter((id) => /^s\d+$/.test(id)).length;
   const sentLeft = Math.min(Math.max(0, sentLimit - sentNewToday(state, now)), Math.max(0, sentTotal - sentStarted));
+  const sayLeft = Math.min(Math.max(0, sayLimit - sayNewToday(state, now)), nextSay(state, deck, sayLimit, now).length);
   return {
     due: due.length,
     sentLeft,
+    sayLeft,
     newLeft: Math.min(newLeft, Math.max(0, deckLeft)),
     soon: soon.length,
     nextSoon: soon.length ? Math.min(...soon.map((c) => new Date(c.s.due).getTime())) : null,
@@ -159,7 +194,7 @@ export function queueStats(state, deck, newLimit, now = new Date(), aheadMin = 2
  * The card to show next: a due card that has been studied before (oldest due first), else your own new
  * cards, else a new deck word (returned as { rank } so the caller creates it only when it is shown).
  */
-export function nextCard(state, deck, newLimit, now = new Date(), sentLimit = 0) {
+export function nextCard(state, deck, newLimit, now = new Date(), sentLimit = 0, sayLimit = 0) {
   const t = now.getTime();
   const due = liveCards(state)
     .filter((c) => new Date(c.s.due).getTime() <= t)
@@ -168,13 +203,15 @@ export function nextCard(state, deck, newLimit, now = new Date(), sentLimit = 0)
   if (studied.length) return { card: studied[0] };
   const ownNew = due.filter((c) => c.kind === 'mine');
   if (ownNew.length) return { card: ownNew[0] };
-  const startedNew = due.filter((c) => c.kind === 'deck' || c.kind === 'sent');
+  const startedNew = due.filter((c) => c.kind === 'deck' || c.kind === 'sent' || c.kind === 'say');
   if (startedNew.length) return { card: startedNew[0] };
-  const { newLeft, sentLeft } = queueStats(state, deck, newLimit, now, 20, sentLimit);
+  const { newLeft, sentLeft, sayLeft } = queueStats(state, deck, newLimit, now, 20, sentLimit, sayLimit);
   const [rank] = nextDeckRanks(state, deck, newLeft > 0 ? 1 : 0);
   if (rank !== undefined) return { rank };
   const [idx] = nextSentences(state, deck, sentLeft > 0 ? 1 : 0);
-  return idx === undefined ? null : { sentence: idx };
+  if (idx !== undefined) return { sentence: idx };
+  const [sayIdx] = nextSay(state, deck, sayLeft > 0 ? 1 : 0, now);
+  return sayIdx === undefined ? null : { say: sayIdx };
 }
 
 /** Look up a deck word by rank. */
@@ -201,6 +238,11 @@ export function validDeck(data) {
 export function newLimitFor(day) {
   if (!day || day.sunday || day.vocab) return 0;
   return day.anki;
+}
+
+/** Plan's new speaking-card limit for a day (6 a day from 11 Jan to 2 Apr, none on Sundays). */
+export function sayLimitFor(day) {
+  return day && !day.sunday ? day.say || 0 : 0;
 }
 
 /** Plan's new-sentence limit for a day (8 a day from 4 Jan to 2 Apr, none on Sundays). */

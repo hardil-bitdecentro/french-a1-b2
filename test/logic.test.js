@@ -284,3 +284,15 @@ describe('sentences in the plan', () => {
     expect(totalMinutes(day)).toBe(240);
   });
 });
+
+describe('speaking cards in the plan', () => {
+  it('6 a day on study days from 11 Jan to 2 Apr, named in the evening task', () => {
+    const withSay = plan.days.filter((d) => d.say);
+    expect(withSay[0].date).toBe('2027-01-11');
+    expect(withSay.at(-1).date).toBe('2027-04-02');
+    expect(withSay.every((d) => d.say === 6 && d.sent === 8 && !d.sunday)).toBe(true);
+    const day = withSay.find((d) => !d.vocab);
+    const t = sessionsFor(day)[2].tasks.find((x) => x.id === 'anki-new');
+    expect(t.title).toBe(`Flashcards: ${day.anki} new words + 8 sentences + 6 to say`);
+  });
+});

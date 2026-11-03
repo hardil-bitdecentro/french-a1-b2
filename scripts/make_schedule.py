@@ -414,11 +414,18 @@ def phase_of(d):
 
 SENTENCES_FROM = date(2027, 1, 4)
 SENTENCES_PER_DAY = 8
+SAY_FROM = date(2027, 1, 11)  # speaking cards start a week after reading, so there is something to unlock
+SAY_PER_DAY = 6
 
 
 def sent_new(d):
     """New reading sentences (French → English flashcards) per study day, 4 Jan → 2 Apr."""
     return SENTENCES_PER_DAY if SENTENCES_FROM <= d <= BOOKS[2][4] and not is_sunday(d) else 0
+
+
+def say_new(d):
+    """New speaking cards (English → say it in French) per study day, 11 Jan → 2 Apr."""
+    return SAY_PER_DAY if SAY_FROM <= d <= BOOKS[2][4] and not is_sunday(d) else 0
 
 
 def anki_new(d):
@@ -543,6 +550,7 @@ for d in all_days():
         "phase": ph,
         "anki": anki_new(d),
         "sent": sent_new(d),
+        "say": say_new(d),
         "tv5": tv5(d),
         "yt": vincent[d]["text"] if d in vincent else youtube(d),
         "yt_kind": youtube(d),
@@ -740,6 +748,9 @@ for wi, wk in enumerate(weeks, 1):
     sents = sorted({r["sent"] for r in wk if r["sent"]})
     if sents:
         L.append(f"- **New sentences (evening):** {sents[0]}/day (French → English reading flashcards)")
+    says = sorted({r["say"] for r in wk if r["say"]})
+    if says:
+        L.append(f"- **New speaking cards (evening):** {says[0]}/day (English → say it in French; each unlocks 2 days after you read it)")
     L.append(f"- **New words (evening):** flashcards, {' → '.join(str(a) for a in ankis)}/day, "
              f"or the vocabulary book on the days it is listed")
     L.append(f"- **Afternoon input:** {' → '.join(tv5s)}")
@@ -756,6 +767,8 @@ for wi, wk in enumerate(weeks, 1):
         words = f"Vocab. {r['vocab']}" if r["vocab"] else f"Flashcards: {r['anki']} new"
         if r["sent"]:
             words += f" + {r['sent']} sentences"
+        if r["say"]:
+            words += f" + {r['say']} to say"
         L.append(f"| {r['day']} | {r['book']} | {r['write']} | {r['speak']} | {words} | {r['retest']} |")
     L.append("")
     vrows = [r for r in wk if r.get("yt_links")]

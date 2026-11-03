@@ -15,7 +15,7 @@ import {
   esc,
 } from './logic.js';
 import * as S from './store.js';
-import { queueStats, newLimitFor, sentLimitFor } from './cards.js';
+import { queueStats, newLimitFor, sentLimitFor, sayLimitFor } from './cards.js';
 import { renderCards, cardsClick, cardsKey, cardsSubmit, cardsChange, resetReview } from './cards-view.js';
 import { createSync } from './syncctl.js';
 import { idbGet, idbSet } from './db.js';
@@ -90,6 +90,7 @@ const longDate = (iso) =>
 /** The plan's new-word limit for today (before the start: day 1's; after the end: the last day's). */
 const todaysNewLimit = () => newLimitFor(byDate.get(todayISO()));
 const todaysSentLimit = () => sentLimitFor(byDate.get(todayISO()));
+const todaysSayLimit = () => sayLimitFor(byDate.get(todayISO()));
 
 // ---------- views ----------
 
@@ -107,7 +108,9 @@ function viewDay(iso) {
     Object.fromEntries(plan.days.map((d) => [d.date, S.doneIds(state, d.date)])),
   );
   const cardStats =
-    isToday || iso === todayISO() ? queueStats(state, deck, todaysNewLimit(), new Date(), 20, todaysSentLimit()) : null;
+    isToday || iso === todayISO()
+      ? queueStats(state, deck, todaysNewLimit(), new Date(), 20, todaysSentLimit(), todaysSayLimit())
+      : null;
   let notice = '';
   if (real < plan.start) notice = `<p class="notice">Your plan starts on ${esc(longDate(plan.start))}.</p>`;
   if (real > plan.end)
@@ -177,7 +180,9 @@ function taskRow(iso, t, done, cardStats) {
   if (cardStats && t.id === 'anki-review') detail = `${cardStats.due} due now`;
   if (cardStats && t.id === 'anki-new' && !t.detail)
     detail = deck
-      ? `${cardStats.newLeft} new words${t.title.includes('sentences') ? ` and ${cardStats.sentLeft} sentences` : ''} left today`
+      ? `${cardStats.newLeft} new words${t.title.includes('sentences') ? `, ${cardStats.sentLeft} sentences` : ''}${
+          t.title.includes('to say') ? `, ${cardStats.sayLeft} to say` : ''
+        } left today`
       : 'Import your word deck on the Cards page first';
   return `
     <li class="task${isDone ? ' done' : ''}">
@@ -471,6 +476,7 @@ const cardsCtx = () => ({
   deck,
   newLimit: todaysNewLimit(),
   sentLimit: todaysSentLimit(),
+  sayLimit: todaysSayLimit(),
   save,
   rerender,
   setDeck: async (d, { upload } = {}) => {

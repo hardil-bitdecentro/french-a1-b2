@@ -17,6 +17,9 @@ import {
   sentLimitFor,
   sentence,
   sentNewToday,
+  sayLimitFor,
+  nextSay,
+  newSpeakCard,
 } from '../site/cards.js';
 import { emptyState, putCard, deleteCard } from '../site/store.js';
 
@@ -180,5 +183,45 @@ describe('reading sentences', () => {
     expect(sentLimitFor({ sunday: false, sent: 8 })).toBe(8);
     expect(sentLimitFor({ sunday: true, sent: 8 })).toBe(0);
     expect(sentLimitFor({ sunday: false, sent: 0 })).toBe(0);
+  });
+});
+
+describe('speaking cards (English → say it in French)', () => {
+  const day0 = at('2027-01-11T20:00:00');
+  const day2 = at('2027-01-13T20:30:00');
+
+  function readAll(s, n, when) {
+    for (let i = 0; i < n; i++) putCard(s, review(newSentenceCard(i, when), EASY, when), when.getTime());
+  }
+
+  it('unlock only 2 days after the sentence was first read, in reading order', () => {
+    const s = emptyState();
+    readAll(s, 3, day0);
+    expect(nextSay(s, deck, 5, day0)).toEqual([]);
+    expect(nextSay(s, deck, 5, at('2027-01-12T20:00:00'))).toEqual([]);
+    expect(nextSay(s, deck, 5, day2)).toEqual([0, 1, 2]);
+    expect(nextSay(s, deck, 2, day2)).toEqual([0, 1]);
+  });
+
+  it('come last in the queue, up to the daily limit, and are not repeated', () => {
+    const s = emptyState();
+    readAll(s, 3, day0);
+    for (const r of [0, 1]) putCard(s, review(newDeckCard(r, day2), EASY, day2), 1);
+    const shown = [];
+    for (let i = 0; i < 6; i++) {
+      const next = nextCard(s, deck, 2, day2, 0, 2);
+      if (!next) break;
+      const card = next.card || (next.say !== undefined ? newSpeakCard(next.say, day2) : null);
+      shown.push(card.id);
+      putCard(s, review(card, EASY, day2), day2.getTime());
+    }
+    expect(shown).toEqual(['p0', 'p1']);
+    expect(nextSay(s, deck, 5, day2)).toEqual([2]);
+  });
+
+  it('takes 6 a day from the plan, none on Sundays', () => {
+    expect(sayLimitFor({ sunday: false, say: 6 })).toBe(6);
+    expect(sayLimitFor({ sunday: true, say: 6 })).toBe(0);
+    expect(sayLimitFor({ sunday: false })).toBe(0);
   });
 });
