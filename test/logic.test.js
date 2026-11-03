@@ -188,3 +188,37 @@ describe('English explanation prompt', () => {
     }
   });
 });
+
+describe('vocabulary book', () => {
+  const vocabDays = plan.days.filter((d) => d.vocab);
+
+  it('covers chapters 1–25 in two halves each, in order, between 4 Dec and 31 Mar on study days', () => {
+    const expected = [];
+    for (let c = 1; c <= 25; c++) expected.push(`ch. ${c}, first half`, `ch. ${c}, second half`);
+    expect(vocabDays.map((d) => d.vocab)).toEqual(expected);
+    for (const d of vocabDays) {
+      expect(d.sunday).toBe(false);
+      expect(d.date >= '2026-12-04' && d.date <= '2027-03-31').toBe(true);
+    }
+  });
+
+  it('never puts two vocab sessions on consecutive study days', () => {
+    const idx = studyDays.map((d) => d.date);
+    const pos = vocabDays.map((d) => idx.indexOf(d.date));
+    for (let i = 1; i < pos.length; i++) expect(pos[i] - pos[i - 1]).toBeGreaterThanOrEqual(2);
+  });
+
+  it('replaces the deck words in the evening on vocab days only', () => {
+    const vday = vocabDays[0];
+    const other = studyDays.find((d) => !d.vocab && d.phase === 2);
+    const title = (d) => sessionsFor(d)[2].tasks.find((t) => t.id === 'anki-new').title;
+    expect(title(vday)).toBe('Vocabulary book: ch. 1, first half');
+    expect(title(other)).toMatch(/^Anki: \d+ new words$/);
+    expect(totalMinutes(vday)).toBe(240);
+  });
+
+  it('adds the week’s vocab chapters to the Sunday re-test', () => {
+    const sunday = plan.days.find((d) => d.date === '2026-12-06');
+    expect(sunday.sunday_items.some((t) => t.includes('Vocab. ch. 1'))).toBe(true);
+  });
+});

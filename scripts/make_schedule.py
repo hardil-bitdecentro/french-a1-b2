@@ -371,6 +371,22 @@ for code, _name, n, a, b in BOOKS:
         hi = ((i + 1) * n) // k
         chapters[d] = (code, lo, hi)
 
+# Vocabulary book (Vocabulaire progressif du français, intermédiaire): 25 chapters, each split into
+# two halves, on 50 evenly spaced study days between 4 Dec and 31 Mar. Other evenings use the Anki deck.
+VOCAB_CHAPTERS = 25
+VOCAB_FROM, VOCAB_TO = date(2026, 12, 4), date(2027, 3, 31)
+vocab = {}
+_vdays = study_days(VOCAB_FROM, VOCAB_TO)
+_units = VOCAB_CHAPTERS * 2
+assert len(_vdays) >= _units
+for u in range(_units):
+    vocab[_vdays[(u * len(_vdays)) // _units]] = (u // 2 + 1, u % 2)
+
+
+def vocab_label(t):
+    ch, half = t
+    return f"ch. {ch}, {'first' if half == 0 else 'second'} half"
+
 
 def ch_label(t):
     if not t:
@@ -447,6 +463,7 @@ for d in all_days():
         "anki": anki_new(d),
         "tv5": tv5(d),
         "yt": youtube(d),
+        "vocab": vocab_label(vocab[d]) if d in vocab else None,
     }
     if is_sunday(d):
         row["sunday"] = True
@@ -542,8 +559,12 @@ for row in rows:
     d = date.fromisoformat(row["date"])
     items = ["Anki reviews (15 min)"]
     labs = week_chapters(d)
+    vch = sorted({vocab[d - timedelta(days=i)][0] for i in range(6, 0, -1) if (d - timedelta(days=i)) in vocab})
+    vtxt = ""
+    if vch:
+        vtxt = f" and Vocab. ch. {vch[0]}" + (f"–{vch[-1]}" if vch[-1] != vch[0] else "")
     if labs:
-        items.append(f"Week re-test (60 min): 1 exercise from each of {span(labs)}, covered, from memory")
+        items.append(f"Week re-test (60 min): 1 exercise from each of {span(labs)}{vtxt}, covered, from memory")
     elif d >= EXAM_MODE_START:
         items.append("Re-test (60 min): every error-log chapter you redid this week")
     items.append("Error log (30 min): group by type; anything 3×+ → redo that chapter")
@@ -593,6 +614,9 @@ L.append("")
 L.append("Minutes shift by phase (more writing/speaking later); see section 6 of the plan. "
          "Any day can be swapped with the next Sunday; just keep the order.")
 L.append("")
+L.append("**Vocabulary book:** Vocabulaire progressif du français, niveau intermédiaire 3e éd. (25 ch.), "
+         "half a chapter on the evenings listed (4 Dec – 31 Mar); the other evenings use the Anki deck.")
+L.append("")
 L.append("**Book volumes:** Déb. = Niveau débutant 3e éd. (60 ch.) · Int. = Niveau intermédiaire 4e éd. "
          "(planned as 52 ch.; if your copy differs, keep ~1 a day and let the dates slide) · "
          "Av. = Niveau avancé 3e éd. (72 ch.).")
@@ -629,19 +653,21 @@ for wi, wk in enumerate(weeks, 1):
     tv5s = sorted({r["tv5"] for r in wk}, key=lambda s: [r["tv5"] for r in wk].index(s))
     yts = sorted({r["yt"] for r in wk}, key=lambda s: [r["yt"] for r in wk].index(s))
     ankis = sorted({r["anki"] for r in wk}, reverse=True)
-    L.append(f"- **Anki:** {' → '.join(str(a) for a in ankis)} new words/day")
+    L.append(f"- **New words (evening):** Anki deck {' → '.join(str(a) for a in ankis)}/day, "
+             f"or the vocabulary book on the days it is listed")
     L.append(f"- **Afternoon input:** {' → '.join(tv5s)}")
     if yts[0] != "(replaced by timed listening)":
         L.append(f"- **YouTube:** {' → '.join(y for y in yts if y != '(replaced by timed listening)')}")
     L.append("")
-    L.append("| Day | Book (morning) | Write (morning) | Speak (afternoon) | Re-test (evening) |")
-    L.append("| --- | -------------- | --------------- | ----------------- | ----------------- |")
+    L.append("| Day | Book (morning) | Write (morning) | Speak (afternoon) | New words (evening) | Re-test (evening) |")
+    L.append("| --- | -------------- | --------------- | ----------------- | ------------------- | ----------------- |")
     sundays = []
     for r in wk:
         if r["sunday"]:
             sundays.append(r)
             continue
-        L.append(f"| {r['day']} | {r['book']} | {r['write']} | {r['speak']} | {r['retest']} |")
+        words = f"Vocab. {r['vocab']}" if r["vocab"] else f"Anki deck: {r['anki']} new"
+        L.append(f"| {r['day']} | {r['book']} | {r['write']} | {r['speak']} | {words} | {r['retest']} |")
     L.append("")
     for s in sundays:
         L.append(f"**{s['day']}: review day, no new chapters (4 h)**")
@@ -665,14 +691,14 @@ with open(OUT_MD, "w", encoding="utf-8") as f:
 with open(OUT_CSV, "w", newline="", encoding="utf-8") as f:
     w = csv.writer(f)
     w.writerow(["Date", "Day", "Phase", "Book chapters", "Writing", "Speaking", "Evening re-test",
-                "Anki new", "TV5MONDE / input", "YouTube", "Sunday tasks", "Done"])
+                "Anki new", "Vocabulary book", "TV5MONDE / input", "YouTube", "Sunday tasks", "Done"])
     for r in rows:
         if r["sunday"]:
-            w.writerow([r["date"], r["day"], r["phase"], "REVIEW DAY", "", "", "", r["anki"], "", "",
+            w.writerow([r["date"], r["day"], r["phase"], "REVIEW DAY", "", "", "", r["anki"], "", "", "",
                         " | ".join(r["sunday_items"]), ""])
         else:
             w.writerow([r["date"], r["day"], r["phase"], r["book"], r["write"], r["speak"], r["retest"],
-                        r["anki"], r["tv5"], r["yt"], "", ""])
+                        r["anki"], r["vocab"] or "", r["tv5"], r["yt"], "", ""])
 
 if len(sys.argv) > 3:
     import json

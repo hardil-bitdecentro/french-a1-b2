@@ -200,8 +200,17 @@ export function sessionsFor(day) {
     copy: SPEAKING_PROMPT(day.speak, day.phase),
   });
 
+  const newWords = day.vocab
+    ? {
+        id: 'anki-new',
+        title: `Vocabulary book: ${day.vocab}`,
+        detail:
+          'Read the lesson page, do its exercises, check the Corrigés, then add 15–20 key phrases to Anki (whole phrases, not single words)',
+        minutes: m.ankiNew,
+      }
+    : { id: 'anki-new', title: `Anki: ${day.anki} new words`, minutes: m.ankiNew };
   const evening = [
-    { id: 'anki-new', title: `Anki: ${day.anki} new words`, minutes: m.ankiNew },
+    newWords,
     {
       id: 'retest',
       title: `Re-test: ${day.retest}`,

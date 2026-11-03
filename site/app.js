@@ -202,6 +202,15 @@ function viewMaterials() {
     </section>
 
     <section class="card">
+      <h2>The vocabulary book: Vocabulaire progressif du français (CLE International)</h2>
+      <p>Same publisher and layout as the grammar books: a themed lesson on the left page, exercises on the right. It teaches words <b>by topic</b> (housing, work, health, travel…), which is what the TCF writing and speaking tasks are about. Anki alone teaches words one at a time.</p>
+      <ul class="plain volumes">
+        <li><p class="vol-when">Buy late Nov · used 4 Dec – 31 Mar · A2–B1</p><p class="task-title">Niveau intermédiaire + appli, 3e éd. (2025 printing), 25 chapters + Corrigés</p><p class="sub">ISBN 9782090398571 · ${isbn('9782090398571')} · Corrigés 9782090380163</p></li>
+      </ul>
+      <p class="sub">Half a chapter on 50 evenings (the app shows which), in place of that evening's deck words. Turn its key phrases into Anki cards, so Anki handles the spacing.</p>
+    </section>
+
+    <section class="card">
       <h2>Course: TV5MONDE EDU (free)</h2>
       <p>Video exercises from A1 to B2. France Éducation International, which runs the TCF, points candidates here for training. App on iOS/Android, or the website.</p>
       <div class="acts"><a class="act" href="${LINKS.tv5}" target="_blank" rel="noopener">apprendre.tv5monde.com ↗</a></div>
@@ -222,8 +231,8 @@ function viewMaterials() {
       <ol>
         <li>Install <b>AnkiDroid</b> (Android, free) or use <b>AnkiWeb</b> in the browser (free). The iPhone app is paid.</li>
         <li>Deck options → <b>FSRS on</b>, <b>desired retention 0.90</b>.</li>
-        <li>Add a shared "French frequency 5000" deck for words. Your own cards come from the book (rules, cloze sentences) and from every mistake.</li>
-        <li>New words per day: 25 until February, 20 in March, 15 in April–May. That's about 4,000 words by May.</li>
+        <li>Add a shared "French frequency 5000" deck for words. Your own cards come from the grammar book (rules, cloze sentences), the vocabulary book (whole phrases) and every mistake.</li>
+        <li>New words per evening: 25 until February, 20 in March, 15 in April–May. On vocabulary-book evenings, the 15–20 new cards come from the book instead of the deck. That's about 4,000 words by May.</li>
         <li>Never skip reviews. If short on time, cut new cards instead.</li>
       </ol>
       <div class="acts"><a class="act" href="https://apps.ankiweb.net" target="_blank" rel="noopener">apps.ankiweb.net ↗</a><a class="act" href="https://ankiweb.net/shared/decks?search=french%20frequency" target="_blank" rel="noopener">Shared decks ↗</a></div>
