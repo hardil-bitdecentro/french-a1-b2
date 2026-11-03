@@ -6,16 +6,16 @@ from datetime import date, timedelta
 OUT_MD = sys.argv[1]
 OUT_CSV = sys.argv[2]
 
-START = date(2026, 11, 3)
-END = date(2027, 5, 3)
+START = date(2026, 11, 4)
+END = date(2027, 5, 4)
 
 # Book volumes: (code, name, chapters, first day, last day)
 BOOKS = [
-    ("Déb.", "Débutant 3e", 60, date(2026, 11, 3), date(2026, 12, 2)),
-    ("Int.", "Intermédiaire 4e", 52, date(2026, 12, 3), date(2027, 2, 1)),
-    ("Av.", "Avancé 3e", 72, date(2027, 2, 2), date(2027, 4, 1)),
+    ("Déb.", "Débutant 3e", 60, date(2026, 11, 4), date(2026, 12, 3)),
+    ("Int.", "Intermédiaire 4e", 52, date(2026, 12, 4), date(2027, 2, 2)),
+    ("Av.", "Avancé 3e", 72, date(2027, 2, 3), date(2027, 4, 2)),
 ]
-EXAM_MODE_START = date(2027, 4, 2)
+EXAM_MODE_START = date(2027, 4, 3)
 FULL_MOCK_FROM = date(2027, 4, 18)
 
 FR_MONTHS = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
@@ -405,11 +405,11 @@ def anki_new(d):
 
 
 def tv5(d):
-    if d < date(2026, 12, 1):
+    if d < date(2026, 12, 2):
         return "TV5MONDE EDU · A1 · 3 exercises"
-    if d < date(2027, 1, 16):
+    if d < date(2027, 1, 17):
         return "TV5MONDE EDU · A2 · 3 exercises"
-    if d < date(2027, 3, 16):
+    if d < date(2027, 3, 17):
         return "TV5MONDE EDU · B1 · 3 exercises"
     if d < EXAM_MODE_START:
         return "TV5MONDE EDU · B2 · 3 exercises"
@@ -572,7 +572,7 @@ PHASE_NAME = {1: "Débutant (A1)", 2: "Intermédiaire (A2→B1)", 3: "Avancé (B
 L = []
 L.append("# French A1 → B2: day-by-day schedule")
 L.append("")
-L.append("Tue 3 Nov 2026 → Mon 3 May 2027 · 4 h/day · the full plan and the reasoning are in "
+L.append("Wed 4 Nov 2026 → Tue 4 May 2027 · 4 h/day · the full plan and the reasoning are in "
          "`French A1 to B2 in 6 months (TCF Canada).md` next to this file.")
 L.append("")
 L.append("## The same every day (only the items in the tables change)")
@@ -648,12 +648,10 @@ for wi, wk in enumerate(weeks, 1):
         for it in s["sunday_items"]:
             L.append(f"- {it}")
         L.append("")
-    if last["day"].startswith("Mon 3 May"):
-        pass
 
 L.append("---")
 L.append("")
-L.append("## After 3 May")
+L.append("## After 4 May")
 L.append("")
 L.append("If the last two Sunday full mocks (25 Apr and 2 May) were both NCLC 7+ in all four skills "
          "(listening ≥ 458, reading ≥ 453, writing ≥ 10, speaking ≥ 10; aim for ~480 / 12), sit the exam. "

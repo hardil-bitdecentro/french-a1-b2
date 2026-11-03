@@ -140,7 +140,7 @@ function viewPlan() {
     .join('');
   return `
     <h1>The 182-day plan</h1>
-    <p class="sub">3 Nov 2026 → 3 May 2027. Tap a day to open its checklist.</p>
+    <p class="sub">4 Nov 2026 → 4 May 2027. Tap a day to open its checklist.</p>
     <div class="progress-row">
       <div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="${overall.total}" aria-valuenow="${overall.complete}" aria-label="Days complete"><span style="width:${overall.pct}%"></span></div>
       <p class="sub"><b>${overall.complete}</b> of ${overall.total} days complete (${overall.pct}%)</p>
@@ -186,9 +186,9 @@ function viewMaterials() {
       <h2>The book: Grammaire progressive du français (CLE International)</h2>
       <p>The grammar workbook FLE teachers recommend most for self-study: the rule on the left page, exercises on the right. Three volumes take you from A1 to B2. <b>Always buy the matching Corrigés (answer key)</b>, or you can't check your own work.</p>
       <ul class="plain volumes">
-        <li><p class="vol-when">Buy now · used 3 Nov – 2 Dec · A1</p><p class="task-title">Niveau débutant, 3e éd. (2025 "+ appli" printing), 60 chapters + Corrigés</p><p class="sub">ISBN 9782090398502 · ${isbn('9782090398502')}</p></li>
-        <li><p class="vol-when">Buy late Nov · used 3 Dec – 1 Feb · A2–B1</p><p class="task-title">Niveau intermédiaire, 4e éd. + Corrigés</p><p class="sub">ISBN 9782090381030 · ${isbn('9782090381030')} · Corrigés 9782090381047</p></li>
-        <li><p class="vol-when">Buy late Jan · used 2 Feb – 1 Apr · B1–B2</p><p class="task-title">Niveau avancé, 3e éd., 72 chapters + Corrigés</p><p class="sub">ISBN 9782090381979 · ${isbn('9782090381979')}</p></li>
+        <li><p class="vol-when">Buy now · used 4 Nov – 3 Dec · A1</p><p class="task-title">Niveau débutant, 3e éd. (2025 "+ appli" printing), 60 chapters + Corrigés</p><p class="sub">ISBN 9782090398502 · ${isbn('9782090398502')}</p></li>
+        <li><p class="vol-when">Buy late Nov · used 4 Dec – 2 Feb · A2–B1</p><p class="task-title">Niveau intermédiaire, 4e éd. + Corrigés</p><p class="sub">ISBN 9782090381030 · ${isbn('9782090381030')} · Corrigés 9782090381047</p></li>
+        <li><p class="vol-when">Buy late Jan · used 3 Feb – 2 Apr · B1–B2</p><p class="task-title">Niveau avancé, 3e éd., 72 chapters + Corrigés</p><p class="sub">ISBN 9782090381979 · ${isbn('9782090381979')}</p></li>
       </ul>
       <p class="sub">Also at Gibert Joseph, Decitre and Cultura, or borrow them free from your médiathèque. The plan assumes 52 chapters in Intermédiaire; if your copy has a different number, keep about one a day and let the dates slide.</p>
     </section>
@@ -306,11 +306,11 @@ function viewMethod() {
       <h2>Checkpoints</h2>
       <table class="tbl">
         <tbody>
-          <tr><td>2 Dec</td><td>Débutant finished · ~700 words · 2-min self-intro, no notes</td></tr>
-          <tr><td>2 Jan</td><td>Half of Intermédiaire · ~1,400 words · 10-min conversation</td></tr>
-          <tr><td>2 Feb</td><td>Intermédiaire finished · ~2,100 words · first listening/reading mock (250–330 is normal)</td></tr>
-          <tr><td>2 Mar</td><td>Half of Avancé · subjonctif, conditionnel, relatives · mocks ≥ 400</td></tr>
-          <tr><td>2 Apr</td><td>Avancé finished · ~3,300 words · mocks ≥ 440 · writing/speaking ~10/20</td></tr>
+          <tr><td>3 Dec</td><td>Débutant finished · ~700 words · 2-min self-intro, no notes</td></tr>
+          <tr><td>3 Jan</td><td>Half of Intermédiaire · ~1,400 words · 10-min conversation</td></tr>
+          <tr><td>3 Feb</td><td>Intermédiaire finished · ~2,100 words · first listening/reading mock (250–330 is normal)</td></tr>
+          <tr><td>3 Mar</td><td>Half of Avancé · subjonctif, conditionnel, relatives · mocks ≥ 400</td></tr>
+          <tr><td>3 Apr</td><td>Avancé finished · ~3,300 words · mocks ≥ 440 · writing/speaking ~10/20</td></tr>
           <tr><td>May</td><td>Two full mocks in a row at NCLC 7+ in all four skills → sit the exam</td></tr>
         </tbody>
       </table>

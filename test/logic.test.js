@@ -46,9 +46,9 @@ describe('dates', () => {
 });
 
 describe('schedule data', () => {
-  it('has 182 consecutive days from 3 Nov 2026 to 3 May 2027', () => {
-    expect(plan.start).toBe('2026-11-03');
-    expect(plan.end).toBe('2027-05-03');
+  it('has 182 consecutive days from 4 Nov 2026 to 4 May 2027', () => {
+    expect(plan.start).toBe('2026-11-04');
+    expect(plan.end).toBe('2027-05-04');
     expect(plan.days).toHaveLength(182);
     plan.days.forEach((d, i) => expect(d.date).toBe(addDays(plan.start, i)));
   });
@@ -77,8 +77,8 @@ describe('schedule data', () => {
     }
   });
 
-  it('switches to exam mode on 2 Apr 2027 with no new chapters', () => {
-    for (const d of studyDays.filter((x) => x.date >= '2027-04-02')) {
+  it('switches to exam mode on 3 Apr 2027 with no new chapters', () => {
+    for (const d of studyDays.filter((x) => x.date >= '2027-04-03')) {
       expect(d.phase).toBe(4);
       expect(d.book).toMatch(/^Error-log chapters/);
     }
@@ -94,7 +94,7 @@ describe('schedule data', () => {
   it('groups into 27 Monday-to-Sunday weeks', () => {
     const weeks = groupByWeek(plan.days);
     expect(weeks).toHaveLength(27);
-    expect(weeks[0].days).toHaveLength(6); // starts on a Tuesday
+    expect(weeks[0].days).toHaveLength(5); // starts on a Wednesday
     expect(weeks[1].days[0].day).toMatch(/^Mon /);
   });
 });
