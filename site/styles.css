@@ -470,3 +470,235 @@ pre.note {
 .tbl td:first-child {
   white-space: nowrap;
 }
+
+/* ---------- flashcards ---------- */
+.flash {
+  text-align: center;
+  padding: 1.4rem 1rem 1.2rem;
+}
+.flash-badge {
+  display: inline-block;
+  margin: 0 0 0.4rem;
+  color: var(--green);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.flash-meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 0;
+}
+.flash-word {
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0.3rem 0 0.6rem;
+  word-break: break-word;
+}
+.g-m {
+  color: var(--blue);
+}
+.g-f {
+  color: var(--red);
+}
+.g-mf {
+  color: #6b3fa0;
+}
+.flash-back {
+  border-top: 1px solid var(--line);
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+.flash-answer {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.3rem;
+}
+.examples {
+  list-style: none;
+  margin: 0.8rem auto 0;
+  padding: 0;
+  max-width: 34rem;
+  text-align: left;
+}
+.examples li {
+  padding: 0.45rem 0;
+  border-top: 1px solid #efece5;
+}
+.ex-fr {
+  display: block;
+  font-weight: 600;
+}
+.ex-en {
+  display: block;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.btn.reveal {
+  width: 100%;
+  max-width: 22rem;
+  height: 52px;
+  margin-top: 1rem;
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+  font-size: 1.05rem;
+}
+.btn.reveal:hover {
+  color: #fff;
+  background: #182f73;
+}
+.rate {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  margin-top: 1.1rem;
+}
+.rate-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  min-height: 58px;
+  padding: 0.5rem 0.2rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+  font: 0.95rem var(--font);
+  color: var(--ink);
+  cursor: pointer;
+}
+.rate-btn span {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+.rate-btn.r1 {
+  border-color: #e7b9bc;
+  background: #fbf1f1;
+}
+.rate-btn.r3 {
+  border-color: #b9d9c6;
+  background: var(--green-soft);
+}
+.rate-btn:hover {
+  border-color: var(--ink);
+}
+.rate-btn:focus-visible,
+.btn.reveal:focus-visible {
+  outline: 3px solid #9fb2ea;
+  outline-offset: 2px;
+}
+.kbd {
+  font-size: 0.78rem;
+  margin-top: 0.6rem;
+}
+.flash-done {
+  padding: 2rem 1rem;
+}
+
+/* ---------- forms ---------- */
+.form {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 0.7rem;
+}
+.form label {
+  display: grid;
+  gap: 0.3rem;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+.form input,
+.form select {
+  height: 44px;
+  padding: 0 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fdfcf9;
+  font: 1rem var(--font);
+  color: var(--ink);
+}
+.form input:focus,
+.form select:focus {
+  outline: 2px solid #9fb2ea;
+  border-color: var(--blue);
+}
+.form.inline {
+  grid-template-columns: 1fr auto;
+  align-items: end;
+}
+.btn.primary {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
+.btn.primary:hover {
+  color: #fff;
+  background: #182f73;
+}
+.act.danger {
+  color: var(--red);
+}
+.act.danger:hover {
+  border-color: var(--red);
+  background: #fbf1f1;
+}
+.mycards li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+.toggle {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  margin-top: 0.4rem;
+}
+.toggle input {
+  width: 20px;
+  height: 20px;
+}
+code {
+  font-size: 0.88em;
+  background: #f1eee6;
+  padding: 0.05rem 0.3rem;
+  border-radius: 4px;
+}
+
+/* ---------- sync ---------- */
+.pair {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 0.9rem;
+}
+.qr {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.4rem;
+}
+.qr svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 560px) {
+  .flash-word {
+    font-size: 1.8rem;
+  }
+  .pair {
+    grid-template-columns: 1fr;
+  }
+  .qr {
+    max-width: 220px;
+  }
+  .form.inline {
+    grid-template-columns: 1fr;
+  }
+}

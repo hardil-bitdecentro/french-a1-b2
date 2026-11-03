@@ -372,7 +372,7 @@ for code, _name, n, a, b in BOOKS:
         chapters[d] = (code, lo, hi)
 
 # Vocabulary book (Vocabulaire progressif du français, intermédiaire): 25 chapters, each split into
-# two halves, on 50 evenly spaced study days between 4 Dec and 31 Mar. Other evenings use the Anki deck.
+# two halves, on 50 evenly spaced study days between 4 Dec and 31 Mar. Other evenings use the word deck.
 VOCAB_CHAPTERS = 25
 VOCAB_FROM, VOCAB_TO = date(2026, 12, 4), date(2027, 3, 31)
 vocab = {}
@@ -631,7 +631,7 @@ for row in rows:
     if not row["sunday"]:
         continue
     d = date.fromisoformat(row["date"])
-    items = ["Anki reviews (15 min)"]
+    items = ["Flashcard reviews (15 min)"]
     labs = week_chapters(d)
     vch = sorted({vocab[d - timedelta(days=i)][0] for i in range(6, 0, -1) if (d - timedelta(days=i)) in vocab})
     vtxt = ""
@@ -674,14 +674,14 @@ L.append("## The same every day (only the items in the tables change)")
 L.append("")
 L.append("| Session | Min | What |")
 L.append("| ------- | --- | ---- |")
-L.append("| **Morning** (e.g. 08:00–09:40) | 15 | Anki: all due reviews |")
+L.append("| **Morning** (e.g. 08:00–09:40) | 15 | Flashcards: all due reviews (in the app's Cards tab) |")
 L.append("| | 50 | **Book**: the day's chapters. Read the rule → close the book, say it aloud → exercises without looking → check the Corrigés |")
-L.append("| | 10 | Make 2–3 Anki cards per chapter + one per mistake |")
+L.append("| | 10 | Make 2–3 flashcards per chapter + one per mistake |")
 L.append("| | 15 | **Write** the day's prompt → paste into Claude for correction → mistakes into the error log |")
 L.append("| **Afternoon** (e.g. 14:00–15:40) | 40 | **TV5MONDE EDU** at the level in the week header |")
 L.append("| | 30 | **YouTube** from the week header: watch with subtitles, again without, shadow 1 min aloud |")
 L.append("| | 20 | **Speak** the day's task (Claude voice mode, a partner, or real life) and record it |")
-L.append("| **Evening** (e.g. 20:30–21:30) | 25 | Anki: the week header's number of new words |")
+L.append("| **Evening** (e.g. 20:30–21:30) | 25 | Flashcards: the week header's number of new words |")
 L.append("| | 15 | **Re-test** the chapters listed: 1 exercise each, answers covered, from memory |")
 L.append("| | 20 | Error log aloud (each correct version 3×) + light listening |")
 L.append("")
@@ -689,7 +689,7 @@ L.append("Minutes shift by phase (more writing/speaking later); see section 6 of
          "Any day can be swapped with the next Sunday; just keep the order.")
 L.append("")
 L.append("**Vocabulary book:** Vocabulaire progressif du français, niveau intermédiaire 3e éd. (25 ch.), "
-         "half a chapter on the evenings listed (4 Dec – 31 Mar); the other evenings use the Anki deck.")
+         "half a chapter on the evenings listed (4 Dec – 31 Mar); the other evenings use the flashcard word deck.")
 L.append("")
 L.append("**Book volumes:** Déb. = Niveau débutant 3e éd. (60 ch.) · Int. = Niveau intermédiaire 4e éd. "
          "(planned as 52 ch.; if your copy differs, keep ~1 a day and let the dates slide) · "
@@ -727,7 +727,7 @@ for wi, wk in enumerate(weeks, 1):
     tv5s = sorted({r["tv5"] for r in wk}, key=lambda s: [r["tv5"] for r in wk].index(s))
     yts = sorted({r["yt_kind"] for r in wk}, key=lambda s: [r["yt_kind"] for r in wk].index(s))
     ankis = sorted({r["anki"] for r in wk}, reverse=True)
-    L.append(f"- **New words (evening):** Anki deck {' → '.join(str(a) for a in ankis)}/day, "
+    L.append(f"- **New words (evening):** flashcards, {' → '.join(str(a) for a in ankis)}/day, "
              f"or the vocabulary book on the days it is listed")
     L.append(f"- **Afternoon input:** {' → '.join(tv5s)}")
     if yts[0] != "(replaced by timed listening)":
@@ -740,7 +740,7 @@ for wi, wk in enumerate(weeks, 1):
         if r["sunday"]:
             sundays.append(r)
             continue
-        words = f"Vocab. {r['vocab']}" if r["vocab"] else f"Anki deck: {r['anki']} new"
+        words = f"Vocab. {r['vocab']}" if r["vocab"] else f"Flashcards: {r['anki']} new"
         L.append(f"| {r['day']} | {r['book']} | {r['write']} | {r['speak']} | {words} | {r['retest']} |")
     L.append("")
     vrows = [r for r in wk if r.get("yt_links")]
@@ -776,7 +776,7 @@ with open(OUT_MD, "w", encoding="utf-8") as f:
 with open(OUT_CSV, "w", newline="", encoding="utf-8") as f:
     w = csv.writer(f)
     w.writerow(["Date", "Day", "Phase", "Book chapters", "Writing", "Speaking", "Evening re-test",
-                "Anki new", "Vocabulary book", "TV5MONDE / input", "YouTube", "Sunday tasks", "Done"])
+                "New words", "Vocabulary book", "TV5MONDE / input", "YouTube", "Sunday tasks", "Done"])
     for r in rows:
         if r["sunday"]:
             w.writerow([r["date"], r["day"], r["phase"], "REVIEW DAY", "", "", "", r["anki"], "", "", "",

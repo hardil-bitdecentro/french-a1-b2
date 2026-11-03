@@ -14,23 +14,69 @@ import {
   groupByWeek,
   esc,
 } from './logic.js';
+import * as S from './store.js';
+import { queueStats, newLimitFor } from './cards.js';
+import { renderCards, cardsClick, cardsKey, cardsSubmit, cardsChange, resetReview } from './cards-view.js';
+import { createSync } from './syncctl.js';
+import { idbGet, idbSet } from './db.js';
+import { SYNC_URL } from './config.js';
+import qrcode from './vendor/qrcode.mjs';
 
 const KEY = 'fr-a1-b2:v1';
 const app = document.getElementById('app');
 let plan = null;
 let byDate = new Map();
+let deck = null;
 let state = load();
+let syncStatus = { state: 'off', lastOk: null };
+let showPair = false;
 
 function load() {
   try {
-    const s = JSON.parse(localStorage.getItem(KEY) || '{}');
-    return { done: s.done || {}, notes: s.notes || {}, grammar: s.grammar || [] };
+    return S.migrate(JSON.parse(localStorage.getItem(KEY) || 'null'));
   } catch {
-    return { done: {}, notes: {}, grammar: [] };
+    return S.emptyState();
   }
 }
-function save() {
+function persist() {
   localStorage.setItem(KEY, JSON.stringify(state));
+}
+/** Save a local change and schedule a sync. */
+function save() {
+  persist();
+  sync.schedule();
+}
+
+const sync = createSync({
+  url: SYNC_URL,
+  storage: localStorage,
+  getState: () => state,
+  setState: (s) => {
+    state = s;
+    persist();
+    resetReview();
+    if (plan) rerender({ keepScroll: true });
+  },
+  getDeck: async () => deck,
+  setDeck: async (d) => {
+    deck = d;
+    await idbSet('deck', d);
+    if (plan) rerender({ keepScroll: true });
+  },
+  onStatus: (s) => {
+    syncStatus = s;
+    const el = document.getElementById('sync-status');
+    if (el) el.textContent = statusText();
+  },
+});
+
+function statusText() {
+  if (!sync.configured) return 'The sync server is not set up yet.';
+  if (!sync.enabled) return 'Sync is off on this device.';
+  if (syncStatus.state === 'syncing') return 'Syncing…';
+  if (syncStatus.state === 'error') return `Couldn't sync (${syncStatus.error}). It will retry.`;
+  if (syncStatus.lastOk) return `Synced at ${new Date(syncStatus.lastOk).toLocaleTimeString('en-GB')}.`;
+  return 'Sync is on.';
 }
 
 const todayISO = () => clampDate(localISO(new Date()), plan.start, plan.end);
@@ -41,6 +87,8 @@ const longDate = (iso) =>
     month: 'long',
     year: 'numeric',
   });
+/** The plan's new-word limit for today (before the start: day 1's; after the end: the last day's). */
+const todaysNewLimit = () => newLimitFor(byDate.get(todayISO()));
 
 // ---------- views ----------
 
@@ -51,8 +99,13 @@ function viewDay(iso) {
   const total = plan.days.length;
   const real = localISO(new Date());
   const isToday = iso === real;
-  const prog = dayProgress(day, state.done[iso]);
-  const overall = overallProgress(plan.days, state.done);
+  const done = S.doneIds(state, iso);
+  const prog = dayProgress(day, done);
+  const overall = overallProgress(
+    plan.days,
+    Object.fromEntries(plan.days.map((d) => [d.date, S.doneIds(state, d.date)])),
+  );
+  const cardStats = isToday || iso === todayISO() ? queueStats(state, deck, todaysNewLimit(), new Date()) : null;
   let notice = '';
   if (real < plan.start) notice = `<p class="notice">Your plan starts on ${esc(longDate(plan.start))}.</p>`;
   if (real > plan.end)
@@ -66,7 +119,7 @@ function viewDay(iso) {
         <h2>${esc(s.title)}</h2>
         <p class="sub">${esc(s.note)}${s.tasks.some((t) => t.minutes) ? ` · ${s.tasks.reduce((a, t) => a + (t.minutes || 0), 0)} min` : ''}</p>
       </div>
-      <ul class="tasks">${s.tasks.map((t) => taskRow(iso, t)).join('')}</ul>
+      <ul class="tasks">${s.tasks.map((t) => taskRow(iso, t, done, cardStats)).join('')}</ul>
     </section>`,
     )
     .join('');
@@ -93,34 +146,41 @@ function viewDay(iso) {
     ${sessions}
     <section class="card">
       <h2>Mistakes today</h2>
-      <p class="sub">Write each mistake as: what you wrote → correct version → rule. They all show up on the Mistakes page.</p>
-      <textarea id="notes" data-date="${iso}" rows="5" placeholder="j'ai allé → je suis allé (aller takes être)">${esc(state.notes[iso] || '')}</textarea>
+      <p class="sub">Write each mistake as: what you wrote → correct version → rule. They all show up on the Mistakes page. Turn the important ones into flashcards.</p>
+      <textarea id="notes" data-date="${iso}" rows="5" placeholder="j'ai allé → je suis allé (aller takes être)">${esc(S.noteText(state, iso))}</textarea>
+      <div class="acts"><a class="act" href="#/cards/add/mistake">Make a flashcard from a mistake</a></div>
     </section>`;
 }
 
-function taskRow(iso, t) {
-  const done = (state.done[iso] || []).includes(t.id);
+const COPY_LABELS = {
+  write: 'Copy correction prompt',
+  speak: 'Copy examiner prompt',
+  explain: 'Stuck? Explain in English',
+};
+
+function taskRow(iso, t, done, cardStats) {
+  const isDone = done.includes(t.id);
   const actions = [];
+  if (t.action) actions.push(`<a class="act" href="${esc(t.action.href)}">${esc(t.action.label)} →</a>`);
   if (t.link) actions.push(`<a class="act" href="${esc(t.link)}" target="_blank" rel="noopener">Open ↗</a>`);
   for (const l of t.links || [])
     actions.push(`<a class="act" href="${esc(l.url)}" target="_blank" rel="noopener">▶ ${esc(l.label)} ↗</a>`);
-  const COPY_LABELS = {
-    write: 'Copy correction prompt',
-    speak: 'Copy examiner prompt',
-    explain: 'Stuck? Explain in English',
-  };
   if (t.copy)
     actions.push(
       `<button class="act" type="button" data-copy="${esc(t.copy)}">${COPY_LABELS[t.kind] || 'Copy prompt'}</button>`,
     );
   if (t.kind === 'explain')
     actions.push(`<a class="act" href="${LINKS.claude}" target="_blank" rel="noopener">Open Claude ↗</a>`);
+  let detail = t.detail || '';
+  if (cardStats && t.id === 'anki-review') detail = `${cardStats.due} due now`;
+  if (cardStats && t.id === 'anki-new' && !t.detail)
+    detail = deck ? `${cardStats.newLeft} new words left today` : 'Import your word deck on the Cards page first';
   return `
-    <li class="task${done ? ' done' : ''}">
-      <button class="check" type="button" role="checkbox" aria-checked="${done}" data-task="${esc(t.id)}" data-date="${iso}" aria-label="Mark done: ${esc(t.title)}"></button>
+    <li class="task${isDone ? ' done' : ''}">
+      <button class="check" type="button" role="checkbox" aria-checked="${isDone}" data-task="${esc(t.id)}" data-date="${iso}" aria-label="Mark done: ${esc(t.title)}"></button>
       <div class="task-body">
         <p class="task-title">${esc(t.title)}</p>
-        ${t.detail ? `<p class="task-detail">${esc(t.detail)}</p>` : ''}
+        ${detail ? `<p class="task-detail">${esc(detail)}</p>` : ''}
         ${actions.length ? `<div class="acts">${actions.join('')}</div>` : ''}
       </div>
       ${t.minutes ? `<span class="mins">${t.minutes} min</span>` : ''}
@@ -128,7 +188,8 @@ function taskRow(iso, t) {
 }
 
 function viewPlan() {
-  const overall = overallProgress(plan.days, state.done);
+  const doneMap = Object.fromEntries(plan.days.map((d) => [d.date, S.doneIds(state, d.date)]));
+  const overall = overallProgress(plan.days, doneMap);
   const real = localISO(new Date());
   const weeks = groupByWeek(plan.days)
     .map(({ week, days }) => {
@@ -136,7 +197,7 @@ function viewPlan() {
       const last = days[days.length - 1];
       const rows = days
         .map((d) => {
-          const p = dayProgress(d, state.done[d.date]);
+          const p = dayProgress(d, doneMap[d.date]);
           const status = p.complete ? '✓' : p.done ? `${p.done}/${p.total}` : '';
           const what = d.sunday ? 'Review day' : d.book;
           return `<li><a class="plan-day${d.date === real ? ' is-today' : ''}${p.complete ? ' is-done' : ''}" href="#/day/${d.date}">
@@ -158,8 +219,46 @@ function viewPlan() {
     ${weeks}`;
 }
 
+function syncSection() {
+  if (!sync.configured)
+    return `<section class="card"><h2>Sync</h2><p class="sub" id="sync-status">${esc(statusText())}</p></section>`;
+  const link = sync.link(location.href);
+  let pair = '';
+  if (sync.enabled && showPair && link) {
+    const qr = qrcode(0, 'M');
+    qr.addData(link);
+    qr.make();
+    pair = `<div class="pair">
+      <div class="qr">${qr.createSvgTag({ cellSize: 4, margin: 2, scalable: true })}</div>
+      <p class="sub">Scan this with your other device's camera, or copy the link and open it there. It pairs that device with this one.
+      <b>Keep it private:</b> anyone with this code can read and change your progress.</p>
+      <div class="acts"><button class="act" type="button" data-copy="${esc(link)}">Copy pairing link</button></div>
+    </div>`;
+  }
+  return `<section class="card">
+    <h2>Sync</h2>
+    <p class="sub" id="sync-status">${esc(statusText())}</p>
+    ${
+      sync.enabled
+        ? `<div class="acts">
+            <button class="act" type="button" id="sync-now">Sync now</button>
+            <button class="act" type="button" id="sync-pair">${showPair ? 'Hide pairing code' : 'Pair another device'}</button>
+            <button class="act danger" type="button" id="sync-off">Turn off on this device</button>
+          </div>${pair}`
+        : `<p>Keeps your ticks, notes and flashcards the same on your phone and laptop. Everything is encrypted on your device before it's uploaded.</p>
+          <div class="acts"><button class="btn primary" type="button" id="sync-on">Turn on sync</button></div>
+          <form id="pair-form" class="form inline">
+            <label>Already on another device? Paste its pairing link or code<input name="code" autocomplete="off" placeholder="https://…#/pair/…" /></label>
+            <button class="btn" type="submit">Pair</button>
+          </form>`
+    }
+    <p class="sub" id="sync-msg" role="status"></p>
+  </section>`;
+}
+
 function viewMistakes() {
   const entries = Object.entries(state.notes)
+    .map(([d, [text]]) => [d, text])
     .filter(([, v]) => v && v.trim())
     .sort(([a], [b]) => (a < b ? 1 : -1));
   const list = entries.length
@@ -174,9 +273,10 @@ function viewMistakes() {
     <h1>Mistakes</h1>
     <p class="sub">Your error log, newest first. Review it every Sunday.</p>
     ${list}
+    ${syncSection()}
     <section class="card">
       <h2>Backup</h2>
-      <p class="sub">Progress lives in this browser only. Download a backup to keep it safe or move it to your phone.</p>
+      <p class="sub">A file copy of your ticks, notes and flashcards (the word deck itself isn't included: re-import it from <code>french-5000-words.json</code>). Restoring merges with what's here.</p>
       <div class="acts">
         <button class="act" type="button" id="export">Download backup</button>
         <label class="act file">Restore from backup<input type="file" id="import" accept="application/json" /></label>
@@ -205,11 +305,11 @@ function viewMaterials() {
 
     <section class="card">
       <h2>The vocabulary book: Vocabulaire progressif du français (CLE International)</h2>
-      <p>Same publisher and layout as the grammar books: a themed lesson on the left page, exercises on the right. It teaches words <b>by topic</b> (housing, work, health, travel…), which is what the TCF writing and speaking tasks are about. Anki alone teaches words one at a time.</p>
+      <p>Same publisher and layout as the grammar books: a themed lesson on the left page, exercises on the right. It teaches words <b>by topic</b> (housing, work, health, travel…), which is what the TCF writing and speaking tasks are about. A frequency deck alone teaches words one at a time.</p>
       <ul class="plain volumes">
         <li><p class="vol-when">Buy late Nov · used 4 Dec – 31 Mar · A2–B1</p><p class="task-title">Niveau intermédiaire + appli, 3e éd. (2025 printing), 25 chapters + Corrigés</p><p class="sub">ISBN 9782090398571 · ${isbn('9782090398571')} · Corrigés 9782090380163</p></li>
       </ul>
-      <p class="sub">Half a chapter on 50 evenings (the app shows which), in place of that evening's deck words. Turn its key phrases into Anki cards, so Anki handles the spacing.</p>
+      <p class="sub">Half a chapter on 50 evenings (the app shows which), in place of that evening's deck words. Turn its key phrases into flashcards, so the app handles the spacing.</p>
     </section>
 
     <section class="card">
@@ -242,15 +342,16 @@ function viewMaterials() {
     </section>
 
     <section class="card">
-      <h2>Memory engine: Anki (free)</h2>
+      <h2>Flashcards: built into this app</h2>
       <ol>
-        <li>Install <b>AnkiDroid</b> (Android, free) or use <b>AnkiWeb</b> in the browser (free). The iPhone app is paid.</li>
-        <li>Deck options → <b>FSRS on</b>, <b>desired retention 0.90</b>.</li>
-        <li>Add a shared "French frequency 5000" deck for words. Your own cards come from the grammar book (rules, cloze sentences), the vocabulary book (whole phrases) and every mistake.</li>
-        <li>New words per evening: 25 until February, 20 in March, 15 in April–May. On vocabulary-book evenings, the 15–20 new cards come from the book instead of the deck. That's about 4,000 words by May.</li>
-        <li>Never skip reviews. If short on time, cut new cards instead.</li>
+        <li>Open the <a href="#/cards">Cards</a> tab. Once, import <code>french-5000-words.json</code> (the 5,000 most frequent French words, made from your Anki deck and kept in <code>~/projects/french-private/</code>). It stays on your device and in your encrypted sync, never on this website.</li>
+        <li>Scheduling uses <b>FSRS</b>, the same algorithm Anki uses, aiming for 90% recall. Answer honestly: Again, Hard, Good or Easy.</li>
+        <li>New words per day follow the plan: 25 until February, 20 in March, 15 in April–May. On vocabulary-book evenings and Sundays there are no new deck words; add your own cards from the book instead.</li>
+        <li>Your own cards come from the grammar book (rules, example sentences), the vocabulary book (whole phrases) and every mistake. The "Add a card" buttons on those tasks take you straight there.</li>
+        <li>Tap 🔊 to hear the word in your device's French voice.</li>
+        <li>Never skip reviews. If short on time, skip the new words instead.</li>
       </ol>
-      <div class="acts"><a class="act" href="https://apps.ankiweb.net" target="_blank" rel="noopener">apps.ankiweb.net ↗</a><a class="act" href="https://ankiweb.net/shared/decks?search=french%20frequency" target="_blank" rel="noopener">Shared decks ↗</a></div>
+      <div class="acts"><a class="act" href="#/cards">Open Cards →</a></div>
     </section>
 
     <section class="card">
@@ -294,9 +395,9 @@ function viewMethod() {
       <table class="tbl">
         <thead><tr><th>Session</th><th>What</th><th>Why then</th></tr></thead>
         <tbody>
-          <tr><td><b>Morning</b><br />~90 min</td><td>Anki reviews → new book chapter → Anki cards → short writing</td><td>Recalling right after sleep locks in yesterday's work. The hardest new material goes where attention peaks.</td></tr>
+          <tr><td><b>Morning</b><br />~90 min</td><td>Flashcard reviews → new book chapter → new flashcards → short writing</td><td>Recalling right after sleep locks in yesterday's work. The hardest new material goes where attention peaks.</td></tr>
           <tr><td><b>Afternoon</b><br />~90 min</td><td>TV5MONDE → YouTube + shadowing → speaking</td><td>Input and output once the heavy learning is done.</td></tr>
-          <tr><td><b>Evening</b><br />~60 min</td><td>New Anki words → re-tests → error log</td><td>Things learned shortly before sleep consolidate overnight. Finish 30 min before bed.</td></tr>
+          <tr><td><b>Evening</b><br />~60 min</td><td>New flashcard words → re-tests → error log</td><td>Things learned shortly before sleep consolidate overnight. Finish 30 min before bed.</td></tr>
         </tbody>
       </table>
       <p class="sub">Take a 5–10 min break every ~45 min (stand up, no scrolling). Sleep 7–8 hours: cutting sleep to study more costs more than it gains.</p>
@@ -309,7 +410,7 @@ function viewMethod() {
         <li><b>Close the book.</b> Say the rule aloud in your own words; write 2 examples from memory.</li>
         <li>Do the exercises (right page) <b>in writing, without looking back</b>.</li>
         <li>Check against the Corrigés. Circle every mistake.</li>
-        <li>Make 2–3 Anki cards (one rule + cloze sentences). Every mistake becomes a card too.</li>
+        <li>Make 2–3 flashcards (the rule + example sentences). Every mistake becomes a card too.</li>
       </ol>
     </section>
 
@@ -319,7 +420,7 @@ function viewMethod() {
         <thead><tr><th>Day 0</th><th>+1 day</th><th>+7 days</th><th>+30 days</th><th>Exam month</th></tr></thead>
         <tbody><tr><td>Learn (morning)</td><td>Re-test (evening)</td><td>Re-test (evening) + Sunday</td><td>Last Sunday of the month</td><td>Only what the error log flags</td></tr></tbody>
       </table>
-      <p class="sub">Testing yourself beats re-reading by a wide margin, and mixing old topics with new ones beats studying one at a time. For an exam ~6 months away, the best final review gap is about 10–20% of the time left (Cepeda et al., 2008), hence the monthly review. Anki handles the timing of words, rules and your own mistakes automatically.</p>
+      <p class="sub">Testing yourself beats re-reading by a wide margin, and mixing old topics with new ones beats studying one at a time. For an exam ~6 months away, the best final review gap is about 10–20% of the time left (Cepeda et al., 2008), hence the monthly review. The flashcards handle the timing of words, rules and your own mistakes automatically.</p>
     </section>
 
     <section class="card">
@@ -353,7 +454,7 @@ function viewMethod() {
     <section class="card">
       <h2>B1–B2 grammar checklist</h2>
       <ul class="tasks">${GRAMMAR.map((g, i) => {
-        const on = state.grammar.includes(i);
+        const on = S.grammarOn(state, i);
         return `<li class="task${on ? ' done' : ''}"><button class="check" type="button" role="checkbox" aria-checked="${on}" data-grammar="${i}" aria-label="Covered: ${esc(g)}"></button><div class="task-body"><p class="task-title">${esc(g)}</p></div></li>`;
       }).join('')}</ul>
     </section>`;
@@ -361,15 +462,43 @@ function viewMethod() {
 
 // ---------- routing ----------
 
+const cardsCtx = () => ({
+  state,
+  deck,
+  newLimit: todaysNewLimit(),
+  save,
+  rerender,
+  setDeck: async (d, { upload } = {}) => {
+    deck = d;
+    await idbSet('deck', d);
+    if (upload && sync.enabled) sync.syncNow({ deck: true });
+  },
+});
+
 function route() {
   const h = location.hash || '#/today';
-  const [, name, arg] = h.split('/');
+  const [, name, arg, arg2] = h.split('/');
+  if (name === 'pair' && arg) {
+    history.replaceState(null, '', '#/mistakes');
+    sync
+      .pair(arg)
+      .then(() => {
+        rerender();
+        flash('#sync-msg', 'Paired ✓ This device now syncs with your other one.');
+      })
+      .catch((err) => {
+        rerender();
+        flash('#sync-msg', err.message);
+      });
+    return route();
+  }
   let html;
   let tab = name;
   if (name === 'day' && /^\d{4}-\d{2}-\d{2}$/.test(arg || '')) {
     html = viewDay(clampDate(arg, plan.start, plan.end));
     tab = arg === localISO(new Date()) ? 'today' : 'plan';
   } else if (name === 'plan') html = viewPlan();
+  else if (name === 'cards') html = renderCards(cardsCtx(), arg === 'add' ? arg2 : null);
   else if (name === 'mistakes') html = viewMistakes();
   else if (name === 'materials') html = viewMaterials();
   else if (name === 'method') html = viewMethod();
@@ -384,31 +513,45 @@ function route() {
   if (name === 'plan') {
     const cur = document.querySelector('.plan-day.is-today');
     if (cur) cur.closest('.week').scrollIntoView({ block: 'start' });
+  } else if (name === 'cards' && arg === 'add') {
+    document.getElementById('add')?.scrollIntoView({ block: 'start' });
+    document.querySelector('#add-card [name=front]')?.focus({ preventScroll: true });
   } else window.scrollTo(0, 0);
+}
+
+function flash(sel, text) {
+  const el = document.querySelector(sel);
+  if (el) el.textContent = text;
+}
+
+/** Re-render the current view, optionally keeping the scroll position, focusing a field, or showing a message. */
+function rerender({ keepScroll = true, focus, msg } = {}) {
+  const y = window.scrollY;
+  const h = location.hash;
+  if (h.startsWith('#/cards/add')) history.replaceState(null, '', '#/cards');
+  route();
+  if (keepScroll) window.scrollTo(0, y);
+  if (focus) document.querySelector(focus)?.focus({ preventScroll: true });
+  if (msg) flash(msg[0], msg[1]);
 }
 
 // ---------- events ----------
 
 app.addEventListener('click', async (e) => {
+  if (location.hash.startsWith('#/cards') && (await cardsClick(e, cardsCtx()))) return;
   const check = e.target.closest('.check');
   if (check && check.dataset.task) {
     const { date, task } = check.dataset;
-    const list = new Set(state.done[date] || []);
-    list.has(task) ? list.delete(task) : list.add(task);
-    state.done[date] = [...list];
+    S.setDone(state, date, task, !S.doneIds(state, date).includes(task));
     save();
-    const y = window.scrollY;
-    route();
-    window.scrollTo(0, y);
+    rerender();
     return;
   }
   if (check && check.dataset.grammar !== undefined) {
     const i = Number(check.dataset.grammar);
-    state.grammar = state.grammar.includes(i) ? state.grammar.filter((x) => x !== i) : [...state.grammar, i];
+    S.setGrammar(state, i, !S.grammarOn(state, i));
     save();
-    const y = window.scrollY;
-    route();
-    window.scrollTo(0, y);
+    rerender();
     return;
   }
   const copy = e.target.closest('[data-copy]');
@@ -429,13 +572,41 @@ app.addEventListener('click', async (e) => {
     setTimeout(() => (copy.textContent = old), 1500);
     return;
   }
-  if (e.target.id === 'export') {
-    const blob = new Blob([JSON.stringify(state, null, 1)], { type: 'application/json' });
+  const id = e.target.closest('button')?.id;
+  if (id === 'export') {
+    const blob = new Blob([JSON.stringify(state)], { type: 'application/json' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
     a.download = `french-plan-backup-${localISO(new Date())}.json`;
     a.click();
     URL.revokeObjectURL(a.href);
+  } else if (id === 'sync-on') {
+    await sync.enable();
+    showPair = true;
+    rerender();
+  } else if (id === 'sync-now') {
+    await sync.syncNow({ deck: true });
+  } else if (id === 'sync-pair') {
+    showPair = !showPair;
+    rerender();
+  } else if (id === 'sync-off') {
+    sync.disable();
+    showPair = false;
+    rerender();
+  }
+});
+
+app.addEventListener('submit', async (e) => {
+  if (cardsSubmit(e, cardsCtx())) return;
+  if (e.target.id === 'pair-form') {
+    e.preventDefault();
+    try {
+      await sync.pair(new FormData(e.target).get('code'));
+      rerender();
+      flash('#sync-msg', 'Paired ✓ This device now syncs with your other one.');
+    } catch (err) {
+      flash('#sync-msg', err.message);
+    }
   }
 });
 
@@ -445,35 +616,48 @@ app.addEventListener('input', (e) => {
   const { date } = e.target.dataset;
   clearTimeout(noteTimer);
   noteTimer = setTimeout(() => {
-    state.notes[date] = e.target.value;
+    S.setNote(state, date, e.target.value);
     save();
   }, 300);
 });
 
 app.addEventListener('change', async (e) => {
+  if (await cardsChange(e, cardsCtx())) return;
   if (e.target.id !== 'import' || !e.target.files[0]) return;
-  const msg = document.getElementById('backup-msg');
   try {
     const data = JSON.parse(await e.target.files[0].text());
-    const ok =
-      data && typeof data.done === 'object' && typeof data.notes === 'object' && Array.isArray(data.grammar || []);
-    if (!ok) throw new Error('shape');
-    state = { done: data.done, notes: data.notes, grammar: data.grammar || [] };
+    if (!data || typeof data !== 'object' || typeof data.done !== 'object') throw new Error('shape');
+    state = S.merge(state, S.migrate(data));
     save();
-    msg.textContent = 'Backup restored.';
+    resetReview();
+    rerender({ msg: ['#backup-msg', 'Backup restored (merged with this device).'] });
   } catch {
-    msg.textContent = 'That file is not a backup from this plan.';
+    flash('#backup-msg', 'That file is not a backup from this plan.');
   }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (location.hash.startsWith('#/cards')) cardsKey(e, cardsCtx());
+});
+
+document.addEventListener('visibilitychange', () => {
+  if (!sync.enabled) return;
+  if (document.visibilityState === 'hidden') sync.flush();
+  else sync.syncNow({ deck: !deck });
 });
 
 window.addEventListener('hashchange', route);
 
-fetch('data/schedule.json', { cache: 'no-cache' })
-  .then((r) => r.json())
-  .then((data) => {
+Promise.all([
+  fetch('data/schedule.json', { cache: 'no-cache' }).then((r) => r.json()),
+  idbGet('deck').catch(() => null),
+])
+  .then(([data, savedDeck]) => {
     plan = data;
     byDate = new Map(plan.days.map((d) => [d.date, d]));
+    deck = savedDeck || null;
     route();
+    if (sync.enabled) sync.syncNow({ deck: true });
   })
   .catch(() => {
     app.innerHTML = '<p class="loading">Could not load the plan. Check your connection and reload.</p>';

@@ -8,7 +8,32 @@ A day-by-day study plan (4 Nov 2026 → 4 May 2027, 4 hours a day) as a small st
 - **Mistakes**: the error log from every day, plus backup / restore of progress.
 - **Materials** and **Method**: the book, course, YouTube, Anki setup, memory schedule, targets.
 
-Progress is stored in the browser (`localStorage`); nothing is sent anywhere.
+- **Cards**: built-in flashcards with FSRS scheduling (`site/cards.js`, vendored `ts-fsrs` 5.4.2), your own cards,
+  and an optional private word deck (see below).
+
+Progress is stored in the browser (`localStorage`, the word deck in IndexedDB). Optional **sync** keeps devices
+in step: each person gets a random sync key (shared between devices by QR code / `#/pair/<key>` link); the app
+encrypts everything on the device (gzip + AES-GCM, `site/sync.js`) and the Worker stores only ciphertext.
+
+## Private word deck
+
+The "5000 most frequently used French words" Anki decks are third-party content, so they are **never committed or
+served here**. `scripts/parse_apkg.py` turns the downloaded `.apkg` files into a JSON word list kept outside the repo:
+
+```sh
+python3 -I scripts/parse_apkg.py ~/projects/french-private/french-5000-words.json part1.apkg part2.apkg
+```
+
+Then in the app: Cards → Import word deck. With sync on, the deck travels to your other devices encrypted.
+
+## Sync Worker
+
+`worker/` is a Cloudflare Worker + KV namespace (free tier). It accepts only the app's origin (CORS), keys data by
+an id derived from the sync key, and requires the matching token (it stores only its SHA-256). Deploy by hand:
+
+```sh
+cd worker && npx wrangler deploy   # needs a token with Workers Scripts:Edit
+```
 
 ## Develop
 

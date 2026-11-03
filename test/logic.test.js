@@ -215,7 +215,7 @@ describe('vocabulary book', () => {
     const other = studyDays.find((d) => !d.vocab && d.phase === 2);
     const title = (d) => sessionsFor(d)[2].tasks.find((t) => t.id === 'anki-new').title;
     expect(title(vday)).toBe('Vocabulary book: ch. 1, first half');
-    expect(title(other)).toMatch(/^Anki: \d+ new words$/);
+    expect(title(other)).toMatch(/^Flashcards: \d+ new words$/);
     expect(totalMinutes(vday)).toBe(240);
   });
 

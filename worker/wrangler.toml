@@ -1,0 +1,13 @@
+name = "french-a1-b2-sync"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+# KV namespace holding the encrypted blobs (created 2026-11-03 with
+#   npx wrangler kv namespace create SYNC).
+[[kv_namespaces]]
+binding = "SYNC"
+id = "a4e774c493c3408fab7d4fc4db22b0d9"
+
+[vars]
+ALLOWED_ORIGINS = "https://hardil-bitdecentro.github.io"

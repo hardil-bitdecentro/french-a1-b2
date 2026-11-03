@@ -180,7 +180,12 @@ export function sessionsFor(day) {
   const m = MINUTES[day.phase];
   const exam = day.phase === 4;
   const morning = [
-    { id: 'anki-review', title: 'Anki: all due reviews', minutes: m.ankiReview },
+    {
+      id: 'anki-review',
+      title: 'Flashcards: all due reviews',
+      minutes: m.ankiReview,
+      action: { label: 'Review now', href: '#/cards' },
+    },
     {
       id: 'book',
       title: exam ? day.book : `Book: ${day.book}`,
@@ -191,7 +196,12 @@ export function sessionsFor(day) {
     },
   ];
   if (m.cards)
-    morning.push({ id: 'cards', title: 'Make Anki cards: 2–3 per chapter + one per mistake', minutes: m.cards });
+    morning.push({
+      id: 'cards',
+      title: 'Make flashcards: 2–3 per chapter + one per mistake',
+      minutes: m.cards,
+      action: { label: 'Add a card', href: '#/cards/add/book' },
+    });
   morning.push({
     id: 'write',
     title: `Write: ${day.write}`,
@@ -233,10 +243,16 @@ export function sessionsFor(day) {
         id: 'anki-new',
         title: `Vocabulary book: ${day.vocab}`,
         detail:
-          'Read the lesson page, do its exercises, check the Corrigés, then add 15–20 key phrases to Anki (whole phrases, not single words)',
+          'Read the lesson page, do its exercises, check the Corrigés, then add 15–20 key phrases as flashcards (whole phrases, not single words)',
         minutes: m.ankiNew,
+        action: { label: 'Add cards', href: '#/cards/add/vocab' },
       }
-    : { id: 'anki-new', title: `Anki: ${day.anki} new words`, minutes: m.ankiNew };
+    : {
+        id: 'anki-new',
+        title: `Flashcards: ${day.anki} new words`,
+        minutes: m.ankiNew,
+        action: { label: 'Start', href: '#/cards' },
+      };
   const evening = [
     newWords,
     {

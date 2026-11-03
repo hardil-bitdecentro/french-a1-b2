@@ -110,7 +110,7 @@
    "vocab": null,
    "sunday": true,
    "sunday_items": [
-    "Anki reviews (15 min)",
+    "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Déb. 1–9, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
@@ -279,7 +279,7 @@
    "vocab": null,
    "sunday": true,
    "sunday_items": [
-    "Anki reviews (15 min)",
+    "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Déb. 10–23, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
@@ -442,7 +442,7 @@
    "vocab": null,
    "sunday": true,
    "sunday_items": [
-    "Anki reviews (15 min)",
+    "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Déb. 24–36, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
@@ -605,7 +605,7 @@
    "vocab": null,
    "sunday": true,
    "sunday_items": [
-    "Anki reviews (15 min)",
+    "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Déb. 37–50, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
@@ -761,7 +761,7 @@
    "vocab": null,
    "sunday": true,
    "sunday_items": [
-    "Anki reviews (15 min)",
+    "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Déb. 51–60, Int. 1–2 and Vocab. ch. 1, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
@@ -882,7 +882,7 @@
    "vocab": null,
    "sunday": true,
    "sunday_items": [
-    "Anki reviews (15 min)",
+    "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Int. 3–8 and Vocab. ch. 1–2, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
@@ -1003,7 +1003,7 @@
    "vocab": null,
    "sunday": true,
    "sunday_items": [
-    "Anki reviews (15 min)",
+    "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Int. 9–14 and Vocab. ch. 3–4, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
@@ -1124,7 +1124,7 @@
    "vocab": null,
    "sunday": true,
    "sunday_items": [
-    "Anki reviews (15 min)",
+    "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Int. 15–20 and Vocab. ch. 4–5, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
@@ -1246,7 +1246,7 @@
    "vocab": null,
    "sunday": true,
    "sunday_items": [
-    "Anki reviews (15 min)",
+    "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Int. 21–26 and Vocab. ch. 6–7, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
@@ -1367,7 +1367,7 @@
    "vocab": null,
    "sunday": true,
    "sunday_items": [
-    "Anki reviews (15 min)",
+    "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Int. 27–32 and Vocab. ch. 7–8, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
@@ -1488,7 +1488,7 @@
    "vocab": null,
    "sunday": true,
    "sunday_items": [
-    "Anki reviews (15 min)",
+    "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Int. 33–38 and Vocab. ch. 9–10, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
@@ -1609,7 +1609,7 @@
    "vocab": null,
    "sunday": true,
    "sunday_items": [
-    "Anki reviews (15 min)",
+    "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Int. 39–44 and Vocab. ch. 10–11, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
@@ -1730,7 +1730,7 @@
    "vocab": null,
    "sunday": true,
    "sunday_items": [
-    "Anki reviews (15 min)",
+    "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Int. 45–50 and Vocab. ch. 12–13, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
@@ -1852,7 +1852,7 @@
    "vocab": null,
    "sunday": true,
    "sunday_items": [
-    "Anki reviews (15 min)",
+    "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Int. 51–52, Av. 1–5 and Vocab. ch. 13–14, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
@@ -1974,7 +1974,7 @@
    "vocab": null,
    "sunday": true,
    "sunday_items": [
-    "Anki reviews (15 min)",
+    "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Av. 6–14 and Vocab. ch. 15–16, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
@@ -2096,7 +2096,7 @@
    "vocab": null,
    "sunday": true,
    "sunday_items": [
-    "Anki reviews (15 min)",
+    "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Av. 15–22 and Vocab. ch. 16–17, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
@@ -2218,7 +2218,7 @@
    "vocab": null,
    "sunday": true,
    "sunday_items": [
-    "Anki reviews (15 min)",
+    "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Av. 23–31 and Vocab. ch. 18–19, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
@@ -2341,7 +2341,7 @@
    "vocab": null,
    "sunday": true,
    "sunday_items": [
-    "Anki reviews (15 min)",
+    "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Av. 32–39 and Vocab. ch. 19–20, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
@@ -2463,7 +2463,7 @@
    "vocab": null,
    "sunday": true,
    "sunday_items": [
-    "Anki reviews (15 min)",
+    "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Av. 40–48 and Vocab. ch. 21–22, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
@@ -2585,7 +2585,7 @@
    "vocab": null,
    "sunday": true,
    "sunday_items": [
-    "Anki reviews (15 min)",
+    "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Av. 49–56 and Vocab. ch. 22–23, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
@@ -2707,7 +2707,7 @@
    "vocab": null,
    "sunday": true,
    "sunday_items": [
-    "Anki reviews (15 min)",
+    "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Av. 57–64 and Vocab. ch. 24–25, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
@@ -2830,7 +2830,7 @@
    "vocab": null,
    "sunday": true,
    "sunday_items": [
-    "Anki reviews (15 min)",
+    "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Av. 65–72 and Vocab. ch. 25, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
@@ -2952,7 +2952,7 @@
    "vocab": null,
    "sunday": true,
    "sunday_items": [
-    "Anki reviews (15 min)",
+    "Flashcard reviews (15 min)",
     "Re-test (60 min): every error-log chapter you redid this week",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
@@ -3074,7 +3074,7 @@
    "vocab": null,
    "sunday": true,
    "sunday_items": [
-    "Anki reviews (15 min)",
+    "Flashcard reviews (15 min)",
     "Re-test (60 min): every error-log chapter you redid this week",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "FULL MOCK, all 4 parts, real timing (≈3 h), then score it against the NCLC 7 table"
@@ -3195,7 +3195,7 @@
    "vocab": null,
    "sunday": true,
    "sunday_items": [
-    "Anki reviews (15 min)",
+    "Flashcard reviews (15 min)",
     "Re-test (60 min): every error-log chapter you redid this week",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "FULL MOCK, all 4 parts, real timing (≈3 h), then score it against the NCLC 7 table",
@@ -3317,7 +3317,7 @@
    "vocab": null,
    "sunday": true,
    "sunday_items": [
-    "Anki reviews (15 min)",
+    "Flashcard reviews (15 min)",
     "Re-test (60 min): every error-log chapter you redid this week",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "FULL MOCK, all 4 parts, real timing (≈3 h), then score it against the NCLC 7 table"
