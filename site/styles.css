@@ -1,0 +1,472 @@
+:root {
+  --paper: #f6f4ee;
+  --card: #ffffff;
+  --ink: #17191c;
+  --muted: #5c6168;
+  --line: #e2ded4;
+  --blue: #1f3a8a;
+  --blue-soft: #e8ecf8;
+  --green: #1d7348;
+  --green-soft: #e5f2ea;
+  --red: #b4232c;
+  --radius: 10px;
+  --font: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scrollbar-color: #c9c4b8 var(--paper);
+  scroll-padding-top: 112px;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 16px/1.5 var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--blue);
+}
+
+h1,
+h2 {
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+h1 {
+  font-size: 1.6rem;
+}
+h2 {
+  font-size: 1.1rem;
+}
+p {
+  margin: 0.4rem 0;
+}
+.sub {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin: 0.2rem 0 0;
+}
+.eyebrow {
+  color: var(--blue);
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin: 0 0 0.25rem;
+}
+
+/* ---------- header ---------- */
+.top {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+}
+.top-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0.6rem 1rem 0;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 1.05rem;
+}
+.brand b {
+  color: var(--blue);
+}
+.tabs {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-top: 0.35rem;
+}
+.tabs a {
+  padding: 0.55rem 0 0.6rem;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+}
+.tabs a:hover {
+  color: var(--ink);
+}
+.tabs a[aria-current='page'] {
+  color: var(--ink);
+  border-bottom-color: var(--blue);
+}
+
+/* ---------- layout ---------- */
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 2rem;
+  outline: none;
+}
+main > h1 + .sub {
+  margin-bottom: 1rem;
+}
+.foot {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1rem 2.5rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.loading {
+  padding: 3rem 1rem;
+  text-align: center;
+  color: var(--muted);
+}
+.notice {
+  background: var(--blue-soft);
+  border: 1px solid #c9d3f0;
+  border-radius: var(--radius);
+  padding: 0.7rem 0.9rem;
+  margin: 0 0 1rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin: 0 0 1rem;
+}
+.card > h2 + p,
+.card > h2 + .sub {
+  margin-top: 0.3rem;
+}
+.empty {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+/* ---------- day ---------- */
+.day-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.today-mark {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--green);
+  vertical-align: middle;
+  margin-left: 0.3rem;
+}
+.day-nav {
+  display: flex;
+  gap: 0.4rem;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 40px;
+  padding: 0 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+}
+.btn:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+.btn.disabled {
+  opacity: 0.35;
+}
+
+.progress-row {
+  margin: 1rem 0 1.1rem;
+}
+.meter {
+  height: 8px;
+  background: #e9e5db;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.meter span {
+  display: block;
+  height: 100%;
+  background: var(--green);
+  transition: width 0.25s ease;
+}
+
+.session-head {
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--line);
+}
+.tasks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.task {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #efece5;
+}
+.task:last-child {
+  border-bottom: 0;
+  padding-bottom: 0.2rem;
+}
+.check {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  margin-top: 1px;
+  border: 2px solid #b8b2a5;
+  border-radius: 6px;
+  background: var(--card);
+  cursor: pointer;
+  position: relative;
+}
+.check:hover {
+  border-color: var(--green);
+}
+.check:focus-visible,
+.btn:focus-visible,
+.act:focus-visible,
+.tabs a:focus-visible {
+  outline: 3px solid #9fb2ea;
+  outline-offset: 2px;
+}
+.task.done .check {
+  background: var(--green);
+  border-color: var(--green);
+}
+.task.done .check::after {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 2px;
+  width: 7px;
+  height: 13px;
+  border: solid #fff;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+.task-body {
+  flex: 1;
+  min-width: 0;
+}
+.task-title {
+  margin: 0;
+  font-weight: 600;
+}
+.task.done .task-title {
+  color: var(--muted);
+  text-decoration: line-through;
+  text-decoration-color: #b8b2a5;
+}
+.task-detail {
+  margin: 0.15rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.mins {
+  flex: none;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+  padding-top: 2px;
+}
+.acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.act {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--blue);
+  font: 600 0.88rem var(--font);
+  text-decoration: none;
+  cursor: pointer;
+}
+.act:hover {
+  border-color: var(--blue);
+  background: var(--blue-soft);
+}
+.act.file input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+textarea {
+  width: 100%;
+  margin-top: 0.6rem;
+  padding: 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font: 0.95rem/1.5 var(--font);
+  color: var(--ink);
+  background: #fdfcf9;
+  resize: vertical;
+}
+textarea:focus {
+  outline: 2px solid #9fb2ea;
+  border-color: var(--blue);
+}
+
+/* ---------- plan ---------- */
+.week h2 {
+  margin-bottom: 0.4rem;
+}
+.week h2 .sub {
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+.plan-days {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.plan-day {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr 3rem;
+  gap: 0.5rem;
+  padding: 0.55rem 0.4rem;
+  border-top: 1px solid #efece5;
+  color: var(--ink);
+  text-decoration: none;
+}
+.plan-day:hover {
+  background: #faf8f3;
+}
+.plan-day.is-today {
+  background: var(--blue-soft);
+  border-radius: 6px;
+  font-weight: 600;
+}
+.pd-date {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.pd-status {
+  text-align: right;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.plan-day.is-done .pd-status {
+  color: var(--green);
+  font-weight: 700;
+}
+
+/* ---------- content ---------- */
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.7rem 0 0.3rem;
+  font-size: 0.92rem;
+}
+.tbl th,
+.tbl td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.5rem 0.5rem 0.5rem 0;
+  border-bottom: 1px solid #efece5;
+}
+.tbl th {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+.card ol,
+.plain {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+}
+.card li {
+  margin: 0.3rem 0;
+}
+.plain {
+  list-style: none;
+  padding: 0;
+}
+.plain li {
+  padding: 0.45rem 0;
+  border-bottom: 1px solid #efece5;
+}
+.plain li:last-child {
+  border-bottom: 0;
+}
+details {
+  margin-top: 0.6rem;
+}
+summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--blue);
+}
+pre.note {
+  white-space: pre-wrap;
+  font: 0.92rem/1.5 var(--font);
+  margin: 0.5rem 0 0;
+  padding: 0.7rem;
+  background: #faf8f3;
+  border: 1px solid #efece5;
+  border-radius: 8px;
+}
+
+@media (max-width: 560px) {
+  h1 {
+    font-size: 1.35rem;
+  }
+  .tabs {
+    gap: 1rem;
+  }
+  .plan-day {
+    grid-template-columns: 5.6rem 1fr 2.6rem;
+    font-size: 0.92rem;
+  }
+  .tbl {
+    font-size: 0.85rem;
+  }
+  .card {
+    padding: 0.85rem;
+  }
+}
+
+.vol-when {
+  margin: 0 0 0.1rem;
+  color: var(--blue);
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+.volumes li p {
+  margin-top: 0.1rem;
+}
+.tbl td:first-child {
+  white-space: nowrap;
+}

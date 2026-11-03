@@ -1,0 +1,25 @@
+{
+  "name": "french-a1-b2",
+  "private": true,
+  "type": "module",
+  "description": "Day-by-day French A1 → B2 study plan (static site on GitHub Pages).",
+  "scripts": {
+    "test": "vitest run",
+    "format": "prettier --write \"site/**/*.{js,css,html,webmanifest}\" \"test/**/*.js\" \"*.{json,md}\" \".github/**/*.yml\"",
+    "format:check": "prettier --check \"site/**/*.{js,css,html,webmanifest}\" \"test/**/*.js\" \"*.{json,md}\" \".github/**/*.yml\"",
+    "schedule": "python3 -I scripts/make_schedule.py /dev/null /dev/null site/data/schedule.json",
+    "serve": "python3 -m http.server 8765 -d site",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "{site,test}/**/*.{js,css,html,webmanifest}": "prettier --write",
+    "*.{json,md}": "prettier --write",
+    ".github/**/*.yml": "prettier --write"
+  },
+  "devDependencies": {
+    "husky": "9.1.7",
+    "lint-staged": "17.6.0",
+    "prettier": "3.9.10",
+    "vitest": "5.1.0"
+  }
+}

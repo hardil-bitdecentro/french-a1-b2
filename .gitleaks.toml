@@ -1,0 +1,4 @@
+title = "french-a1-b2 gitleaks config"
+
+[extend]
+useDefault = true

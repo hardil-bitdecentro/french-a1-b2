@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hardil-bitdecentro.github.io/french-a1-b2/sitemap.xml
