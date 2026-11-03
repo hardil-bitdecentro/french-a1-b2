@@ -102,6 +102,8 @@ function taskRow(iso, t) {
   const done = (state.done[iso] || []).includes(t.id);
   const actions = [];
   if (t.link) actions.push(`<a class="act" href="${esc(t.link)}" target="_blank" rel="noopener">Open ↗</a>`);
+  for (const l of t.links || [])
+    actions.push(`<a class="act" href="${esc(l.url)}" target="_blank" rel="noopener">▶ ${esc(l.label)} ↗</a>`);
   const COPY_LABELS = {
     write: 'Copy correction prompt',
     speak: 'Copy examiner prompt',
@@ -220,8 +222,8 @@ function viewMaterials() {
     <section class="card">
       <h2>YouTube (free)</h2>
       <ul class="plain">
-        <li><b>Nov – Dec · Learn French with Alexa</b>: structured lessons explained in English. Follow her beginner playlist in order. <a href="${LINKS.alexa}" target="_blank" rel="noopener">Channel ↗</a></li>
-        <li><b>January · Super Easy French</b> (Easy French): slow, real French for beginners. <a href="${LINKS.superEasyFrench}" target="_blank" rel="noopener">Videos ↗</a></li>
+        <li><b>4 Nov – 3 Dec · Vincent, "Learn French in 5 Days" (Legacy Version)</b>, 1 hour a day: Vincent's original A1 course, explained in English, with slow pronunciation drills. That makes it the English companion to the French-only Débutant book. Its 254 short lessons (5 videos, 25.6 h) are split into one-hour parts that start and end on a lesson. Each day's task has links that jump straight to the right second. Skip the paid french4me site advertised in the description; you don't need it. <a href="${LINKS.vincent}" target="_blank" rel="noopener">Playlist ↗</a></li>
+        <li><b>Dec – Jan · Super Easy French</b> (Easy French): slow, real French for beginners. <a href="${LINKS.superEasyFrench}" target="_blank" rel="noopener">Videos ↗</a></li>
         <li><b>Feb – Mar · Easy French</b>: street interviews with French and English subtitles, which is what TCF listening sounds like. Subtitles on, then off. <a href="${LINKS.easyFrench}" target="_blank" rel="noopener">Channel ↗</a></li>
       </ul>
     </section>

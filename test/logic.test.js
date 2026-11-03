@@ -3,6 +3,8 @@ import { describe, expect, it } from 'vitest';
 import {
   MINUTES,
   EXPLAIN_PROMPT,
+  hms,
+  vincentLinks,
   localISO,
   addDays,
   dayNumber,
@@ -220,5 +222,52 @@ describe('vocabulary book', () => {
   it('adds the week’s vocab chapters to the Sunday re-test', () => {
     const sunday = plan.days.find((d) => d.date === '2026-12-06');
     expect(sunday.sunday_items.some((t) => t.includes('Vocab. ch. 1'))).toBe(true);
+  });
+});
+
+describe('Vincent course (November)', () => {
+  const vDays = plan.days.filter((d) => d.yt_links);
+  const lengths = { 1: 15015, 2: 16978, 3: 28105, 4: 17995, 5: 14074 };
+
+  it('runs on every Débutant study day and nowhere else', () => {
+    const phase1 = studyDays.filter((d) => d.phase === 1).map((d) => d.date);
+    expect(vDays.map((d) => d.date)).toEqual(phase1);
+  });
+
+  it('covers all 5 videos end to end with no gaps or overlaps', () => {
+    const segs = vDays.flatMap((d) => d.yt_links);
+    for (let v = 1; v <= 5; v++) {
+      const mine = segs.filter((g) => g.video === v);
+      expect(mine[0].from).toBe(0);
+      for (let i = 1; i < mine.length; i++) expect(mine[i].from).toBe(mine[i - 1].to);
+      expect(mine[mine.length - 1].to).toBe(lengths[v]);
+    }
+  });
+
+  it('gives each day roughly an hour', () => {
+    for (const d of vDays) {
+      const min = d.yt_links.reduce((a, g) => a + g.to - g.from, 0) / 60;
+      expect(min).toBeGreaterThan(45);
+      expect(min).toBeLessThan(75);
+    }
+  });
+
+  it('builds links that start at the right second', () => {
+    const links = vincentLinks([{ video: 1, id: 'keBSvVsEibI', from: 3669, to: 7183 }]);
+    expect(links).toEqual([
+      {
+        label: 'Day 1 video at 1:01:09',
+        url: 'https://www.youtube.com/watch?v=keBSvVsEibI&t=3669s',
+        stop: '1:59:43',
+      },
+    ]);
+    const task = sessionsFor(vDays[4])[1].tasks.find((t) => t.id === 'youtube');
+    expect(task.links).toHaveLength(vDays[4].yt_links.length);
+    expect(task.minutes).toBe(60);
+  });
+
+  it('formats H:MM:SS', () => {
+    expect(hms(0)).toBe('0:00:00');
+    expect(hms(28105)).toBe('7:48:25');
   });
 });

@@ -420,9 +420,80 @@ def anki_new(d):
     return 15
 
 
+# Vincent, "Learn French in 5 Days - The Legacy Version" (playlist PLdR5FaFp7N5M): video id, length (s),
+# and lesson start times (s) read from each video's transcript ("Hi everyone and welcome to Learn French
+# with Vincent" opens every lesson). 1 hour a day across the Débutant phase, cut on lesson boundaries.
+VINCENT = [
+    ("keBSvVsEibI", 15015, [0, 202, 470, 742, 969, 1530, 1841, 2205, 2639, 2809, 3072, 3351, 3669, 4288, 4653,
+                            4980, 5154, 5380, 5908, 6367, 6733, 6910, 7183, 7417, 7758, 8032, 8220, 8582, 8887,
+                            9206, 9469, 9746, 10386, 10679, 10926, 11371, 11852, 12160, 12526, 12713, 13042,
+                            13250, 13602, 13924, 14197, 14398, 14602]),
+    ("QzY_nYZ0RSQ", 16978, [0, 439, 775, 1119, 1304, 1575, 1859, 2081, 2275, 2422, 2596, 3226, 3807, 3935, 4076,
+                            4378, 5658, 6345, 6815, 7004, 7997, 8601, 8758, 8888, 9082, 9182, 9315, 9427, 9614,
+                            9948, 10247, 10507, 11089, 11327, 11665, 12202, 12594, 12741, 12984, 13372, 13933,
+                            14056, 14230, 14344, 14462, 14564, 14708, 14829, 15426, 16384]),
+    ("12YUmS3rNr8", 28105, [0, 574, 1146, 1600, 1883, 2399, 3424, 3636, 3780, 3955, 4119, 4558, 5274, 5551, 5728,
+                            6982, 7402, 7795, 8112, 8317, 8471, 8637, 8733, 9567, 10419, 10961, 11466, 11801,
+                            12009, 12126, 13042, 14648, 15131, 15586, 15976, 16316, 16621, 17753, 18359, 19348,
+                            20336, 21656, 22342, 23387, 24529, 25230, 26438, 26991, 27733]),
+    ("ppYImLa36ug", 17995, [0, 1389, 2500, 2762, 3016, 3301, 3585, 3822, 4349, 4775, 5308, 5449, 5935, 6430, 6643,
+                            7312, 8238, 8592, 8905, 9191, 9489, 9766, 9977, 10234, 10417, 10681, 10897, 11053,
+                            11286, 11534, 11707, 11977, 12206, 12406, 12600, 12819, 13005, 13189, 13411, 13590,
+                            13769, 14004, 14399, 14678, 14982, 15296, 15389, 15478, 15541, 15662, 15749, 15850,
+                            16052, 16219, 16352, 16493, 16696, 16943, 17205, 17485, 17640, 17791]),
+    ("b1sXCZDuxSY", 14074, [0, 255, 538, 747, 1080, 1269, 1546, 1760, 2070, 2356, 2513, 2686, 2943, 3236, 3391,
+                            3571, 3765, 3987, 4149, 4459, 4733, 5017, 5260, 5838, 5959, 6265, 6414, 6851, 7125,
+                            7732, 8293, 8926, 9341, 9653, 9968, 10191, 10481, 10864, 11145, 11462, 11742, 12000,
+                            12173, 12326, 12718, 13666]),
+]
+
+
+def hms(sec):
+    return f"{sec // 3600}:{sec % 3600 // 60:02d}:{sec % 60:02d}"
+
+
+def vincent_slots(days):
+    """Split the whole course over `days` (study days), cutting only at lesson starts."""
+    offsets, o = [], 0
+    for _vid, length, _st in VINCENT:
+        offsets.append(o)
+        o += length
+    total = o
+    lesson_starts = [offsets[v] + st for v, (_i, _l, sts) in enumerate(VINCENT) for st in sts]
+    cuts = sorted(set(lesson_starts[1:] + offsets[1:]))  # every lesson start is a legal cut
+    ends, prev = [], 0
+    for i in range(len(days) - 1):
+        target = (i + 1) * total / len(days)
+        cand = [c for c in cuts if c > prev]
+        best = min(cand, key=lambda c: abs(c - target))
+        ends.append(best)
+        prev = best
+    ends.append(total)
+    slots, start = {}, 0
+    for d, end in zip(days, ends):
+        segs = []
+        for v, (vid, length, _st) in enumerate(VINCENT):
+            a, b = max(start, offsets[v]), min(end, offsets[v] + length)
+            if b > a:
+                segs.append({"video": v + 1, "id": vid, "from": a - offsets[v], "to": b - offsets[v],
+                             "length": length})
+        first = next(i for i, ls in enumerate(lesson_starts) if ls >= start) + 1
+        last = sum(1 for ls in lesson_starts if ls < end)
+        parts = [f"Day {g['video']} video {hms(g['from'])} → {'end' if g['to'] == g['length'] else hms(g['to'])}"
+                 for g in segs]
+        slots[d] = {
+            "text": f"Vincent · Learn French in 5 Days (Legacy) · {', then '.join(parts)} · "
+                    f"lessons {first}–{last} of {len(lesson_starts)}",
+            "links": [{k: g[k] for k in ("video", "id", "from", "to")} for g in segs],
+            "minutes": round((end - start) / 60),
+        }
+        start = end
+    return slots
+
+
 def tv5(d):
     if d < date(2026, 12, 2):
-        return "TV5MONDE EDU · A1 · 3 exercises"
+        return "TV5MONDE EDU · A1 · 2 exercises"
     if d < date(2027, 1, 17):
         return "TV5MONDE EDU · A2 · 3 exercises"
     if d < date(2027, 3, 17):
@@ -433,8 +504,8 @@ def tv5(d):
 
 
 def youtube(d):
-    if d < date(2027, 1, 1):
-        return "Learn French with Alexa · beginner playlist, next video, in order"
+    if d <= BOOKS[0][4]:
+        return "Vincent · Learn French in 5 Days (Legacy) · 1 hour, the exact part for each day is listed"
     if d < date(2027, 2, 1):
         return "Easy French · 'Super Easy French' playlist, next video"
     if d < EXAM_MODE_START:
@@ -452,6 +523,7 @@ def take(pool, key):
     return item
 
 
+vincent = vincent_slots(study_days(BOOKS[0][3], BOOKS[0][4]))
 rows = []
 study_n = 0
 for d in all_days():
@@ -462,7 +534,9 @@ for d in all_days():
         "phase": ph,
         "anki": anki_new(d),
         "tv5": tv5(d),
-        "yt": youtube(d),
+        "yt": vincent[d]["text"] if d in vincent else youtube(d),
+        "yt_kind": youtube(d),
+        "yt_links": vincent[d]["links"] if d in vincent else None,
         "vocab": vocab_label(vocab[d]) if d in vocab else None,
     }
     if is_sunday(d):
@@ -651,7 +725,7 @@ for wi, wk in enumerate(weeks, 1):
     L.append("")
     mid = wk[min(2, len(wk) - 1)]
     tv5s = sorted({r["tv5"] for r in wk}, key=lambda s: [r["tv5"] for r in wk].index(s))
-    yts = sorted({r["yt"] for r in wk}, key=lambda s: [r["yt"] for r in wk].index(s))
+    yts = sorted({r["yt_kind"] for r in wk}, key=lambda s: [r["yt_kind"] for r in wk].index(s))
     ankis = sorted({r["anki"] for r in wk}, reverse=True)
     L.append(f"- **New words (evening):** Anki deck {' → '.join(str(a) for a in ankis)}/day, "
              f"or the vocabulary book on the days it is listed")
@@ -669,6 +743,17 @@ for wi, wk in enumerate(weeks, 1):
         words = f"Vocab. {r['vocab']}" if r["vocab"] else f"Anki deck: {r['anki']} new"
         L.append(f"| {r['day']} | {r['book']} | {r['write']} | {r['speak']} | {words} | {r['retest']} |")
     L.append("")
+    vrows = [r for r in wk if r.get("yt_links")]
+    if vrows:
+        L.append("**Vincent this week (afternoon, 1 h):**")
+        for r in vrows:
+            parts = []
+            for l in r["yt_links"]:
+                url = f"https://www.youtube.com/watch?v={l['id']}&t={l['from']}s"
+                parts.append(f"[Day {l['video']} video from {hms(l['from'])}]({url}) → stop at {hms(l['to'])}")
+            lessons = r["yt"].rsplit(" · ", 1)[1]
+            L.append(f"- {r['day']}: {', then '.join(parts)} ({lessons})")
+        L.append("")
     for s in sundays:
         L.append(f"**{s['day']}: review day, no new chapters (4 h)**")
         for it in s["sunday_items"]:

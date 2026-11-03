@@ -9,17 +9,18 @@ export const PHASE_NAMES = {
 
 // Minutes per block for each phase. Every phase adds up to 240 (4 hours).
 export const MINUTES = {
+  // Phase 1: Vincent's English-explained A1 course gets 1 hour (finishes with the Débutant volume).
   1: {
     ankiReview: 15,
     book: 50,
     cards: 10,
     write: 15,
-    input: 40,
-    youtube: 30,
+    input: 20,
+    youtube: 60,
     speak: 20,
     ankiNew: 25,
     retest: 15,
-    errorLog: 20,
+    errorLog: 10,
   },
   2: {
     ankiReview: 15,
@@ -64,6 +65,7 @@ export const LINKS = {
   alexa: 'https://www.youtube.com/@learnfrenchwithalexa',
   easyFrench: 'https://www.youtube.com/@easyfrench',
   superEasyFrench: 'https://www.youtube.com/@easyfrench/search?query=super%20easy%20french',
+  vincent: 'https://www.youtube.com/playlist?list=PLdR5FaFp7N5M',
   tcf: 'https://www.france-education-international.fr/test/tcf-canada',
   claude: 'https://claude.ai',
 };
@@ -140,6 +142,23 @@ export function clampDate(iso, startIso, endIso) {
   return iso;
 }
 
+/** H:MM:SS for a number of seconds. */
+export function hms(sec) {
+  const h = Math.floor(sec / 3600);
+  const m = String(Math.floor((sec % 3600) / 60)).padStart(2, '0');
+  const s = String(sec % 60).padStart(2, '0');
+  return `${h}:${m}:${s}`;
+}
+
+/** Direct links that start each part of the day's Vincent slot at the right second. */
+export function vincentLinks(ytLinks) {
+  return ytLinks.map((l) => ({
+    label: `Day ${l.video} video at ${hms(l.from)}`,
+    url: `https://www.youtube.com/watch?v=${l.id}&t=${l.from}s`,
+    stop: hms(l.to),
+  }));
+}
+
 function youtubeLink(yt) {
   if (yt.includes('Alexa')) return LINKS.alexa;
   if (yt.includes('Super Easy')) return LINKS.superEasyFrench;
@@ -182,7 +201,16 @@ export function sessionsFor(day) {
   });
 
   const afternoon = [{ id: 'input', title: day.tv5, minutes: m.input, link: exam ? LINKS.tcf : LINKS.tv5 }];
-  if (m.youtube) {
+  if (m.youtube && day.yt_links) {
+    const links = vincentLinks(day.yt_links);
+    afternoon.push({
+      id: 'youtube',
+      title: day.yt,
+      detail: `Repeat every word aloud with Vincent. Stop at ${links.map((l) => l.stop).join(' / ')}.`,
+      minutes: m.youtube,
+      links,
+    });
+  } else if (m.youtube) {
     afternoon.push({
       id: 'youtube',
       title: day.yt,
@@ -220,7 +248,7 @@ export function sessionsFor(day) {
     {
       id: 'errorlog',
       title:
-        day.phase <= 2
+        day.phase === 2
           ? 'Error log aloud (each correct version 3×) + light listening'
           : 'Error log aloud (each correct version 3×)',
       minutes: m.errorLog,
