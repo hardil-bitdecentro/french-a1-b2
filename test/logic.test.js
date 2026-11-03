@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
   MINUTES,
+  EXPLAIN_PROMPT,
   localISO,
   addDays,
   dayNumber,
@@ -157,5 +158,33 @@ describe('progress', () => {
 describe('esc', () => {
   it('escapes all five HTML-special characters, including single quotes', () => {
     expect(esc(`<img src=x onerror='a("b")'>&`)).toBe('&lt;img src=x onerror=&#39;a(&quot;b&quot;)&#39;&gt;&amp;');
+  });
+});
+
+describe('English explanation prompt', () => {
+  it('names the volume and the chapter range', () => {
+    const p = EXPLAIN_PROMPT('Déb. 1–2');
+    expect(p).toContain('Niveau débutant (3e édition), chapters 1 to 2');
+    expect(p).toContain('native English speaker');
+    expect(p).toContain('photo of the rule page');
+  });
+
+  it('handles a single chapter and every volume', () => {
+    expect(EXPLAIN_PROMPT('Int. 7')).toContain('Niveau intermédiaire (4e édition), chapter 7 (my level: A2–B1)');
+    expect(EXPLAIN_PROMPT('Av. 30–31')).toContain('Niveau avancé (3e édition), chapters 30 to 31');
+  });
+
+  it('falls back to a placeholder on exam-mode days without chapter numbers', () => {
+    expect(EXPLAIN_PROMPT('Error-log chapters: redo the 2 weakest (any volume)')).toContain(
+      '[volume + chapter number]',
+    );
+  });
+
+  it('is attached to the book task on every study day', () => {
+    for (const d of studyDays) {
+      const book = sessionsFor(d)[0].tasks.find((t) => t.id === 'book');
+      expect(book.kind).toBe('explain');
+      expect(book.copy).toContain('Grammaire progressive');
+    }
   });
 });

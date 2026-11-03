@@ -81,6 +81,36 @@ export const SPEAKING_PROMPT = (task, phase) =>
     : `Tu es examinateur du TCF Canada. Fais-moi passer cette tâche d'expression orale : ${task}. ` +
       `Respecte le temps officiel, puis donne-moi une note /20 et corrige mes erreurs principales.`;
 
+const VOLUMES = {
+  'Déb.': { name: 'Niveau débutant (3e édition)', level: 'A1' },
+  'Int.': { name: 'Niveau intermédiaire (4e édition)', level: 'A2–B1' },
+  'Av.': { name: 'Niveau avancé (3e édition)', level: 'B1–B2' },
+};
+
+/**
+ * Prompt asking Claude to explain the day's book chapter(s) in English. The chapter titles are not
+ * in the data, so the prompt names the volume and chapter numbers and asks for a photo of the rule page.
+ */
+export const EXPLAIN_PROMPT = (book) => {
+  const m = String(book).match(/^(Déb\.|Int\.|Av\.) (\d+)(?:–(\d+))?$/);
+  const where = m
+    ? `"Grammaire progressive du français", ${VOLUMES[m[1]].name}, ` +
+      (m[3] ? `chapters ${m[2]} to ${m[3]}` : `chapter ${m[2]}`) +
+      ` (my level: ${VOLUMES[m[1]].level})`
+    : `"Grammaire progressive du français", [volume + chapter number]`;
+  return (
+    `I'm a native English speaker learning French with ${where}. ` +
+    `I'm attaching a photo of the rule page (the left page) for each chapter. ` +
+    `If there's no photo, the chapter title is: [type it here].\n\n` +
+    `For each chapter, explain in English:\n` +
+    `1) the rule in plain words, and how it differs from English;\n` +
+    `2) when to use it and when not to;\n` +
+    `3) the mistakes English speakers typically make with it;\n` +
+    `4) 5 example sentences in French with English translations.\n` +
+    `Then quiz me with 5 short questions, one at a time, and correct my answers.`
+  );
+};
+
 /** Local calendar date as YYYY-MM-DD. Never use toISOString(): it is UTC and shifts the day in France. */
 export function localISO(date) {
   const y = date.getFullYear();
@@ -137,6 +167,8 @@ export function sessionsFor(day) {
       title: exam ? day.book : `Book: ${day.book}`,
       detail: 'Read the rule → close the book, say it aloud → exercises without looking → check the Corrigés',
       minutes: m.book,
+      kind: 'explain',
+      copy: EXPLAIN_PROMPT(day.book),
     },
   ];
   if (m.cards)

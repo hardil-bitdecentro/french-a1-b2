@@ -3,6 +3,7 @@ import {
   LINKS,
   WRITING_PROMPT,
   SPEAKING_PROMPT,
+  EXPLAIN_PROMPT,
   localISO,
   addDays,
   dayNumber,
@@ -101,10 +102,17 @@ function taskRow(iso, t) {
   const done = (state.done[iso] || []).includes(t.id);
   const actions = [];
   if (t.link) actions.push(`<a class="act" href="${esc(t.link)}" target="_blank" rel="noopener">Open ↗</a>`);
+  const COPY_LABELS = {
+    write: 'Copy correction prompt',
+    speak: 'Copy examiner prompt',
+    explain: 'Stuck? Explain in English',
+  };
   if (t.copy)
     actions.push(
-      `<button class="act" type="button" data-copy="${esc(t.copy)}">${t.kind === 'write' ? 'Copy correction prompt' : 'Copy examiner prompt'}</button>`,
+      `<button class="act" type="button" data-copy="${esc(t.copy)}">${COPY_LABELS[t.kind] || 'Copy prompt'}</button>`,
     );
+  if (t.kind === 'explain')
+    actions.push(`<a class="act" href="${LINKS.claude}" target="_blank" rel="noopener">Open Claude ↗</a>`);
   return `
     <li class="task${done ? ' done' : ''}">
       <button class="check" type="button" role="checkbox" aria-checked="${done}" data-task="${esc(t.id)}" data-date="${iso}" aria-label="Mark done: ${esc(t.title)}"></button>
@@ -224,6 +232,8 @@ function viewMaterials() {
     <section class="card">
       <h2>Correction: Claude + real people</h2>
       <p>Every day's writing and speaking task has a copy button with the full prompt. Paste it into Claude, then your text, or use voice mode for speaking. You're in France: whenever you can, swap a Claude session for a real conversation (café-langue, Meetup language exchange, shops).</p>
+      <p><b>English explanations of the book:</b> the book is all in French. Read every rule in French first and try the exercises; that is reading practice for the TCF. Only if a rule is still unclear, use the book task's "Stuck? Explain in English" button. It copies a prompt that already names the volume and chapter numbers. In the Claude app, paste it, attach a photo of the chapter's rule page (the left page), and send. If you'd rather not take a photo, type the chapter title instead.</p>
+      <details><summary>English explanation prompt</summary><pre class="note">${esc(EXPLAIN_PROMPT('Déb. 1–2'))}</pre></details>
       <details><summary>Writing correction prompt</summary><pre class="note">${esc(WRITING_PROMPT('[sujet du jour]'))}</pre></details>
       <details><summary>Speaking examiner prompt</summary><pre class="note">${esc(SPEAKING_PROMPT('[tâche du jour]', 2))}</pre></details>
       <div class="acts"><a class="act" href="${LINKS.claude}" target="_blank" rel="noopener">claude.ai ↗</a></div>
