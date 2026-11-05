@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>French tutor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap"
+    />
+    <style>
+      /* Same plain look as the study app: white page, one font, blue for actions, red only for mistakes.
+         One column, because this is used on a phone next to the book. */
+      :root {
+        color-scheme: light;
+        --bg: #ffffff;
+        --ink: #161a2b;
+        --muted: #4a5163;
+        --line: #dfe1e8;
+        --blue: #1b2a9e;
+        --blue-soft: #eef0fb;
+        --red: #b4232c;
+        --radius: 8px;
+        --font: 'Atkinson Hyperlegible', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font: 16px/1.5 var(--font);
+      }
+      main {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 0.9rem 1rem 2rem;
+      }
+      h1 {
+        margin: 0;
+        font-size: 1.35rem;
+        line-height: 1.25;
+        text-wrap: balance;
+      }
+      h2 {
+        margin: 0;
+        font-size: 1.05rem;
+        line-height: 1.3;
+      }
+      p {
+        margin: 0.4rem 0;
+      }
+      a {
+        color: var(--blue);
+      }
+      .sub {
+        color: var(--muted);
+        font-size: 0.92rem;
+        margin: 0.2rem 0 0;
+      }
+      .head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 0.5rem;
+      }
+      .arrows {
+        flex: none;
+        display: flex;
+        gap: 2px;
+        margin-top: -0.3rem;
+      }
+      .arrows button {
+        width: 44px;
+        height: 44px;
+        border: 0;
+        border-radius: var(--radius);
+        background: none;
+        color: var(--ink);
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+      .arrows button:hover {
+        background: var(--blue-soft);
+      }
+      .arrows button:disabled {
+        opacity: 0.25;
+        cursor: default;
+      }
+      .topics {
+        margin: 0.6rem 0 0;
+        padding: 0.6rem 0.75rem;
+        background: var(--blue-soft);
+        border-radius: var(--radius);
+        font-size: 0.95rem;
+      }
+      .topics p {
+        margin: 0.15rem 0;
+      }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem 1rem;
+        margin: 0.8rem 0 0.2rem;
+        border-bottom: 1px solid var(--line);
+      }
+      nav button {
+        padding: 0.5rem 0 0.55rem;
+        border: 0;
+        border-bottom: 3px solid transparent;
+        background: none;
+        color: var(--muted);
+        font: 700 0.95rem var(--font);
+        cursor: pointer;
+      }
+      nav button[aria-selected='true'] {
+        color: var(--ink);
+        border-bottom-color: var(--blue);
+      }
+      .panel {
+        display: grid;
+        gap: 0.7rem;
+        margin-top: 0.8rem;
+      }
+      label {
+        display: grid;
+        gap: 0.25rem;
+        font-weight: 700;
+        font-size: 0.92rem;
+      }
+      textarea,
+      select,
+      input[type='file'] {
+        width: 100%;
+        padding: 0.6rem;
+        border: 1px solid var(--muted);
+        border-radius: var(--radius);
+        background: var(--bg);
+        color: var(--ink);
+        font: 1rem/1.45 var(--font);
+      }
+      textarea {
+        resize: vertical;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 1rem;
+        border: 1px solid var(--blue);
+        border-radius: var(--radius);
+        background: var(--bg);
+        color: var(--blue);
+        font: 700 1rem var(--font);
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .btn.primary {
+        background: var(--blue);
+        color: #fff;
+      }
+      .btn:disabled {
+        opacity: 0.5;
+        cursor: default;
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      :focus-visible {
+        outline: 3px solid var(--blue);
+        outline-offset: 1px;
+      }
+      .answer {
+        margin-top: 1rem;
+        padding-top: 0.8rem;
+        border-top: 1px solid var(--line);
+      }
+      .turn-you {
+        margin: 0.8rem 0 0.3rem;
+        padding: 0.5rem 0.75rem;
+        background: var(--blue-soft);
+        border-radius: var(--radius);
+      }
+      .text p {
+        margin: 0.45rem 0;
+      }
+      .text .fix {
+        color: var(--ink);
+        font-weight: 700;
+      }
+      .note {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+      .note.bad {
+        color: var(--red);
+      }
+      [hidden] {
+        display: none !important;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          scroll-behavior: auto !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="head">
+        <div>
+          <h1 id="day-title">French tutor</h1>
+          <p class="sub" id="day-sub"></p>
+        </div>
+        <div class="arrows">
+          <button type="button" id="prev" aria-label="Previous day">←</button>
+          <button type="button" id="next" aria-label="Next day">→</button>
+        </div>
+      </div>
+      <div class="topics" id="topics"></div>
+      <p class="note bad" id="absent" hidden>
+        The tutor only works when this page is opened on claude.ai while you're signed in.
+      </p>
+
+      <nav role="tablist" aria-label="What do you need?" id="modes"></nav>
+
+      <form class="panel" id="form" autocomplete="off">
+        <p class="sub" id="hint"></p>
+        <label id="task-wrap">
+          <span id="task-label"></span>
+          <textarea id="task" rows="4"></textarea>
+        </label>
+        <label id="range-wrap" hidden>
+          Quiz me on
+          <select id="range">
+            <option value="1">Today's chapters</option>
+            <option value="7">The last 7 days</option>
+            <option value="all">Everything so far</option>
+          </select>
+        </label>
+        <label id="photo-wrap">
+          <span id="photo-label"></span>
+          <input type="file" id="photo" accept="image/*" multiple />
+        </label>
+        <div class="row">
+          <button class="btn primary" type="submit" id="go"></button>
+          <button class="btn" type="button" id="stop" hidden>Stop</button>
+        </div>
+        <p class="note" id="status" role="status"></p>
+      </form>
+
+      <section class="answer" id="answer" hidden>
+        <div id="turns" aria-live="polite"></div>
+        <div class="row" id="after" style="margin-top: 0.7rem" hidden>
+          <button class="btn" type="button" id="copy" hidden>Copy my mistakes</button>
+          <a class="btn" href="https://hardil-bitdecentro.github.io/french-a1-b2/#/mistakes">Open Mistakes ↗</a>
+        </div>
+        <form class="panel" id="follow" hidden>
+          <label>
+            <span id="follow-label">Ask a follow-up</span>
+            <textarea id="follow-text" rows="2" lang="fr"></textarea>
+          </label>
+          <div class="row">
+            <button class="btn" type="submit" id="follow-go">Send</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script type="application/json" id="plan">
+      [{"date":"2026-11-06","phase":1,"book":"Déb. 1–2","write":"Remplis une fiche : nom, prénom, nationalité, profession, ville. Puis écris 4 phrases : je suis…, il est…, elle est… (Fill in a form, then describe someone)","pages":"p. 8–13","topics":[{"ch":1,"topic":"introducing yourself: nationality, job"},{"ch":2,"topic":"describing: masculine and feminine adjectives"}]},{"date":"2026-11-07","phase":1,"book":"Déb. 3–4","write":"8 phrases avec être : je suis, tu es, nous sommes, ils sont + adjectif au pluriel. (8 sentences with être)","pages":"p. 14–17","topics":[{"ch":3,"topic":"describing: plural adjectives"},{"ch":4,"topic":"être; tu or vous; nous or on"}]},{"date":"2026-11-08","phase":1},{"date":"2026-11-09","phase":1,"book":"Déb. 5–6","write":"Tes goûts : j'aime…, je n'aime pas…, est-ce que tu aimes… ? (Likes and dislikes, with questions)","pages":"p. 18–21","topics":[{"ch":5,"topic":"yes/no questions; ne… pas"},{"ch":6,"topic":"-er verbs; aimer"}]},{"date":"2026-11-10","phase":1,"book":"Déb. 7–9","write":"Ta journée typique : je me lève, je me lave, je travaille, je mange… (Your typical day)","pages":"p. 22–27","topics":[{"ch":7,"topic":"-er verbs: the full present"},{"ch":8,"topic":"-er verbs: spelling changes"},{"ch":9,"topic":"reflexive -er verbs"}]},{"date":"2026-11-11","phase":1,"book":"Déb. 10–11","write":"Dans ta chambre : 12 objets avec un, une, des. Attention au genre ! (12 things in your room)","pages":"p. 30–35","topics":[{"ch":10,"topic":"nouns: gender and articles"},{"ch":11,"topic":"nouns: plural"}]},{"date":"2026-11-12","phase":1,"book":"Déb. 12–13","write":"Carte postale de ta ville : je visite le…, je suis au…, à la…, je parle du…, de la… Bises ! (A postcard from your town)","pages":"p. 36–39","topics":[{"ch":12,"topic":"un, une, des; le, la, les"},{"ch":13,"topic":"au, à la, aux; du, de la, des"}]},{"date":"2026-11-13","phase":1,"book":"Déb. 14–16","write":"Décris une photo de famille : mon, ma, mes, ce, cette ; j'ai un frère… (A family photo)","pages":"p. 40–45","topics":[{"ch":14,"topic":"mon, ton, son"},{"ch":15,"topic":"ce, cette, ces"},{"ch":16,"topic":"avoir + noun; where adjectives go"}]},{"date":"2026-11-14","phase":1,"book":"Déb. 17–18","write":"Décris un ami : il a les yeux…, il a … ans. Puis : j'ai mal à…, j'ai faim, j'ai froid. (A friend, and how you feel)","pages":"p. 46–49","topics":[{"ch":17,"topic":"looks and age"},{"ch":18,"topic":"aches, hunger, cold"}]},{"date":"2026-11-15","phase":1},{"date":"2026-11-16","phase":1,"book":"Déb. 19–20","write":"Ce que tu as et ce que tu n'as pas : j'ai…, je n'ai pas de… (What you have and don't have)","pages":"p. 50–53","topics":[{"ch":19,"topic":"avoir: the full present"},{"ch":20,"topic":"pas le, pas la; pas de"}]},{"date":"2026-11-17","phase":1,"book":"Déb. 21–23","write":"Je suis de…, j'habite à…, en…, au… Puis décris ta chambre : sur, sous, dans, devant. (Cities, countries, where things are)","pages":"p. 56–61","topics":[{"ch":21,"topic":"place: à, de, chez, près de, loin de"},{"ch":22,"topic":"cities and countries: à, au, en"},{"ch":23,"topic":"dans, sur, sous, devant, derrière"}]},{"date":"2026-11-18","phase":1,"book":"Déb. 24–25","write":"Qu'est-ce qu'il y a dans ta ville ? Il y a…, il n'y a pas de… (What your town has and doesn't)","pages":"p. 62–65","topics":[{"ch":24,"topic":"il y a; il n'y a pas de"},{"ch":25,"topic":"qui est-ce, qu'est-ce que c'est; ce n'est pas"}]},{"date":"2026-11-19","phase":1,"book":"Déb. 26–27","write":"Ton avis sur 6 choses à Paris : c'est beau, c'est cher… ; c'est un musée, il est grand. (Your opinions)","pages":"p. 66–69","topics":[{"ch":26,"topic":"c'est or il est"},{"ch":27,"topic":"c'est + adjective: general comments"}]},{"date":"2026-11-20","phase":1,"book":"Déb. 28–29","write":"2 messages à un ami : rendez-vous samedi 14 novembre à 19 heures, devant la gare. Puis ton emploi du temps de lundi. (Arrange a meeting; your timetable)","pages":"p. 72–77","topics":[{"ch":28,"topic":"numbers, dates, days"},{"ch":29,"topic":"telling the time"}]},{"date":"2026-11-21","phase":1,"book":"Déb. 30–31","write":"Le temps et les repas : en hiver, il fait froid… ; je mange du…, de la…, des… (Weather and food)","pages":"p. 78–81","topics":[{"ch":30,"topic":"weather, months, seasons"},{"ch":31,"topic":"du, de la, des: some"}]},{"date":"2026-11-22","phase":1},{"date":"2026-11-23","phase":1,"book":"Déb. 32–34","write":"Compare deux villes : plus… que, moins… que, autant de… (Compare two cities)","pages":"p. 82–87","topics":[{"ch":32,"topic":"amounts: un kilo de, beaucoup de, pas de"},{"ch":33,"topic":"comparing: plus, moins, aussi"},{"ch":34,"topic":"comparing amounts; superlatives"}]},{"date":"2026-11-24","phase":1,"book":"Déb. 35–36","write":"Tes matins : je pars à…, je sors…, je finis…, je choisis… (Your mornings)","pages":"p. 90–93","topics":[{"ch":35,"topic":"-ir verbs like finir"},{"ch":36,"topic":"-ir verbs like partir"}]},{"date":"2026-11-25","phase":1,"book":"Déb. 37–39","write":"Ce que tu sais et qui tu connais : je sais…, je connais…, je crois…, je bois… (What you know, who you know)","pages":"p. 94–99","topics":[{"ch":37,"topic":"-re verbs like écrire"},{"ch":38,"topic":"savoir, connaître, croire, voir"},{"ch":39,"topic":"three-form verbs like boire"}]},{"date":"2026-11-26","phase":1,"book":"Déb. 40–42","write":"SMS : invite un ami ce week-end. Tu veux… ? On peut… ? Je dois… Je fais du… Je vais à… (A text to invite a friend)","pages":"p. 100–105","topics":[{"ch":40,"topic":"vouloir, pouvoir, devoir + infinitive"},{"ch":41,"topic":"faire and dire"},{"ch":42,"topic":"aller"}]},{"date":"2026-11-27","phase":1,"book":"Déb. 43–44","write":"Le week-end prochain : je vais + verbe. Le week-end dernier : j'ai mangé, j'ai parlé… (Next and last weekend)","pages":"p. 108–111","topics":[{"ch":43,"topic":"near future: je vais + verb"},{"ch":44,"topic":"passé composé with avoir: -er verbs"}]},{"date":"2026-11-28","phase":1,"book":"Déb. 45–46","write":"Ton arrivée en France : je suis arrivé(e), j'ai vu, j'ai pris… (Arriving in France)","pages":"p. 112–117","topics":[{"ch":45,"topic":"passé composé with avoir: other verbs"},{"ch":46,"topic":"passé composé with être"}]},{"date":"2026-11-29","phase":1},{"date":"2026-11-30","phase":1,"book":"Déb. 47–48","write":"Quand j'étais petit(e), j'habitais… Dans 10 ans, je serai… (Your childhood and your future)","pages":"p. 118–121","topics":[{"ch":47,"topic":"imparfait"},{"ch":48,"topic":"simple future"}]},{"date":"2026-12-01","phase":1,"book":"Déb. 49–50","write":"Ta vie : j'habite ici depuis…, il y a 2 ans, j'ai…, dans 1 an, je vais… (Your life: past, present, future)","pages":"p. 122–123, 126–127","topics":[{"ch":49,"topic":"present, past, future: overview"},{"ch":50,"topic":"il y a, pendant, depuis, dans"}]},{"date":"2026-12-02","phase":1,"book":"Déb. 51–52","write":"8 questions à un nouveau collègue : où, quand, comment, pourquoi, qui, quelle… (Questions for a colleague)","pages":"p. 128–131","topics":[{"ch":51,"topic":"questions: où, quand, comment, combien, pourquoi"},{"ch":52,"topic":"questions: qui, que, quel"}]},{"date":"2026-12-03","phase":1,"book":"Déb. 53–54","write":"Une mauvaise journée : je n'ai rien mangé, je ne suis pas sorti(e), je ne vois personne… (A bad day)","pages":"p. 132–135","topics":[{"ch":53,"topic":"ne… rien, jamais, plus, personne"},{"ch":54,"topic":"negatives and questions in the passé composé"}]},{"date":"2026-12-04","phase":1,"book":"Déb. 55–57","write":"Réponds sans répéter : 8 questions avec en, y, le, la, les. Tu manges du pain ? Oui, j'en mange. (Answer with pronouns)","pages":"p. 138–143","topics":[{"ch":55,"topic":"the pronoun en"},{"ch":56,"topic":"the pronoun y"},{"ch":57,"topic":"le, la, les: direct object pronouns"}]},{"date":"2026-12-05","phase":1,"book":"Déb. 58–60","write":"E-mail à ton propriétaire : je lui écris…, l'appartement que…, le voisin qui… (Email to your landlord)","pages":"p. 144–149","topics":[{"ch":58,"topic":"lui, leur: indirect object pronouns"},{"ch":59,"topic":"moi, toi, lui: stressed pronouns"},{"ch":60,"topic":"qui and que: relative pronouns"}]},{"date":"2026-12-06","phase":2},{"date":"2026-12-07","phase":2,"book":"Int. 1","write":"Tâche 1 (60–120 mots) : Invite un ami à ton anniversaire (date, lieu, quoi apporter)."},{"date":"2026-12-08","phase":2,"book":"Int. 2","write":"Tâche 2 (120–150 mots) : Blog : ta première semaine en France."},{"date":"2026-12-09","phase":2,"book":"Int. 3","write":"Tâche 1 (60–120 mots) : Excuse-toi auprès de ton voisin pour le bruit d'hier soir."},{"date":"2026-12-10","phase":2,"book":"Int. 4","write":"Tâche 2 (120–150 mots) : Un repas de fête qui t'a marqué."},{"date":"2026-12-11","phase":2,"book":"Int. 5","write":"Tâche 1 (60–120 mots) : Demande à un collègue de changer la date d'une réunion."},{"date":"2026-12-12","phase":2,"book":"Int. 6","write":"Tâche 2 (120–150 mots) : Une personne qui t'a inspiré, et pourquoi."},{"date":"2026-12-13","phase":2},{"date":"2026-12-14","phase":2,"book":"Int. 7","write":"Tâche 1 (60–120 mots) : Demande des informations sur un cours à une école de langue."},{"date":"2026-12-15","phase":2,"book":"Int. 8","write":"Tâche 2 (120–150 mots) : Un voyage qui s'est mal passé."},{"date":"2026-12-16","phase":2,"book":"Int. 9","write":"Tâche 1 (60–120 mots) : Conseille un restaurant à un ami."},{"date":"2026-12-17","phase":2,"book":"Int. 10","write":"Tâche 2 (120–150 mots) : Article : une fête traditionnelle de ton pays."},{"date":"2026-12-18","phase":2,"book":"Int. 11","write":"Tâche 1 (60–120 mots) : Réponds à un ami qui te demande comment va ta vie en France."},{"date":"2026-12-19","phase":2,"book":"Int. 12","write":"Tâche 2 (120–150 mots) : Ton premier jour dans ton travail actuel."},{"date":"2026-12-20","phase":2},{"date":"2026-12-21","phase":2,"book":"Int. 13","write":"Tâche 1 (60–120 mots) : Écris à ton propriétaire : le chauffage ne marche pas."},{"date":"2026-12-22","phase":2,"book":"Int. 14","write":"Tâche 2 (120–150 mots) : Ta ville idéale."},{"date":"2026-12-23","phase":2,"book":"Int. 15","write":"Tâche 1 (60–120 mots) : Annule un rendez-vous avec un ami et propose une autre date."},{"date":"2026-12-24","phase":2,"book":"Int. 16","write":"Tâche 2 (120–150 mots) : Un film ou un livre que tu as aimé."},{"date":"2026-12-25","phase":2,"book":"Int. 17","write":"Tâche 1 (60–120 mots) : Propose ton aide comme bénévole à une association."},{"date":"2026-12-26","phase":2,"book":"Int. 18","write":"Tâche 2 (120–150 mots) : Témoignage : apprendre une langue à l'âge adulte."},{"date":"2026-12-27","phase":2},{"date":"2026-12-28","phase":2,"book":"Int. 19","write":"Tâche 1 (60–120 mots) : Annonce : tu vends ton vélo."},{"date":"2026-12-29","phase":2,"book":"Int. 20","write":"Tâche 2 (120–150 mots) : Une journée sans téléphone."},{"date":"2026-12-30","phase":2,"book":"Int. 21","write":"Tâche 1 (60–120 mots) : Réserve une chambre d'hôtel (dates, demandes particulières)."},{"date":"2026-12-31","phase":2,"book":"Int. 22","write":"Tâche 2 (120–150 mots) : Un lieu en France que tu as visité : décris-le et conseille-le."},{"date":"2027-01-01","phase":2,"book":"Int. 23","write":"Tâche 1 (60–120 mots) : Remercie un ami qui t'a aidé à déménager."},{"date":"2027-01-02","phase":2,"book":"Int. 24","write":"Tâche 2 (120–150 mots) : Un souvenir d'enfance (imparfait + passé composé)."},{"date":"2027-01-03","phase":2},{"date":"2027-01-04","phase":2,"book":"Int. 25","write":"Tâche 1 (60–120 mots) : Organise un week-end avec un ami."},{"date":"2027-01-05","phase":2,"book":"Int. 26","write":"Tâche 2 (120–150 mots) : Une rencontre importante dans ta vie."},{"date":"2027-01-06","phase":2,"book":"Int. 27","write":"Tâche 1 (60–120 mots) : Service client : ton colis n'est pas arrivé."},{"date":"2027-01-07","phase":2,"book":"Int. 28","write":"Tâche 2 (120–150 mots) : Tes habitudes alimentaires et comment elles ont changé en France."},{"date":"2027-01-08","phase":2,"book":"Int. 29","write":"Tâche 1 (60–120 mots) : Invite tes collègues à un pot."},{"date":"2027-01-09","phase":2,"book":"Int. 30","write":"Tâche 2 (120–150 mots) : Une erreur qui t'a appris quelque chose."},{"date":"2027-01-10","phase":2},{"date":"2027-01-11","phase":2,"book":"Int. 31","write":"Tâche 1 (60–120 mots) : Demande à ton voisin de garder ton chat pendant tes vacances."},{"date":"2027-01-12","phase":2,"book":"Int. 32","write":"Tâche 2 (120–150 mots) : Blog : conseils pour s'installer dans une nouvelle ville."},{"date":"2027-01-13","phase":2,"book":"Int. 33","write":"Tâche 1 (60–120 mots) : Raconte ton dernier voyage à un ami."},{"date":"2027-01-14","phase":2,"book":"Int. 34","write":"Tâche 2 (120–150 mots) : Explique le métier de développeur à quelqu'un qui ne le connaît pas."},{"date":"2027-01-15","phase":2,"book":"Int. 35","write":"Tâche 1 (60–120 mots) : Demande à la mairie les horaires de la médiathèque."},{"date":"2027-01-16","phase":2,"book":"Int. 36","write":"Tâche 2 (120–150 mots) : Tes fêtes de fin d'année cette année."},{"date":"2027-01-17","phase":2},{"date":"2027-01-18","phase":2,"book":"Int. 37","write":"Tâche 1 (60–120 mots) : Félicite un ami pour son nouveau travail."},{"date":"2027-01-19","phase":2,"book":"Int. 38","write":"Tâche 2 (120–150 mots) : Le sport dans ta vie."},{"date":"2027-01-20","phase":2,"book":"Int. 39","write":"Tâche 1 (60–120 mots) : Explique ton absence à ton professeur."},{"date":"2027-01-21","phase":2,"book":"Int. 40","write":"Tâche 2 (120–150 mots) : Ce que tu ferais si tu gagnais au loto (conditionnel)."},{"date":"2027-01-22","phase":2,"book":"Int. 41","write":"Tâche 1 (60–120 mots) : Demande un conseil à un ami (travail ou logement)."},{"date":"2027-01-23","phase":2,"book":"Int. 42","write":"Tâche 2 (120–150 mots) : Ton week-end idéal dans ta ville."},{"date":"2027-01-24","phase":2},{"date":"2027-01-25","phase":2,"book":"Int. 43","write":"Tâche 1 (60–120 mots) : Demande les tarifs et horaires d'une salle de sport."},{"date":"2027-01-26","phase":2,"book":"Int. 44","write":"Tâche 2 (120–150 mots) : Une fois où tu as parlé français et tu étais fier/fière."},{"date":"2027-01-27","phase":2,"book":"Int. 45","write":"Tâche 1 (60–120 mots) : Souhaite bonne année à tes collègues et raconte tes vacances."},{"date":"2027-01-28","phase":2,"book":"Int. 46","write":"Tâche 2 (120–150 mots) : Comment tu as appris à cuisiner un plat."},{"date":"2027-01-29","phase":2,"book":"Int. 47","write":"Tâche 1 (60–120 mots) : Conseils pratiques à un ami qui veut venir en France."},{"date":"2027-01-30","phase":2,"book":"Int. 48","write":"Tâche 2 (120–150 mots) : Avantages et inconvénients de vivre en ville."},{"date":"2027-01-31","phase":2},{"date":"2027-02-01","phase":2,"book":"Int. 49","write":"Tâche 1 (60–120 mots) : Propose à un ami de faire un échange de langues."},{"date":"2027-02-02","phase":2,"book":"Int. 50","write":"Tâche 2 (120–150 mots) : Ta meilleure journée de 2026."},{"date":"2027-02-03","phase":2,"book":"Int. 51","write":"Tâche 1 (60–120 mots) : Demande à ta banque un rendez-vous et explique pourquoi."},{"date":"2027-02-04","phase":2,"book":"Int. 52","write":"Tâche 2 (120–150 mots) : Un objet important pour toi et son histoire."},{"date":"2027-02-05","phase":3,"book":"Av. 1","write":"Tâche 2 (120–150 mots) : Une décision difficile que tu as prise et ses conséquences."},{"date":"2027-02-06","phase":3,"book":"Av. 2","write":"Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Le télétravail : liberté ou isolement ?"},{"date":"2027-02-07","phase":3},{"date":"2027-02-08","phase":3,"book":"Av. 3–4","write":"Tâche 1 (60–120 mots) : Demande à ton manager une journée de télétravail par semaine, avec arguments."},{"date":"2027-02-09","phase":3,"book":"Av. 5","write":"Tâche 2 (120–150 mots) : Blog d'expatriés : ce qui t'a surpris en France."},{"date":"2027-02-10","phase":3,"book":"Av. 6–7","write":"Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Les réseaux sociaux rapprochent-ils ou isolent-ils les gens ?"},{"date":"2027-02-11","phase":3,"book":"Av. 8","write":"Tâche 1 (60–120 mots) : Plains-toi auprès d'une agence immobilière d'un retard de travaux."},{"date":"2027-02-12","phase":3,"book":"Av. 9–10","write":"Tâche 2 (120–150 mots) : Un projet professionnel dont tu es fier/fière."},{"date":"2027-02-13","phase":3,"book":"Av. 11","write":"Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Faut-il interdire les voitures dans le centre des villes ?"},{"date":"2027-02-14","phase":3},{"date":"2027-02-15","phase":3,"book":"Av. 12","write":"Tâche 1 (60–120 mots) : Convaincs un ami de participer à une course caritative."},{"date":"2027-02-16","phase":3,"book":"Av. 13–14","write":"Tâche 2 (120–150 mots) : Une expérience de bénévolat (réelle ou imaginaire)."},{"date":"2027-02-17","phase":3,"book":"Av. 15","write":"Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Un service civique obligatoire pour les jeunes ?"},{"date":"2027-02-18","phase":3,"book":"Av. 16–17","write":"Tâche 1 (60–120 mots) : Propose à la mairie une amélioration pour ton quartier."},{"date":"2027-02-19","phase":3,"book":"Av. 18","write":"Tâche 2 (120–150 mots) : L'évolution de ton métier depuis dix ans."},{"date":"2027-02-20","phase":3,"book":"Av. 19–20","write":"Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Apprendre une langue étrangère dès la maternelle ?"},{"date":"2027-02-21","phase":3},{"date":"2027-02-22","phase":3,"book":"Av. 21","write":"Tâche 1 (60–120 mots) : Demande un remboursement à un organisme de formation."},{"date":"2027-02-23","phase":3,"book":"Av. 22–23","write":"Tâche 2 (120–150 mots) : Un malentendu culturel que tu as vécu."},{"date":"2027-02-24","phase":3,"book":"Av. 24","write":"Tâche 3 (120–180 mots, 2 points de vue + ton avis) : La semaine de quatre jours : bonne ou mauvaise idée ?"},{"date":"2027-02-25","phase":3,"book":"Av. 25","write":"Tâche 1 (60–120 mots) : Explique à un ami pourquoi tu ne peux pas venir à son mariage."},{"date":"2027-02-26","phase":3,"book":"Av. 26–27","write":"Tâche 2 (120–150 mots) : Comment tu organises ton temps pour apprendre le français."},{"date":"2027-02-27","phase":3,"book":"Av. 28","write":"Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Les devoirs à la maison sont-ils utiles ?"},{"date":"2027-02-28","phase":3},{"date":"2027-03-01","phase":3,"book":"Av. 29–30","write":"Tâche 1 (60–120 mots) : Propose une fête des voisins à ton immeuble."},{"date":"2027-03-02","phase":3,"book":"Av. 31","write":"Tâche 2 (120–150 mots) : Un échec qui t'a finalement aidé."},{"date":"2027-03-03","phase":3,"book":"Av. 32–33","write":"Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Les musées devraient-ils être gratuits ?"},{"date":"2027-03-04","phase":3,"book":"Av. 34","write":"Tâche 1 (60–120 mots) : Réponds à une offre d'emploi de développeur."},{"date":"2027-03-05","phase":3,"book":"Av. 35–36","write":"Tâche 2 (120–150 mots) : Une tradition de ton pays, pour des lecteurs français."},{"date":"2027-03-06","phase":3,"book":"Av. 37","write":"Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Vivre en ville ou à la campagne ?"},{"date":"2027-03-07","phase":3},{"date":"2027-03-08","phase":3,"book":"Av. 38","write":"Tâche 1 (60–120 mots) : Réagis à un article du journal local sur les pistes cyclables."},{"date":"2027-03-09","phase":3,"book":"Av. 39–40","write":"Tâche 2 (120–150 mots) : Un voyage qui a changé ta façon de voir le monde."},{"date":"2027-03-10","phase":3,"book":"Av. 41","write":"Tâche 3 (120–180 mots, 2 points de vue + ton avis) : L'intelligence artificielle : menace ou chance pour l'emploi ?"},{"date":"2027-03-11","phase":3,"book":"Av. 42–43","write":"Tâche 1 (60–120 mots) : Demande une recommandation à un ancien collègue."},{"date":"2027-03-12","phase":3,"book":"Av. 44","write":"Tâche 2 (120–150 mots) : Le jour où tu as reçu une très bonne nouvelle."},{"date":"2027-03-13","phase":3,"book":"Av. 45–46","write":"Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Faut-il interdire les téléphones à l'école ?"},{"date":"2027-03-14","phase":3},{"date":"2027-03-15","phase":3,"book":"Av. 47","write":"Tâche 1 (60–120 mots) : Résilie ton abonnement au club de sport et explique pourquoi."},{"date":"2027-03-16","phase":3,"book":"Av. 48","write":"Tâche 2 (120–150 mots) : Une application qui a changé ton quotidien."},{"date":"2027-03-17","phase":3,"book":"Av. 49–50","write":"Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Le tourisme de masse : richesse ou problème ?"},{"date":"2027-03-18","phase":3,"book":"Av. 51","write":"Tâche 1 (60–120 mots) : Conseille un ami qui hésite à partir au Canada."},{"date":"2027-03-19","phase":3,"book":"Av. 52–53","write":"Tâche 2 (120–150 mots) : Ta première conversation entièrement en français."},{"date":"2027-03-20","phase":3,"book":"Av. 54","write":"Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Acheter d'occasion : mode passagère ou vrai changement ?"},{"date":"2027-03-21","phase":3},{"date":"2027-03-22","phase":3,"book":"Av. 55–56","write":"Tâche 1 (60–120 mots) : Compagnie aérienne : ton bagage est perdu."},{"date":"2027-03-23","phase":3,"book":"Av. 57","write":"Tâche 2 (120–150 mots) : Ton quartier et son ambiance."},{"date":"2027-03-24","phase":3,"book":"Av. 58–59","write":"Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Faut-il manger moins de viande pour la planète ?"},{"date":"2027-03-25","phase":3,"book":"Av. 60","write":"Tâche 1 (60–120 mots) : Propose à une bibliothèque de créer un club de conversation."},{"date":"2027-03-26","phase":3,"book":"Av. 61","write":"Tâche 2 (120–150 mots) : Une fois où tu as aidé un inconnu."},{"date":"2027-03-27","phase":3,"book":"Av. 62–63","write":"Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Étudier à l'étranger : indispensable pour une carrière ?"},{"date":"2027-03-28","phase":3},{"date":"2027-03-29","phase":3,"book":"Av. 64","write":"Tâche 1 (60–120 mots) : Recommande une série à un ami, en argumentant."},{"date":"2027-03-30","phase":3,"book":"Av. 65–66","write":"Tâche 2 (120–150 mots) : Ta vie au Canada dans cinq ans."},{"date":"2027-03-31","phase":3,"book":"Av. 67","write":"Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Faut-il limiter le temps d'écran des enfants ?"},{"date":"2027-04-01","phase":3,"book":"Av. 68–69","write":"Tâche 1 (60–120 mots) : Négocie le loyer avec ton propriétaire."},{"date":"2027-04-02","phase":3,"book":"Av. 70","write":"Tâche 2 (120–150 mots) : Les avantages et difficultés du travail à distance."},{"date":"2027-04-03","phase":3,"book":"Av. 71–72","write":"Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Le vélo en ville : avenir ou danger ?"},{"date":"2027-04-04","phase":3},{"date":"2027-04-05","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"Tâche 3 timed (40 min) : Les livres papier vont-ils disparaître ?"},{"date":"2027-04-06","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"Tâche 3 timed (40 min) : Grande entreprise ou start-up ?"},{"date":"2027-04-07","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"Tâche 3 timed (40 min) : Des transports en commun gratuits ?"},{"date":"2027-04-08","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"Tâche 3 timed (40 min) : Les applications de rencontre ont-elles changé l'amour ?"},{"date":"2027-04-09","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"Tâche 3 timed (40 min) : Un uniforme à l'école ?"},{"date":"2027-04-10","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"FULL writing paper, 60 min timed: tâche 1 + 2 + 3 (pick unused prompts)"},{"date":"2027-04-11","phase":4},{"date":"2027-04-12","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"Tâche 3 timed (40 min) : L'immigration qualifiée : une chance pour le pays d'accueil ?"},{"date":"2027-04-13","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"Tâche 3 timed (40 min) : Faut-il interdire les vols intérieurs courts ?"},{"date":"2027-04-14","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"Tâche 3 timed (40 min) : Le bilinguisme : atout indispensable au travail ?"},{"date":"2027-04-15","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"Tâche 3 timed (40 min) : Faut-il taxer la malbouffe ?"},{"date":"2027-04-16","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"Tâche 3 timed (40 min) : Les jeux vidéo : éducatifs ou perte de temps ?"},{"date":"2027-04-17","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"FULL writing paper, 60 min timed: tâche 1 + 2 + 3 (pick unused prompts)"},{"date":"2027-04-18","phase":4},{"date":"2027-04-19","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"Tâche 3 timed (40 min) : Vivre seul ou en colocation ?"},{"date":"2027-04-20","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"Tâche 3 timed (40 min) : Faut-il travailler pendant ses études ?"},{"date":"2027-04-21","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"Tâche 3 timed (40 min) : Interdire la publicité destinée aux enfants ?"},{"date":"2027-04-22","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"Tâche 3 timed (40 min) : Un monde sans argent liquide : progrès ou danger ?"},{"date":"2027-04-23","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"Tâche 3 timed (40 min) : Un animal de compagnie en appartement : bonne idée ?"},{"date":"2027-04-24","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"FULL writing paper, 60 min timed: tâche 1 + 2 + 3 (pick unused prompts)"},{"date":"2027-04-25","phase":4},{"date":"2027-04-26","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"Tâche 3 timed (40 min) : Le droit de vote à 16 ans ?"},{"date":"2027-04-27","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"Tâche 3 timed (40 min) : Cuisine maison ou plats livrés ?"},{"date":"2027-04-28","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"Tâche 3 timed (40 min) : Influenceur : un vrai métier ?"},{"date":"2027-04-29","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"Tâche 3 timed (40 min) : Faut-il protéger les petits commerces face aux grandes surfaces ?"},{"date":"2027-04-30","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"Tâche 3 timed (40 min) : Le bénévolat devrait-il compter sur un CV ?"},{"date":"2027-05-01","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"FULL writing paper, 60 min timed: tâche 1 + 2 + 3 (pick unused prompts)"},{"date":"2027-05-02","phase":4},{"date":"2027-05-03","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"Tâche 3 timed (40 min) : Apprendre en ligne ou en classe ?"},{"date":"2027-05-04","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"Tâche 3 timed (40 min) : Faut-il encourager la voiture électrique ?"},{"date":"2027-05-05","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"Tâche 3 timed (40 min) : Les grandes villes sont-elles encore agréables à vivre ?"},{"date":"2027-05-06","phase":4,"book":"Error-log chapters: redo the 2 weakest (any volume)","write":"Tâche 3 timed (40 min) : Open space : efficacité ou stress ?"}]
+    </script>
+    <script>
+      const PLAN = JSON.parse(document.getElementById('plan').textContent);
+      const LEVELS = { 1: 'A1, a true beginner', 2: 'A2 to B1', 3: 'B1 to B2', 4: 'B2, in exam preparation' };
+      const STAGES = { 1: 'Débutant (A1)', 2: 'Intermédiaire (A2–B1)', 3: 'Avancé (B1–B2)', 4: 'TCF preparation' };
+      const $ = (id) => document.getElementById(id);
+
+      const pad = (n) => String(n).padStart(2, '0');
+      const localDate = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+      const longDate = (iso) =>
+        new Date(`${iso}T12:00:00`).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
+
+      let index = Math.max(
+        0,
+        PLAN.findIndex((d) => d.date >= localDate(new Date())),
+      );
+      if (localDate(new Date()) > PLAN[PLAN.length - 1].date) index = PLAN.length - 1;
+      const today = () => PLAN[index];
+
+      /** The most recent study day at or before this one: Sundays have no chapter of their own. */
+      function studyDay() {
+        for (let i = index; i >= 0; i--) if (PLAN[i].book) return PLAN[i];
+        return PLAN[0];
+      }
+      const bookName = (d) => `${d.book}${d.pages ? `, ${d.pages}` : ''}`;
+      const topicList = (d) => (d.topics || []).map((t) => `Chapter ${t.ch}: ${t.topic}`);
+
+      function background() {
+        const d = studyDay();
+        const topics = topicList(d);
+        return (
+          `I'm a native English speaker learning French for the TCF Canada exam (my target is B2 by May 2027). ` +
+          `My level now is ${LEVELS[d.phase]}. I'm working through "Grammaire progressive du français", ${bookName(d)}.` +
+          (topics.length ? ` Current chapters: ${topics.join('; ')}.` : '') +
+          ` Write in clear, simple English, using only French I could understand at my level. ` +
+          `If you can't read something in a photo, say so and don't guess. ` +
+          `Use your own words and don't copy passages from any photo.`
+        );
+      }
+
+      const MISTAKE_FORMAT =
+        'End with a section called "For my mistakes list" with one mistake per line, in exactly this form: ' +
+        'what I wrote → correct version → rule. If there are none, say so.';
+
+      function quizTopics() {
+        const range = $('range').value;
+        const upTo = PLAN.slice(0, index + 1).filter((d) => d.book);
+        const days = range === 'all' ? upTo : upTo.slice(range === '7' ? -7 : -1);
+        const list = days.flatMap((d) => (d.topics?.length ? topicList(d) : [d.book]));
+        return [...new Set(list)].join('; ');
+      }
+
+      const MODES = {
+        explain: {
+          tab: 'Explain',
+          hint: 'Read the page in French first. Use this for whatever is still unclear.',
+          taskLabel: "What's confusing? (optional)",
+          taskPlaceholder: 'When do I use ils and when elles?',
+          photo: 'Photo of the rule page (optional)',
+          go: 'Explain it',
+          follow: 'Ask a follow-up',
+          prompt: (text, hasPhoto) =>
+            `${background()}\n\n` +
+            (hasPhoto ? 'The photo shows the rule page from my book.\n\n' : '') +
+            (text ? `My question: ${text}\n\n` : "Explain the current chapters' grammar.\n\n") +
+            'Give me: the rule in 2 to 4 short sentences; 3 short French examples with their English; ' +
+            'and the most common mistake English speakers make with it.',
+        },
+        mark: {
+          tab: 'Mark my work',
+          hint: 'Do the exercises in writing, without looking back, then take a photo of the page with your answers.',
+          photo: 'Photo of your answers',
+          photoRequired: true,
+          go: 'Mark it',
+          follow: 'Ask about a mark',
+          prompt: () =>
+            `${background()}\n\nThe photo shows an exercise page with my answers written in. For each exercise: ` +
+            '1) mark every answer right or wrong; 2) give the correct answer for each wrong one, and say when more than one answer is acceptable; ' +
+            `3) explain each mistake in one line of English, with the rule. ${MISTAKE_FORMAT}`,
+        },
+        write: {
+          tab: 'Correct my writing',
+          hint: null,
+          taskLabel: 'Your text in French',
+          taskPlaceholder: 'Je suis…',
+          taskLang: 'fr',
+          photo: 'Or a photo of what you wrote',
+          needsSomething: true,
+          go: 'Correct it',
+          follow: 'Ask about a correction',
+          prompt: (text, hasPhoto) =>
+            `${background()}\n\nToday's writing task: ${studyDay().write}\n\n` +
+            (hasPhoto ? 'The photo shows what I wrote.\n\n' : '') +
+            (text ? `My text:\n${text}\n\n` : '') +
+            'Give me: the corrected version; each mistake with its rule in one line of English; ' +
+            `and one tip for sounding more natural at my level. ${MISTAKE_FORMAT}`,
+        },
+        quiz: {
+          tab: 'Quiz me',
+          hint: 'Answer from memory, with the book closed. It asks one question at a time.',
+          range: true,
+          go: 'Start the quiz',
+          follow: 'Your answer',
+          followGo: 'Answer',
+          followLang: 'fr',
+          prompt: () =>
+            `${background()}\n\nQuiz me on these topics only: ${quizTopics()}. ` +
+            'Use only grammar and words from those topics. Ask ONE short question at a time (translate this, fill the gap, or conjugate) and wait for my answer. ' +
+            'After each answer, say right or wrong in one line with the rule, then ask the next question. ' +
+            `After 8 questions give my score. ${MISTAKE_FORMAT} Ask the first question now.`,
+        },
+        exam: {
+          tab: 'Exam practice',
+          from: '2027-02-01',
+          hint: null,
+          taskLabel: 'Your text in French',
+          taskPlaceholder: 'Madame, Monsieur,',
+          taskLang: 'fr',
+          photo: 'Or a photo of what you wrote',
+          needsSomething: true,
+          go: 'Mark it like the exam',
+          follow: 'Ask about the marking',
+          prompt: (text, hasPhoto) =>
+            `${background()}\n\nAct as a TCF Canada writing examiner. The task: ${studyDay().write}\n\n` +
+            (hasPhoto ? 'The photo shows my answer.\n\n' : '') +
+            (text ? `My answer:\n${text}\n\n` : '') +
+            'Give me: an estimated score out of 20 with one line per marking criterion; the two things holding my score back most; ' +
+            `a corrected version; and three more natural ways to say things I wrote. ${MISTAKE_FORMAT}`,
+        },
+      };
+
+      let mode = MODES[location.hash.slice(1)] ? location.hash.slice(1) : 'explain';
+      let sample = null;
+      let canSendPhotos = false;
+      let maxPhotos = 1;
+      let turns = [];
+      let controller = null;
+
+      function esc(s) {
+        return String(s).replace(
+          /[&<>"']/g,
+          (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c],
+        );
+      }
+
+      /** Claude's answer as safe HTML: paragraphs and **bold**. Nothing else is trusted as markup. */
+      function textHtml(text) {
+        return String(text)
+          .split('\n')
+          .filter((line) => line.trim())
+          .map((line) => {
+            const heading = /^#+\s/.test(line);
+            const html = esc(line.replace(/^#+\s*/, '')).replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>');
+            const isMistake = (line.match(/→/g) || []).length >= 2;
+            return `<p${heading || isMistake ? ' class="fix"' : ''}>${html}</p>`;
+          })
+          .join('');
+      }
+
+      function renderDay() {
+        const d = today();
+        const s = studyDay();
+        $('day-title').textContent = longDate(d.date);
+        $('day-sub').textContent = `Day ${index + 1} of ${PLAN.length} · ${STAGES[d.phase]}`;
+        const topics = topicList(s);
+        const sundayNote = d.book ? '' : `<p class="sub">Review day. These are your latest chapters:</p>`;
+        $('topics').innerHTML =
+          sundayNote +
+          `<p><b>${esc(bookName(s))}</b></p>` +
+          topics.map((t) => `<p>${esc(t)}</p>`).join('');
+        $('prev').disabled = index === 0;
+        $('next').disabled = index === PLAN.length - 1;
+        renderMode();
+      }
+
+      function renderMode() {
+        const m = MODES[mode];
+        const visible = Object.entries(MODES).filter(([, x]) => !x.from || today().date >= x.from);
+        if (!visible.some(([k]) => k === mode)) mode = 'explain';
+        $('modes').innerHTML = visible
+          .map(
+            ([k, x]) =>
+              `<button type="button" role="tab" data-mode="${k}" aria-selected="${k === mode}">${esc(x.tab)}</button>`,
+          )
+          .join('');
+        const cur = MODES[mode];
+        $('hint').textContent =
+          cur.hint || `Today's task: ${studyDay().write || 'pick anything you have written this week'}`;
+        $('hint').lang = cur.hint ? 'en' : 'fr';
+        $('task-wrap').hidden = !cur.taskLabel;
+        $('task-label').textContent = cur.taskLabel || '';
+        $('task').placeholder = cur.taskPlaceholder || '';
+        $('task').lang = cur.taskLang || 'en';
+        $('range-wrap').hidden = !cur.range;
+        $('photo-wrap').hidden = !cur.photo || !canSendPhotos;
+        $('photo-label').textContent = cur.photo || '';
+        $('go').textContent = cur.go;
+        $('status').textContent =
+          cur.photoRequired && !canSendPhotos && sample ? "Photos can't be sent from this view." : '';
+        return m;
+      }
+
+      function setBusy(busy) {
+        $('go').disabled = busy;
+        $('follow-go').disabled = busy;
+        $('stop').hidden = !busy;
+      }
+
+      const ERROR_TEXT = {
+        not_granted: 'The tutor needs your permission to use Claude. Reload the page and choose Allow.',
+        sampling_disabled: "Claude isn't available on this account.",
+        rate_limited: "You've hit a usage limit. Try again in a little while.",
+        session_expired: 'Your Claude sign-in has expired. Sign in again, then reload this page.',
+        image_rejected: "That photo couldn't be used. Try a JPEG or PNG, or fewer photos.",
+        images_unavailable: "Photos can't be sent from this view.",
+        refused: "Claude wouldn't answer that. Try asking it differently.",
+        empty_completion: 'No answer came back. Try asking for less at a time.',
+      };
+
+      function renderTurns(partial) {
+        const shown = turns.slice(1);
+        const first = turns[0]?.label ? `<div class="turn-you">${esc(turns[0].label)}</div>` : '';
+        $('turns').innerHTML =
+          first +
+          shown
+            .map((t) =>
+              t.role === 'user'
+                ? `<div class="turn-you" lang="fr">${esc(t.content)}</div>`
+                : `<div class="text">${textHtml(t.content)}</div>`,
+            )
+            .join('') +
+          (partial === undefined ? '' : `<div class="text">${textHtml(partial) || '<p class="note">Thinking…</p>'}</div>`);
+      }
+
+      /** Ask Claude with the whole conversation so far. Only ever called from a tap. */
+      async function ask(images) {
+        controller = new AbortController();
+        setBusy(true);
+        $('status').textContent = '';
+        $('answer').hidden = false;
+        renderTurns('');
+        const options = {
+          cache: false,
+          signal: controller.signal,
+          onText: ({ text }) => renderTurns(text),
+        };
+        if (images?.length) options.images = images;
+        try {
+          const { text, truncated } = await sample(
+            turns.map(({ role, content }) => ({ role, content })),
+            options,
+          );
+          turns.push({ role: 'assistant', content: text });
+          renderTurns();
+          if (truncated) $('status').textContent = 'The answer was cut short. Ask for less at a time.';
+        } catch (e) {
+          if (e?.text) turns.push({ role: 'assistant', content: e.text });
+          renderTurns();
+          if (e?.code !== 'cancelled') {
+            $('status').textContent = ERROR_TEXT[e?.code] || "That didn't go through. Check your connection and try again.";
+          }
+          if (['not_granted', 'sampling_disabled'].includes(e?.code)) {
+            sample = null;
+            $('go').disabled = true;
+          }
+        } finally {
+          setBusy(false);
+          const last = turns[turns.length - 1];
+          const hasAnswer = last?.role === 'assistant';
+          $('follow').hidden = !hasAnswer;
+          $('after').hidden = !hasAnswer;
+          $('copy').hidden = !hasAnswer || !mistakesIn().length;
+          $('copy').textContent = 'Copy my mistakes';
+          $('follow-label').textContent = MODES[mode].follow;
+          $('follow-go').textContent = MODES[mode].followGo || 'Send';
+          $('follow-text').lang = MODES[mode].followLang || 'en';
+        }
+      }
+
+      function mistakesIn() {
+        return turns
+          .filter((t) => t.role === 'assistant')
+          .flatMap((t) => t.content.split('\n'))
+          .map((l) =>
+            l
+              .replace(/^[\s>*\-•\d.)]+/, '')
+              .replace(/\*\*/g, '')
+              .trim(),
+          )
+          .filter((l) => (l.match(/→/g) || []).length >= 2);
+      }
+
+      $('modes').addEventListener('click', (e) => {
+        const b = e.target.closest('[data-mode]');
+        if (!b) return;
+        mode = b.dataset.mode;
+        history.replaceState(null, '', `#${mode}`);
+        $('photo').value = '';
+        renderMode();
+      });
+
+      $('prev').addEventListener('click', () => {
+        index = Math.max(0, index - 1);
+        renderDay();
+      });
+      $('next').addEventListener('click', () => {
+        index = Math.min(PLAN.length - 1, index + 1);
+        renderDay();
+      });
+
+      $('form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (!sample) return;
+        const cur = MODES[mode];
+        const text = $('task').value.trim();
+        const files = canSendPhotos ? [...$('photo').files].slice(0, maxPhotos) : [];
+        if (cur.photoRequired && !files.length) {
+          $('status').textContent = 'Add a photo of your answers first.';
+          return;
+        }
+        if (cur.needsSomething && !text && !files.length) {
+          $('status').textContent = 'Type your text or add a photo first.';
+          return;
+        }
+        turns = [{ role: 'user', content: cur.prompt(text, files.length > 0), label: text || cur.tab }];
+        await ask(files);
+        $('photo').value = '';
+      });
+
+      $('follow').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const text = $('follow-text').value.trim();
+        if (!text || !sample) return;
+        turns.push({ role: 'user', content: text });
+        $('follow-text').value = '';
+        await ask();
+      });
+
+      $('stop').addEventListener('click', () => controller?.abort());
+
+      $('copy').addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(mistakesIn().join('\n'));
+          $('copy').textContent = 'Copied ✓ Paste into New mistake';
+        } catch {
+          $('copy').textContent = 'Blocked here: select the lines and copy by hand';
+        }
+      });
+
+      window.addEventListener('hashchange', () => {
+        const name = location.hash.slice(1);
+        if (MODES[name]) {
+          mode = name;
+          renderMode();
+        }
+      });
+
+      renderDay();
+
+      (async () => {
+        const api = window.claude ? await window.claude.use('sample') : null;
+        if (!api) {
+          $('absent').hidden = false;
+          $('go').disabled = true;
+          return;
+        }
+        sample = api;
+        const limits = await sample.limits().catch(() => null);
+        canSendPhotos = !!limits?.images;
+        if (canSendPhotos) {
+          maxPhotos = limits.images.maxCount;
+          $('photo').accept = limits.images.mediaTypes.join(',');
+        }
+        renderMode();
+      })();
+    </script>
+  </body>
+</html>

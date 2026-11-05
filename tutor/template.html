@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>French tutor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap"
+    />
+    <style>
+      /* Same plain look as the study app: white page, one font, blue for actions, red only for mistakes.
+         One column, because this is used on a phone next to the book. */
+      :root {
+        color-scheme: light;
+        --bg: #ffffff;
+        --ink: #161a2b;
+        --muted: #4a5163;
+        --line: #dfe1e8;
+        --blue: #1b2a9e;
+        --blue-soft: #eef0fb;
+        --red: #b4232c;
+        --radius: 8px;
+        --font: 'Atkinson Hyperlegible', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font: 16px/1.5 var(--font);
+      }
+      main {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 0.9rem 1rem 2rem;
+      }
+      h1 {
+        margin: 0;
+        font-size: 1.35rem;
+        line-height: 1.25;
+        text-wrap: balance;
+      }
+      h2 {
+        margin: 0;
+        font-size: 1.05rem;
+        line-height: 1.3;
+      }
+      p {
+        margin: 0.4rem 0;
+      }
+      a {
+        color: var(--blue);
+      }
+      .sub {
+        color: var(--muted);
+        font-size: 0.92rem;
+        margin: 0.2rem 0 0;
+      }
+      .head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 0.5rem;
+      }
+      .arrows {
+        flex: none;
+        display: flex;
+        gap: 2px;
+        margin-top: -0.3rem;
+      }
+      .arrows button {
+        width: 44px;
+        height: 44px;
+        border: 0;
+        border-radius: var(--radius);
+        background: none;
+        color: var(--ink);
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+      .arrows button:hover {
+        background: var(--blue-soft);
+      }
+      .arrows button:disabled {
+        opacity: 0.25;
+        cursor: default;
+      }
+      .topics {
+        margin: 0.6rem 0 0;
+        padding: 0.6rem 0.75rem;
+        background: var(--blue-soft);
+        border-radius: var(--radius);
+        font-size: 0.95rem;
+      }
+      .topics p {
+        margin: 0.15rem 0;
+      }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem 1rem;
+        margin: 0.8rem 0 0.2rem;
+        border-bottom: 1px solid var(--line);
+      }
+      nav button {
+        padding: 0.5rem 0 0.55rem;
+        border: 0;
+        border-bottom: 3px solid transparent;
+        background: none;
+        color: var(--muted);
+        font: 700 0.95rem var(--font);
+        cursor: pointer;
+      }
+      nav button[aria-selected='true'] {
+        color: var(--ink);
+        border-bottom-color: var(--blue);
+      }
+      .panel {
+        display: grid;
+        gap: 0.7rem;
+        margin-top: 0.8rem;
+      }
+      label {
+        display: grid;
+        gap: 0.25rem;
+        font-weight: 700;
+        font-size: 0.92rem;
+      }
+      textarea,
+      select,
+      input[type='file'] {
+        width: 100%;
+        padding: 0.6rem;
+        border: 1px solid var(--muted);
+        border-radius: var(--radius);
+        background: var(--bg);
+        color: var(--ink);
+        font: 1rem/1.45 var(--font);
+      }
+      textarea {
+        resize: vertical;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 1rem;
+        border: 1px solid var(--blue);
+        border-radius: var(--radius);
+        background: var(--bg);
+        color: var(--blue);
+        font: 700 1rem var(--font);
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .btn.primary {
+        background: var(--blue);
+        color: #fff;
+      }
+      .btn:disabled {
+        opacity: 0.5;
+        cursor: default;
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      :focus-visible {
+        outline: 3px solid var(--blue);
+        outline-offset: 1px;
+      }
+      .answer {
+        margin-top: 1rem;
+        padding-top: 0.8rem;
+        border-top: 1px solid var(--line);
+      }
+      .turn-you {
+        margin: 0.8rem 0 0.3rem;
+        padding: 0.5rem 0.75rem;
+        background: var(--blue-soft);
+        border-radius: var(--radius);
+      }
+      .text p {
+        margin: 0.45rem 0;
+      }
+      .text .fix {
+        color: var(--ink);
+        font-weight: 700;
+      }
+      .note {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+      .note.bad {
+        color: var(--red);
+      }
+      [hidden] {
+        display: none !important;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          scroll-behavior: auto !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="head">
+        <div>
+          <h1 id="day-title">French tutor</h1>
+          <p class="sub" id="day-sub"></p>
+        </div>
+        <div class="arrows">
+          <button type="button" id="prev" aria-label="Previous day">←</button>
+          <button type="button" id="next" aria-label="Next day">→</button>
+        </div>
+      </div>
+      <div class="topics" id="topics"></div>
+      <p class="note bad" id="absent" hidden>
+        The tutor only works when this page is opened on claude.ai while you're signed in.
+      </p>
+
+      <nav role="tablist" aria-label="What do you need?" id="modes"></nav>
+
+      <form class="panel" id="form" autocomplete="off">
+        <p class="sub" id="hint"></p>
+        <label id="task-wrap">
+          <span id="task-label"></span>
+          <textarea id="task" rows="4"></textarea>
+        </label>
+        <label id="range-wrap" hidden>
+          Quiz me on
+          <select id="range">
+            <option value="1">Today's chapters</option>
+            <option value="7">The last 7 days</option>
+            <option value="all">Everything so far</option>
+          </select>
+        </label>
+        <label id="photo-wrap">
+          <span id="photo-label"></span>
+          <input type="file" id="photo" accept="image/*" multiple />
+        </label>
+        <div class="row">
+          <button class="btn primary" type="submit" id="go"></button>
+          <button class="btn" type="button" id="stop" hidden>Stop</button>
+        </div>
+        <p class="note" id="status" role="status"></p>
+      </form>
+
+      <section class="answer" id="answer" hidden>
+        <div id="turns" aria-live="polite"></div>
+        <div class="row" id="after" style="margin-top: 0.7rem" hidden>
+          <button class="btn" type="button" id="copy" hidden>Copy my mistakes</button>
+          <a class="btn" href="https://hardil-bitdecentro.github.io/french-a1-b2/#/mistakes">Open Mistakes ↗</a>
+        </div>
+        <form class="panel" id="follow" hidden>
+          <label>
+            <span id="follow-label">Ask a follow-up</span>
+            <textarea id="follow-text" rows="2" lang="fr"></textarea>
+          </label>
+          <div class="row">
+            <button class="btn" type="submit" id="follow-go">Send</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script type="application/json" id="plan">
+      __PLAN__
+    </script>
+    <script>
+      const PLAN = JSON.parse(document.getElementById('plan').textContent);
+      const LEVELS = { 1: 'A1, a true beginner', 2: 'A2 to B1', 3: 'B1 to B2', 4: 'B2, in exam preparation' };
+      const STAGES = { 1: 'Débutant (A1)', 2: 'Intermédiaire (A2–B1)', 3: 'Avancé (B1–B2)', 4: 'TCF preparation' };
+      const $ = (id) => document.getElementById(id);
+
+      const pad = (n) => String(n).padStart(2, '0');
+      const localDate = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+      const longDate = (iso) =>
+        new Date(`${iso}T12:00:00`).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
+
+      let index = Math.max(
+        0,
+        PLAN.findIndex((d) => d.date >= localDate(new Date())),
+      );
+      if (localDate(new Date()) > PLAN[PLAN.length - 1].date) index = PLAN.length - 1;
+      const today = () => PLAN[index];
+
+      /** The most recent study day at or before this one: Sundays have no chapter of their own. */
+      function studyDay() {
+        for (let i = index; i >= 0; i--) if (PLAN[i].book) return PLAN[i];
+        return PLAN[0];
+      }
+      const bookName = (d) => `${d.book}${d.pages ? `, ${d.pages}` : ''}`;
+      const topicList = (d) => (d.topics || []).map((t) => `Chapter ${t.ch}: ${t.topic}`);
+
+      function background() {
+        const d = studyDay();
+        const topics = topicList(d);
+        return (
+          `I'm a native English speaker learning French for the TCF Canada exam (my target is B2 by May 2027). ` +
+          `My level now is ${LEVELS[d.phase]}. I'm working through "Grammaire progressive du français", ${bookName(d)}.` +
+          (topics.length ? ` Current chapters: ${topics.join('; ')}.` : '') +
+          ` Write in clear, simple English, using only French I could understand at my level. ` +
+          `If you can't read something in a photo, say so and don't guess. ` +
+          `Use your own words and don't copy passages from any photo.`
+        );
+      }
+
+      const MISTAKE_FORMAT =
+        'End with a section called "For my mistakes list" with one mistake per line, in exactly this form: ' +
+        'what I wrote → correct version → rule. If there are none, say so.';
+
+      function quizTopics() {
+        const range = $('range').value;
+        const upTo = PLAN.slice(0, index + 1).filter((d) => d.book);
+        const days = range === 'all' ? upTo : upTo.slice(range === '7' ? -7 : -1);
+        const list = days.flatMap((d) => (d.topics?.length ? topicList(d) : [d.book]));
+        return [...new Set(list)].join('; ');
+      }
+
+      const MODES = {
+        explain: {
+          tab: 'Explain',
+          hint: 'Read the page in French first. Use this for whatever is still unclear.',
+          taskLabel: "What's confusing? (optional)",
+          taskPlaceholder: 'When do I use ils and when elles?',
+          photo: 'Photo of the rule page (optional)',
+          go: 'Explain it',
+          follow: 'Ask a follow-up',
+          prompt: (text, hasPhoto) =>
+            `${background()}\n\n` +
+            (hasPhoto ? 'The photo shows the rule page from my book.\n\n' : '') +
+            (text ? `My question: ${text}\n\n` : "Explain the current chapters' grammar.\n\n") +
+            'Give me: the rule in 2 to 4 short sentences; 3 short French examples with their English; ' +
+            'and the most common mistake English speakers make with it.',
+        },
+        mark: {
+          tab: 'Mark my work',
+          hint: 'Do the exercises in writing, without looking back, then take a photo of the page with your answers.',
+          photo: 'Photo of your answers',
+          photoRequired: true,
+          go: 'Mark it',
+          follow: 'Ask about a mark',
+          prompt: () =>
+            `${background()}\n\nThe photo shows an exercise page with my answers written in. For each exercise: ` +
+            '1) mark every answer right or wrong; 2) give the correct answer for each wrong one, and say when more than one answer is acceptable; ' +
+            `3) explain each mistake in one line of English, with the rule. ${MISTAKE_FORMAT}`,
+        },
+        write: {
+          tab: 'Correct my writing',
+          hint: null,
+          taskLabel: 'Your text in French',
+          taskPlaceholder: 'Je suis…',
+          taskLang: 'fr',
+          photo: 'Or a photo of what you wrote',
+          needsSomething: true,
+          go: 'Correct it',
+          follow: 'Ask about a correction',
+          prompt: (text, hasPhoto) =>
+            `${background()}\n\nToday's writing task: ${studyDay().write}\n\n` +
+            (hasPhoto ? 'The photo shows what I wrote.\n\n' : '') +
+            (text ? `My text:\n${text}\n\n` : '') +
+            'Give me: the corrected version; each mistake with its rule in one line of English; ' +
+            `and one tip for sounding more natural at my level. ${MISTAKE_FORMAT}`,
+        },
+        quiz: {
+          tab: 'Quiz me',
+          hint: 'Answer from memory, with the book closed. It asks one question at a time.',
+          range: true,
+          go: 'Start the quiz',
+          follow: 'Your answer',
+          followGo: 'Answer',
+          followLang: 'fr',
+          prompt: () =>
+            `${background()}\n\nQuiz me on these topics only: ${quizTopics()}. ` +
+            'Use only grammar and words from those topics. Ask ONE short question at a time (translate this, fill the gap, or conjugate) and wait for my answer. ' +
+            'After each answer, say right or wrong in one line with the rule, then ask the next question. ' +
+            `After 8 questions give my score. ${MISTAKE_FORMAT} Ask the first question now.`,
+        },
+        exam: {
+          tab: 'Exam practice',
+          from: '2027-02-01',
+          hint: null,
+          taskLabel: 'Your text in French',
+          taskPlaceholder: 'Madame, Monsieur,',
+          taskLang: 'fr',
+          photo: 'Or a photo of what you wrote',
+          needsSomething: true,
+          go: 'Mark it like the exam',
+          follow: 'Ask about the marking',
+          prompt: (text, hasPhoto) =>
+            `${background()}\n\nAct as a TCF Canada writing examiner. The task: ${studyDay().write}\n\n` +
+            (hasPhoto ? 'The photo shows my answer.\n\n' : '') +
+            (text ? `My answer:\n${text}\n\n` : '') +
+            'Give me: an estimated score out of 20 with one line per marking criterion; the two things holding my score back most; ' +
+            `a corrected version; and three more natural ways to say things I wrote. ${MISTAKE_FORMAT}`,
+        },
+      };
+
+      let mode = MODES[location.hash.slice(1)] ? location.hash.slice(1) : 'explain';
+      let sample = null;
+      let canSendPhotos = false;
+      let maxPhotos = 1;
+      let turns = [];
+      let controller = null;
+
+      function esc(s) {
+        return String(s).replace(
+          /[&<>"']/g,
+          (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c],
+        );
+      }
+
+      /** Claude's answer as safe HTML: paragraphs and **bold**. Nothing else is trusted as markup. */
+      function textHtml(text) {
+        return String(text)
+          .split('\n')
+          .filter((line) => line.trim())
+          .map((line) => {
+            const heading = /^#+\s/.test(line);
+            const html = esc(line.replace(/^#+\s*/, '')).replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>');
+            const isMistake = (line.match(/→/g) || []).length >= 2;
+            return `<p${heading || isMistake ? ' class="fix"' : ''}>${html}</p>`;
+          })
+          .join('');
+      }
+
+      function renderDay() {
+        const d = today();
+        const s = studyDay();
+        $('day-title').textContent = longDate(d.date);
+        $('day-sub').textContent = `Day ${index + 1} of ${PLAN.length} · ${STAGES[d.phase]}`;
+        const topics = topicList(s);
+        const sundayNote = d.book ? '' : `<p class="sub">Review day. These are your latest chapters:</p>`;
+        $('topics').innerHTML =
+          sundayNote +
+          `<p><b>${esc(bookName(s))}</b></p>` +
+          topics.map((t) => `<p>${esc(t)}</p>`).join('');
+        $('prev').disabled = index === 0;
+        $('next').disabled = index === PLAN.length - 1;
+        renderMode();
+      }
+
+      function renderMode() {
+        const m = MODES[mode];
+        const visible = Object.entries(MODES).filter(([, x]) => !x.from || today().date >= x.from);
+        if (!visible.some(([k]) => k === mode)) mode = 'explain';
+        $('modes').innerHTML = visible
+          .map(
+            ([k, x]) =>
+              `<button type="button" role="tab" data-mode="${k}" aria-selected="${k === mode}">${esc(x.tab)}</button>`,
+          )
+          .join('');
+        const cur = MODES[mode];
+        $('hint').textContent =
+          cur.hint || `Today's task: ${studyDay().write || 'pick anything you have written this week'}`;
+        $('hint').lang = cur.hint ? 'en' : 'fr';
+        $('task-wrap').hidden = !cur.taskLabel;
+        $('task-label').textContent = cur.taskLabel || '';
+        $('task').placeholder = cur.taskPlaceholder || '';
+        $('task').lang = cur.taskLang || 'en';
+        $('range-wrap').hidden = !cur.range;
+        $('photo-wrap').hidden = !cur.photo || !canSendPhotos;
+        $('photo-label').textContent = cur.photo || '';
+        $('go').textContent = cur.go;
+        $('status').textContent =
+          cur.photoRequired && !canSendPhotos && sample ? "Photos can't be sent from this view." : '';
+        return m;
+      }
+
+      function setBusy(busy) {
+        $('go').disabled = busy;
+        $('follow-go').disabled = busy;
+        $('stop').hidden = !busy;
+      }
+
+      const ERROR_TEXT = {
+        not_granted: 'The tutor needs your permission to use Claude. Reload the page and choose Allow.',
+        sampling_disabled: "Claude isn't available on this account.",
+        rate_limited: "You've hit a usage limit. Try again in a little while.",
+        session_expired: 'Your Claude sign-in has expired. Sign in again, then reload this page.',
+        image_rejected: "That photo couldn't be used. Try a JPEG or PNG, or fewer photos.",
+        images_unavailable: "Photos can't be sent from this view.",
+        refused: "Claude wouldn't answer that. Try asking it differently.",
+        empty_completion: 'No answer came back. Try asking for less at a time.',
+      };
+
+      function renderTurns(partial) {
+        const shown = turns.slice(1);
+        const first = turns[0]?.label ? `<div class="turn-you">${esc(turns[0].label)}</div>` : '';
+        $('turns').innerHTML =
+          first +
+          shown
+            .map((t) =>
+              t.role === 'user'
+                ? `<div class="turn-you" lang="fr">${esc(t.content)}</div>`
+                : `<div class="text">${textHtml(t.content)}</div>`,
+            )
+            .join('') +
+          (partial === undefined ? '' : `<div class="text">${textHtml(partial) || '<p class="note">Thinking…</p>'}</div>`);
+      }
+
+      /** Ask Claude with the whole conversation so far. Only ever called from a tap. */
+      async function ask(images) {
+        controller = new AbortController();
+        setBusy(true);
+        $('status').textContent = '';
+        $('answer').hidden = false;
+        renderTurns('');
+        const options = {
+          cache: false,
+          signal: controller.signal,
+          onText: ({ text }) => renderTurns(text),
+        };
+        if (images?.length) options.images = images;
+        try {
+          const { text, truncated } = await sample(
+            turns.map(({ role, content }) => ({ role, content })),
+            options,
+          );
+          turns.push({ role: 'assistant', content: text });
+          renderTurns();
+          if (truncated) $('status').textContent = 'The answer was cut short. Ask for less at a time.';
+        } catch (e) {
+          if (e?.text) turns.push({ role: 'assistant', content: e.text });
+          renderTurns();
+          if (e?.code !== 'cancelled') {
+            $('status').textContent = ERROR_TEXT[e?.code] || "That didn't go through. Check your connection and try again.";
+          }
+          if (['not_granted', 'sampling_disabled'].includes(e?.code)) {
+            sample = null;
+            $('go').disabled = true;
+          }
+        } finally {
+          setBusy(false);
+          const last = turns[turns.length - 1];
+          const hasAnswer = last?.role === 'assistant';
+          $('follow').hidden = !hasAnswer;
+          $('after').hidden = !hasAnswer;
+          $('copy').hidden = !hasAnswer || !mistakesIn().length;
+          $('copy').textContent = 'Copy my mistakes';
+          $('follow-label').textContent = MODES[mode].follow;
+          $('follow-go').textContent = MODES[mode].followGo || 'Send';
+          $('follow-text').lang = MODES[mode].followLang || 'en';
+        }
+      }
+
+      function mistakesIn() {
+        return turns
+          .filter((t) => t.role === 'assistant')
+          .flatMap((t) => t.content.split('\n'))
+          .map((l) =>
+            l
+              .replace(/^[\s>*\-•\d.)]+/, '')
+              .replace(/\*\*/g, '')
+              .trim(),
+          )
+          .filter((l) => (l.match(/→/g) || []).length >= 2);
+      }
+
+      $('modes').addEventListener('click', (e) => {
+        const b = e.target.closest('[data-mode]');
+        if (!b) return;
+        mode = b.dataset.mode;
+        history.replaceState(null, '', `#${mode}`);
+        $('photo').value = '';
+        renderMode();
+      });
+
+      $('prev').addEventListener('click', () => {
+        index = Math.max(0, index - 1);
+        renderDay();
+      });
+      $('next').addEventListener('click', () => {
+        index = Math.min(PLAN.length - 1, index + 1);
+        renderDay();
+      });
+
+      $('form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (!sample) return;
+        const cur = MODES[mode];
+        const text = $('task').value.trim();
+        const files = canSendPhotos ? [...$('photo').files].slice(0, maxPhotos) : [];
+        if (cur.photoRequired && !files.length) {
+          $('status').textContent = 'Add a photo of your answers first.';
+          return;
+        }
+        if (cur.needsSomething && !text && !files.length) {
+          $('status').textContent = 'Type your text or add a photo first.';
+          return;
+        }
+        turns = [{ role: 'user', content: cur.prompt(text, files.length > 0), label: text || cur.tab }];
+        await ask(files);
+        $('photo').value = '';
+      });
+
+      $('follow').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const text = $('follow-text').value.trim();
+        if (!text || !sample) return;
+        turns.push({ role: 'user', content: text });
+        $('follow-text').value = '';
+        await ask();
+      });
+
+      $('stop').addEventListener('click', () => controller?.abort());
+
+      $('copy').addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(mistakesIn().join('\n'));
+          $('copy').textContent = 'Copied ✓ Paste into New mistake';
+        } catch {
+          $('copy').textContent = 'Blocked here: select the lines and copy by hand';
+        }
+      });
+
+      window.addEventListener('hashchange', () => {
+        const name = location.hash.slice(1);
+        if (MODES[name]) {
+          mode = name;
+          renderMode();
+        }
+      });
+
+      renderDay();
+
+      (async () => {
+        const api = window.claude ? await window.claude.use('sample') : null;
+        if (!api) {
+          $('absent').hidden = false;
+          $('go').disabled = true;
+          return;
+        }
+        sample = api;
+        const limits = await sample.limits().catch(() => null);
+        canSendPhotos = !!limits?.images;
+        if (canSendPhotos) {
+          maxPhotos = limits.images.maxCount;
+          $('photo').accept = limits.images.mediaTypes.join(',');
+        }
+        renderMode();
+      })();
+    </script>
+  </body>
+</html>

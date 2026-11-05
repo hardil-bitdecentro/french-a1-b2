@@ -33,7 +33,7 @@ import { recorderHtml, mountRecorder, speakClick, isBusy } from './speak.js';
 import { photoHtml, photoClick, photoChange } from './photo-view.js';
 import { viewBookWords, viewAudio, viewMaterials, viewMethod } from './pages.js';
 import { idbGet, idbSet } from './db.js';
-import { SYNC_URL } from './config.js';
+import { SYNC_URL, TUTOR_URL } from './config.js';
 import qrcode from './vendor/qrcode.mjs';
 
 const KEY = 'fr-a1-b2:v1';
@@ -232,7 +232,7 @@ function taskRow(iso, t, done, cardStats, next) {
 const COPY_LABELS = {
   write: 'Copy correction prompt',
   speak: 'Copy examiner prompt',
-  explain: 'Stuck? Explain in English',
+  explain: 'Copy explain prompt',
 };
 
 /** The private answers for a task, closed until tapped. Shows only once they've been imported with the deck. */
@@ -252,17 +252,25 @@ function answersBlock(t) {
     </details>`;
 }
 
-function taskActions(t) {
+const tutorLink = (section, label) =>
+  `<a class="act" href="${TUTOR_URL}#${section}" target="_blank" rel="noopener">${label} ↗</a>`;
+
+function taskActions(iso, t) {
   const actions = [];
+  if (t.kind === 'explain') {
+    actions.push(tutorLink('explain', 'Explain in English'));
+    if (t.check) actions.push(tutorLink('mark', 'Mark my work'));
+  }
+  if (t.kind === 'write')
+    actions.push(
+      iso >= '2027-02-01' ? tutorLink('exam', 'Mark it like the exam') : tutorLink('write', 'Correct my writing'),
+    );
   if (t.action) actions.push(`<a class="act" href="${esc(t.action.href)}">${esc(t.action.label)} →</a>`);
   if (t.link) actions.push(`<a class="act" href="${esc(t.link)}" target="_blank" rel="noopener">Open ↗</a>`);
-  if (t.copy)
-    actions.push(
-      `<button class="act" type="button" data-copy="${esc(t.copy)}">${COPY_LABELS[t.kind] || 'Copy prompt'}</button>`,
-    );
-  if (t.check) actions.push(`<button class="act" type="button" data-copy="${esc(t.check)}">Check my answers</button>`);
-  if (t.kind === 'explain' || t.kind === 'write' || t.kind === 'speak')
+  if (t.kind === 'speak') {
+    actions.push(`<button class="act" type="button" data-copy="${esc(t.copy)}">${COPY_LABELS.speak}</button>`);
     actions.push(`<a class="act" href="${LINKS.claude}" target="_blank" rel="noopener">Open Claude ↗</a>`);
+  }
   if (t.addWords)
     actions.push(
       S.setting(state, `wordset:${t.addWords}`, false)
@@ -270,6 +278,22 @@ function taskActions(t) {
         : `<button class="act" type="button" data-add-words="${esc(t.addWords)}">Add ${WORD_SETS[t.addWords].words.length} flashcards</button>`,
     );
   return actions;
+}
+
+/** The older route: a ready-made prompt to paste into Claude, in case the tutor page can't be used. */
+function copyPrompts(t) {
+  if (t.kind !== 'explain' && t.kind !== 'write') return '';
+  const check = t.check
+    ? `<button class="act" type="button" data-copy="${esc(t.check)}">Check my answers</button>`
+    : '';
+  return `<details>
+    <summary>Or copy a prompt for Claude</summary>
+    <div class="acts">
+      <button class="act" type="button" data-copy="${esc(t.copy)}">${COPY_LABELS[t.kind]}</button>
+      ${check}
+      <a class="act" href="${LINKS.claude}" target="_blank" rel="noopener">Open Claude ↗</a>
+    </div>
+  </details>`;
 }
 
 /** Videos for a task, each with its own tick so you can stop halfway and see where you were. */
@@ -304,7 +328,7 @@ function viewTask(iso, id) {
   const running = mine && !!timer.endsAt;
   const { head, tail } = splitTitle(t.title);
   const { intro, steps } = detailParts(taskDetail(t, statsFor(iso)));
-  const actions = taskActions(t);
+  const actions = taskActions(iso, t);
   const startLabel = running
     ? 'Pause'
     : !mine || left === full || left === 0
@@ -329,6 +353,7 @@ function viewTask(iso, id) {
       )
       .join('')}
     ${actions.length ? `<div class="acts">${actions.join('')}</div>` : ''}
+    ${copyPrompts(t)}
     ${answersBlock(t)}
     ${t.id === 'errorlog' ? todaysMistakes(iso) : ''}
     ${t.kind === 'speak' ? `<div style="margin-top:0.9rem">${recorderHtml({ date: iso, title: head.replace(/^Speak:\s*/, '') })}</div>` : ''}
@@ -653,6 +678,7 @@ function viewMore() {
     <section class="card">
       <h2>Study</h2>
       <ul class="links-list">
+        <li><a href="${TUTOR_URL}" target="_blank" rel="noopener">AI tutor ↗ <span>Explains, marks and quizzes, on claude.ai</span></a></li>
         <li><a href="#/recordings">My recordings <span>Your voice, by date</span></a></li>
         <li><a href="#/audio">Book audio <span>28 dialogues, 10 songs</span></a></li>
         <li><a href="#/book-words">French words in the book <span>The ones it uses constantly</span></a></li>

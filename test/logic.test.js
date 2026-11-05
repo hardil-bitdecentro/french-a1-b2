@@ -604,6 +604,29 @@ describe('offline files', () => {
   });
 });
 
+describe('the tutor page', () => {
+  const page = readFileSync(new URL('../tutor/index.html', import.meta.url), 'utf8');
+  const data = JSON.parse(page.match(/<script type="application\/json" id="plan">\s*([\s\S]*?)\s*<\/script>/)[1]);
+
+  it('carries the whole plan, in step with the app', () => {
+    expect(data.map((d) => d.date)).toEqual(plan.days.map((d) => d.date));
+    const day = data.find((d) => d.date === '2026-11-07');
+    expect(day.book).toBe('Déb. 3–4');
+    expect(day.topics[0].ch).toBe(3);
+    expect(data.find((d) => d.date === '2026-11-08').book).toBeUndefined();
+  });
+
+  it('holds no private material: only public plan fields', () => {
+    const fields = new Set(data.flatMap((d) => Object.keys(d)));
+    expect([...fields].sort()).toEqual(['book', 'date', 'pages', 'phase', 'topics', 'write']);
+    expect(page).not.toMatch(/answers"|"ex":|deck\.words/);
+  });
+
+  it('keeps every section the app links to', () => {
+    for (const name of ['explain', 'mark', 'write', 'quiz', 'exam']) expect(page).toContain(`${name}: {`);
+  });
+});
+
 describe('offline photo reader', () => {
   it('saves every engine file the photo page uses', async () => {
     const sw = readFileSync(new URL('../site/sw.js', import.meta.url), 'utf8');
