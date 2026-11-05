@@ -1,6 +1,7 @@
 import {
   PHASE_NAMES,
   LINKS,
+  BOOK_AUDIO,
   WRITING_PROMPT,
   SPEAKING_PROMPT,
   EXPLAIN_PROMPT,
@@ -317,6 +318,31 @@ function viewMistakes() {
     </section>`;
 }
 
+function viewAudio() {
+  const rows = (kind) =>
+    BOOK_AUDIO.filter((a) => a.kind === kind)
+      .map(
+        (a) => `
+        <li>
+          <p class="task-title">${esc(a.title)} <span class="sub">p. ${a.page}</span></p>
+          <audio class="book-audio" controls preload="none" src="${esc(a.url)}" aria-label="${esc(a.title)}, page ${a.page}"></audio>
+        </li>`,
+      )
+      .join('');
+  return `
+    <p class="crumb"><a href="#/materials">← Materials</a></p>
+    <h1>Book audio</h1>
+    <p class="sub">The Débutant book's recordings. Open the page, listen once with the text covered, once following it, then repeat aloud. They play from CLE International's site, so they need internet.</p>
+    <section class="card">
+      <h2>Dialogues</h2>
+      <ul class="plain">${rows('dialogue')}</ul>
+    </section>
+    <section class="card">
+      <h2>Songs: La grammaire en chantant</h2>
+      <ul class="plain">${rows('song')}</ul>
+    </section>`;
+}
+
 function viewMaterials() {
   const isbn = (n) =>
     `<a href="https://www.amazon.fr/s?k=${n}" target="_blank" rel="noopener">Amazon.fr</a> · <a href="https://www.fnac.com/SearchResult/ResultList.aspx?Search=${n}" target="_blank" rel="noopener">Fnac</a>`;
@@ -332,6 +358,7 @@ function viewMaterials() {
         <li><p class="vol-when">Buy late Nov · used 7 Dec – 4 Feb · A2–B1</p><p class="task-title">Niveau intermédiaire, 4e éd. + Corrigés</p><p class="sub">ISBN 9782090381030 · ${isbn('9782090381030')} · Corrigés 9782090381047</p></li>
         <li><p class="vol-when">Buy late Jan · used 5 Feb – 3 Apr · B1–B2</p><p class="task-title">Niveau avancé, 3e éd., 72 chapters + Corrigés</p><p class="sub">ISBN 9782090381979 · ${isbn('9782090381979')}</p></li>
       </ul>
+      <div class="acts"><a class="act" href="#/audio">▶ Débutant audio: 28 dialogues + 10 songs →</a></div>
       <p class="sub">Also at Gibert Joseph, Decitre and Cultura, or borrow them free from your médiathèque. The plan assumes 52 chapters in Intermédiaire; if your copy has a different number, keep about one a day and let the dates slide.</p>
     </section>
 
@@ -540,7 +567,10 @@ function route() {
   else if (name === 'cards') html = renderCards(cardsCtx(), arg === 'add' ? arg2 : null);
   else if (name === 'mistakes') html = viewMistakes();
   else if (name === 'materials') html = viewMaterials();
-  else if (name === 'method') html = viewMethod();
+  else if (name === 'audio') {
+    html = viewAudio();
+    tab = 'materials';
+  } else if (name === 'method') html = viewMethod();
   else {
     html = viewDay(todayISO());
     tab = 'today';
@@ -565,6 +595,8 @@ function flash(sel, text) {
 
 /** Re-render the current view, optionally keeping the scroll position, focusing a field, or showing a message. */
 function rerender({ keepScroll = true, focus, msg } = {}) {
+  // A sync landing in the background must not cut off the recording being played.
+  if ([...document.querySelectorAll('audio')].some((a) => !a.paused)) return;
   const y = window.scrollY;
   const h = location.hash;
   if (h.startsWith('#/cards/add')) history.replaceState(null, '', '#/cards');
@@ -674,6 +706,15 @@ app.addEventListener('change', async (e) => {
     flash('#backup-msg', 'That file is not a backup from this plan.');
   }
 });
+
+// Only one recording plays at a time. "play" doesn't bubble, so listen in the capture phase.
+document.addEventListener(
+  'play',
+  (e) => {
+    for (const a of document.querySelectorAll('audio')) if (a !== e.target) a.pause();
+  },
+  true,
+);
 
 document.addEventListener('keydown', (e) => {
   if (location.hash.startsWith('#/cards')) cardsKey(e, cardsCtx());

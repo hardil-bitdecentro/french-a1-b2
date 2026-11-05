@@ -70,6 +70,45 @@ export const LINKS = {
   claude: 'https://claude.ai',
 };
 
+const AUDIO_BASE = 'https://progressive.cle-international.com/9782090398502/assets';
+const DIALOGUE_PAGES = [
+  158, 158, 158, 158, 159, 159, 159, 160, 161, 161, 162, 162, 162, 163, 163, 164, 165, 165, 165, 166, 166, 167, 167,
+  168, 168, 169, 169, 169,
+];
+const SONGS = [
+  ['Je parle français', 170, 'je-parle-francais'],
+  ["C'est dur", 170, 'cest-dur'],
+  ['Oui et non', 170, 'oui-et-non'],
+  ['Quand tu pleures', 171, 'quand-tu-pleures'],
+  ['Ah, quelle journée !', 171, 'ah-quelle-journee'],
+  ["C'est ma vie", 171, 'cest-ma-vie'],
+  ["Ça, c'est la question", 172, 'ca-cest-la-question'],
+  ['Votez pour moi', 172, 'votez-pour-moi'],
+  ['Bonnes résolutions', 172, 'bonnes-resolutions'],
+  ['Ma langue', 172, 'ma-langue'],
+];
+
+/**
+ * The Débutant book's free recordings. They play from the publisher's own site, because this repo and
+ * site are public: the audio itself must never be committed here.
+ */
+export const BOOK_AUDIO = [
+  ...DIALOGUE_PAGES.map((page, i) => ({
+    n: i + 1,
+    kind: 'dialogue',
+    title: `Dialogue ${i + 1}`,
+    page,
+    url: `${AUDIO_BASE}/audio-${i + 1}-dialogue-${i + 1}-p-${page}-1/download`,
+  })),
+  ...SONGS.map(([title, page, slug], i) => ({
+    n: i + 29,
+    kind: 'song',
+    title,
+    page,
+    url: `${AUDIO_BASE}/audio-${i + 29}-chanson-${slug}-p-${page}-1/download`,
+  })),
+];
+
 export const WRITING_PROMPT = (topic) =>
   `Corrige ce texte (niveau visé : B2, TCF Canada). Sujet : ${topic}\n` +
   `Donne-moi : 1) la version corrigée, 2) chaque erreur avec la règle expliquée en anglais, ` +

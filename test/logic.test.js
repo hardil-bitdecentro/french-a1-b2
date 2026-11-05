@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import {
   MINUTES,
   EXPLAIN_PROMPT,
+  BOOK_AUDIO,
   hms,
   vincentLinks,
   localISO,
@@ -264,6 +265,25 @@ describe('Débutant book (from its contents pages)', () => {
     for (const d of before('2026-12-04')) expect(`${d.write} ${d.speak}`).not.toMatch(/j'en |avec en/i);
     expect(deb[3].write).toContain('je me lève'); // reflexive verbs, ch. 9
     expect(deb.at(-1).speak).toContain('BILAN');
+  });
+});
+
+describe('book audio', () => {
+  it('lists the 28 dialogues and 10 songs in the book, in page order', () => {
+    expect(BOOK_AUDIO.map((a) => a.n)).toEqual(Array.from({ length: 38 }, (_, i) => i + 1));
+    expect(BOOK_AUDIO.filter((a) => a.kind === 'dialogue')).toHaveLength(28);
+    expect(BOOK_AUDIO.filter((a) => a.kind === 'song')).toHaveLength(10);
+    for (let i = 1; i < 38; i++) expect(BOOK_AUDIO[i].page).toBeGreaterThanOrEqual(BOOK_AUDIO[i - 1].page);
+    expect(BOOK_AUDIO[0].page).toBe(158);
+    expect(BOOK_AUDIO.at(-1).page).toBe(172);
+  });
+
+  it('plays only from the publisher, one distinct address per recording', () => {
+    for (const a of BOOK_AUDIO)
+      expect(a.url).toMatch(/^https:\/\/progressive\.cle-international\.com\/9782090398502\//);
+    expect(new Set(BOOK_AUDIO.map((a) => a.url)).size).toBe(38);
+    expect(BOOK_AUDIO[0].url).toContain('/assets/audio-1-dialogue-1-p-158-1/download');
+    expect(BOOK_AUDIO[29].url).toContain('/assets/audio-30-chanson-cest-dur-p-170-1/download');
   });
 });
 
