@@ -19,49 +19,56 @@
      "id": "keBSvVsEibI",
      "from": 0,
      "to": 969,
-     "topic": "Vowels, Consonants, Accents, Special characters"
+     "topic": "Vowels, Consonants, Accents, Special characters",
+     "first": true
     },
     {
      "video": 1,
      "id": "keBSvVsEibI",
      "from": 2205,
      "to": 2809,
-     "topic": "s'appeler, Introducing yourself"
+     "topic": "s'appeler, Introducing yourself",
+     "first": true
     },
     {
      "video": 1,
      "id": "keBSvVsEibI",
      "from": 4288,
      "to": 4653,
-     "topic": "Jobs: masculine and feminine"
+     "topic": "Jobs: masculine and feminine",
+     "first": true
     },
     {
      "video": 1,
      "id": "keBSvVsEibI",
      "from": 8887,
      "to": 9206,
-     "topic": "Asking someone's name"
+     "topic": "Asking someone's name",
+     "first": true
     },
     {
      "video": 1,
      "id": "keBSvVsEibI",
      "from": 11371,
      "to": 11852,
-     "topic": "Nationalities"
+     "topic": "Nationalities",
+     "first": true
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 4558,
      "to": 5274,
-     "topic": "Jobs"
+     "topic": "Jobs",
+     "first": false
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 11089,
      "to": 11327,
-     "topic": "Colours"
+     "topic": "Colours",
+     "first": false
     }
    ],
    "yt_rest": 0,
@@ -74,11 +81,13 @@
    "book_topics": [
     {
      "ch": 1,
-     "topic": "introducing yourself: nationality, job"
+     "topic": "introducing yourself: nationality, job",
+     "note": "Say who you are with je suis + name, nationality or job: je suis Anna, je suis anglais. No word for 'a' before a job: je suis professeur. Vous êtes… ? is the polite 'are you…?'."
     },
     {
      "ch": 2,
-     "topic": "describing: masculine and feminine adjectives"
+     "topic": "describing: masculine and feminine adjectives",
+     "note": "Adjectives agree with the person. Feminine usually adds -e, and you then hear the last consonant: grand, grande. Words already ending in -e don't change: jeune. Patterns to spot: -en → -enne, -er → -ère, -eux → -euse, -if → -ive. Il = he, elle = she."
     }
    ],
    "write": "Remplis une fiche : nom, prénom, nationalité, profession, ville. Puis écris 4 phrases : je suis…, il est…, elle est… (Fill in a form, then describe someone)",
@@ -103,28 +112,32 @@
      "id": "keBSvVsEibI",
      "from": 4653,
      "to": 4980,
-     "topic": "Vowel combinations (extra)"
+     "topic": "Vowel combinations (extra)",
+     "first": false
     },
     {
      "video": 5,
      "id": "b1sXCZDuxSY",
      "from": 5260,
      "to": 5838,
-     "topic": "Silent e (extra)"
+     "topic": "Silent e (extra)",
+     "first": false
     },
     {
      "video": 1,
      "id": "keBSvVsEibI",
      "from": 969,
      "to": 1530,
-     "topic": "être"
+     "topic": "être",
+     "first": true
     },
     {
      "video": 1,
      "id": "keBSvVsEibI",
      "from": 12713,
      "to": 13042,
-     "topic": "tu or vous"
+     "topic": "tu or vous",
+     "first": true
     }
    ],
    "yt_rest": 30,
@@ -137,11 +150,13 @@
    "book_topics": [
     {
      "ch": 3,
-     "topic": "describing: plural adjectives"
+     "topic": "describing: plural adjectives",
+     "note": "Plural adds an -s you don't hear: grand, grands; grande, grandes. Words ending in -s or -x don't change. Ils = they (male or mixed group), elles = they (all female). A mixed group takes the masculine."
     },
     {
      "ch": 4,
-     "topic": "être; tu or vous; nous or on"
+     "topic": "être; tu or vous; nous or on",
+     "note": "être: je suis, tu es, il/elle/on est, nous sommes, vous êtes, ils/elles sont. Tu is for friends, family and children; vous for strangers, work, or several people. On is everyday French for 'we', and takes the il form: on est."
     }
    ],
    "write": "8 phrases avec être : je suis, tu es, nous sommes, ils sont + adjectif au pluriel. (8 sentences with être)",
@@ -191,21 +206,24 @@
      "id": "keBSvVsEibI",
      "from": 6910,
      "to": 7183,
-     "topic": "ne… pas"
+     "topic": "ne… pas",
+     "first": true
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 26438,
      "to": 26991,
-     "topic": "Liaison: required (extra)"
+     "topic": "Liaison: required (extra)",
+     "first": false
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 7402,
      "to": 8112,
-     "topic": "Useful verbs (1) (extra), Useful verbs (2) (extra)"
+     "topic": "Useful verbs (1) (extra), Useful verbs (2) (extra)",
+     "first": false
     }
    ],
    "yt_rest": 29,
@@ -224,11 +242,13 @@
    "book_topics": [
     {
      "ch": 5,
-     "topic": "yes/no questions; ne… pas"
+     "topic": "yes/no questions; ne… pas",
+     "note": "Yes/no questions: raise your voice (Vous êtes français ?) or start with Est-ce que. The negative wraps the verb: je ne suis pas. Ne becomes n' before a vowel: il n'est pas."
     },
     {
      "ch": 6,
-     "topic": "-er verbs; aimer"
+     "topic": "-er verbs; aimer",
+     "note": "Most verbs end in -er. With je the ending is a silent -e (je parle); with vous it's -ez (vous parlez). Aimer takes a noun with le, la, les (j'aime le café) or a second verb (j'aime danser)."
     }
    ],
    "write": "Tes goûts : j'aime…, je n'aime pas…, est-ce que tu aimes… ? (Likes and dislikes, with questions)",
@@ -254,21 +274,24 @@
      "id": "keBSvVsEibI",
      "from": 7417,
      "to": 7758,
-     "topic": "Regular -er verbs"
+     "topic": "Regular -er verbs",
+     "first": true
     },
     {
      "video": 5,
      "id": "b1sXCZDuxSY",
      "from": 9341,
      "to": 11742,
-     "topic": "-er verbs: spelling changes"
+     "topic": "-er verbs: spelling changes",
+     "first": true
     },
     {
      "video": 1,
      "id": "keBSvVsEibI",
      "from": 14602,
      "to": 15015,
-     "topic": "Reflexive verbs"
+     "topic": "Reflexive verbs",
+     "first": true
     }
    ],
    "yt_rest": 0,
@@ -287,15 +310,18 @@
    "book_topics": [
     {
      "ch": 7,
-     "topic": "-er verbs: the full present"
+     "topic": "-er verbs: the full present",
+     "note": "The full present: je parle, tu parles, il parle, nous parlons, vous parlez, ils parlent. The -e, -es, -e and -ent endings are silent, so four forms sound the same. Je becomes j' before a vowel: j'aime."
     },
     {
      "ch": 8,
-     "topic": "-er verbs: spelling changes"
+     "topic": "-er verbs: spelling changes",
+     "note": "Some -er verbs change spelling to keep their sound: j'achète but nous achetons; je préfère but vous préférez; j'appelle; nous mangeons; nous commençons; je paie."
     },
     {
      "ch": 9,
-     "topic": "reflexive -er verbs"
+     "topic": "reflexive -er verbs",
+     "note": "Reflexive verbs carry a little pronoun: je me lave, tu te laves, il se lave, nous nous lavons, vous vous lavez, ils se lavent. English often drops it: je me lève = I get up. Me, te, se become m', t', s' before a vowel."
     }
    ],
    "write": "Ta journée typique : je me lève, je me lave, je travaille, je mange… (Your typical day)",
@@ -321,28 +347,32 @@
      "id": "QzY_nYZ0RSQ",
      "from": 439,
      "to": 775,
-     "topic": "Noun gender"
+     "topic": "Noun gender",
+     "first": true
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 26991,
      "to": 27733,
-     "topic": "Liaison: forbidden (extra)"
+     "topic": "Liaison: forbidden (extra)",
+     "first": false
     },
     {
      "video": 1,
      "id": "keBSvVsEibI",
      "from": 9746,
      "to": 10386,
-     "topic": "Plurals"
+     "topic": "Plurals",
+     "first": true
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 27733,
      "to": 28105,
-     "topic": "Liaison: optional (extra)"
+     "topic": "Liaison: optional (extra)",
+     "first": false
     }
    ],
    "yt_rest": 25,
@@ -355,11 +385,13 @@
    "book_topics": [
     {
      "ch": 10,
-     "topic": "nouns: gender and articles"
+     "topic": "nouns: gender and articles",
+     "note": "Every noun is masculine or feminine, so learn it with its article: un homme, une femme. People often add -e: un ami, une amie. Clues: -tion is usually feminine; -age and -ment are usually masculine."
     },
     {
      "ch": 11,
-     "topic": "nouns: plural"
+     "topic": "nouns: plural",
+     "note": "Plural adds an -s you don't hear: un arbre, des arbres, so listen to the article instead. Nouns ending in -s, -x or -z don't change. -eau → -eaux; -al → -aux (un journal, des journaux)."
     }
    ],
    "write": "Dans ta chambre : 12 objets avec un, une, des. Attention au genre ! (12 things in your room)",
@@ -385,21 +417,24 @@
      "id": "keBSvVsEibI",
      "from": 2809,
      "to": 3351,
-     "topic": "le, la, les, un, une, des"
+     "topic": "le, la, les, un, une, des",
+     "first": true
     },
     {
      "video": 4,
      "id": "ppYImLa36ug",
      "from": 11707,
      "to": 12600,
-     "topic": "Words that match English (extra)"
+     "topic": "Words that match English (extra)",
+     "first": false
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 21656,
      "to": 22342,
-     "topic": "à and de with articles"
+     "topic": "à and de with articles",
+     "first": true
     }
    ],
    "yt_rest": 25,
@@ -412,11 +447,13 @@
    "book_topics": [
     {
      "ch": 12,
-     "topic": "un, une, des; le, la, les"
+     "topic": "un, une, des; le, la, les",
+     "note": "Un, une, des = a, some: one of many, or first mention. Le, la, les = the: something specific, or a thing in general. L' before a vowel. French keeps the article where English drops it: j'aime le café."
     },
     {
      "ch": 13,
-     "topic": "au, à la, aux; du, de la, des"
+     "topic": "au, à la, aux; du, de la, des",
+     "note": "À and de merge with le and les: à + le = au, à + les = aux, de + le = du, de + les = des. À la, à l', de la and de l' don't change: je vais au cinéma, à la gare."
     }
    ],
    "write": "Carte postale de ta ville : je visite le…, je suis au…, à la…, je parle du…, de la… Bises ! (A postcard from your town)",
@@ -442,42 +479,48 @@
      "id": "keBSvVsEibI",
      "from": 5380,
      "to": 5908,
-     "topic": "mon, ma, mes"
+     "topic": "mon, ma, mes",
+     "first": true
     },
     {
      "video": 1,
      "id": "keBSvVsEibI",
      "from": 8220,
      "to": 8582,
-     "topic": "Family words"
+     "topic": "Family words",
+     "first": false
     },
     {
      "video": 1,
      "id": "keBSvVsEibI",
      "from": 9206,
      "to": 9469,
-     "topic": "Marital status"
+     "topic": "Marital status",
+     "first": false
     },
     {
      "video": 1,
      "id": "keBSvVsEibI",
      "from": 7183,
      "to": 7417,
-     "topic": "ce, cette, ces"
+     "topic": "ce, cette, ces",
+     "first": true
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 11665,
      "to": 11989,
-     "topic": "ce, cet, cette, ces in depth"
+     "topic": "ce, cet, cette, ces in depth",
+     "first": true
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 7004,
      "to": 7997,
-     "topic": "Adjectives: where they go"
+     "topic": "Adjectives: where they go",
+     "first": true
     }
    ],
    "yt_rest": 15,
@@ -490,15 +533,18 @@
    "book_topics": [
     {
      "ch": 14,
-     "topic": "mon, ton, son"
+     "topic": "mon, ton, son",
+     "note": "Possessives agree with the thing owned, not the owner: mon père, ma mère, mes parents; ton, ta, tes; son, sa, ses (son père = his or her father); notre, nos; votre, vos; leur, leurs. Before a vowel, ma becomes mon: mon amie."
     },
     {
      "ch": 15,
-     "topic": "ce, cette, ces"
+     "topic": "ce, cette, ces",
+     "note": "This, that, these, those: ce chat, cet arbre (masculine before a vowel), cette voiture, ces arbres. It also works with time: ce soir = this evening."
     },
     {
      "ch": 16,
-     "topic": "avoir + noun; where adjectives go"
+     "topic": "avoir + noun; where adjectives go",
+     "note": "Avoir + noun says what you have: j'ai une voiture. Most adjectives go after the noun: une voiture rouge. Short common ones go before: belle, grand, petit, bon, jeune, vieux: une belle voiture."
     }
    ],
    "write": "Décris une photo de famille : mon, ma, mes, ce, cette ; j'ai un frère… (A family photo)",
@@ -525,35 +571,40 @@
      "id": "QzY_nYZ0RSQ",
      "from": 9948,
      "to": 10247,
-     "topic": "The face"
+     "topic": "The face",
+     "first": true
     },
     {
      "video": 4,
      "id": "ppYImLa36ug",
      "from": 12600,
      "to": 14004,
-     "topic": "Words that match English (extra)"
+     "topic": "Words that match English (extra)",
+     "first": false
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 9614,
      "to": 9948,
-     "topic": "The body"
+     "topic": "The body",
+     "first": true
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 6982,
      "to": 7402,
-     "topic": "Beauty and hygiene (extra)"
+     "topic": "Beauty and hygiene (extra)",
+     "first": false
     },
     {
      "video": 4,
      "id": "ppYImLa36ug",
      "from": 14004,
      "to": 14399,
-     "topic": "The body: the mouth"
+     "topic": "The body: the mouth",
+     "first": false
     }
    ],
    "yt_rest": 12,
@@ -566,11 +617,13 @@
    "book_topics": [
     {
      "ch": 17,
-     "topic": "looks and age"
+     "topic": "looks and age",
+     "note": "French uses avoir for looks and age: il a les yeux noirs. Age is always avoir: mon fils a trois ans means 'my son is three'."
     },
     {
      "ch": 18,
-     "topic": "aches, hunger, cold"
+     "topic": "aches, hunger, cold",
+     "note": "Avoir mal à + body part: j'ai mal à la tête, au dos, aux dents. Feelings use 'have', where English uses 'be': j'ai faim, soif, froid, chaud, peur, sommeil."
     }
    ],
    "write": "Décris un ami : il a les yeux…, il a … ans. Puis : j'ai mal à…, j'ai faim, j'ai froid. (A friend, and how you feel)",
@@ -596,6 +649,12 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": true,
+   "sunday_answer_pages": {
+    "1": [
+     28,
+     29
+    ]
+   },
    "sunday_items": [
     "Flashcard reviews (15 min)",
     "Week re-test (60 min): Bilan 1 (p. 28–29): recap exercises and test, no notes, then check the Corrigés. With time left, 1 exercise from each of Déb. 5–18",
@@ -620,14 +679,16 @@
      "id": "keBSvVsEibI",
      "from": 1530,
      "to": 1841,
-     "topic": "avoir"
+     "topic": "avoir",
+     "first": true
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 17753,
      "to": 18359,
-     "topic": "Articles after a negative"
+     "topic": "Articles after a negative",
+     "first": true
     }
    ],
    "yt_rest": 20,
@@ -650,11 +711,13 @@
    "book_topics": [
     {
      "ch": 19,
-     "topic": "avoir: the full present"
+     "topic": "avoir: the full present",
+     "note": "avoir: j'ai, tu as, il/elle/on a, nous avons, vous avez, ils/elles ont. Questions and negatives work as with être: Est-ce que vous avez… ? Je n'ai pas… Hear the difference: ils ont (z sound), ils sont (s sound)."
     },
     {
      "ch": 20,
-     "topic": "pas le, pas la; pas de"
+     "topic": "pas le, pas la; pas de",
+     "note": "After a negative, un, une and des become de: j'ai une voiture → je n'ai pas de voiture. Le, la, les don't change: je n'aime pas le café."
     }
    ],
    "write": "Ce que tu as et ce que tu n'as pas : j'ai…, je n'ai pas de… (What you have and don't have)",
@@ -680,42 +743,48 @@
      "id": "12YUmS3rNr8",
      "from": 22342,
      "to": 23928,
-     "topic": "The preposition à, The preposition de"
+     "topic": "The preposition à, The preposition de",
+     "first": true
     },
     {
      "video": 1,
      "id": "keBSvVsEibI",
      "from": 10926,
      "to": 11371,
-     "topic": "Countries: Europe"
+     "topic": "Countries: Europe",
+     "first": false
     },
     {
      "video": 1,
      "id": "keBSvVsEibI",
      "from": 11852,
      "to": 12160,
-     "topic": "Countries: the Americas"
+     "topic": "Countries: the Americas",
+     "first": false
     },
     {
      "video": 1,
      "id": "keBSvVsEibI",
      "from": 14197,
      "to": 14602,
-     "topic": "Countries: Middle East, Countries: Far East"
+     "topic": "Countries: Middle East, Countries: Far East",
+     "first": false
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 23928,
      "to": 24380,
-     "topic": "The preposition en"
+     "topic": "The preposition en",
+     "first": true
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 1304,
      "to": 1859,
-     "topic": "Where is it? sur, sous, dans, Here, there, over there"
+     "topic": "Where is it? sur, sous, dans, Here, there, over there",
+     "first": true
     }
    ],
    "yt_rest": 0,
@@ -728,15 +797,18 @@
    "book_topics": [
     {
      "ch": 21,
-     "topic": "place: à, de, chez, près de, loin de"
+     "topic": "place: à, de, chez, près de, loin de",
+     "note": "À = at or in a city; de = from: je suis de Delhi, je suis à Paris. Chez + person = at someone's place: chez Paul, chez moi. Près de = near, loin de = far from."
     },
     {
      "ch": 22,
-     "topic": "cities and countries: à, au, en"
+     "topic": "cities and countries: à, au, en",
+     "note": "Cities take à: à Paris. Feminine countries (most ending in -e) take en: en France. Masculine ones take au: au Japon. Plural ones take aux: aux États-Unis."
     },
     {
      "ch": 23,
-     "topic": "dans, sur, sous, devant, derrière"
+     "topic": "dans, sur, sous, devant, derrière",
+     "note": "Dans = in, sur = on, sous = under, devant = in front of, derrière = behind. They work like English, with an article after them: sur la table."
     }
    ],
    "write": "Je suis de…, j'habite à…, en…, au… Puis décris ta chambre : sur, sous, dans, devant. (Cities, countries, where things are)",
@@ -762,35 +834,40 @@
      "id": "QzY_nYZ0RSQ",
      "from": 4076,
      "to": 4378,
-     "topic": "il y a"
+     "topic": "il y a",
+     "first": true
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 6815,
      "to": 7004,
-     "topic": "The house"
+     "topic": "The house",
+     "first": false
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 12594,
      "to": 12984,
-     "topic": "The living room, The kitchen"
+     "topic": "The living room, The kitchen",
+     "first": false
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 1146,
      "to": 1883,
-     "topic": "In town, In the house"
+     "topic": "In town, In the house",
+     "first": false
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 11466,
      "to": 11801,
-     "topic": "Geography words"
+     "topic": "Geography words",
+     "first": false
     }
    ],
    "yt_rest": 12,
@@ -811,11 +888,13 @@
    "book_topics": [
     {
      "ch": 24,
-     "topic": "il y a; il n'y a pas de"
+     "topic": "il y a; il n'y a pas de",
+     "note": "Il y a = there is and there are, always the same form. Qu'est-ce qu'il y a ? = what is there? Negative: il n'y a pas de… (des becomes de after pas)."
     },
     {
      "ch": 25,
-     "topic": "qui est-ce, qu'est-ce que c'est; ce n'est pas"
+     "topic": "qui est-ce, qu'est-ce que c'est; ce n'est pas",
+     "note": "For people: Qui est-ce ? C'est Paul. For things: Qu'est-ce que c'est ? C'est un livre. Plural: ce sont. Here un stays after the negative: ce n'est pas un chat. (Compare chapter 20.)"
     }
    ],
    "write": "Qu'est-ce qu'il y a dans ta ville ? Il y a…, il n'y a pas de… (What your town has and doesn't)",
@@ -841,14 +920,16 @@
      "id": "12YUmS3rNr8",
      "from": 18359,
      "to": 19348,
-     "topic": "108 adjectives (extra)"
+     "topic": "108 adjectives (extra)",
+     "first": false
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 12202,
      "to": 12594,
-     "topic": "c'est + adjective"
+     "topic": "c'est + adjective",
+     "first": true
     }
    ],
    "yt_rest": 32,
@@ -867,11 +948,13 @@
    "book_topics": [
     {
      "ch": 26,
-     "topic": "c'est or il est"
+     "topic": "c'est or il est",
+     "note": "C'est + article + noun: c'est un acteur. Il est + adjective: il est grand. It's the same for things. Jobs work both ways: il est médecin, but c'est un médecin."
     },
     {
      "ch": 27,
-     "topic": "c'est + adjective: general comments"
+     "topic": "c'est + adjective: general comments",
+     "note": "C'est + masculine adjective makes a general comment, even about a feminine or plural thing: la France, c'est beau; les voyages, c'est cher."
     }
    ],
    "write": "Ton avis sur 6 choses à Paris : c'est beau, c'est cher… ; c'est un musée, il est grand. (Your opinions)",
@@ -897,49 +980,56 @@
      "id": "keBSvVsEibI",
      "from": 3669,
      "to": 4288,
-     "topic": "Days and months"
+     "topic": "Days and months",
+     "first": true
     },
     {
      "video": 1,
      "id": "keBSvVsEibI",
      "from": 4980,
      "to": 5380,
-     "topic": "Numbers 0–9, Numbers 10–20"
+     "topic": "Numbers 0–9, Numbers 10–20",
+     "first": true
     },
     {
      "video": 1,
      "id": "keBSvVsEibI",
      "from": 7758,
      "to": 8032,
-     "topic": "Numbers 20–50"
+     "topic": "Numbers 20–50",
+     "first": true
     },
     {
      "video": 1,
      "id": "keBSvVsEibI",
      "from": 13250,
      "to": 13924,
-     "topic": "Numbers 50–75, Numbers 75–100"
+     "topic": "Numbers 50–75, Numbers 75–100",
+     "first": true
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 2081,
      "to": 2275,
-     "topic": "First, second, third"
+     "topic": "First, second, third",
+     "first": true
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 3424,
      "to": 3636,
-     "topic": "Ordinal numbers"
+     "topic": "Ordinal numbers",
+     "first": true
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 6345,
      "to": 6815,
-     "topic": "Telling the time"
+     "topic": "Telling the time",
+     "first": true
     }
    ],
    "yt_rest": 0,
@@ -959,11 +1049,13 @@
    "book_topics": [
     {
      "ch": 28,
-     "topic": "numbers, dates, days"
+     "topic": "numbers, dates, days",
+     "note": "Watch 70 = soixante-dix, 80 = quatre-vingts, 90 = quatre-vingt-dix. Ordinals: premier, première, deuxième, troisième. Dates: le 3 mai, but le premier mai. Lundi = this Monday; le lundi = every Monday."
     },
     {
      "ch": 29,
-     "topic": "telling the time"
+     "topic": "telling the time",
+     "note": "Il est + heures: il est cinq heures. Et quart = quarter past, et demie = half past, moins le quart = quarter to. Midi = noon, minuit = midnight. À 8 heures = at 8 o'clock."
     }
    ],
    "write": "2 messages à un ami : rendez-vous samedi 14 novembre à 19 heures, devant la gare. Puis ton emploi du temps de lundi. (Arrange a meeting; your timetable)",
@@ -989,49 +1081,64 @@
      "id": "QzY_nYZ0RSQ",
      "from": 11327,
      "to": 11665,
-     "topic": "Impersonal il"
+     "topic": "Impersonal il",
+     "first": true
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 11801,
+     "to": 12009,
+     "topic": "Weather",
+     "first": true
+    },
+    {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 12009,
      "to": 12126,
-     "topic": "Weather, Climates"
+     "topic": "Climates",
+     "first": false
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 775,
      "to": 1119,
-     "topic": "du, de la, des"
+     "topic": "du, de la, des",
+     "first": true
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 12984,
      "to": 13372,
-     "topic": "Fruit and vegetables"
+     "topic": "Fruit and vegetables",
+     "first": false
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 5274,
      "to": 5728,
-     "topic": "Cooking, Courses of a meal"
+     "topic": "Cooking, Courses of a meal",
+     "first": false
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 8112,
      "to": 8471,
-     "topic": "At the café, At the restaurant"
+     "topic": "At the café, At the restaurant",
+     "first": false
     },
     {
      "video": 5,
      "id": "b1sXCZDuxSY",
      "from": 2686,
      "to": 4149,
-     "topic": "Food words"
+     "topic": "Food words",
+     "first": false
     }
    ],
    "yt_rest": 0,
@@ -1044,11 +1151,13 @@
    "book_topics": [
     {
      "ch": 30,
-     "topic": "weather, months, seasons"
+     "topic": "weather, months, seasons",
+     "note": "Weather uses il fait: il fait froid, il fait beau. Also il pleut, il neige. Months and seasons take en: en janvier, en été, en hiver. The exception: au printemps."
     },
     {
      "ch": 31,
-     "topic": "du, de la, des: some"
+     "topic": "du, de la, des: some",
+     "note": "Du, de la, de l', des = 'some', for amounts you don't count: je mange du pain, de la salade, des fruits. English can drop 'some'; French can't. After aimer, use le, la, les instead: j'aime le pain."
     }
    ],
    "write": "Le temps et les repas : en hiver, il fait froid… ; je mange du…, de la…, des… (Weather and food)",
@@ -1074,6 +1183,14 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": true,
+   "sunday_answer_pages": {
+    "1": [
+     54,
+     55,
+     70,
+     71
+    ]
+   },
    "sunday_items": [
     "Flashcard reviews (15 min)",
     "Week re-test (60 min): Bilan 2 (p. 54–55) + Bilan 3 (p. 70–71): recap exercises and test, no notes, then check the Corrigés. With time left, 1 exercise from each of Déb. 19–31",
@@ -1098,35 +1215,40 @@
      "id": "QzY_nYZ0RSQ",
      "from": 9315,
      "to": 9427,
-     "topic": "Metres, litres, kilos"
+     "topic": "Metres, litres, kilos",
+     "first": false
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 10507,
      "to": 11089,
-     "topic": "Expressing quantity"
+     "topic": "Expressing quantity",
+     "first": true
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 8471,
      "to": 8733,
-     "topic": "Fish, Grains"
+     "topic": "Fish, Grains",
+     "first": false
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 13372,
      "to": 13933,
-     "topic": "Comparatives"
+     "topic": "Comparatives",
+     "first": true
     },
     {
      "video": 4,
      "id": "ppYImLa36ug",
      "from": 4775,
      "to": 5449,
-     "topic": "Superlative, Superlative with a noun"
+     "topic": "Superlative, Superlative with a noun",
+     "first": true
     }
    ],
    "yt_rest": 8,
@@ -1147,15 +1269,18 @@
    "book_topics": [
     {
      "ch": 32,
-     "topic": "amounts: un kilo de, beaucoup de, pas de"
+     "topic": "amounts: un kilo de, beaucoup de, pas de",
+     "note": "After an amount, use de with no article: un kilo de tomates, un litre de lait, beaucoup de sucre, un peu de sel. Pas de works the same way."
     },
     {
      "ch": 33,
-     "topic": "comparing: plus, moins, aussi"
+     "topic": "comparing: plus, moins, aussi",
+     "note": "Plus, moins or aussi + adjective + que: plus grand que, moins cher que, aussi beau que. Two irregular ones: bon → meilleur, bien → mieux."
     },
     {
      "ch": 34,
-     "topic": "comparing amounts; superlatives"
+     "topic": "comparing amounts; superlatives",
+     "note": "For amounts: plus de, moins de, autant de + noun: plus de livres que… The superlative adds le, la, les: le plus grand, la moins chère, le meilleur."
     }
    ],
    "write": "Compare deux villes : plus… que, moins… que, autant de… (Compare two cities)",
@@ -1181,21 +1306,24 @@
      "id": "keBSvVsEibI",
      "from": 9469,
      "to": 9746,
-     "topic": "Regular -ir verbs"
+     "topic": "Regular -ir verbs",
+     "first": true
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 20336,
      "to": 21656,
-     "topic": "120 adjectives (extra)"
+     "topic": "120 adjectives (extra)",
+     "first": false
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 2275,
      "to": 2422,
-     "topic": "partir"
+     "topic": "partir",
+     "first": true
     }
    ],
    "yt_rest": 21,
@@ -1215,11 +1343,13 @@
    "book_topics": [
     {
      "ch": 35,
-     "topic": "-ir verbs like finir"
+     "topic": "-ir verbs like finir",
+     "note": "Finir type: je finis, tu finis, il finit, nous finissons, vous finissez, ils finissent. The singular endings sound the same; the plural adds -iss-."
     },
     {
      "ch": 36,
-     "topic": "-ir verbs like partir"
+     "topic": "-ir verbs like partir",
+     "note": "Partir type: je pars, tu pars, il part, nous partons, vous partez, ils partent. The singular drops the consonant before the ending. The same goes for dormir (je dors) and sortir (je sors)."
     }
    ],
    "write": "Tes matins : je pars à…, je sors…, je finis…, je choisis… (Your mornings)",
@@ -1245,35 +1375,40 @@
      "id": "keBSvVsEibI",
      "from": 12160,
      "to": 12713,
-     "topic": "attendre, répondre"
+     "topic": "attendre, répondre",
+     "first": true
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 19348,
      "to": 20336,
-     "topic": "100 adjectives (extra)"
+     "topic": "100 adjectives (extra)",
+     "first": false
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 3935,
      "to": 4076,
-     "topic": "savoir"
+     "topic": "savoir",
+     "first": true
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 1883,
      "to": 2399,
-     "topic": "savoir or connaître"
+     "topic": "savoir or connaître",
+     "first": true
     },
     {
      "video": 1,
      "id": "keBSvVsEibI",
      "from": 8032,
      "to": 8220,
-     "topic": "venir"
+     "topic": "venir",
+     "first": true
     }
    ],
    "yt_rest": 10,
@@ -1293,15 +1428,18 @@
    "book_topics": [
     {
      "ch": 37,
-     "topic": "-re verbs like écrire"
+     "topic": "-re verbs like écrire",
+     "note": "Two stems: j'écris, tu écris, il écrit, but nous écrivons, vous écrivez, ils écrivent. Lire works the same way (je lis, nous lisons). Learn the nous form with the verb."
     },
     {
      "ch": 38,
-     "topic": "savoir, connaître, croire, voir"
+     "topic": "savoir, connaître, croire, voir",
+     "note": "Savoir = know a fact or how to do something: je sais nager. Connaître = know a person or place: je connais Paris. Je sais, nous savons; je connais, nous connaissons; je crois, nous croyons; je vois, nous voyons."
     },
     {
      "ch": 39,
-     "topic": "three-form verbs like boire"
+     "topic": "three-form verbs like boire",
+     "note": "Three stems: je bois, nous buvons, ils boivent. The same pattern: je viens, nous venons, ils viennent; je prends, nous prenons, ils prennent. Learn the je, nous and ils forms together."
     }
    ],
    "write": "Ce que tu sais et qui tu connais : je sais…, je connais…, je crois…, je bois… (What you know, who you know)",
@@ -1327,42 +1465,48 @@
      "id": "keBSvVsEibI",
      "from": 10386,
      "to": 10926,
-     "topic": "pouvoir, devoir"
+     "topic": "pouvoir, devoir",
+     "first": true
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 1859,
      "to": 2081,
-     "topic": "il faut"
+     "topic": "il faut",
+     "first": true
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 3807,
      "to": 3935,
-     "topic": "vouloir"
+     "topic": "vouloir",
+     "first": true
     },
     {
      "video": 1,
      "id": "keBSvVsEibI",
      "from": 6733,
      "to": 6910,
-     "topic": "faire"
+     "topic": "faire",
+     "first": true
     },
     {
      "video": 5,
      "id": "b1sXCZDuxSY",
      "from": 1760,
      "to": 2070,
-     "topic": "Uses of faire"
+     "topic": "Uses of faire",
+     "first": true
     },
     {
      "video": 1,
      "id": "keBSvVsEibI",
      "from": 1841,
      "to": 2205,
-     "topic": "aller"
+     "topic": "aller",
+     "first": true
     }
    ],
    "yt_rest": 21,
@@ -1382,15 +1526,18 @@
    "book_topics": [
     {
      "ch": 40,
-     "topic": "vouloir, pouvoir, devoir + infinitive"
+     "topic": "vouloir, pouvoir, devoir + infinitive",
+     "note": "Je veux, nous voulons, ils veulent. Je peux, nous pouvons, ils peuvent. Je dois, nous devons, ils doivent. The next verb follows directly, with no 'to': je veux partir. Il faut + verb = you must."
     },
     {
      "ch": 41,
-     "topic": "faire and dire"
+     "topic": "faire and dire",
+     "note": "Faire: je fais, tu fais, il fait, nous faisons, vous faites, ils font. Activities: faire du tennis, de la musique, la cuisine. Dire: je dis, nous disons, vous dites, ils disent."
     },
     {
      "ch": 42,
-     "topic": "aller"
+     "topic": "aller",
+     "note": "Aller: je vais, tu vas, il va, nous allons, vous allez, ils vont. Places: à Rome, au cinéma. Transport: en bus, en train, but à pied."
     }
    ],
    "write": "SMS : invite un ami ce week-end. Tu veux… ? On peut… ? Je dois… Je fais du… Je vais à… (A text to invite a friend)",
@@ -1417,35 +1564,40 @@
      "id": "keBSvVsEibI",
      "from": 13042,
      "to": 13250,
-     "topic": "Yesterday, today, tomorrow"
+     "topic": "Yesterday, today, tomorrow",
+     "first": true
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 0,
      "to": 439,
-     "topic": "Near future"
+     "topic": "Near future",
+     "first": true
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 16316,
      "to": 16621,
-     "topic": "Near future, review"
+     "topic": "Near future, review",
+     "first": true
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 4378,
      "to": 5658,
-     "topic": "Passé composé"
+     "topic": "Passé composé",
+     "first": true
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 9082,
      "to": 9182,
-     "topic": "Passé composé of parler"
+     "topic": "Passé composé of parler",
+     "first": true
     }
    ],
    "yt_rest": 0,
@@ -1467,11 +1619,13 @@
    "book_topics": [
     {
      "ch": 43,
-     "topic": "near future: je vais + verb"
+     "topic": "near future: je vais + verb",
+     "note": "Aller + verb = going to do something: je vais manger. The negative wraps aller: je ne vais pas manger. Use this for most everyday future plans."
     },
     {
      "ch": 44,
-     "topic": "passé composé with avoir: -er verbs"
+     "topic": "passé composé with avoir: -er verbs",
+     "note": "The passé composé is the main past tense: avoir + participle. -er verbs end in -é: j'ai mangé. This one form covers both 'I ate' and 'I have eaten'."
     }
    ],
    "write": "Le week-end prochain : je vais + verbe. Le week-end dernier : j'ai mangé, j'ai parlé… (Next and last weekend)",
@@ -1497,42 +1651,48 @@
      "id": "QzY_nYZ0RSQ",
      "from": 5658,
      "to": 6345,
-     "topic": "Past participles"
+     "topic": "Past participles",
+     "first": true
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 8601,
      "to": 9082,
-     "topic": "Passé composé of avoir, Passé composé of être, Passé composé of aller"
+     "topic": "Passé composé of avoir, Passé composé of être, Passé composé of aller",
+     "first": true
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 9182,
      "to": 9315,
-     "topic": "Passé composé of finir"
+     "topic": "Passé composé of finir",
+     "first": true
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 13933,
      "to": 14829,
-     "topic": "Passé composé, verb by verb"
+     "topic": "Passé composé, verb by verb",
+     "first": true
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 24529,
      "to": 24774,
-     "topic": "avoir or être + participle"
+     "topic": "avoir or être + participle",
+     "first": true
     },
     {
      "video": 4,
      "id": "ppYImLa36ug",
      "from": 8592,
      "to": 8905,
-     "topic": "Verbs that take être"
+     "topic": "Verbs that take être",
+     "first": true
     }
    ],
    "yt_rest": 0,
@@ -1552,11 +1712,13 @@
    "book_topics": [
     {
      "ch": 45,
-     "topic": "passé composé with avoir: other verbs"
+     "topic": "passé composé with avoir: other verbs",
+     "note": "Other participles to learn: finir → fini, vendre → vendu, voir → vu, avoir → eu, être → été, faire → fait, prendre → pris, mettre → mis, boire → bu, lire → lu."
     },
     {
      "ch": 46,
-     "topic": "passé composé with être"
+     "topic": "passé composé with être",
+     "note": "About 15 verbs, mostly of movement, use être: aller, venir, arriver, partir, entrer, sortir, monter, descendre, naître, mourir, rester, tomber; so do all reflexive verbs. The participle then agrees like an adjective: il est arrivé, elle est arrivée, ils sont arrivés."
     }
    ],
    "write": "Ton arrivée en France : je suis arrivé(e), j'ai vu, j'ai pris… (Arriving in France)",
@@ -1582,6 +1744,14 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": true,
+   "sunday_answer_pages": {
+    "1": [
+     88,
+     89,
+     106,
+     107
+    ]
+   },
    "sunday_items": [
     "Flashcard reviews (15 min)",
     "Week re-test (60 min): Bilan 4 (p. 88–89) + Bilan 5 (p. 106–107): recap exercises and test, no notes, then check the Corrigés. With time left, 1 exercise from each of Déb. 32–46",
@@ -1607,14 +1777,16 @@
      "id": "12YUmS3rNr8",
      "from": 8733,
      "to": 9567,
-     "topic": "Imparfait"
+     "topic": "Imparfait",
+     "first": true
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 14829,
      "to": 15426,
-     "topic": "Simple future"
+     "topic": "Simple future",
+     "first": true
     }
    ],
    "yt_rest": 0,
@@ -1639,11 +1811,13 @@
    "book_topics": [
     {
      "ch": 47,
-     "topic": "imparfait"
+     "topic": "imparfait",
+     "note": "The imparfait is for description and habits: 'was doing', 'used to do'. Take the nous form, drop -ons, and add -ais, -ais, -ait, -ions, -iez, -aient: nous parlons → je parlais. The exception: être → j'étais."
     },
     {
      "ch": 48,
-     "topic": "simple future"
+     "topic": "simple future",
+     "note": "The simple future: infinitive + -ai, -as, -a, -ons, -ez, -ont: je parlerai. Irregular stems: être → ser-, avoir → aur-, aller → ir-, faire → fer-, venir → viendr-. After quand, French uses the future where English uses the present: quand je serai grand."
     }
    ],
    "write": "Quand j'étais petit(e), j'habitais… Dans 10 ans, je serai… (Your childhood and your future)",
@@ -1669,28 +1843,32 @@
      "id": "QzY_nYZ0RSQ",
      "from": 10247,
      "to": 10507,
-     "topic": "Time words: last week, next week"
+     "topic": "Time words: last week, next week",
+     "first": true
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 9567,
      "to": 10419,
-     "topic": "Imparfait or passé composé"
+     "topic": "Imparfait or passé composé",
+     "first": true
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 15976,
      "to": 16316,
-     "topic": "Recent past: venir de"
+     "topic": "Recent past: venir de",
+     "first": true
     },
     {
      "video": 4,
      "id": "ppYImLa36ug",
      "from": 16696,
      "to": 17995,
-     "topic": "Words that match English (extra)"
+     "topic": "Words that match English (extra)",
+     "first": false
     }
    ],
    "yt_rest": 14,
@@ -1703,11 +1881,13 @@
    "book_topics": [
     {
      "ch": 49,
-     "topic": "present, past, future: overview"
+     "topic": "present, past, future: overview",
+     "note": "A review of the tenses so far: je mange, j'ai mangé, je mangeais, je vais manger, je mangerai. Notice how time words point to each one: hier, maintenant, demain."
     },
     {
      "ch": 50,
-     "topic": "il y a, pendant, depuis, dans"
+     "topic": "il y a, pendant, depuis, dans",
+     "note": "Il y a + time = ago: il y a deux ans. Pendant = for a finished period. Depuis = since or for, with something still going on, in the present: j'habite ici depuis deux ans. Dans + time = in (the future): dans deux jours."
     }
    ],
    "book_annex": "Annexes §7, p. 153: passé récent",
@@ -1734,42 +1914,48 @@
      "id": "keBSvVsEibI",
      "from": 6367,
      "to": 6733,
-     "topic": "quand, où, comment, combien"
+     "topic": "quand, où, comment, combien",
+     "first": true
     },
     {
      "video": 1,
      "id": "keBSvVsEibI",
      "from": 13924,
      "to": 14197,
-     "topic": "parce que"
+     "topic": "parce que",
+     "first": true
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 1119,
      "to": 1304,
-     "topic": "pourquoi"
+     "topic": "pourquoi",
+     "first": true
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 7997,
      "to": 8601,
-     "topic": "Three ways to ask a question"
+     "topic": "Three ways to ask a question",
+     "first": true
     },
     {
      "video": 1,
      "id": "keBSvVsEibI",
      "from": 3351,
      "to": 3669,
-     "topic": "quel, quelle"
+     "topic": "quel, quelle",
+     "first": true
     },
     {
      "video": 1,
      "id": "keBSvVsEibI",
      "from": 8582,
      "to": 8887,
-     "topic": "qui, que, quoi"
+     "topic": "qui, que, quoi",
+     "first": true
     }
    ],
    "yt_rest": 21,
@@ -1788,11 +1974,13 @@
    "book_topics": [
     {
      "ch": 51,
-     "topic": "questions: où, quand, comment, combien, pourquoi"
+     "topic": "questions: où, quand, comment, combien, pourquoi",
+     "note": "Où, quand, comment, combien, pourquoi. Three styles: Tu vas où ? (spoken), Où est-ce que tu vas ? (standard), Où vas-tu ? (formal). Answer pourquoi with parce que."
     },
     {
      "ch": 52,
-     "topic": "questions: qui, que, quel"
+     "topic": "questions: qui, que, quel",
+     "note": "Qui = who. Que or qu'est-ce que = what. Quel, quelle, quels, quelles = which or what, and they agree with the noun: Quelle est votre profession ?"
     }
    ],
    "write": "8 questions à un nouveau collègue : où, quand, comment, pourquoi, qui, quelle… (Questions for a colleague)",
@@ -1818,21 +2006,32 @@
      "id": "QzY_nYZ0RSQ",
      "from": 9427,
      "to": 9614,
-     "topic": "False friends (extra)"
+     "topic": "False friends (extra)",
+     "first": false
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 0,
      "to": 1146,
-     "topic": "Adverbs, Adverbs in -ment"
+     "topic": "Adverbs, Adverbs in -ment",
+     "first": true
     },
     {
      "video": 5,
      "id": "b1sXCZDuxSY",
      "from": 0,
+     "to": 538,
+     "topic": "Words that match English (extra)",
+     "first": false
+    },
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 538,
      "to": 747,
-     "topic": "Words that match English (extra), Where adverbs go in the past"
+     "topic": "Where adverbs go in the past",
+     "first": true
     }
    ],
    "yt_rest": 20,
@@ -1851,11 +2050,13 @@
    "book_topics": [
     {
      "ch": 53,
-     "topic": "ne… rien, jamais, plus, personne"
+     "topic": "ne… rien, jamais, plus, personne",
+     "note": "These replace pas, and ne stays: ne… rien = nothing, ne… jamais = never, ne… plus = no longer, ne… personne = no one: je ne mange rien. Rien and personne can also start a sentence: personne ne sait."
     },
     {
      "ch": 54,
-     "topic": "negatives and questions in the passé composé"
+     "topic": "negatives and questions in the passé composé",
+     "note": "In the passé composé, the negative wraps the auxiliary: je n'ai pas mangé, je ne suis pas sorti. Questions: Est-ce que tu as mangé ? or, more formally, As-tu mangé ?"
     }
    ],
    "book_annex": "Annexes §1–3, p. 152: adverbs, where adverbs and negatives go",
@@ -1882,14 +2083,16 @@
      "id": "QzY_nYZ0RSQ",
      "from": 15426,
      "to": 16978,
-     "topic": "The pronoun en, The pronoun y"
+     "topic": "The pronoun en, The pronoun y",
+     "first": true
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 2596,
      "to": 3226,
-     "topic": "Direct objects"
+     "topic": "Direct objects",
+     "first": true
     }
    ],
    "yt_rest": 24,
@@ -1902,15 +2105,18 @@
    "book_topics": [
     {
      "ch": 55,
-     "topic": "the pronoun en"
+     "topic": "the pronoun en",
+     "note": "En replaces du, de la, des, or a noun after a number or amount, and goes before the verb: Tu manges du pain ? Oui, j'en mange. J'en veux deux."
     },
     {
      "ch": 56,
-     "topic": "the pronoun y"
+     "topic": "the pronoun y",
+     "note": "Y replaces a place you're going to or are in, and goes before the verb: Tu vas au cinéma ? Oui, j'y vais."
     },
     {
      "ch": 57,
-     "topic": "le, la, les: direct object pronouns"
+     "topic": "le, la, les: direct object pronouns",
+     "note": "Le, la, l', les replace a direct object and go before the verb: je regarde Paul → je le regarde. Word for word, that's 'I him watch'. The negative wraps both: je ne le regarde pas."
     }
    ],
    "write": "Réponds sans répéter : 8 questions avec en, y, le, la, les. Tu manges du pain ? Oui, j'en mange. (Answer with pronouns)",
@@ -1936,21 +2142,24 @@
      "id": "QzY_nYZ0RSQ",
      "from": 3226,
      "to": 3807,
-     "topic": "Indirect objects"
+     "topic": "Indirect objects",
+     "first": true
     },
     {
      "video": 1,
      "id": "keBSvVsEibI",
      "from": 5908,
      "to": 6367,
-     "topic": "moi, toi, lui"
+     "topic": "moi, toi, lui",
+     "first": true
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 13042,
      "to": 13690,
-     "topic": "Relative pronouns: qui, que"
+     "topic": "Relative pronouns: qui, que",
+     "first": true
     }
    ],
    "yt_rest": 27,
@@ -1969,15 +2178,18 @@
    "book_topics": [
     {
      "ch": 58,
-     "topic": "lui, leur: indirect object pronouns"
+     "topic": "lui, leur: indirect object pronouns",
+     "note": "Lui and leur replace à + a person: il parle à Marie → il lui parle. Lui means both 'to him' and 'to her'. They go with verbs like parler à, téléphoner à, donner à."
     },
     {
      "ch": 59,
-     "topic": "moi, toi, lui: stressed pronouns"
+     "topic": "moi, toi, lui: stressed pronouns",
+     "note": "Moi, toi, lui, elle, nous, vous, eux, elles. Use them after prepositions (avec moi, chez lui), after c'est (c'est moi), and for emphasis: moi, je reste."
     },
     {
      "ch": 60,
-     "topic": "qui and que: relative pronouns"
+     "topic": "qui and que: relative pronouns",
+     "note": "Both link two ideas. Qui is the subject of the next verb: le train qui arrive. Que is its object: le train que je prends. Que becomes qu' before a vowel; qui never shortens."
     }
    ],
    "book_annex": "Annexes §4, p. 152: where object pronouns go",
@@ -2004,6 +2216,17 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": true,
+   "sunday_answer_pages": {
+    "1": [
+     124,
+     125,
+     136,
+     137,
+     150,
+     151,
+     173
+    ]
+   },
    "sunday_links": {
     "4": [
      {
@@ -2011,21 +2234,24 @@
       "id": "QzY_nYZ0RSQ",
       "from": 11989,
       "to": 12202,
-      "topic": "celui, celle"
+      "topic": "celui, celle",
+      "first": true
      },
      {
       "video": 3,
       "id": "12YUmS3rNr8",
       "from": 25230,
       "to": 26438,
-      "topic": "Imperative"
+      "topic": "Imperative",
+      "first": true
      },
      {
       "video": 4,
       "id": "ppYImLa36ug",
       "from": 5935,
       "to": 6430,
-      "topic": "Indirect speech"
+      "topic": "Indirect speech",
+      "first": true
      }
     ]
    },
@@ -2057,7 +2283,8 @@
      "id": "QzY_nYZ0RSQ",
      "from": 2422,
      "to": 2596,
-     "topic": "venir, second take"
+     "topic": "venir, second take",
+     "first": true
     }
    ],
    "vocab": "ch. 1, first half",
@@ -2111,7 +2338,8 @@
      "id": "12YUmS3rNr8",
      "from": 2399,
      "to": 3424,
-     "topic": "Conditional"
+     "topic": "Conditional",
+     "first": true
     }
    ],
    "vocab": "ch. 1, second half",
@@ -2165,7 +2393,8 @@
      "id": "12YUmS3rNr8",
      "from": 3636,
      "to": 3780,
-     "topic": "Conditional: être"
+     "topic": "Conditional: être",
+     "first": true
     }
    ],
    "vocab": "ch. 2, first half",
@@ -2196,7 +2425,8 @@
      "id": "12YUmS3rNr8",
      "from": 3780,
      "to": 3955,
-     "topic": "Conditional: avoir"
+     "topic": "Conditional: avoir",
+     "first": true
     }
    ],
    "vocab": null,
@@ -2251,7 +2481,8 @@
      "id": "12YUmS3rNr8",
      "from": 3955,
      "to": 4119,
-     "topic": "Conditional: aller"
+     "topic": "Conditional: aller",
+     "first": true
     }
    ],
    "vocab": "ch. 2, second half",
@@ -2281,7 +2512,8 @@
      "id": "12YUmS3rNr8",
      "from": 4119,
      "to": 4558,
-     "topic": "lequel, laquelle"
+     "topic": "lequel, laquelle",
+     "first": true
     }
    ],
    "vocab": null,
@@ -2333,7 +2565,8 @@
      "id": "12YUmS3rNr8",
      "from": 12126,
      "to": 13042,
-     "topic": "Plus-que-parfait"
+     "topic": "Plus-que-parfait",
+     "first": true
     }
    ],
    "vocab": null,
@@ -2453,7 +2686,8 @@
      "id": "12YUmS3rNr8",
      "from": 13690,
      "to": 14648,
-     "topic": "Relative pronouns: agreement, dont, où"
+     "topic": "Relative pronouns: agreement, dont, où",
+     "first": true
     }
    ],
    "vocab": null,
@@ -2527,7 +2761,8 @@
      "id": "12YUmS3rNr8",
      "from": 14648,
      "to": 15131,
-     "topic": "Two pronouns: en"
+     "topic": "Two pronouns: en",
+     "first": true
     }
    ],
    "vocab": "ch. 5, first half",
@@ -2557,7 +2792,8 @@
      "id": "12YUmS3rNr8",
      "from": 15131,
      "to": 15586,
-     "topic": "Two pronouns: le, la, les"
+     "topic": "Two pronouns: le, la, les",
+     "first": true
     }
    ],
    "vocab": null,
@@ -2634,7 +2870,8 @@
      "id": "12YUmS3rNr8",
      "from": 15586,
      "to": 15976,
-     "topic": "Present continuous"
+     "topic": "Present continuous",
+     "first": true
     }
    ],
    "vocab": null,
@@ -2686,7 +2923,8 @@
      "id": "ppYImLa36ug",
      "from": 5449,
      "to": 5935,
-     "topic": "si clauses"
+     "topic": "si clauses",
+     "first": true
     }
    ],
    "vocab": null,
@@ -2716,7 +2954,8 @@
      "id": "b1sXCZDuxSY",
      "from": 747,
      "to": 1080,
-     "topic": "Adverb phrases"
+     "topic": "Adverb phrases",
+     "first": true
     }
    ],
    "vocab": "ch. 6, second half",
@@ -2746,7 +2985,8 @@
      "id": "b1sXCZDuxSY",
      "from": 1080,
      "to": 1269,
-     "topic": "Adverb phrases"
+     "topic": "Adverb phrases",
+     "first": true
     }
    ],
    "vocab": null,
@@ -2800,7 +3040,8 @@
      "id": "b1sXCZDuxSY",
      "from": 1269,
      "to": 1546,
-     "topic": "Opposites"
+     "topic": "Opposites",
+     "first": true
     }
    ],
    "vocab": "ch. 7, first half",
@@ -2830,7 +3071,8 @@
      "id": "b1sXCZDuxSY",
      "from": 1546,
      "to": 1760,
-     "topic": "Opposites"
+     "topic": "Opposites",
+     "first": true
     }
    ],
    "vocab": null,
@@ -2860,7 +3102,8 @@
      "id": "b1sXCZDuxSY",
      "from": 2070,
      "to": 2356,
-     "topic": "Adverb phrases"
+     "topic": "Adverb phrases",
+     "first": true
     }
    ],
    "vocab": "ch. 7, second half",
@@ -2890,7 +3133,8 @@
      "id": "b1sXCZDuxSY",
      "from": 2356,
      "to": 2686,
-     "topic": "Adverb phrases"
+     "topic": "Adverb phrases",
+     "first": true
     }
    ],
    "vocab": null,
@@ -2920,7 +3164,8 @@
      "id": "b1sXCZDuxSY",
      "from": 4149,
      "to": 4459,
-     "topic": "Plurals of compound nouns"
+     "topic": "Plurals of compound nouns",
+     "first": true
     }
    ],
    "vocab": "ch. 8, first half",
@@ -2950,7 +3195,8 @@
      "id": "b1sXCZDuxSY",
      "from": 4459,
      "to": 4733,
-     "topic": "Plurals of compound nouns"
+     "topic": "Plurals of compound nouns",
+     "first": true
     }
    ],
    "vocab": null,
@@ -3004,7 +3250,8 @@
      "id": "b1sXCZDuxSY",
      "from": 4733,
      "to": 5017,
-     "topic": "Plurals of compound nouns"
+     "topic": "Plurals of compound nouns",
+     "first": true
     }
    ],
    "vocab": "ch. 8, second half",
@@ -3034,7 +3281,8 @@
      "id": "b1sXCZDuxSY",
      "from": 5017,
      "to": 5260,
-     "topic": "Plurals of compound nouns"
+     "topic": "Plurals of compound nouns",
+     "first": true
     }
    ],
    "vocab": null,
@@ -3064,7 +3312,8 @@
      "id": "b1sXCZDuxSY",
      "from": 5838,
      "to": 5959,
-     "topic": "Medical words"
+     "topic": "Medical words",
+     "first": true
     }
    ],
    "vocab": "ch. 9, first half",
@@ -3094,7 +3343,8 @@
      "id": "b1sXCZDuxSY",
      "from": 5959,
      "to": 6265,
-     "topic": "Medical words"
+     "topic": "Medical words",
+     "first": true
     }
    ],
    "vocab": null,
@@ -3124,7 +3374,8 @@
      "id": "b1sXCZDuxSY",
      "from": 6265,
      "to": 6414,
-     "topic": "Medical words"
+     "topic": "Medical words",
+     "first": true
     }
    ],
    "vocab": "ch. 9, second half",
@@ -3154,7 +3405,8 @@
      "id": "b1sXCZDuxSY",
      "from": 6414,
      "to": 6851,
-     "topic": "Verbs and prepositions"
+     "topic": "Verbs and prepositions",
+     "first": true
     }
    ],
    "vocab": null,
@@ -3230,7 +3482,8 @@
      "id": "b1sXCZDuxSY",
      "from": 7125,
      "to": 7732,
-     "topic": "Verbs and prepositions"
+     "topic": "Verbs and prepositions",
+     "first": true
     }
    ],
    "vocab": null,
@@ -3282,7 +3535,8 @@
      "id": "b1sXCZDuxSY",
      "from": 7732,
      "to": 8293,
-     "topic": "Verbs and prepositions"
+     "topic": "Verbs and prepositions",
+     "first": true
     }
    ],
    "vocab": null,
@@ -3334,7 +3588,8 @@
      "id": "b1sXCZDuxSY",
      "from": 8293,
      "to": 8926,
-     "topic": "Verbs and prepositions"
+     "topic": "Verbs and prepositions",
+     "first": true
     }
    ],
    "vocab": null,
@@ -3410,7 +3665,8 @@
      "id": "b1sXCZDuxSY",
      "from": 11742,
      "to": 12000,
-     "topic": "Exclamations: adjectives"
+     "topic": "Exclamations: adjectives",
+     "first": true
     }
    ],
    "vocab": null,
@@ -3440,7 +3696,8 @@
      "id": "b1sXCZDuxSY",
      "from": 12000,
      "to": 12173,
-     "topic": "Exclamations: adverbs"
+     "topic": "Exclamations: adverbs",
+     "first": true
     }
    ],
    "vocab": "ch. 12, first half",
@@ -3470,7 +3727,8 @@
      "id": "b1sXCZDuxSY",
      "from": 12173,
      "to": 12326,
-     "topic": "Interjections"
+     "topic": "Interjections",
+     "first": true
     }
    ],
    "vocab": null,
@@ -3500,7 +3758,8 @@
      "id": "b1sXCZDuxSY",
      "from": 12326,
      "to": 12718,
-     "topic": "Verbs and prepositions"
+     "topic": "Verbs and prepositions",
+     "first": true
     }
    ],
    "vocab": "ch. 12, second half",
@@ -3530,7 +3789,8 @@
      "id": "b1sXCZDuxSY",
      "from": 12718,
      "to": 13304,
-     "topic": "Verbs and prepositions"
+     "topic": "Verbs and prepositions",
+     "first": true
     }
    ],
    "vocab": null,
@@ -3607,7 +3867,8 @@
      "id": "b1sXCZDuxSY",
      "from": 13304,
      "to": 13666,
-     "topic": "Verbs and prepositions"
+     "topic": "Verbs and prepositions",
+     "first": true
     }
    ],
    "vocab": null,
@@ -3659,7 +3920,8 @@
      "id": "b1sXCZDuxSY",
      "from": 13666,
      "to": 14074,
-     "topic": "Verbs and prepositions"
+     "topic": "Verbs and prepositions",
+     "first": true
     }
    ],
    "vocab": null,
@@ -3711,7 +3973,8 @@
      "id": "12YUmS3rNr8",
      "from": 5728,
      "to": 6982,
-     "topic": "Past conditional"
+     "topic": "Past conditional",
+     "first": true
     }
    ],
    "vocab": null,
@@ -3810,7 +4073,8 @@
      "id": "12YUmS3rNr8",
      "from": 10419,
      "to": 10961,
-     "topic": "Passive"
+     "topic": "Passive",
+     "first": true
     }
    ],
    "vocab": "ch. 15, first half",
@@ -3862,7 +4126,8 @@
      "id": "12YUmS3rNr8",
      "from": 10961,
      "to": 11466,
-     "topic": "Passive: conjugation"
+     "topic": "Passive: conjugation",
+     "first": true
     }
    ],
    "vocab": "ch. 15, second half",
@@ -3939,7 +4204,8 @@
      "id": "12YUmS3rNr8",
      "from": 16621,
      "to": 17753,
-     "topic": "Future perfect"
+     "topic": "Future perfect",
+     "first": true
     }
    ],
    "vocab": "ch. 16, first half",
@@ -3991,7 +4257,8 @@
      "id": "12YUmS3rNr8",
      "from": 24380,
      "to": 24529,
-     "topic": "en + -ant"
+     "topic": "en + -ant",
+     "first": true
     }
    ],
    "vocab": "ch. 16, second half",
@@ -4021,7 +4288,8 @@
      "id": "12YUmS3rNr8",
      "from": 24774,
      "to": 25230,
-     "topic": "Other compound tenses"
+     "topic": "Other compound tenses",
+     "first": true
     }
    ],
    "vocab": null,
@@ -4120,7 +4388,8 @@
      "id": "ppYImLa36ug",
      "from": 0,
      "to": 1389,
-     "topic": "Subjunctive"
+     "topic": "Subjunctive",
+     "first": true
     }
    ],
    "vocab": "ch. 17, second half",
@@ -4194,7 +4463,8 @@
      "id": "ppYImLa36ug",
      "from": 1389,
      "to": 2500,
-     "topic": "Past subjunctive"
+     "topic": "Past subjunctive",
+     "first": true
     }
    ],
    "vocab": null,
@@ -4246,7 +4516,8 @@
      "id": "ppYImLa36ug",
      "from": 2500,
      "to": 2762,
-     "topic": "Subjunctive with conjunctions"
+     "topic": "Subjunctive with conjunctions",
+     "first": true
     }
    ],
    "vocab": null,
@@ -4302,7 +4573,8 @@
      "id": "ppYImLa36ug",
      "from": 2762,
      "to": 3016,
-     "topic": "Subjunctive: opinion, doubt"
+     "topic": "Subjunctive: opinion, doubt",
+     "first": true
     }
    ],
    "vocab": "ch. 19, first half",
@@ -4332,7 +4604,8 @@
      "id": "ppYImLa36ug",
      "from": 3016,
      "to": 3301,
-     "topic": "Subjunctive: feelings"
+     "topic": "Subjunctive: feelings",
+     "first": true
     }
    ],
    "vocab": null,
@@ -4362,7 +4635,8 @@
      "id": "ppYImLa36ug",
      "from": 3301,
      "to": 3585,
-     "topic": "Subjunctive: advice, wishes, orders"
+     "topic": "Subjunctive: advice, wishes, orders",
+     "first": true
     }
    ],
    "vocab": "ch. 19, second half",
@@ -4392,7 +4666,8 @@
      "id": "ppYImLa36ug",
      "from": 3585,
      "to": 3822,
-     "topic": "Subjunctive: negative structures"
+     "topic": "Subjunctive: negative structures",
+     "first": true
     }
    ],
    "vocab": null,
@@ -4422,7 +4697,8 @@
      "id": "ppYImLa36ug",
      "from": 3822,
      "to": 4349,
-     "topic": "Present participle"
+     "topic": "Present participle",
+     "first": true
     }
    ],
    "vocab": "ch. 20, first half",
@@ -4452,7 +4728,8 @@
      "id": "ppYImLa36ug",
      "from": 4349,
      "to": 4775,
-     "topic": "Gerund"
+     "topic": "Gerund",
+     "first": true
     }
    ],
    "vocab": null,
@@ -4507,7 +4784,8 @@
      "id": "ppYImLa36ug",
      "from": 6430,
      "to": 6643,
-     "topic": "Indirect speech: time words"
+     "topic": "Indirect speech: time words",
+     "first": true
     }
    ],
    "vocab": "ch. 20, second half",
@@ -4537,7 +4815,8 @@
      "id": "ppYImLa36ug",
      "from": 6643,
      "to": 7312,
-     "topic": "Indirect speech: sentence changes"
+     "topic": "Indirect speech: sentence changes",
+     "first": true
     }
    ],
    "vocab": null,
@@ -4611,7 +4890,8 @@
      "id": "ppYImLa36ug",
      "from": 7312,
      "to": 8238,
-     "topic": "Indirect speech: tense changes"
+     "topic": "Indirect speech: tense changes",
+     "first": true
     }
    ],
    "vocab": "ch. 21, second half",
@@ -4688,7 +4968,8 @@
      "id": "ppYImLa36ug",
      "from": 8238,
      "to": 8592,
-     "topic": "Verbs with que + indicative"
+     "topic": "Verbs with que + indicative",
+     "first": true
     }
    ],
    "vocab": "ch. 22, first half",
@@ -4718,7 +4999,8 @@
      "id": "ppYImLa36ug",
      "from": 8905,
      "to": 9191,
-     "topic": "Homographs"
+     "topic": "Homographs",
+     "first": true
     }
    ],
    "vocab": null,
@@ -4748,7 +5030,8 @@
      "id": "ppYImLa36ug",
      "from": 9191,
      "to": 9766,
-     "topic": "Homophones"
+     "topic": "Homophones",
+     "first": true
     }
    ],
    "vocab": "ch. 22, second half",
@@ -4778,7 +5061,8 @@
      "id": "ppYImLa36ug",
      "from": 9766,
      "to": 9977,
-     "topic": "Homophones"
+     "topic": "Homophones",
+     "first": true
     }
    ],
    "vocab": null,
@@ -4808,7 +5092,8 @@
      "id": "ppYImLa36ug",
      "from": 9977,
      "to": 10417,
-     "topic": "Homophones, Prefixes"
+     "topic": "Homophones, Prefixes",
+     "first": true
     }
    ],
    "vocab": "ch. 23, first half",
@@ -4838,7 +5123,8 @@
      "id": "ppYImLa36ug",
      "from": 10417,
      "to": 10681,
-     "topic": "Prefixes"
+     "topic": "Prefixes",
+     "first": true
     }
    ],
    "vocab": null,
@@ -4893,7 +5179,8 @@
      "id": "ppYImLa36ug",
      "from": 10681,
      "to": 11053,
-     "topic": "Prefixes"
+     "topic": "Prefixes",
+     "first": true
     }
    ],
    "vocab": "ch. 23, second half",
@@ -4923,7 +5210,8 @@
      "id": "ppYImLa36ug",
      "from": 11053,
      "to": 11286,
-     "topic": "Suffixes"
+     "topic": "Suffixes",
+     "first": true
     }
    ],
    "vocab": null,
@@ -4953,7 +5241,8 @@
      "id": "ppYImLa36ug",
      "from": 11286,
      "to": 11707,
-     "topic": "Suffixes"
+     "topic": "Suffixes",
+     "first": true
     }
    ],
    "vocab": "ch. 24, first half",
@@ -4983,7 +5272,8 @@
      "id": "ppYImLa36ug",
      "from": 14399,
      "to": 14678,
-     "topic": "Shortened words"
+     "topic": "Shortened words",
+     "first": true
     }
    ],
    "vocab": null,
@@ -5013,7 +5303,8 @@
      "id": "ppYImLa36ug",
      "from": 14678,
      "to": 14982,
-     "topic": "Verbs with prefixes"
+     "topic": "Verbs with prefixes",
+     "first": true
     }
    ],
    "vocab": "ch. 24, second half",
@@ -5043,7 +5334,8 @@
      "id": "ppYImLa36ug",
      "from": 14982,
      "to": 15389,
-     "topic": "Verbs with prefixes"
+     "topic": "Verbs with prefixes",
+     "first": true
     }
    ],
    "vocab": null,
@@ -5099,7 +5391,8 @@
      "id": "ppYImLa36ug",
      "from": 15389,
      "to": 15749,
-     "topic": "Verbs with prefixes"
+     "topic": "Verbs with prefixes",
+     "first": true
     }
    ],
    "vocab": "ch. 25, first half",
@@ -5129,7 +5422,8 @@
      "id": "ppYImLa36ug",
      "from": 15749,
      "to": 16052,
-     "topic": "Verbs with prefixes"
+     "topic": "Verbs with prefixes",
+     "first": true
     }
    ],
    "vocab": null,
@@ -5159,7 +5453,8 @@
      "id": "ppYImLa36ug",
      "from": 16052,
      "to": 16352,
-     "topic": "Verbs with prefixes"
+     "topic": "Verbs with prefixes",
+     "first": true
     }
    ],
    "vocab": "ch. 25, second half",
@@ -5189,7 +5484,8 @@
      "id": "ppYImLa36ug",
      "from": 16352,
      "to": 16696,
-     "topic": "Verbs with prefixes"
+     "topic": "Verbs with prefixes",
+     "first": true
     }
    ],
    "vocab": null,
@@ -5219,7 +5515,8 @@
      "id": "b1sXCZDuxSY",
      "from": 6851,
      "to": 7125,
-     "topic": "Present participle or verbal adjective"
+     "topic": "Present participle or verbal adjective",
+     "first": true
     }
    ],
    "vocab": null,
@@ -5249,7 +5546,8 @@
      "id": "b1sXCZDuxSY",
      "from": 8926,
      "to": 9341,
-     "topic": "Past participles that never change"
+     "topic": "Past participles that never change",
+     "first": true
     }
    ],
    "vocab": null,

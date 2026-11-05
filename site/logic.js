@@ -163,6 +163,74 @@ export const WORD_SETS = {
   },
 };
 
+/** The French the book's instructions and rule boxes use constantly. */
+export const BOOK_WORDS = [
+  [
+    'Instructions',
+    [
+      ['Complétez', 'Fill in the blanks'],
+      ['selon le modèle', 'following the example'],
+      ['Répondez', 'Answer'],
+      ['Transformez', 'Change, rewrite'],
+      ['Mettez au pluriel', 'Put into the plural'],
+      ['Mettez au féminin', 'Put into the feminine'],
+      ['Reliez', 'Join, match'],
+      ['Choisissez', 'Choose'],
+      ['Soulignez', 'Underline'],
+      ['Lisez', 'Read'],
+      ['Écrivez', 'Write'],
+      ['Décrivez', 'Describe'],
+      ['Imaginez', 'Imagine, make something up'],
+      ['Continuez', 'Carry on'],
+      ['Posez des questions', 'Ask questions'],
+      ['Présentez-vous', 'Introduce yourself'],
+      ['Faites des phrases', 'Make sentences'],
+      ['Associez', 'Match up'],
+      ['manquant', 'missing'],
+      ['plusieurs solutions', 'several possible answers'],
+    ],
+  ],
+  [
+    'Grammar words',
+    [
+      ['le verbe', 'verb'],
+      ['le nom', 'noun'],
+      ["l'adjectif", 'adjective'],
+      ["l'article", 'article'],
+      ['le pronom', 'pronoun'],
+      ['masculin, féminin', 'masculine, feminine'],
+      ['singulier, pluriel', 'singular, plural'],
+      ['la négation, la forme négative', 'the negative'],
+      ["l'interrogation", 'questions'],
+      ['la conjugaison', 'verb forms'],
+      ["l'infinitif", 'the infinitive (parler, finir)'],
+      ['le présent', 'present tense'],
+      ['le participe passé', 'past participle (mangé, fini)'],
+      ['la voyelle, la consonne', 'vowel, consonant'],
+      ['la place', 'position, where it goes'],
+    ],
+  ],
+  [
+    'In the rules',
+    [
+      ['Attention', 'Watch out'],
+      ['exemple', 'example'],
+      ['devant', 'before, in front of'],
+      ['après', 'after'],
+      ['toujours', 'always'],
+      ['souvent', 'often'],
+      ['en général', 'usually'],
+      ['sauf', 'except'],
+      ['comme', 'like, as'],
+      ['on prononce', "it's pronounced"],
+      ['ne change pas', "doesn't change"],
+      ['devient', 'becomes'],
+      ['pour', 'for, in order to'],
+      ['ou', 'or'],
+    ],
+  ],
+];
+
 export const WRITING_PROMPT = (topic) =>
   `Corrige ce texte (niveau visé : B2, TCF Canada). Sujet : ${topic}\n` +
   `Donne-moi : 1) la version corrigée, 2) chaque erreur avec la règle expliquée en anglais, ` +
@@ -208,6 +276,20 @@ export const EXPLAIN_PROMPT = (book, topics) => {
     `Then quiz me with 5 short questions, one at a time, and correct my answers.`
   );
 };
+
+/** Book pages in a label like "p. 122–123, 126–127". */
+export function pagesFrom(label) {
+  const pages = [];
+  for (const [, a, b] of String(label || '').matchAll(/(\d+)(?:–(\d+))?/g)) {
+    for (let n = Number(a); n <= Number(b || a); n++) pages.push(n);
+  }
+  return pages;
+}
+
+/** The learner's private answers for these pages, from the imported deck. Nothing here without one. */
+export function answersFor(answers, pages) {
+  return (pages || []).filter((p) => answers?.pages?.[p]).map((p) => ({ page: p, ex: answers.pages[p] }));
+}
 
 /** Prompt asking Claude to mark the day's exercises from a photo, for when the Corrigés aren't to hand. */
 export const CHECK_PROMPT = (book, topics) =>
@@ -282,13 +364,20 @@ export function sessionsFor(day) {
         note: 'No new chapters today.',
         tasks: day.sunday_items.map((text, i) => {
           const links = day.sunday_links?.[i];
-          return { id: `sun-${i}`, title: text, ...(links ? { links: vincentLinks(links) } : {}) };
+          return {
+            id: `sun-${i}`,
+            title: text,
+            ...(links ? { links: vincentLinks(links) } : {}),
+            ...(day.sunday_answer_pages?.[i] ? { answerPages: day.sunday_answer_pages[i] } : {}),
+          };
         }),
       },
     ];
   }
   const m = MINUTES[day.phase];
   const exam = day.phase === 4;
+  const firstLinks = (day.yt_links || []).filter((l) => l.first);
+  const firstMinutes = Math.round(firstLinks.reduce((sum, l) => sum + l.to - l.from, 0) / 60);
   const morning = [
     {
       id: 'anki-review',
@@ -296,6 +385,22 @@ export function sessionsFor(day) {
       minutes: m.ankiReview,
       action: { label: 'Review now', href: '#/cards' },
     },
+    ...(day.book_topics
+      ? [
+          {
+            id: 'before-book',
+            title: firstLinks.length
+              ? `Before the book: English note + Vincent (${firstMinutes} min)`
+              : 'Before the book: English note',
+            detail: firstLinks.length
+              ? 'Read the note, then watch. Repeat every word aloud with Vincent.'
+              : "Vincent has no lesson on this chapter's grammar, so read the note carefully.",
+            notes: day.book_topics,
+            minutes: firstMinutes,
+            ...(firstLinks.length ? { links: vincentLinks(firstLinks) } : {}),
+          },
+        ]
+      : []),
     {
       id: 'book',
       title: exam
@@ -304,11 +409,14 @@ export function sessionsFor(day) {
       detail:
         (day.book_topics ? `${day.book_topics.map((t) => `Ch. ${t.ch}: ${t.topic}`).join(' · ')}. ` : '') +
         (day.book_annex ? `${day.book_annex}. ` : '') +
-        'Read the rule → close the book, say it aloud → exercises without looking → check your answers (Corrigés, or the button below). Take as long as it needs.',
+        (day.book_topics ? 'Read the examples on the left page, then the rule' : 'Read the rule') +
+        ' → close the book, say it aloud → exercises without looking → check your answers (Corrigés, or the button below). Take as long as it needs.',
+      ...(day.book_topics ? { action: { label: 'French words in the book', href: '#/book-words' } } : {}),
       minutes: m.book,
       kind: 'explain',
       copy: EXPLAIN_PROMPT(day.book, day.book_topics),
       check: exam ? undefined : CHECK_PROMPT(day.book, day.book_topics),
+      answerPages: pagesFrom(day.book_pages),
     },
   ];
   if (m.cards)
@@ -328,17 +436,26 @@ export function sessionsFor(day) {
 
   const afternoon = [{ id: 'input', title: day.tv5, minutes: m.input, link: exam ? LINKS.tcf : LINKS.tv5 }];
   if (m.youtube && day.yt_links) {
-    const links = vincentLinks(day.yt_links);
+    const laterLinks = day.yt_links.filter((l) => !l.first);
+    const laterMinutes = Math.round(laterLinks.reduce((sum, l) => sum + l.to - l.from, 0) / 60);
+    const links = vincentLinks(laterLinks);
     if (day.yt_rest) links.push({ label: `Super Easy French · ${day.yt_rest} min`, url: LINKS.superEasyFrench });
-    afternoon.push({
-      id: 'youtube',
-      title: day.yt,
-      detail:
-        "Mostly this morning's topics, explained in English. Repeat every word aloud with Vincent." +
-        (day.yt_rest ? ' Then Super Easy French: subtitles on, then shadow 1 minute aloud.' : ''),
-      minutes: m.youtube - (day.book_audio?.minutes || 0),
-      links,
-    });
+    const names = [
+      ...(laterLinks.length ? [`Vincent: words and sounds (${laterMinutes} min)`] : []),
+      ...(day.yt_rest ? [`Super Easy French (${day.yt_rest} min)`] : []),
+    ];
+    if (names.length) {
+      afternoon.push({
+        id: 'youtube',
+        title: names.join(', then '),
+        detail: [
+          ...(laterLinks.length ? ['Repeat every word aloud with Vincent.'] : []),
+          ...(day.yt_rest ? ['Super Easy French: subtitles on, then shadow 1 minute aloud.'] : []),
+        ].join(' '),
+        minutes: laterMinutes + day.yt_rest,
+        links,
+      });
+    }
     if (day.book_audio) {
       afternoon.push({
         id: 'book-audio',
@@ -346,6 +463,7 @@ export function sessionsFor(day) {
         detail:
           'Open the page. Listen with the text covered, then following it, then repeat aloud and do the questions on the page.',
         minutes: day.book_audio.minutes,
+        answerPages: [...new Set(day.book_audio.items.filter((n) => n <= 28).map((n) => BOOK_AUDIO[n - 1].page))],
         // Played in the page: the publisher serves these as downloads, so a plain link would save a file.
         players: day.book_audio.items.map((n) => {
           const a = BOOK_AUDIO[n - 1];

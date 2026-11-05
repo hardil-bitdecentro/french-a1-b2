@@ -474,6 +474,80 @@ DEB_TOPICS = [
 assert sum(hi - lo + 1 for lo, hi in DEB_DAYS) == len(DEB_START) == len(DEB_TOPICS) == 60
 
 
+# A short English note per chapter, written for this plan (not a translation of the book). Read before the left page.
+DEB_BRIEFS = [
+    "Say who you are with je suis + name, nationality or job: je suis Anna, je suis anglais. No word for 'a' before a job: je suis professeur. Vous êtes… ? is the polite 'are you…?'.",
+    "Adjectives agree with the person. Feminine usually adds -e, and you then hear the last consonant: grand, grande. Words already ending in -e don't change: jeune. Patterns to spot: -en → -enne, -er → -ère, -eux → -euse, -if → -ive. Il = he, elle = she.",
+    "Plural adds an -s you don't hear: grand, grands; grande, grandes. Words ending in -s or -x don't change. Ils = they (male or mixed group), elles = they (all female). A mixed group takes the masculine.",
+    "être: je suis, tu es, il/elle/on est, nous sommes, vous êtes, ils/elles sont. Tu is for friends, family and children; vous for strangers, work, or several people. On is everyday French for 'we', and takes the il form: on est.",
+    "Yes/no questions: raise your voice (Vous êtes français ?) or start with Est-ce que. The negative wraps the verb: je ne suis pas. Ne becomes n' before a vowel: il n'est pas.",
+    "Most verbs end in -er. With je the ending is a silent -e (je parle); with vous it's -ez (vous parlez). Aimer takes a noun with le, la, les (j'aime le café) or a second verb (j'aime danser).",
+    "The full present: je parle, tu parles, il parle, nous parlons, vous parlez, ils parlent. The -e, -es, -e and -ent endings are silent, so four forms sound the same. Je becomes j' before a vowel: j'aime.",
+    "Some -er verbs change spelling to keep their sound: j'achète but nous achetons; je préfère but vous préférez; j'appelle; nous mangeons; nous commençons; je paie.",
+    "Reflexive verbs carry a little pronoun: je me lave, tu te laves, il se lave, nous nous lavons, vous vous lavez, ils se lavent. English often drops it: je me lève = I get up. Me, te, se become m', t', s' before a vowel.",
+    "Every noun is masculine or feminine, so learn it with its article: un homme, une femme. People often add -e: un ami, une amie. Clues: -tion is usually feminine; -age and -ment are usually masculine.",
+    "Plural adds an -s you don't hear: un arbre, des arbres, so listen to the article instead. Nouns ending in -s, -x or -z don't change. -eau → -eaux; -al → -aux (un journal, des journaux).",
+    "Un, une, des = a, some: one of many, or first mention. Le, la, les = the: something specific, or a thing in general. L' before a vowel. French keeps the article where English drops it: j'aime le café.",
+    "À and de merge with le and les: à + le = au, à + les = aux, de + le = du, de + les = des. À la, à l', de la and de l' don't change: je vais au cinéma, à la gare.",
+    "Possessives agree with the thing owned, not the owner: mon père, ma mère, mes parents; ton, ta, tes; son, sa, ses (son père = his or her father); notre, nos; votre, vos; leur, leurs. Before a vowel, ma becomes mon: mon amie.",
+    "This, that, these, those: ce chat, cet arbre (masculine before a vowel), cette voiture, ces arbres. It also works with time: ce soir = this evening.",
+    "Avoir + noun says what you have: j'ai une voiture. Most adjectives go after the noun: une voiture rouge. Short common ones go before: belle, grand, petit, bon, jeune, vieux: une belle voiture.",
+    "French uses avoir for looks and age: il a les yeux noirs. Age is always avoir: mon fils a trois ans means 'my son is three'.",
+    "Avoir mal à + body part: j'ai mal à la tête, au dos, aux dents. Feelings use 'have', where English uses 'be': j'ai faim, soif, froid, chaud, peur, sommeil.",
+    "avoir: j'ai, tu as, il/elle/on a, nous avons, vous avez, ils/elles ont. Questions and negatives work as with être: Est-ce que vous avez… ? Je n'ai pas… Hear the difference: ils ont (z sound), ils sont (s sound).",
+    "After a negative, un, une and des become de: j'ai une voiture → je n'ai pas de voiture. Le, la, les don't change: je n'aime pas le café.",
+    "À = at or in a city; de = from: je suis de Delhi, je suis à Paris. Chez + person = at someone's place: chez Paul, chez moi. Près de = near, loin de = far from.",
+    "Cities take à: à Paris. Feminine countries (most ending in -e) take en: en France. Masculine ones take au: au Japon. Plural ones take aux: aux États-Unis.",
+    "Dans = in, sur = on, sous = under, devant = in front of, derrière = behind. They work like English, with an article after them: sur la table.",
+    "Il y a = there is and there are, always the same form. Qu'est-ce qu'il y a ? = what is there? Negative: il n'y a pas de… (des becomes de after pas).",
+    "For people: Qui est-ce ? C'est Paul. For things: Qu'est-ce que c'est ? C'est un livre. Plural: ce sont. Here un stays after the negative: ce n'est pas un chat. (Compare chapter 20.)",
+    "C'est + article + noun: c'est un acteur. Il est + adjective: il est grand. It's the same for things. Jobs work both ways: il est médecin, but c'est un médecin.",
+    "C'est + masculine adjective makes a general comment, even about a feminine or plural thing: la France, c'est beau; les voyages, c'est cher.",
+    "Watch 70 = soixante-dix, 80 = quatre-vingts, 90 = quatre-vingt-dix. Ordinals: premier, première, deuxième, troisième. Dates: le 3 mai, but le premier mai. Lundi = this Monday; le lundi = every Monday.",
+    "Il est + heures: il est cinq heures. Et quart = quarter past, et demie = half past, moins le quart = quarter to. Midi = noon, minuit = midnight. À 8 heures = at 8 o'clock.",
+    "Weather uses il fait: il fait froid, il fait beau. Also il pleut, il neige. Months and seasons take en: en janvier, en été, en hiver. The exception: au printemps.",
+    "Du, de la, de l', des = 'some', for amounts you don't count: je mange du pain, de la salade, des fruits. English can drop 'some'; French can't. After aimer, use le, la, les instead: j'aime le pain.",
+    "After an amount, use de with no article: un kilo de tomates, un litre de lait, beaucoup de sucre, un peu de sel. Pas de works the same way.",
+    "Plus, moins or aussi + adjective + que: plus grand que, moins cher que, aussi beau que. Two irregular ones: bon → meilleur, bien → mieux.",
+    "For amounts: plus de, moins de, autant de + noun: plus de livres que… The superlative adds le, la, les: le plus grand, la moins chère, le meilleur.",
+    "Finir type: je finis, tu finis, il finit, nous finissons, vous finissez, ils finissent. The singular endings sound the same; the plural adds -iss-.",
+    "Partir type: je pars, tu pars, il part, nous partons, vous partez, ils partent. The singular drops the consonant before the ending. The same goes for dormir (je dors) and sortir (je sors).",
+    "Two stems: j'écris, tu écris, il écrit, but nous écrivons, vous écrivez, ils écrivent. Lire works the same way (je lis, nous lisons). Learn the nous form with the verb.",
+    "Savoir = know a fact or how to do something: je sais nager. Connaître = know a person or place: je connais Paris. Je sais, nous savons; je connais, nous connaissons; je crois, nous croyons; je vois, nous voyons.",
+    "Three stems: je bois, nous buvons, ils boivent. The same pattern: je viens, nous venons, ils viennent; je prends, nous prenons, ils prennent. Learn the je, nous and ils forms together.",
+    "Je veux, nous voulons, ils veulent. Je peux, nous pouvons, ils peuvent. Je dois, nous devons, ils doivent. The next verb follows directly, with no 'to': je veux partir. Il faut + verb = you must.",
+    "Faire: je fais, tu fais, il fait, nous faisons, vous faites, ils font. Activities: faire du tennis, de la musique, la cuisine. Dire: je dis, nous disons, vous dites, ils disent.",
+    "Aller: je vais, tu vas, il va, nous allons, vous allez, ils vont. Places: à Rome, au cinéma. Transport: en bus, en train, but à pied.",
+    "Aller + verb = going to do something: je vais manger. The negative wraps aller: je ne vais pas manger. Use this for most everyday future plans.",
+    "The passé composé is the main past tense: avoir + participle. -er verbs end in -é: j'ai mangé. This one form covers both 'I ate' and 'I have eaten'.",
+    "Other participles to learn: finir → fini, vendre → vendu, voir → vu, avoir → eu, être → été, faire → fait, prendre → pris, mettre → mis, boire → bu, lire → lu.",
+    "About 15 verbs, mostly of movement, use être: aller, venir, arriver, partir, entrer, sortir, monter, descendre, naître, mourir, rester, tomber; so do all reflexive verbs. The participle then agrees like an adjective: il est arrivé, elle est arrivée, ils sont arrivés.",
+    "The imparfait is for description and habits: 'was doing', 'used to do'. Take the nous form, drop -ons, and add -ais, -ais, -ait, -ions, -iez, -aient: nous parlons → je parlais. The exception: être → j'étais.",
+    "The simple future: infinitive + -ai, -as, -a, -ons, -ez, -ont: je parlerai. Irregular stems: être → ser-, avoir → aur-, aller → ir-, faire → fer-, venir → viendr-. After quand, French uses the future where English uses the present: quand je serai grand.",
+    "A review of the tenses so far: je mange, j'ai mangé, je mangeais, je vais manger, je mangerai. Notice how time words point to each one: hier, maintenant, demain.",
+    "Il y a + time = ago: il y a deux ans. Pendant = for a finished period. Depuis = since or for, with something still going on, in the present: j'habite ici depuis deux ans. Dans + time = in (the future): dans deux jours.",
+    "Où, quand, comment, combien, pourquoi. Three styles: Tu vas où ? (spoken), Où est-ce que tu vas ? (standard), Où vas-tu ? (formal). Answer pourquoi with parce que.",
+    "Qui = who. Que or qu'est-ce que = what. Quel, quelle, quels, quelles = which or what, and they agree with the noun: Quelle est votre profession ?",
+    "These replace pas, and ne stays: ne… rien = nothing, ne… jamais = never, ne… plus = no longer, ne… personne = no one: je ne mange rien. Rien and personne can also start a sentence: personne ne sait.",
+    "In the passé composé, the negative wraps the auxiliary: je n'ai pas mangé, je ne suis pas sorti. Questions: Est-ce que tu as mangé ? or, more formally, As-tu mangé ?",
+    "En replaces du, de la, des, or a noun after a number or amount, and goes before the verb: Tu manges du pain ? Oui, j'en mange. J'en veux deux.",
+    "Y replaces a place you're going to or are in, and goes before the verb: Tu vas au cinéma ? Oui, j'y vais.",
+    "Le, la, l', les replace a direct object and go before the verb: je regarde Paul → je le regarde. Word for word, that's 'I him watch'. The negative wraps both: je ne le regarde pas.",
+    "Lui and leur replace à + a person: il parle à Marie → il lui parle. Lui means both 'to him' and 'to her'. They go with verbs like parler à, téléphoner à, donner à.",
+    "Moi, toi, lui, elle, nous, vous, eux, elles. Use them after prepositions (avec moi, chez lui), after c'est (c'est moi), and for emphasis: moi, je reste.",
+    "Both link two ideas. Qui is the subject of the next verb: le train qui arrive. Que is its object: le train que je prends. Que becomes qu' before a vowel; qui never shortens.",
+]
+assert len(DEB_BRIEFS) == 60
+
+# Lessons that explain the day's grammar come before the book. Word lists stay in the afternoon, with anything "(extra)".
+VINCENT_AFTERNOON = {
+    "Jobs", "Family words", "Marital status", "Colours", "Countries: Europe", "Countries: the Americas",
+    "Countries: Middle East", "Countries: Far East", "The house", "The living room", "The kitchen", "In town",
+    "In the house", "Geography words", "Fruit and vegetables", "Cooking", "Courses of a meal", "At the café",
+    "At the restaurant", "Food words", "Fish", "Grains", "Climates", "The body: the mouth", "Metres, litres, kilos",
+}
+
+
 def deb_pages(lo, hi):
     """Pages of chapters lo..hi, e.g. 'p. 14–17', or 'p. 122–123, 126–127' when a bilan falls between them."""
     runs = []
@@ -757,18 +831,23 @@ def vincent_parts():
     return groups
 
 
+def is_first(seg):
+    """Watch before the book: lessons on the day's grammar, not word lists or extras."""
+    return not any("(extra)" in t or t in VINCENT_AFTERNOON for t in seg["topics"])
+
+
 def links_for(segments):
     """Links for a run of parts, joined where they run on in the same video."""
     links = []
     for seg in segments:
         prev = links[-1] if links else None
-        if prev and prev["id"] == seg["id"] and prev["to"] == seg["from"]:
+        if prev and prev["id"] == seg["id"] and prev["to"] == seg["from"] and is_first(prev) == is_first(seg):
             prev["to"] = seg["to"]
             prev["topics"] += [t for t in seg["topics"] if t not in prev["topics"]]
         else:
             links.append({**seg, "topics": list(seg["topics"])})
     return [{"video": g["video"], "id": g["id"], "from": g["from"], "to": g["to"],
-             "topic": ", ".join(g["topics"])} for g in links]
+             "topic": ", ".join(g["topics"]), "first": is_first(g)} for g in links]
 
 
 def vincent_days(days, by_chapter):
@@ -875,7 +954,7 @@ for d in all_days():
         code, lo, hi = chapters[d]
         if code == "Déb.":
             row["book_pages"] = deb_pages(lo, hi)
-            row["book_topics"] = [{"ch": c, "topic": DEB_TOPICS[c - 1]} for c in range(lo, hi + 1)]
+            row["book_topics"] = [{"ch": c, "topic": DEB_TOPICS[c - 1], "note": DEB_BRIEFS[c - 1]} for c in range(lo, hi + 1)]
             if (lo, hi) in DEB_ANNEX:
                 row["book_annex"] = DEB_ANNEX[(lo, hi)]
     else:
@@ -981,6 +1060,8 @@ for row in rows:
         final = ", then the final test on p. 173" if bilans[-1][0] == 8 else ""
         items.append(f"Week re-test (60 min): {names}: recap exercises and test, no notes, then check the Corrigés"
                      f"{final}. With time left, 1 exercise from each of {span(labs)}{vtxt}")
+        bilan_pages = [q for _n, _last, pg in bilans for q in (pg, pg + 1)] + ([173] if final else [])
+        row["sunday_answer_pages"] = {str(len(items) - 1): bilan_pages}
     elif labs:
         items.append(f"Week re-test (60 min): 1 exercise from each of {span(labs)}{vtxt}, covered, from memory")
     elif d >= EXAM_MODE_START:
@@ -1203,4 +1284,5 @@ for key, name, n in (("p2", "Intermédiaire", 52), ("p3", "Avancé", 50)):
     print(f"Vincent in {name}: {secs / 3600:.1f} h, about {secs / 60 / n:.0f} min a study day")
 print(f"Vincent in Débutant: {watched / 3600:.1f} h")
 print("Vincent minutes per day:", [round(sum(l["to"] - l["from"] for l in s["links"]) / 60) for s in vincent.values()])
+print("Before the book, minutes per day:", [round(sum(l["to"] - l["from"] for l in s["links"] if l["first"]) / 60) for s in vincent.values()])
 print("Hour used per day:", [round(sum(l["to"] - l["from"] for l in s["links"]) / 60) + (s["audio"]["minutes"] if s["audio"] else 0) + s["rest"] for s in vincent.values()])

@@ -739,3 +739,24 @@ code {
   font-size: 0.85rem;
   font-weight: 600;
 }
+.answers {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+}
+.answers summary {
+  font-weight: 600;
+  cursor: pointer;
+}
+.answers h4 {
+  margin: 0.7rem 0 0.2rem;
+  font-size: 0.85rem;
+}
+.answers p {
+  margin: 0.25rem 0;
+  overflow-wrap: anywhere;
+}
+.chapter-note {
+  margin: 0.45rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}

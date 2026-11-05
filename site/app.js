@@ -2,6 +2,8 @@ import {
   PHASE_NAMES,
   LINKS,
   BOOK_AUDIO,
+  BOOK_WORDS,
+  answersFor,
   WORD_SETS,
   WRITING_PROMPT,
   SPEAKING_PROMPT,
@@ -185,6 +187,23 @@ const COPY_LABELS = {
   explain: 'Stuck? Explain in English',
 };
 
+/** The private answers for a task, closed until tapped. Shows only once they've been imported with the deck. */
+function answersBlock(t) {
+  const found = answersFor(deck?.answers, t.answerPages);
+  if (!found.length) return '';
+  const exercise = (e) => {
+    const items = (e.items || []).map(([label, answer]) => `${esc(label)}. ${esc(answer)}`).join(' · ');
+    const body = e.free ? 'Free answer: use Check my answers.' : items;
+    return `<p><b>Ex. ${esc(e.n)}</b> ${body}${e.note ? ` <span class="sub">(${esc(e.note)})</span>` : ''}</p>`;
+  };
+  return `
+    <details class="answers">
+      <summary>Show answers</summary>
+      <p class="sub">Written by Claude, not the publisher, so they can contain mistakes. If one looks wrong, use Check my answers.</p>
+      ${found.map(({ page, ex }) => `<h4>p. ${page}</h4>${ex.map(exercise).join('')}`).join('')}
+    </details>`;
+}
+
 function taskRow(iso, t, done, cardStats) {
   const isDone = done.includes(t.id);
   const actions = [];
@@ -220,6 +239,8 @@ function taskRow(iso, t, done, cardStats) {
         <p class="task-title">${esc(t.title)}</p>
         ${detail ? `<p class="task-detail">${esc(detail)}</p>` : ''}
         ${actions.length ? `<div class="acts">${actions.join('')}</div>` : ''}
+        ${(t.notes || []).map((n) => `<p class="chapter-note"><b>Ch. ${esc(n.ch)}</b> ${esc(n.note)}</p>`).join('')}
+        ${answersBlock(t)}
         ${(t.players || [])
           .map(
             (a) => `
@@ -331,6 +352,22 @@ function viewMistakes() {
       </div>
       <p class="sub" id="backup-msg" role="status"></p>
     </section>`;
+}
+
+function viewBookWords() {
+  return `
+    <p class="crumb"><a href="#/today">← Today</a></p>
+    <h1>French words in the book</h1>
+    <p class="sub">The book uses these constantly. Learn them in your first week and the left pages get much easier. For any other word, look up just that word, not the whole page.</p>
+    ${BOOK_WORDS.map(
+      ([title, words]) => `
+      <section class="card">
+        <h2>${esc(title)}</h2>
+        <table class="tbl"><tbody>
+          ${words.map(([fr, en]) => `<tr><td lang="fr"><b>${esc(fr)}</b></td><td>${esc(en)}</td></tr>`).join('')}
+        </tbody></table>
+      </section>`,
+    ).join('')}`;
 }
 
 function viewAudio() {
@@ -585,7 +622,10 @@ function route() {
   else if (name === 'cards') html = renderCards(cardsCtx(), arg === 'add' ? arg2 : null);
   else if (name === 'mistakes') html = viewMistakes();
   else if (name === 'materials') html = viewMaterials();
-  else if (name === 'audio') {
+  else if (name === 'book-words') {
+    html = viewBookWords();
+    tab = 'plan';
+  } else if (name === 'audio') {
     html = viewAudio();
     tab = 'materials';
   } else if (name === 'method') html = viewMethod();
