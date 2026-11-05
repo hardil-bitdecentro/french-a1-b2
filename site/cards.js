@@ -101,7 +101,7 @@ const isToday = (iso, now) => !!iso && localISO(new Date(iso)) === localISO(now)
 
 /** Deck words already started today (counts against the daily new-word limit). */
 export function deckNewToday(state, now = new Date()) {
-  return liveCards(state).filter((c) => c.kind === 'deck' && isToday(c.created, now)).length;
+  return liveCards(state).filter((c) => c.kind === 'deck' && c.src !== 'photo' && isToday(c.created, now)).length;
 }
 
 /** Sentences already started today. */

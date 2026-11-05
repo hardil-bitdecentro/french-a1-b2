@@ -1,12 +1,25 @@
 {
-  "name": "Français A1 → B2 in 6 months",
+  "name": "Français A1 → B2",
   "short_name": "Français B2",
   "description": "Day-by-day French study plan, A1 to B2 in 6 months.",
   "start_url": "./#/today",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f6f4ee",
-  "theme_color": "#1f3a8a",
+  "orientation": "portrait",
+  "share_target": {
+    "action": "./",
+    "method": "GET",
+    "enctype": "application/x-www-form-urlencoded",
+    "params": { "title": "title", "text": "text", "url": "url" }
+  },
+  "shortcuts": [
+    { "name": "Today", "url": "./#/today" },
+    { "name": "Review cards", "url": "./#/cards/review" },
+    { "name": "Add a card", "url": "./#/cards/add/other" },
+    { "name": "Photo of a page", "url": "./#/cards/photo" }
+  ],
+  "background_color": "#ffffff",
+  "theme_color": "#1b2a9e",
   "icons": [
     { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" },
     { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },

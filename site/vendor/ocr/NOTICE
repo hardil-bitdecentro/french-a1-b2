@@ -1,0 +1,8 @@
+Bundled unmodified:
+
+- tesseract.min.js, worker.min.js: tesseract.js 7.0.0 (https://github.com/naptha/tesseract.js), Apache-2.0.
+- tesseract-core-*-lstm.wasm.js: tesseract.js-core 7.0.0 (https://github.com/naptha/tesseract.js-core), Apache-2.0,
+  a build of Tesseract OCR (https://github.com/tesseract-ocr/tesseract), Apache-2.0.
+- fra.traineddata: tessdata_fast (https://github.com/tesseract-ocr/tessdata_fast), Apache-2.0.
+
+The Apache-2.0 licence is in LICENSE. The *.LICENSE.txt files list the smaller MIT and BSD packages inside the bundles.

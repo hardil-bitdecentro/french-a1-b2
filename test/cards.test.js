@@ -32,6 +32,16 @@ const AGAIN = RATINGS[0].value;
 const GOOD = RATINGS[2].value;
 const EASY = RATINGS[3].value;
 
+describe('words added from a photo', () => {
+  it("are extra: they do not use up today's new-word limit", () => {
+    const now = new Date('2026-11-07T10:00:00');
+    const state = emptyState();
+    putCard(state, { ...newDeckCard(5, now), src: 'photo' });
+    putCard(state, newDeckCard(6, now));
+    expect(deckNewToday(state, now)).toBe(1);
+  });
+});
+
 describe('scheduling', () => {
   it('a new card answered Good comes back in minutes; Easy in days', () => {
     const now = at('2026-11-04T08:00:00');

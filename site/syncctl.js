@@ -138,6 +138,11 @@ export function createSync(opts) {
     link(baseUrl) {
       return key ? pairLink(baseUrl, key) : null;
     },
+    /** Sign-in for other routes on the sync server: null when sync is off, else a promise of { id, token }. */
+    auth() {
+      if (!key) return null;
+      return deriveKeys(key).then(({ id, token }) => ({ id, token }));
+    },
     syncNow,
     /** Call after every local change; batches writes (Workers KV allows ~1,000 writes/day on the free plan). */
     schedule() {

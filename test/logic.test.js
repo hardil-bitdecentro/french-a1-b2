@@ -4,6 +4,16 @@ import {
   MINUTES,
   EXPLAIN_PROMPT,
   CHECK_PROMPT,
+  timerLeft,
+  formatClock,
+  taskMinutes,
+  parseMistake,
+  splitTitle,
+  detailParts,
+  mistakeLines,
+  repeatedMistakes,
+  addNoteLine,
+  removeNoteLine,
   pagesFrom,
   answersFor,
   BOOK_AUDIO,
@@ -459,6 +469,150 @@ describe('English first in the Débutant month', () => {
     expect(new Set(words.map(([fr]) => fr)).size).toBe(words.length);
     const book = morning(deb[0]).find((t) => t.id === 'book');
     expect(book.action.href).toBe('#/book-words');
+  });
+});
+
+describe('focus timer', () => {
+  it('counts down from an end time, and holds while paused', () => {
+    expect(timerLeft({ endsAt: 10_000 }, 4_000)).toBe(6);
+    expect(timerLeft({ endsAt: 10_000 }, 9_001)).toBe(1);
+    expect(timerLeft({ endsAt: 10_000 }, 20_000)).toBe(0);
+    expect(timerLeft({ left: 90 }, 20_000)).toBe(90);
+    expect(timerLeft(null)).toBe(0);
+  });
+
+  it('survives the page being asleep, because it reads the clock instead of counting ticks', () => {
+    const t = { endsAt: 1_000_000 };
+    expect(timerLeft(t, 1_000_000 - 30 * 60_000)).toBe(30 * 60);
+  });
+
+  it('formats the clock', () => {
+    expect(formatClock(90)).toBe('01:30');
+    expect(formatClock(50 * 60)).toBe('50:00');
+    expect(formatClock(0)).toBe('00:00');
+    expect(formatClock(-5)).toBe('00:00');
+  });
+
+  it('takes minutes from the task, or from a Sunday title', () => {
+    expect(taskMinutes({ minutes: 50, title: 'x' })).toBe(50);
+    expect(taskMinutes({ title: 'Long speaking (90 min): café-langue' })).toBe(90);
+    expect(taskMinutes({ title: 'Something else' })).toBe(25);
+  });
+});
+
+describe('error log lines', () => {
+  it('splits wrote → correct → rule', () => {
+    expect(parseMistake("j'ai allé → je suis allé → aller takes être")).toEqual({
+      wrong: "j'ai allé",
+      right: 'je suis allé',
+      rule: 'aller takes être',
+    });
+  });
+
+  it('accepts the rule in brackets, and a plain arrow', () => {
+    expect(parseMistake('le famille -> la famille (famille is feminine)')).toEqual({
+      wrong: 'le famille',
+      right: 'la famille',
+      rule: 'famille is feminine',
+    });
+    expect(parseMistake("je suis 25 ans → j'ai 25 ans").rule).toBe('');
+  });
+
+  it('leaves anything else as a plain note', () => {
+    expect(parseMistake('review ch. 8 again')).toEqual({ plain: 'review ch. 8 again' });
+  });
+});
+
+describe('task text', () => {
+  it('splits a long title at the French " : " only', () => {
+    expect(splitTitle('Write: 8 phrases avec être : je suis, tu es')).toEqual({
+      head: 'Write: 8 phrases avec être',
+      tail: 'je suis, tu es',
+    });
+    expect(splitTitle('Book: Déb. 3–4, p. 14–17')).toEqual({ head: 'Book: Déb. 3–4, p. 14–17', tail: '' });
+  });
+
+  it('turns the book routine into numbered steps and keeps the chapter topics apart', () => {
+    const { intro, steps } = detailParts(
+      'Ch. 3: plural adjectives · Ch. 4: être. Read the examples, then the rule → close the book → check your answers.',
+    );
+    expect(intro).toBe('Ch. 3: plural adjectives · Ch. 4: être.');
+    expect(steps).toEqual(['Read the examples, then the rule', 'Close the book', 'Check your answers.']);
+  });
+
+  it('leaves text without steps alone', () => {
+    expect(detailParts('Record yourself and listen back')).toEqual({
+      intro: 'Record yourself and listen back',
+      steps: [],
+    });
+    expect(detailParts(undefined)).toEqual({ intro: '', steps: [] });
+  });
+
+  it('gives every book task in the plan real steps', () => {
+    for (const d of plan.days.filter((x) => !x.sunday)) {
+      const book = sessionsFor(d)[0].tasks.find((t) => t.id === 'book');
+      expect(detailParts(book.detail).steps.length).toBeGreaterThanOrEqual(4);
+    }
+  });
+});
+
+describe('the mistakes list', () => {
+  const notes = {
+    '2026-11-06': ["j'ai allé → je suis allé → aller takes être\n\nreview ch. 8", 1],
+    '2026-11-08': ['elle a allé → elle est allée → Aller takes être', 2],
+    '2026-11-07': ['nous avons allé → nous sommes allés → aller  takes être', 3],
+  };
+
+  it('lists every line, newest day first, remembering its position', () => {
+    const lines = mistakeLines(notes);
+    expect(lines.map((m) => m.date)).toEqual(['2026-11-08', '2026-11-07', '2026-11-06', '2026-11-06']);
+    expect(lines[2].index).toBe(0);
+    expect(lines[3]).toEqual({ date: '2026-11-06', index: 2, plain: 'review ch. 8' });
+  });
+
+  it('spots a rule that comes back three times, however it was typed', () => {
+    const [top, ...rest] = repeatedMistakes(mistakeLines(notes));
+    expect(top.count).toBe(3);
+    expect(top.firstDate).toBe('2026-11-06');
+    expect(rest).toEqual([]);
+  });
+
+  it('does not flag twice, and ignores plain notes', () => {
+    expect(repeatedMistakes(mistakeLines({ '2026-11-06': ['a → b → c\na2 → b2 → c', 1] }))).toEqual([]);
+    expect(repeatedMistakes(mistakeLines({ '2026-11-06': ['x\nx\nx', 1] }))).toEqual([]);
+  });
+
+  it('adds and removes single lines', () => {
+    expect(addNoteLine('', ' a → b ')).toBe('a → b');
+    expect(addNoteLine('one\n', 'two')).toBe('one\ntwo');
+    expect(removeNoteLine('one\ntwo\nthree', 1)).toBe('one\nthree');
+  });
+});
+
+describe('offline files', () => {
+  it('saves every file the app needs, and they all exist', () => {
+    const sw = readFileSync(new URL('../site/sw.js', import.meta.url), 'utf8');
+    const list = [...sw.match(/PRECACHE = \[([\s\S]*?)\]/)[1].matchAll(/'([^']+)'/g)].map((m) => m[1]);
+    const site = (f) => new URL(`../site/${f}`, import.meta.url);
+    for (const f of list.filter((x) => x !== './')) expect(readFileSync(site(f)).length).toBeGreaterThan(0);
+    const imports = (file) =>
+      [...readFileSync(site(file), 'utf8').matchAll(/(?:from |import\()'\.\/([^']+)'/g)].map((m) => m[1]);
+    for (const file of list.filter((x) => x.endsWith('.js'))) {
+      if (file === 'sw.js') continue;
+      for (const dep of imports(file)) expect(list).toContain(dep);
+    }
+  });
+});
+
+describe('offline photo reader', () => {
+  it('saves every engine file the photo page uses', async () => {
+    const sw = readFileSync(new URL('../site/sw.js', import.meta.url), 'utf8');
+    const saved = [...sw.match(/const OCR_FILES = \[([\s\S]*?)\]/)[1].matchAll(/'([^']+)'/g)].map((m) => m[1]);
+    const { OCR_FILES } = await import('../site/photo.js');
+    const needed = OCR_FILES.filter((f) => !/LICENSE|NOTICE/.test(f)).map((f) => f.replace('vendor/ocr/', ''));
+    expect(saved.sort()).toEqual(needed.sort());
+    for (const f of saved)
+      expect(readFileSync(new URL(`../site/vendor/ocr/${f}`, import.meta.url)).length).toBeGreaterThan(0);
   });
 });
 

@@ -1,13 +1,17 @@
 import {
   PHASE_NAMES,
   LINKS,
-  BOOK_AUDIO,
-  BOOK_WORDS,
   answersFor,
+  timerLeft,
+  formatClock,
+  taskMinutes,
+  splitTitle,
+  detailParts,
+  mistakeLines,
+  repeatedMistakes,
+  addNoteLine,
+  removeNoteLine,
   WORD_SETS,
-  WRITING_PROMPT,
-  SPEAKING_PROMPT,
-  EXPLAIN_PROMPT,
   localISO,
   addDays,
   dayNumber,
@@ -22,8 +26,12 @@ import {
 } from './logic.js';
 import * as S from './store.js';
 import { queueStats, newLimitFor, sentLimitFor, sayLimitFor, newOwnCard } from './cards.js';
-import { renderCards, cardsClick, cardsKey, cardsSubmit, cardsChange, resetReview } from './cards-view.js';
+import { renderCards, cardsClick, cardsKey, cardsSubmit, cardsChange, resetReview, prefillCard } from './cards-view.js';
 import { createSync } from './syncctl.js';
+import { createReminders } from './reminders.js';
+import { recorderHtml, mountRecorder, speakClick, isBusy } from './speak.js';
+import { photoHtml, photoClick, photoChange } from './photo-view.js';
+import { viewBookWords, viewAudio, viewMaterials, viewMethod } from './pages.js';
 import { idbGet, idbSet } from './db.js';
 import { SYNC_URL } from './config.js';
 import qrcode from './vendor/qrcode.mjs';
@@ -36,6 +44,18 @@ let deck = null;
 let state = load();
 let syncStatus = { state: 'off', lastOk: null };
 let showPair = false;
+let installPrompt = null;
+let timerTick = null;
+let wakeLock = null;
+
+const TIMER_KEY = `${KEY}:timer`;
+let timer = (() => {
+  try {
+    return JSON.parse(localStorage.getItem(TIMER_KEY) || 'null');
+  } catch {
+    return null;
+  }
+})();
 
 function load() {
   try {
@@ -51,10 +71,14 @@ function persist() {
 function save() {
   persist();
   sync.schedule();
+  updateQuiet();
 }
 
 /** The plan-wide reset (plan.resetAt): keeps older progress from coming back from any source. */
 const applyPlanReset = (s) => (plan && plan.resetAt ? S.applyReset(s, plan.resetAt) : s);
+
+/** Someone is typing or recording, so a background sync must not redraw the page under them. */
+const isEditing = () => isBusy() || !!document.activeElement?.closest?.('#app input, #app textarea, #app select');
 
 const sync = createSync({
   url: SYNC_URL,
@@ -64,13 +88,13 @@ const sync = createSync({
     state = s;
     persist();
     resetReview();
-    if (plan) rerender({ keepScroll: true });
+    if (plan && !isEditing()) rerender({ keepScroll: true });
   },
   getDeck: async () => deck,
   setDeck: async (d) => {
     deck = d;
     await idbSet('deck', d);
-    if (plan) rerender({ keepScroll: true });
+    if (plan && !isEditing()) rerender({ keepScroll: true });
   },
   prune: (s) => applyPlanReset(s),
   onStatus: (s) => {
@@ -79,6 +103,8 @@ const sync = createSync({
     if (el) el.textContent = statusText();
   },
 });
+
+const reminders = createReminders({ url: SYNC_URL, getAuth: () => sync.auth(), storage: localStorage });
 
 function statusText() {
   if (!sync.configured) return 'The sync server is not set up yet.';
@@ -90,96 +116,118 @@ function statusText() {
 }
 
 const todayISO = () => clampDate(localISO(new Date()), plan.start, plan.end);
-const longDate = (iso) =>
-  new Date(...iso.split('-').map((n, i) => (i === 1 ? n - 1 : +n))).toLocaleDateString('en-GB', {
-    weekday: 'long',
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
+const dayTitle = (iso) =>
+  new Date(`${iso}T12:00:00`).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
+const shortDay = (iso) =>
+  new Date(`${iso}T12:00:00`).toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' });
 /** The plan's new-word limit for today (before the start: day 1's; after the end: the last day's). */
 const todaysNewLimit = () => newLimitFor(byDate.get(todayISO()));
 const todaysSentLimit = () => sentLimitFor(byDate.get(todayISO()));
 const todaysSayLimit = () => sayLimitFor(byDate.get(todayISO()));
 
-// ---------- views ----------
+const statsFor = (iso) =>
+  iso === todayISO()
+    ? queueStats(state, deck, todaysNewLimit(), new Date(), 20, todaysSentLimit(), todaysSayLimit())
+    : null;
+
+// ---------- today ----------
+
+function streakText(day, doneToday) {
+  const real = localISO(new Date());
+  if (real < plan.start || real > plan.end) return '';
+  const doneMap = Object.fromEntries(plan.days.map((d) => [d.date, S.doneIds(state, d.date)]));
+  const st = streaks(plan.days, doneMap, real);
+  const need = Math.max(0, streakTarget(day) - doneToday);
+  const hint = st.todayCounts
+    ? 'today counts'
+    : `${need} more task${need === 1 ? '' : 's'} to ${st.current ? 'keep it going' : 'start it'}`;
+  const best = st.best > st.current ? ` (best ${st.best})` : '';
+  return `Streak: ${st.current} day${st.current === 1 ? '' : 's'}${best} · ${hint}`;
+}
 
 function viewDay(iso) {
   const day = byDate.get(iso);
   if (!day) return viewDay(todayISO());
-  const n = dayNumber(iso, plan.start);
-  const total = plan.days.length;
   const real = localISO(new Date());
-  const isToday = iso === real;
   const done = S.doneIds(state, iso);
   const prog = dayProgress(day, done);
-  const doneMap = Object.fromEntries(plan.days.map((d) => [d.date, S.doneIds(state, d.date)]));
-  const overall = overallProgress(plan.days, doneMap);
-  const cardStats =
-    isToday || iso === todayISO()
-      ? queueStats(state, deck, todaysNewLimit(), new Date(), 20, todaysSentLimit(), todaysSayLimit())
-      : null;
+  const cardStats = statsFor(iso);
+  const sessions = sessionsFor(day);
+  const next = sessions.flatMap((x) => x.tasks).find((t) => !done.includes(t.id));
   let notice = '';
-  if (real < plan.start) notice = `<p class="notice">Your plan starts on ${esc(longDate(plan.start))}.</p>`;
-  if (real > plan.end)
-    notice = `<p class="notice">The 182 days are over. Time for the exam, or another exam-mode block.</p>`;
-
-  const sessions = sessionsFor(day)
-    .map(
-      (s) => `
-    <section class="card session">
-      <div class="session-head">
-        <h2>${esc(s.title)}</h2>
-        <p class="sub">${esc(s.note)}${s.tasks.some((t) => t.minutes) ? ` · ${s.tasks.reduce((a, t) => a + (t.minutes || 0), 0)} min` : ''}</p>
-      </div>
-      <ul class="tasks">${s.tasks.map((t) => taskRow(iso, t, done, cardStats)).join('')}</ul>
-    </section>`,
-    )
-    .join('');
-
+  if (real < plan.start) notice = `<p class="notice">Your plan starts on ${esc(dayTitle(plan.start))}.</p>`;
+  if (real > plan.end) notice = '<p class="notice">The 182 days are over. Time for the exam.</p>';
+  const streak = iso === real ? streakText(day, prog.done) : '';
+  const section = (x) => {
+    const minutes = x.tasks.reduce((sum, t) => sum + (t.minutes || 0), 0);
+    return `<section class="session">
+      <h2>${esc(x.title)}${minutes ? `<span>${minutes} min</span>` : ''}</h2>
+      <ul class="rows">${x.tasks.map((t) => taskRow(iso, t, done, cardStats, next)).join('')}</ul>
+    </section>`;
+  };
   return `
     ${notice}
-    <div class="day-head">
+    <div class="page-head">
       <div>
-        <p class="eyebrow">Day ${n} of ${total} · Week ${day.week} · ${esc(PHASE_NAMES[day.phase])}</p>
-        <h1>${esc(longDate(iso))}${isToday ? ' <span class="today-mark">today</span>' : ''}</h1>
+        <h1>${esc(dayTitle(iso))}</h1>
+        <p class="sub">Day ${dayNumber(iso, plan.start)} of ${plan.days.length} · ${esc(PHASE_NAMES[day.phase])}</p>
       </div>
       <div class="day-nav">
-        ${iso > plan.start ? `<a class="btn" href="#/day/${addDays(iso, -1)}" aria-label="Previous day">←</a>` : '<span class="btn disabled" aria-hidden="true">←</span>'}
-        ${!isToday && real >= plan.start && real <= plan.end ? `<a class="btn" href="#/today">Today</a>` : ''}
-        ${iso < plan.end ? `<a class="btn" href="#/day/${addDays(iso, 1)}" aria-label="Next day">→</a>` : '<span class="btn disabled" aria-hidden="true">→</span>'}
+        ${iso > plan.start ? `<a class="icon-btn" href="#/day/${addDays(iso, -1)}" aria-label="Previous day">←</a>` : '<span class="icon-btn disabled" aria-hidden="true">←</span>'}
+        ${iso < plan.end ? `<a class="icon-btn" href="#/day/${addDays(iso, 1)}" aria-label="Next day">→</a>` : '<span class="icon-btn disabled" aria-hidden="true">→</span>'}
       </div>
     </div>
-    <div class="progress-row">
-      <div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="${prog.total}" aria-valuenow="${prog.done}" aria-label="Today's tasks">
-        <span style="width:${Math.round((prog.done / prog.total) * 100)}%"></span>
-      </div>
-      <p class="sub"><b>${prog.done}/${prog.total}</b> tasks today · <b>${overall.complete}</b> of ${overall.total} days complete</p>
-      ${isToday ? streakLine(doneMap, day, prog.done) : ''}
-    </div>
-    ${sessions}
-    <section class="card">
-      <h2>Mistakes today</h2>
-      <p class="sub">Write each mistake as: what you wrote → correct version → rule. They all show up on the Mistakes page. Turn the important ones into flashcards.</p>
-      <textarea id="notes" data-date="${iso}" rows="5" placeholder="j'ai allé → je suis allé (aller takes être)">${esc(S.noteText(state, iso))}</textarea>
-      <div class="acts"><a class="act" href="#/cards/add/mistake">Make a flashcard from a mistake</a></div>
-    </section>`;
+    <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="${prog.total}" aria-valuenow="${prog.done}" aria-label="Tasks done"><div style="width:${prog.total ? Math.round((prog.done / prog.total) * 100) : 0}%"></div></div>
+    <p class="sub">${prog.done} of ${prog.total} done${streak ? ` · ${esc(streak)}` : ''}${navigator.onLine === false ? ' · Offline: everything is saved on this device' : ''}</p>
+    ${sessions.map(section).join('')}`;
 }
 
-/** "🔥 5-day streak" line for today's view. */
-function streakLine(doneMap, today, doneToday) {
-  const real = localISO(new Date());
-  if (real < plan.start || real > plan.end) return '';
-  const st = streaks(plan.days, doneMap, real);
-  const need = Math.max(0, streakTarget(today) - doneToday);
-  const best = st.best > st.current ? ` · best ${st.best}` : '';
-  let text;
-  if (st.todayCounts) text = `🔥 <b>${st.current}</b>-day streak · today counts ✓${best}`;
-  else if (st.current > 0)
-    text = `🔥 <b>${st.current}</b>-day streak · tick ${need} more task${need === 1 ? '' : 's'} today to make it ${st.current + 1}${best}`;
-  else text = `Start a streak: tick at least ${streakTarget(today)} of today's tasks (half the day)${best}.`;
-  return `<p class="streak${st.todayCounts ? ' on' : ''}">${text}</p>`;
+/** What to show under a task: live counts for flashcards, otherwise the task's own detail. */
+function taskDetail(t, cardStats) {
+  if (cardStats && t.id === 'anki-review') return `${cardStats.due} cards to review`;
+  if (cardStats && t.id === 'anki-new' && !t.detail)
+    return deck
+      ? `${cardStats.newLeft} new words${t.title.includes('sentences') ? `, ${cardStats.sentLeft} sentences` : ''}${
+          t.title.includes('to say') ? `, ${cardStats.sayLeft} to say` : ''
+        } left today`
+      : 'Import your word deck in Cards first';
+  return t.detail || '';
 }
+
+function rowMeta(t, cardStats) {
+  const { tail } = splitTitle(t.title);
+  if (tail) return tail;
+  const videos = t.links?.length;
+  if (videos && !t.notes) return `${videos} video${videos > 1 ? 's' : ''} · needs internet`;
+  if (t.players?.length) return `${t.players.length} recording${t.players.length > 1 ? 's' : ''} · needs internet`;
+  if (t.notes?.length) return `English note${videos ? ` + ${videos} video${videos > 1 ? 's' : ''}` : ''}`;
+  if (t.link) return 'Needs internet';
+  return detailParts(taskDetail(t, cardStats)).intro;
+}
+
+/** Flashcard tasks go straight to the cards. Everything else opens its own page. */
+function taskHref(iso, t) {
+  if (t.id === 'anki-review' || (t.id === 'anki-new' && !t.detail)) return '#/cards/review';
+  if (t.id === 'cards') return '#/cards/add/book';
+  return `#/task/${iso}/${esc(t.id)}`;
+}
+
+function taskRow(iso, t, done, cardStats, next) {
+  const isDone = done.includes(t.id);
+  const meta = rowMeta(t, cardStats);
+  const classes = ['row', isDone ? 'done' : '', next && next.id === t.id ? 'next' : ''].filter(Boolean).join(' ');
+  return `
+    <li class="${classes}">
+      <button class="check" type="button" role="checkbox" aria-checked="${isDone}" data-task="${esc(t.id)}" data-date="${iso}" aria-label="Mark done: ${esc(t.title)}"></button>
+      <a class="row-link" href="${taskHref(iso, t)}">
+        <span class="row-title">${esc(splitTitle(t.title).head)}</span>
+        ${meta ? `<span class="row-meta">${esc(meta)}</span>` : ''}
+      </a>
+      ${t.minutes ? `<span class="row-min">${t.minutes} min</span>` : ''}
+    </li>`;
+}
+
+// ---------- one task ----------
 
 const COPY_LABELS = {
   write: 'Copy correction prompt',
@@ -204,19 +252,16 @@ function answersBlock(t) {
     </details>`;
 }
 
-function taskRow(iso, t, done, cardStats) {
-  const isDone = done.includes(t.id);
+function taskActions(t) {
   const actions = [];
   if (t.action) actions.push(`<a class="act" href="${esc(t.action.href)}">${esc(t.action.label)} →</a>`);
   if (t.link) actions.push(`<a class="act" href="${esc(t.link)}" target="_blank" rel="noopener">Open ↗</a>`);
-  for (const l of t.links || [])
-    actions.push(`<a class="act" href="${esc(l.url)}" target="_blank" rel="noopener">▶ ${esc(l.label)} ↗</a>`);
   if (t.copy)
     actions.push(
       `<button class="act" type="button" data-copy="${esc(t.copy)}">${COPY_LABELS[t.kind] || 'Copy prompt'}</button>`,
     );
   if (t.check) actions.push(`<button class="act" type="button" data-copy="${esc(t.check)}">Check my answers</button>`);
-  if (t.kind === 'explain')
+  if (t.kind === 'explain' || t.kind === 'write' || t.kind === 'speak')
     actions.push(`<a class="act" href="${LINKS.claude}" target="_blank" rel="noopener">Open Claude ↗</a>`);
   if (t.addWords)
     actions.push(
@@ -224,68 +269,329 @@ function taskRow(iso, t, done, cardStats) {
         ? '<span class="sub">Added to your flashcards ✓</span>'
         : `<button class="act" type="button" data-add-words="${esc(t.addWords)}">Add ${WORD_SETS[t.addWords].words.length} flashcards</button>`,
     );
-  let detail = t.detail || '';
-  if (cardStats && t.id === 'anki-review') detail = `${cardStats.due} due now`;
-  if (cardStats && t.id === 'anki-new' && !t.detail)
-    detail = deck
-      ? `${cardStats.newLeft} new words${t.title.includes('sentences') ? `, ${cardStats.sentLeft} sentences` : ''}${
-          t.title.includes('to say') ? `, ${cardStats.sayLeft} to say` : ''
-        } left today`
-      : 'Import your word deck on the Cards page first';
-  return `
-    <li class="task${isDone ? ' done' : ''}">
-      <button class="check" type="button" role="checkbox" aria-checked="${isDone}" data-task="${esc(t.id)}" data-date="${iso}" aria-label="Mark done: ${esc(t.title)}"></button>
-      <div class="task-body">
-        <p class="task-title">${esc(t.title)}</p>
-        ${detail ? `<p class="task-detail">${esc(detail)}</p>` : ''}
-        ${actions.length ? `<div class="acts">${actions.join('')}</div>` : ''}
-        ${(t.notes || []).map((n) => `<p class="chapter-note"><b>Ch. ${esc(n.ch)}</b> ${esc(n.note)}</p>`).join('')}
-        ${answersBlock(t)}
-        ${(t.players || [])
-          .map(
-            (a) => `
-          <p class="audio-label">${esc(a.label)}</p>
-          <audio class="book-audio" controls preload="none" src="${esc(a.url)}" aria-label="${esc(a.label)}"></audio>`,
-          )
-          .join('')}
-      </div>
-      ${t.minutes ? `<span class="mins">${t.minutes} min</span>` : ''}
-    </li>`;
+  return actions;
 }
+
+/** Videos for a task, each with its own tick so you can stop halfway and see where you were. */
+function videoRows(iso, t, done) {
+  if (!t.links?.length) return '';
+  const rows = t.links.map((l, i) => {
+    const id = `v:${t.id}:${i}`;
+    const on = done.includes(id);
+    return `<li class="row${on ? ' done' : ''}">
+      <button class="check" type="button" role="checkbox" aria-checked="${on}" data-task="${esc(id)}" data-date="${iso}" data-parent="${esc(t.id)}" data-siblings="${t.links.length}" aria-label="Watched: ${esc(l.label)}"></button>
+      <span class="row-title">${esc(l.label)}</span>
+      <a class="act" href="${esc(l.url)}" target="_blank" rel="noopener">Watch ↗</a>
+    </li>`;
+  });
+  return `<ul class="rows videos">${rows.join('')}</ul>`;
+}
+
+/** One task: everything needed to do it, with the focus timer at the bottom. */
+function viewTask(iso, id) {
+  const day = byDate.get(iso);
+  const sessions = day ? sessionsFor(day) : [];
+  const tasks = sessions.flatMap((x) => x.tasks);
+  const t = tasks.find((x) => x.id === id);
+  if (!t) return viewDay(iso);
+  const session = sessions.find((x) => x.tasks.includes(t));
+  const index = tasks.indexOf(t);
+  const after = tasks[index + 1];
+  const done = S.doneIds(state, iso);
+  const mine = timer && timer.date === iso && timer.id === id;
+  const full = taskMinutes(t) * 60;
+  const left = mine ? timerLeft(timer) : full;
+  const running = mine && !!timer.endsAt;
+  const { head, tail } = splitTitle(t.title);
+  const { intro, steps } = detailParts(taskDetail(t, statsFor(iso)));
+  const actions = taskActions(t);
+  const startLabel = running
+    ? 'Pause'
+    : !mine || left === full || left === 0
+      ? `Start · ${taskMinutes(t)} min`
+      : 'Resume';
+  return `
+    <div class="task-top">
+      <a href="#/day/${iso}">← ${iso === todayISO() ? 'Today' : esc(shortDay(iso))}</a>
+      <span>${esc(session.title)} · task ${index + 1} of ${tasks.length}</span>
+    </div>
+    <h1>${esc(head)}</h1>
+    ${tail ? `<p class="task-intro" lang="fr">${esc(tail)}</p>` : ''}
+    ${intro ? `<p class="task-intro">${esc(intro)}</p>` : ''}
+    ${steps.length ? `<ol class="steps">${steps.map((s) => `<li>${esc(s)}</li>`).join('')}</ol>` : ''}
+    ${(t.notes || []).map((n) => `<p class="chapter-note"><b>Ch. ${esc(n.ch)}</b> ${esc(n.note)}</p>`).join('')}
+    ${videoRows(iso, t, done)}
+    ${(t.players || [])
+      .map(
+        (a) => `
+      <p class="audio-label">${esc(a.label)}</p>
+      <audio class="book-audio" controls preload="none" src="${esc(a.url)}" aria-label="${esc(a.label)}"></audio>`,
+      )
+      .join('')}
+    ${actions.length ? `<div class="acts">${actions.join('')}</div>` : ''}
+    ${answersBlock(t)}
+    ${t.id === 'errorlog' ? todaysMistakes(iso) : ''}
+    ${t.kind === 'speak' ? `<div style="margin-top:0.9rem">${recorderHtml({ date: iso, title: head.replace(/^Speak:\s*/, '') })}</div>` : ''}
+    <div class="dock-space"></div>
+    <section class="dock" aria-label="Focus timer">
+      <div class="dock-inner">
+        ${after ? `<p class="dock-next">Next: <b>${esc(splitTitle(after.title).head)}</b></p>` : ''}
+        <div class="timer-row">
+          <span class="clock" id="clock" role="timer">${formatClock(left)}</span>
+          <button class="btn primary" type="button" id="timer-toggle" data-date="${iso}" data-id="${esc(t.id)}">${startLabel}</button>
+          <button class="btn" type="button" id="timer-done" data-date="${iso}" data-id="${esc(t.id)}">${done.includes(t.id) ? 'Done ✓' : 'Done'}</button>
+        </div>
+      </div>
+    </section>`;
+}
+
+function todaysMistakes(iso) {
+  return `
+    <section class="card" style="margin-top:0.9rem">
+      <h2>This day's mistakes</h2>
+      <p class="sub">One per line: what you wrote → correct version → rule. Read every correct version aloud 3 times. All of them are in <a href="#/mistakes">Mistakes</a>.</p>
+      <textarea id="notes" data-date="${iso}" rows="5" lang="fr" placeholder="j'ai allé → je suis allé → aller takes être">${esc(S.noteText(state, iso))}</textarea>
+    </section>`;
+}
+
+// ---------- focus timer ----------
+
+function saveTimer() {
+  if (timer) localStorage.setItem(TIMER_KEY, JSON.stringify(timer));
+  else localStorage.removeItem(TIMER_KEY);
+}
+
+async function holdScreen() {
+  if (!timer?.endsAt || !S.setting(state, 'keepAwake', true) || !('wakeLock' in navigator)) return;
+  try {
+    wakeLock = await navigator.wakeLock.request('screen');
+  } catch {
+    wakeLock = null; // not allowed right now, for example on low battery
+  }
+}
+function releaseScreen() {
+  wakeLock?.release?.().catch(() => {});
+  wakeLock = null;
+}
+
+function ring() {
+  navigator.vibrate?.([300, 150, 300, 150, 500]);
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    [0, 0.35, 0.7].forEach((at) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.frequency.value = 880;
+      gain.gain.setValueAtTime(0.25, ctx.currentTime + at);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + at + 0.3);
+      osc.connect(gain).connect(ctx.destination);
+      osc.start(ctx.currentTime + at);
+      osc.stop(ctx.currentTime + at + 0.3);
+    });
+  } catch {
+    // no sound available: the vibration and the notification still fire
+  }
+  if (typeof Notification !== 'undefined' && Notification.permission === 'granted' && timer) {
+    navigator.serviceWorker?.ready
+      .then((reg) => reg.showNotification("Time's up", { body: timer.title, icon: 'icon-512.png', tag: 'timer' }))
+      .catch(() => {});
+  }
+}
+
+function stopTicking() {
+  clearInterval(timerTick);
+  timerTick = null;
+}
+
+/** Keep the clock and the strip at the top up to date. */
+function paintTimer() {
+  const pill = document.getElementById('timer-pill');
+  const left = timerLeft(timer);
+  const taskHash = timer ? `#/task/${timer.date}/${timer.id}` : '';
+  const onPage = timer && location.hash === taskHash;
+  const clock = document.getElementById('clock');
+  if (clock && onPage) clock.textContent = formatClock(left);
+  if (pill) {
+    pill.hidden = !timer?.endsAt || onPage;
+    if (timer?.endsAt) {
+      pill.href = taskHash;
+      pill.innerHTML = `<span>${esc(splitTitle(timer.title).head)}</span><b>${formatClock(left)}</b>`;
+    }
+  }
+  if (timer?.endsAt && left <= 0) {
+    ring();
+    timer = { ...timer, endsAt: null, left: 0 };
+    saveTimer();
+    stopTicking();
+    releaseScreen();
+    if (onPage && !isEditing()) rerender();
+    else paintTimer();
+  }
+}
+
+function startTicking() {
+  stopTicking();
+  timerTick = setInterval(paintTimer, 1000);
+  paintTimer();
+}
+
+function toggleTimer(date, id) {
+  const t = sessionsFor(byDate.get(date))
+    .flatMap((x) => x.tasks)
+    .find((x) => x.id === id);
+  if (!t) return;
+  const mine = timer && timer.date === date && timer.id === id;
+  if (mine && timer.endsAt) {
+    timer = { ...timer, endsAt: null, left: timerLeft(timer) };
+    stopTicking();
+    releaseScreen();
+    reminders.clearTimer().catch(() => {});
+  } else {
+    const left = mine && timer.left > 0 ? timer.left : taskMinutes(t) * 60;
+    const endsAt = Date.now() + left * 1000;
+    timer = { date, id, title: t.title, endsAt };
+    if (typeof Notification !== 'undefined' && Notification.permission === 'default') Notification.requestPermission();
+    holdScreen();
+    startTicking();
+    // If the phone goes to sleep, the server sends the alert instead.
+    if (reminders.isOn())
+      reminders.setTimer({ at: endsAt, title: t.title, url: `./#/task/${date}/${id}` }).catch(() => {});
+  }
+  saveTimer();
+  rerender();
+}
+
+function finishTask(date, id) {
+  S.setDone(state, date, id, true);
+  if (timer && timer.date === date && timer.id === id) {
+    timer = null;
+    saveTimer();
+    stopTicking();
+    releaseScreen();
+    reminders.clearTimer().catch(() => {});
+  }
+  save();
+  location.hash = `#/day/${date}`;
+}
+
+// ---------- plan ----------
 
 function viewPlan() {
   const doneMap = Object.fromEntries(plan.days.map((d) => [d.date, S.doneIds(state, d.date)]));
   const overall = overallProgress(plan.days, doneMap);
   const real = localISO(new Date());
+  const st = streaks(plan.days, doneMap, real);
   const weeks = groupByWeek(plan.days)
     .map(({ week, days }) => {
-      const first = days[0];
-      const last = days[days.length - 1];
       const rows = days
         .map((d) => {
           const p = dayProgress(d, doneMap[d.date]);
-          const status = p.complete ? '✓' : p.done ? `${p.done}/${p.total}` : '';
-          const what = d.sunday ? 'Review day' : d.book;
-          return `<li><a class="plan-day${d.date === real ? ' is-today' : ''}${p.complete ? ' is-done' : ''}" href="#/day/${d.date}">
-            <span class="pd-date">${esc(d.day)}</span><span class="pd-what">${esc(what)}</span><span class="pd-status">${status}</span></a></li>`;
+          const status = p.complete
+            ? '<span class="pd-status complete" role="img" aria-label="Complete">✓</span>'
+            : `<span class="pd-status">${p.done ? `${p.done}/${p.total}` : ''}</span>`;
+          return `<li><a class="plan-day${d.date === real ? ' is-today' : ''}" href="#/day/${d.date}">
+            <span class="pd-date">${esc(shortDay(d.date))}</span><span class="pd-what">${esc(d.sunday ? 'Review day' : d.book)}</span>${status}</a></li>`;
         })
         .join('');
-      return `<section class="card week" id="w${week}">
-        <h2>Week ${week} <span class="sub">· ${esc(first.day)} – ${esc(last.day)} · ${esc(PHASE_NAMES[first.phase])}</span></h2>
-        <ul class="plan-days">${rows}</ul></section>`;
+      return `<section class="week" id="w${week}"><h2>Week ${week}</h2><ul class="plan-days">${rows}</ul></section>`;
     })
     .join('');
+  const phaseNow = (byDate.get(todayISO()) || {}).phase;
+  const stage = (ph, name, when) =>
+    `<div class="stage${phaseNow === ph ? ' now' : ''}"><span>${name}</span><span>${when}</span></div>`;
   return `
-    <h1>The 182-day plan</h1>
-    <p class="sub">6 Nov 2026 → 6 May 2027. Tap a day to open its checklist.</p>
-    <div class="progress-row">
-      <div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="${overall.total}" aria-valuenow="${overall.complete}" aria-label="Days complete"><span style="width:${overall.pct}%"></span></div>
-      <p class="sub"><b>${overall.complete}</b> of ${overall.total} days complete (${overall.pct}%)${(() => {
-        const st = streaks(plan.days, doneMap, real);
-        return st.best ? ` · 🔥 streak <b>${st.current}</b> (best ${st.best})` : '';
-      })()}</p>
-    </div>
+    <h1>Plan</h1>
+    <p class="sub">6 Nov → 6 May · ${overall.complete} of ${overall.total} days complete · streak ${st.current}${st.best > st.current ? ` (best ${st.best})` : ''}</p>
+    <section class="card stages">
+      ${stage(1, 'Débutant (A1)', '6 Nov – 5 Dec')}
+      ${stage(2, 'Intermédiaire (A2–B1)', '7 Dec – 4 Feb')}
+      ${stage(3, 'Avancé (B1–B2)', '5 Feb – 3 Apr')}
+      ${stage(4, 'TCF preparation', '5 Apr – 6 May')}
+    </section>
     ${weeks}`;
+}
+
+// ---------- mistakes ----------
+
+function viewMistakes() {
+  const lines = mistakeLines(state.notes);
+  const repeats = repeatedMistakes(lines);
+  const repeatRows = repeats
+    .map(
+      (r) => `<div class="repeat">
+        <span><b>${r.count} times:</b> ${esc(r.label)}</span>
+        <a class="act danger" href="#/task/${r.firstDate}/book">Redo chapter</a>
+      </div>`,
+    )
+    .join('');
+  const item = (m) => {
+    const del = `<button class="act danger" type="button" data-note-del="${m.date}" data-note-line="${m.index}">Delete</button>`;
+    if (m.plain !== undefined)
+      return `<article class="mistake">
+        <span class="m-date">${esc(shortDay(m.date))}</span>
+        <p class="m-plain">${esc(m.plain)}</p>
+        <div class="m-acts">${del}</div>
+      </article>`;
+    return `<article class="mistake">
+      <span class="m-date">${esc(shortDay(m.date))}</span>
+      <span class="m-wrong" lang="fr">${esc(m.wrong)}</span>
+      <span class="m-right" lang="fr">${esc(m.right)}</span>
+      ${m.rule ? `<span class="m-rule">${esc(m.rule)}</span>` : ''}
+      <div class="m-acts">
+        <button class="act" type="button" data-card-front="${esc(m.right)}" data-card-back="${esc(m.rule || m.wrong)}">Make a card</button>
+        ${del}
+      </div>
+    </article>`;
+  };
+  return `
+    <h1>Mistakes</h1>
+    <p class="sub">Review them on Sunday. Three times means redo the chapter.</p>
+    ${repeatRows}
+    <section class="card">
+      <form id="mistake-form" autocomplete="off">
+        <label for="new-mistake"><b>New mistake</b></label>
+        <textarea id="new-mistake" name="line" rows="2" lang="fr" required placeholder="what you wrote → correct version → rule"></textarea>
+        <div class="acts"><button class="btn primary" type="submit">Add</button></div>
+      </form>
+    </section>
+    ${
+      lines.length
+        ? `<section class="card">${lines.map(item).join('')}</section>`
+        : '<p class="sub">Nothing yet. Every mistake you log turns into something you can review and make a card from.</p>'
+    }`;
+}
+
+// ---------- more ----------
+
+function remindersSection() {
+  const support = reminders.support();
+  if (!reminders.isOn()) {
+    return `<section class="card">
+      <h2>Reminders</h2>
+      <p class="sub">${esc(support.ok ? 'A notification at the start of each session, one in the evening if your streak is at risk, and one when a focus timer ends. Your phone needs internet to receive them.' : support.why)}</p>
+      ${support.ok ? '<div class="acts"><button class="btn primary" type="button" id="rem-on">Turn on reminders</button></div>' : ''}
+      <p class="sub" id="rem-msg" role="status"></p>
+    </section>`;
+  }
+  const rows = reminders
+    .slots()
+    .map(
+      (r) => `<div class="slot">
+        <input type="checkbox" id="slot-${esc(r.id)}" data-slot-on="${esc(r.id)}"${r.on ? ' checked' : ''} />
+        <label for="slot-${esc(r.id)}">${esc(r.label)}</label>
+        <input type="time" data-slot-time="${esc(r.id)}" value="${esc(r.time)}" aria-label="${esc(r.label)}, time" />
+      </div>`,
+    )
+    .join('');
+  return `<section class="card">
+    <h2>Reminders</h2>
+    ${rows}
+    <div class="acts">
+      <button class="act" type="button" id="rem-test">Send a test</button>
+      <button class="act danger" type="button" id="rem-off">Turn off</button>
+    </div>
+    <p class="sub" id="rem-msg" role="status"></p>
+  </section>`;
 }
 
 function syncSection() {
@@ -325,27 +631,40 @@ function syncSection() {
   </section>`;
 }
 
-function viewMistakes() {
-  const entries = Object.entries(state.notes)
-    .map(([d, [text]]) => [d, text])
-    .filter(([, v]) => v && v.trim())
-    .sort(([a], [b]) => (a < b ? 1 : -1));
-  const list = entries.length
-    ? entries
-        .map(
-          ([d, v]) =>
-            `<article class="card"><h2><a href="#/day/${d}">${esc(longDate(d))}</a></h2><pre class="note">${esc(v)}</pre></article>`,
-        )
-        .join('')
-    : `<section class="card empty"><h2>No mistakes logged yet</h2><p class="sub">Each day has a "Mistakes today" box at the bottom. Review this page every Sunday: anything that shows up 3 or more times means redoing that book chapter.</p></section>`;
+function viewMore() {
+  const standalone = matchMedia('(display-mode: standalone)').matches;
   return `
-    <h1>Mistakes</h1>
-    <p class="sub">Your error log, newest first. Review it every Sunday.</p>
-    ${list}
+    <h1>More</h1>
+    ${
+      standalone
+        ? ''
+        : `<section class="card">
+      <h2>Install the app</h2>
+      <p class="sub">Puts it on your home screen, opens without browser bars, works offline, and lets you share text into it from other apps.</p>
+      ${
+        installPrompt
+          ? '<div class="acts"><button class="btn primary" type="button" id="install-app">Install</button></div>'
+          : '<p class="sub">In Chrome on Android: open the menu (⋮), then <b>Add to Home screen</b> or <b>Install app</b>.</p>'
+      }
+    </section>`
+    }
+    ${remindersSection()}
     ${syncSection()}
     <section class="card">
+      <h2>Study</h2>
+      <ul class="links-list">
+        <li><a href="#/recordings">My recordings <span>Your voice, by date</span></a></li>
+        <li><a href="#/audio">Book audio <span>28 dialogues, 10 songs</span></a></li>
+        <li><a href="#/book-words">French words in the book <span>The ones it uses constantly</span></a></li>
+      </ul>
+    </section>
+    <section class="card">
+      <h2>Settings</h2>
+      <label class="toggle"><input type="checkbox" id="keep-awake"${S.setting(state, 'keepAwake', true) ? ' checked' : ''} /> Keep the screen on while a timer runs</label>
+    </section>
+    <section class="card">
       <h2>Backup</h2>
-      <p class="sub">A file copy of your ticks, notes and flashcards (the word deck itself isn't included: re-import it from <code>french-5000-words.json</code>). Restoring merges with what's here.</p>
+      <p class="sub">A file copy of your ticks, notes and flashcards (not the word deck or recordings). Restoring merges with what's here.</p>
       <div class="acts">
         <button class="act" type="button" id="export">Download backup</button>
         <label class="act file">Restore from backup<input type="file" id="import" accept="application/json" /></label>
@@ -354,224 +673,12 @@ function viewMistakes() {
     </section>`;
 }
 
-function viewBookWords() {
+function viewRecordings() {
   return `
-    <p class="crumb"><a href="#/today">← Today</a></p>
-    <h1>French words in the book</h1>
-    <p class="sub">The book uses these constantly. Learn them in your first week and the left pages get much easier. For any other word, look up just that word, not the whole page.</p>
-    ${BOOK_WORDS.map(
-      ([title, words]) => `
-      <section class="card">
-        <h2>${esc(title)}</h2>
-        <table class="tbl"><tbody>
-          ${words.map(([fr, en]) => `<tr><td lang="fr"><b>${esc(fr)}</b></td><td>${esc(en)}</td></tr>`).join('')}
-        </tbody></table>
-      </section>`,
-    ).join('')}`;
-}
-
-function viewAudio() {
-  const planned = {};
-  for (const d of plan.days) for (const n of d.book_audio?.items || []) planned[n] = d;
-  const rows = (kind) =>
-    BOOK_AUDIO.filter((a) => a.kind === kind)
-      .map(
-        (a) => `
-        <li>
-          <p class="task-title">${esc(a.title)} <span class="sub">p. ${a.page} · in your plan on <a href="#/day/${planned[a.n].date}">${esc(planned[a.n].day)}</a></span></p>
-          <audio class="book-audio" controls preload="none" src="${esc(a.url)}" aria-label="${esc(a.title)}, page ${a.page}"></audio>
-        </li>`,
-      )
-      .join('');
-  return `
-    <p class="crumb"><a href="#/materials">← Materials</a></p>
-    <h1>Book audio</h1>
-    <p class="sub">The Débutant book's recordings. Each one is in your plan once you've done the grammar it uses, going by the book's own labels. Open the page, listen once with the text covered, once following it, then repeat aloud. They play from CLE International's site, so they need internet.</p>
-    <section class="card">
-      <h2>Dialogues</h2>
-      <ul class="plain">${rows('dialogue')}</ul>
-    </section>
-    <section class="card">
-      <h2>Songs: La grammaire en chantant</h2>
-      <ul class="plain">${rows('song')}</ul>
-    </section>`;
-}
-
-function viewMaterials() {
-  const isbn = (n) =>
-    `<a href="https://www.amazon.fr/s?k=${n}" target="_blank" rel="noopener">Amazon.fr</a> · <a href="https://www.fnac.com/SearchResult/ResultList.aspx?Search=${n}" target="_blank" rel="noopener">Fnac</a>`;
-  return `
-    <h1>Materials</h1>
-    <p class="sub">Everything the plan uses, and nothing else.</p>
-
-    <section class="card">
-      <h2>The book: Grammaire progressive du français (CLE International)</h2>
-      <p>The grammar workbook FLE teachers recommend most for self-study: the rule on the left page, exercises on the right. Three volumes take you from A1 to B2. <b>Always buy the matching Corrigés (answer key)</b>, or you can't check your own work.</p>
-      <ul class="plain volumes">
-        <li><p class="vol-when">Buy now · used 6 Nov – 5 Dec · A1</p><p class="task-title">Niveau débutant, 3e éd. (2025 "+ appli" printing), 60 chapters + Corrigés</p><p class="sub">ISBN 9782090398502 · ${isbn('9782090398502')} · Corrigés 9782090381023</p></li>
-        <li><p class="vol-when">Buy late Nov · used 7 Dec – 4 Feb · A2–B1</p><p class="task-title">Niveau intermédiaire, 4e éd. + Corrigés</p><p class="sub">ISBN 9782090381030 · ${isbn('9782090381030')} · Corrigés 9782090381047</p></li>
-        <li><p class="vol-when">Buy late Jan · used 5 Feb – 3 Apr · B1–B2</p><p class="task-title">Niveau avancé, 3e éd., 72 chapters + Corrigés</p><p class="sub">ISBN 9782090381979 · ${isbn('9782090381979')} · Corrigés 9782090381986</p></li>
-      </ul>
-      <div class="acts"><a class="act" href="#/audio">▶ Débutant audio: 28 dialogues + 10 songs →</a></div>
-      <p class="sub">Also at Gibert Joseph, Decitre and Cultura, or borrow them free from your médiathèque. The plan assumes 52 chapters in Intermédiaire; if your copy has a different number, keep about one a day and let the dates slide.</p>
-    </section>
-
-    <section class="card">
-      <h2>The vocabulary book: Vocabulaire progressif du français (CLE International)</h2>
-      <p>Same publisher and layout as the grammar books: a themed lesson on the left page, exercises on the right. It teaches words <b>by topic</b> (housing, work, health, travel…), which is what the TCF writing and speaking tasks are about. A frequency deck alone teaches words one at a time.</p>
-      <ul class="plain volumes">
-        <li><p class="vol-when">Buy late Nov · used 7 Dec – 2 Apr · A2–B1</p><p class="task-title">Niveau intermédiaire + appli, 3e éd. (2025 printing), 25 chapters + Corrigés</p><p class="sub">ISBN 9782090398571 · ${isbn('9782090398571')} · Corrigés 9782090380163</p></li>
-      </ul>
-      <p class="sub">Half a chapter on 50 evenings (the app shows which), in place of that evening's deck words. Turn its key phrases into flashcards, so the app handles the spacing.</p>
-    </section>
-
-    <section class="card">
-      <h2>Where to buy in Paris: Fnac stock</h2>
-      <p class="sub">"On the shelf" (en rayon) stock as checked on 3 Nov 2026. It changes daily, so check the Fnac page before you go. "Retrait 1H en magasin" on each page reserves a copy for free pickup within an hour.</p>
-      <p><b>Go to Fnac Paris – Forum des Halles:</b> it's the only store with all four books on the shelf (€81.10 together).</p>
-      <ul class="plain volumes">
-        <li><p class="vol-when">Grammar · €26.80 · 176 pages</p><p class="task-title">Grammaire progressive du français, débutant + appli, 3e éd.</p><p class="sub">In stock: Forum des Halles, Ternes. Limited: Saint-Lazare, Gare Montparnasse, Bercy Village, La Défense-CNIT, Thiais, Créteil, Vélizy, Parinor. Not at Gare Châtelet, Gare Auber, Gare de l'Est. <a href="https://www.fnac.com/a21695847/Maia-Gregoire-Grammaire-progressive-du-francais-debutant-appli-3e-ed" target="_blank" rel="noopener">Fnac page ↗</a></p></li>
-        <li><p class="vol-when">Grammar answer key · €12.70 · 40 pages</p><p class="task-title">Grammaire progressive du français A1 débutant, corrigés 3e éd.</p><p class="sub">Limited: Forum des Halles, Montparnasse, Ternes, Beaugrenelle, Boulogne. <a href="https://www.fnac.com/a12795338/Maia-Gregoire-Grammaire-progressive-du-francais-A1-debutant-corriges-3eme-edition" target="_blank" rel="noopener">Fnac page ↗</a></p></li>
-        <li><p class="vol-when">Vocabulary · €28.10 · 208 pages</p><p class="task-title">Vocabulaire progressif intermédiaire + appli, 3e éd.</p><p class="sub">In stock: Forum des Halles. Limited: Montparnasse, Ternes, Gennevilliers, La Défense-CNIT, Herblay, Cergy, Carré Sénart, Val d'Europe. <a href="https://www.fnac.com/a21695846/Claire-Leroy-Miquel-Vocabulaire-progressif-intermediaire-appli-3e-edition" target="_blank" rel="noopener">Fnac page ↗</a></p></li>
-        <li><p class="vol-when">Vocabulary answer key · €13.50 · 32 pages</p><p class="task-title">Corrigés vocabulaire progressif, niveau intermédiaire, 3e éd.</p><p class="sub"><b>Only at Forum des Halles</b>, limited, so buy or reserve it early even though you only need the book from 7 Dec. <a href="https://www.fnac.com/a11187087/Claire-Miquel-Corriges-vocabulaire-progressif-niveau-intermediaire-3e-edition" target="_blank" rel="noopener">Fnac page ↗</a></p></li>
-      </ul>
-      <p class="sub">Intermédiaire and Avancé grammar volumes: buy in late Nov / late Jan; use the Amazon.fr / Fnac links in the book list above.</p>
-    </section>
-
-    <section class="card">
-      <h2>Course: TV5MONDE EDU (free)</h2>
-      <p>Video exercises from A1 to B2. France Éducation International, which runs the TCF, points candidates here for training. App on iOS/Android, or the website.</p>
-      <div class="acts"><a class="act" href="${LINKS.tv5}" target="_blank" rel="noopener">apprendre.tv5monde.com ↗</a></div>
-      <p class="sub">Level by date: A1 in November · A2 until mid-January · B1 until mid-March · B2 after that.</p>
-    </section>
-
-    <section class="card">
-      <h2>YouTube (free)</h2>
-      <ul class="plain">
-        <li><b>6 Nov – 5 Dec · Vincent, "Learn French in 5 Days" (Legacy Version)</b>, matched to the book: Vincent's original course, explained in English, with slow pronunciation drills. That makes it the English companion to the French-only Débutant book, so each afternoon you watch his lessons on that morning's chapters, in the book's order, and Super Easy French fills the rest of the hour. Each link starts on the lesson and tells you where to stop. His advanced lessons (conditional, subjunctive, passive and more) then carry on through December to April, so you watch the whole series. Skip the paid french4me site advertised in the description; you don't need it. <a href="${LINKS.vincent}" target="_blank" rel="noopener">Playlist ↗</a></li>
-        <li><b>Dec – Jan · Super Easy French</b> (Easy French): slow, real French for beginners. <a href="${LINKS.superEasyFrench}" target="_blank" rel="noopener">Videos ↗</a></li>
-        <li><b>Feb – Mar · Easy French</b>: street interviews with French and English subtitles, which is what TCF listening sounds like. Subtitles on, then off. <a href="${LINKS.easyFrench}" target="_blank" rel="noopener">Channel ↗</a></li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2>Flashcards: built into this app</h2>
-      <ol>
-        <li>Open the <a href="#/cards">Cards</a> tab. Once, import <code>french-5000-words.json</code> (the 5,000 most frequent French words, made from your Anki deck and kept in <code>~/projects/french-private/</code>). It stays on your device and in your encrypted sync, never on this website.</li>
-        <li>Scheduling uses <b>FSRS</b>, the same algorithm Anki uses, aiming for 90% recall. Answer honestly: Again, Hard, Good or Easy.</li>
-        <li>New words per day follow the plan: 25 until February, 20 in March, 15 in April–May. On vocabulary-book evenings and Sundays there are no new deck words; add your own cards from the book instead.</li>
-        <li>Your own cards come from the grammar book (rules, example sentences), the vocabulary book (whole phrases) and every mistake. The "Add a card" buttons on those tasks take you straight there.</li>
-        <li>Tap 🔊 to hear the word in your device's French voice.</li>
-        <li>Never skip reviews. If short on time, skip the new words instead.</li>
-      </ol>
-      <div class="acts"><a class="act" href="#/cards">Open Cards →</a></div>
-    </section>
-
-    <section class="card">
-      <h2>Correction: Claude + real people</h2>
-      <p>Every day's writing and speaking task has a copy button with the full prompt. Paste it into Claude, then your text, or use voice mode for speaking. You're in France: whenever you can, swap a Claude session for a real conversation (café-langue, Meetup language exchange, shops).</p>
-      <p><b>English explanations of the book:</b> the book is all in French. Read every rule in French first and try the exercises; that is reading practice for the TCF. Only if a rule is still unclear, use the book task's "Stuck? Explain in English" button. It copies a prompt that already names the volume and chapter numbers. In the Claude app, paste it, attach a photo of the chapter's rule page (the left page), and send. If you'd rather not take a photo, type the chapter title instead.</p>
-      <details><summary>English explanation prompt</summary><pre class="note">${esc(EXPLAIN_PROMPT('Déb. 1–2'))}</pre></details>
-      <details><summary>Writing correction prompt</summary><pre class="note">${esc(WRITING_PROMPT('[sujet du jour]'))}</pre></details>
-      <details><summary>Speaking examiner prompt</summary><pre class="note">${esc(SPEAKING_PROMPT('[tâche du jour]', 2))}</pre></details>
-      <div class="acts"><a class="act" href="${LINKS.claude}" target="_blank" rel="noopener">claude.ai ↗</a></div>
-    </section>
-
-    <section class="card">
-      <h2>Exam papers: official TCF Canada samples (free)</h2>
-      <p>From the people who write the test. Use them from February (Sunday mock sections) and daily in April.</p>
-      <div class="acts"><a class="act" href="${LINKS.tcf}" target="_blank" rel="noopener">france-education-international.fr ↗</a></div>
-    </section>`;
-}
-
-const GRAMMAR = [
-  'Subjonctif présent (il faut que, bien que, pour que, avant que, emotions, doubt)',
-  'Conditionnel présent + passé',
-  'Si-clauses (all 3 types)',
-  'Plus-que-parfait · futur antérieur',
-  'Relative pronouns: qui, que, dont, où, lequel / auquel / duquel',
-  'y / en · double pronouns',
-  'Reported speech + concordance des temps',
-  'Passive voice · gérondif · participe présent',
-  'Connectors: cause, consequence, opposition, concession, purpose',
-  'Mise en relief (c’est … qui / que)',
-  'Complex negation (ne … plus / jamais / rien / personne / aucun / ni … ni)',
-];
-
-function viewMethod() {
-  return `
-    <h1>The method</h1>
-    <p class="sub">Why the day is built the way it is.</p>
-
-    <section class="card">
-      <h2>Your 4 hours, timed for memory</h2>
-      <p>4 hours is the minimum, not the limit. The goal is B2 by May, so if the book or your flashcard reviews need longer, give them longer. Never rush or skip them to fit the clock.</p>
-      <table class="tbl">
-        <thead><tr><th>Session</th><th>What</th><th>Why then</th></tr></thead>
-        <tbody>
-          <tr><td><b>Morning</b><br />~90 min</td><td>Flashcard reviews → new book chapter → new flashcards → short writing</td><td>Recalling right after sleep locks in yesterday's work. The hardest new material goes where attention peaks.</td></tr>
-          <tr><td><b>Afternoon</b><br />~90 min</td><td>TV5MONDE → YouTube + shadowing → speaking</td><td>Input and output once the heavy learning is done.</td></tr>
-          <tr><td><b>Evening</b><br />~60 min</td><td>New flashcard words → re-tests → error log</td><td>Things learned shortly before sleep consolidate overnight. Finish 30 min before bed.</td></tr>
-        </tbody>
-      </table>
-      <p class="sub">Take a 5–10 min break every ~45 min (stand up, no scrolling). Sleep 7–8 hours: cutting sleep to study more costs more than it gains.</p>
-    </section>
-
-    <section class="card">
-      <h2>One chapter, done properly (~50 min)</h2>
-      <ol>
-        <li>Read the rule (left page) once, carefully.</li>
-        <li><b>Close the book.</b> Say the rule aloud in your own words; write 2 examples from memory.</li>
-        <li>Do the exercises (right page) <b>in writing, without looking back</b>.</li>
-        <li>Check against the Corrigés. Circle every mistake.</li>
-        <li>Make 2–3 flashcards (the rule + example sentences). Every mistake becomes a card too.</li>
-      </ol>
-    </section>
-
-    <section class="card">
-      <h2>When things come back</h2>
-      <table class="tbl">
-        <thead><tr><th>Day 0</th><th>+1 day</th><th>+7 days</th><th>+30 days</th><th>Exam month</th></tr></thead>
-        <tbody><tr><td>Learn (morning)</td><td>Re-test (evening)</td><td>Re-test (evening) + Sunday</td><td>Last Sunday of the month</td><td>Only what the error log flags</td></tr></tbody>
-      </table>
-      <p class="sub">Testing yourself beats re-reading by a wide margin, and mixing old topics with new ones beats studying one at a time. For an exam ~6 months away, the best final review gap is about 10–20% of the time left (Cepeda et al., 2008), hence the monthly review. The flashcards handle the timing of words, rules and your own mistakes automatically.</p>
-    </section>
-
-    <section class="card">
-      <h2>The target: NCLC 7 in all four skills</h2>
-      <table class="tbl">
-        <thead><tr><th>TCF Canada</th><th>NCLC 7</th><th>Train to</th></tr></thead>
-        <tbody>
-          <tr><td>Listening (39 Q, 35 min)</td><td>458–502 / 699</td><td>~480</td></tr>
-          <tr><td>Reading (39 Q, 60 min)</td><td>453–498 / 699</td><td>~480</td></tr>
-          <tr><td>Writing (3 tasks, 60 min)</td><td>10–11 / 20</td><td>12</td></tr>
-          <tr><td>Speaking (3 tasks, 12 min)</td><td>10–11 / 20</td><td>12</td></tr>
-        </tbody>
-      </table>
-      <p class="sub">IRCC table, canada.ca (updated 16 Oct 2026). If even one skill is below NCLC 7, you don't qualify.</p>
-    </section>
-
-    <section class="card">
-      <h2>Checkpoints</h2>
-      <table class="tbl">
-        <tbody>
-          <tr><td>5 Dec</td><td>Débutant finished · ~700 words · 2-min self-intro, no notes</td></tr>
-          <tr><td>5 Jan</td><td>Half of Intermédiaire · ~1,400 words · 10-min conversation</td></tr>
-          <tr><td>5 Feb</td><td>Intermédiaire finished · ~2,100 words · first listening/reading mock (250–330 is normal)</td></tr>
-          <tr><td>5 Mar</td><td>Half of Avancé · subjonctif, conditionnel, relatives · mocks ≥ 400</td></tr>
-          <tr><td>5 Apr</td><td>Avancé finished · ~3,300 words · mocks ≥ 440 · writing/speaking ~10/20</td></tr>
-          <tr><td>May</td><td>Two full mocks in a row at NCLC 7+ in all four skills → sit the exam</td></tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section class="card">
-      <h2>B1–B2 grammar checklist</h2>
-      <ul class="tasks">${GRAMMAR.map((g, i) => {
-        const on = S.grammarOn(state, i);
-        return `<li class="task${on ? ' done' : ''}"><button class="check" type="button" role="checkbox" aria-checked="${on}" data-grammar="${i}" aria-label="Covered: ${esc(g)}"></button><div class="task-body"><p class="task-title">${esc(g)}</p></div></li>`;
-      }).join('')}</ul>
-    </section>`;
+    <p class="crumb"><a href="#/more">← More</a></p>
+    <h1>My recordings</h1>
+    <p class="sub">Your voice over time. They stay on this device: not uploaded, not synced, not in backups.</p>
+    ${recorderHtml({ date: localISO(new Date()), title: 'Free practice' })}`;
 }
 
 // ---------- routing ----------
@@ -600,7 +707,7 @@ function route() {
   const h = location.hash || '#/today';
   const [, name, arg, arg2] = h.split('/');
   if (name === 'pair' && arg) {
-    history.replaceState(null, '', '#/mistakes');
+    history.replaceState(null, '', '#/more');
     sync
       .pair(arg)
       .then(() => {
@@ -617,33 +724,48 @@ function route() {
   let tab = name;
   if (name === 'day' && /^\d{4}-\d{2}-\d{2}$/.test(arg || '')) {
     html = viewDay(clampDate(arg, plan.start, plan.end));
-    tab = arg === localISO(new Date()) ? 'today' : 'plan';
+    tab = 'today';
   } else if (name === 'plan') html = viewPlan();
-  else if (name === 'cards') html = renderCards(cardsCtx(), arg === 'add' ? arg2 : null);
+  else if (name === 'task' && arg && arg2) {
+    html = viewTask(clampDate(arg, plan.start, plan.end), arg2);
+    tab = 'today';
+  } else if (name === 'cards' && arg === 'photo') html = photoHtml();
+  else if (name === 'cards') html = renderCards(cardsCtx(), arg2, arg);
   else if (name === 'mistakes') html = viewMistakes();
-  else if (name === 'materials') html = viewMaterials();
-  else if (name === 'book-words') {
-    html = viewBookWords();
-    tab = 'plan';
-  } else if (name === 'audio') {
-    html = viewAudio();
+  else if (name === 'more') html = viewMore();
+  else if (name === 'recordings') {
+    html = viewRecordings();
+    tab = 'more';
+  } else if (name === 'materials') html = viewMaterials();
+  else if (name === 'method') html = viewMethod(state);
+  else if (name === 'audio') {
+    html = viewAudio(plan);
     tab = 'materials';
-  } else if (name === 'method') html = viewMethod();
-  else {
+  } else if (name === 'book-words') {
+    html = viewBookWords();
+    tab = 'today';
+  } else {
     html = viewDay(todayISO());
     tab = 'today';
   }
   app.innerHTML = html;
-  document
-    .querySelectorAll('.tabs a')
-    .forEach((a) => a.setAttribute('aria-current', a.dataset.tab === tab ? 'page' : 'false'));
+  document.querySelectorAll('.tabs a').forEach((a) => {
+    if (a.dataset.tab === tab) {
+      a.setAttribute('aria-current', 'page');
+      // On a narrow screen the tab row scrolls sideways: keep the current one visible.
+      a.parentElement.scrollLeft = a.offsetLeft - a.parentElement.offsetLeft - 16;
+    } else a.removeAttribute('aria-current');
+  });
   if (name === 'plan') {
     const cur = document.querySelector('.plan-day.is-today');
     if (cur) cur.closest('.week').scrollIntoView({ block: 'start' });
+    else window.scrollTo(0, 0);
   } else if (name === 'cards' && arg === 'add') {
-    document.getElementById('add')?.scrollIntoView({ block: 'start' });
+    window.scrollTo(0, 0);
     document.querySelector('#add-card [name=front]')?.focus({ preventScroll: true });
   } else window.scrollTo(0, 0);
+  mountRecorder();
+  paintTimer();
 }
 
 function flash(sel, text) {
@@ -653,25 +775,60 @@ function flash(sel, text) {
 
 /** Re-render the current view, optionally keeping the scroll position, focusing a field, or showing a message. */
 function rerender({ keepScroll = true, focus, msg } = {}) {
-  // A sync landing in the background must not cut off the recording being played.
-  if ([...document.querySelectorAll('audio')].some((a) => !a.paused)) return;
+  // Never cut off a recording being played, or a recording or speech check in progress.
+  if (isBusy() || [...document.querySelectorAll('audio')].some((a) => !a.paused)) return;
   const y = window.scrollY;
-  const h = location.hash;
-  if (h.startsWith('#/cards/add')) history.replaceState(null, '', '#/cards');
   route();
   if (keepScroll) window.scrollTo(0, y);
   if (focus) document.querySelector(focus)?.focus({ preventScroll: true });
   if (msg) flash(msg[0], msg[1]);
 }
 
+/** Tell the server not to send the streak reminder once today already counts. */
+function updateQuiet() {
+  if (!plan || !reminders.isOn()) return;
+  const real = localISO(new Date());
+  const day = byDate.get(real);
+  if (!day) return;
+  const st = streaks([day], { [real]: S.doneIds(state, real) }, real);
+  if (st.todayCounts) reminders.setQuiet(real).catch(() => {});
+}
+
 // ---------- events ----------
 
+async function remindersClick(id) {
+  const msg = (text) => flash('#rem-msg', text);
+  try {
+    if (id === 'rem-on') {
+      await reminders.enable();
+      updateQuiet();
+      rerender({ msg: ['#rem-msg', 'Reminders are on.'] });
+    } else if (id === 'rem-off') {
+      await reminders.disable();
+      rerender();
+    } else if (id === 'rem-test') {
+      await reminders.test();
+      msg('Sent. It should arrive in a few seconds.');
+    }
+  } catch (err) {
+    msg(err?.message || "Couldn't reach the reminder server. Try again when you're online.");
+  }
+}
+
 app.addEventListener('click', async (e) => {
+  if (await speakClick(e)) return;
+  if (location.hash.startsWith('#/cards/photo') && photoClick(e, cardsCtx())) return;
   if (location.hash.startsWith('#/cards') && (await cardsClick(e, cardsCtx()))) return;
   const check = e.target.closest('.check');
   if (check && check.dataset.task) {
-    const { date, task } = check.dataset;
-    S.setDone(state, date, task, !S.doneIds(state, date).includes(task));
+    const { date, task, parent, siblings } = check.dataset;
+    const on = !S.doneIds(state, date).includes(task);
+    S.setDone(state, date, task, on);
+    if (on && parent) {
+      const done = S.doneIds(state, date);
+      const ids = Array.from({ length: Number(siblings) }, (_, i) => `v:${parent}:${i}`);
+      if (ids.every((id) => done.includes(id))) S.setDone(state, date, parent, true);
+    }
     save();
     rerender();
     return;
@@ -691,6 +848,37 @@ app.addEventListener('click', async (e) => {
       S.setSetting(state, `wordset:${name}`, true);
       save();
     }
+    rerender();
+    return;
+  }
+  const toggle = e.target.closest('#timer-toggle');
+  if (toggle) {
+    toggleTimer(toggle.dataset.date, toggle.dataset.id);
+    return;
+  }
+  const finish = e.target.closest('#timer-done');
+  if (finish) {
+    finishTask(finish.dataset.date, finish.dataset.id);
+    return;
+  }
+  const makeCard = e.target.closest('[data-card-front]');
+  if (makeCard) {
+    prefillCard({ front: makeCard.dataset.cardFront, back: makeCard.dataset.cardBack });
+    location.hash = '#/cards/add/mistake';
+    return;
+  }
+  const delLine = e.target.closest('[data-note-del]');
+  if (delLine) {
+    const date = delLine.dataset.noteDel;
+    S.setNote(state, date, removeNoteLine(S.noteText(state, date), Number(delLine.dataset.noteLine)));
+    save();
+    rerender();
+    return;
+  }
+  if (e.target.closest('#install-app') && installPrompt) {
+    installPrompt.prompt();
+    await installPrompt.userChoice;
+    installPrompt = null;
     rerender();
     return;
   }
@@ -733,11 +921,24 @@ app.addEventListener('click', async (e) => {
     sync.disable();
     showPair = false;
     rerender();
+  } else if (id?.startsWith('rem-')) {
+    await remindersClick(id);
   }
 });
 
 app.addEventListener('submit', async (e) => {
   if (cardsSubmit(e, cardsCtx())) return;
+  if (e.target.id === 'mistake-form') {
+    e.preventDefault();
+    const line = String(new FormData(e.target).get('line') || '').trim();
+    if (!line) return;
+    const date = todayISO();
+    S.setNote(state, date, addNoteLine(S.noteText(state, date), line));
+    save();
+    document.activeElement?.blur?.();
+    rerender();
+    return;
+  }
   if (e.target.id === 'pair-form') {
     e.preventDefault();
     try {
@@ -762,7 +963,27 @@ app.addEventListener('input', (e) => {
 });
 
 app.addEventListener('change', async (e) => {
+  if (location.hash.startsWith('#/cards/photo') && (await photoChange(e, cardsCtx()))) return;
   if (await cardsChange(e, cardsCtx())) return;
+  if (e.target.id === 'keep-awake') {
+    S.setSetting(state, 'keepAwake', e.target.checked);
+    save();
+    if (e.target.checked) holdScreen();
+    else releaseScreen();
+    return;
+  }
+  const slotOn = e.target.dataset?.slotOn;
+  const slotTime = e.target.dataset?.slotTime;
+  if (slotOn || slotTime) {
+    const change = slotOn ? { on: e.target.checked } : { time: e.target.value };
+    try {
+      await reminders.setSlot(slotOn || slotTime, change);
+      flash('#rem-msg', 'Saved.');
+    } catch {
+      flash('#rem-msg', "Couldn't save that: you may be offline. Try again when you're online.");
+    }
+    return;
+  }
   if (e.target.id !== 'import' || !e.target.files[0]) return;
   try {
     const data = JSON.parse(await e.target.files[0].text());
@@ -789,7 +1010,27 @@ document.addEventListener('keydown', (e) => {
   if (location.hash.startsWith('#/cards')) cardsKey(e, cardsCtx());
 });
 
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  installPrompt = e;
+  if (location.hash === '#/more') rerender();
+});
+window.addEventListener('online', () => {
+  if (plan && !isEditing()) rerender();
+  reminders.refresh().catch(() => {});
+});
+window.addEventListener('offline', () => plan && !isEditing() && rerender());
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+}
+
 document.addEventListener('visibilitychange', () => {
+  // The screen lock is released whenever the page is hidden, so take it again on return.
+  if (document.visibilityState === 'visible') {
+    paintTimer();
+    holdScreen();
+  }
   if (!sync.enabled) return;
   if (document.visibilityState === 'hidden') sync.flush();
   else sync.syncNow();
@@ -801,7 +1042,7 @@ Promise.all([
   fetch('data/schedule.json', { cache: 'no-cache' }).then((r) => r.json()),
   idbGet('deck').catch(() => null),
 ])
-  .then(([data, savedDeck]) => {
+  .then(async ([data, savedDeck]) => {
     plan = data;
     byDate = new Map(plan.days.map((d) => [d.date, d]));
     deck = savedDeck || null;
@@ -813,9 +1054,24 @@ Promise.all([
       state = after;
       persist();
     }
+    // Text shared from another app arrives as ?text=… (see share_target in the manifest).
+    const shared = new URLSearchParams(location.search);
+    const text = (shared.get('text') || shared.get('title') || '').trim();
+    if (text) {
+      const front = text.slice(0, 300);
+      const { lookupPhrase } = await import('./ocr-words.js');
+      prefillCard({ front, back: lookupPhrase(front, deck) });
+      history.replaceState(null, '', `${location.pathname}#/cards/add/other`);
+    }
     route();
+    if (timer?.endsAt) {
+      holdScreen();
+      startTicking();
+    }
     if (sync.enabled) sync.syncNow({ full: !deck });
+    reminders.refresh().catch(() => {});
+    updateQuiet();
   })
   .catch(() => {
-    app.innerHTML = '<p class="loading">Could not load the plan. Check your connection and reload.</p>';
+    app.innerHTML = '<p class="loading">Could not open the plan. Check your connection and reload.</p>';
   });

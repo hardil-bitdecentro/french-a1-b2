@@ -277,6 +277,102 @@ export const EXPLAIN_PROMPT = (book, topics) => {
   );
 };
 
+/** Seconds left on a focus timer: { endsAt } while running, { left } while paused. */
+export function timerLeft(timer, now = Date.now()) {
+  if (!timer) return 0;
+  if (timer.endsAt) return Math.max(0, Math.ceil((timer.endsAt - now) / 1000));
+  return Math.max(0, timer.left || 0);
+}
+
+/** 90 → "01:30", 4000 → "66:40". */
+export function formatClock(seconds) {
+  const s = Math.max(0, Math.round(seconds));
+  return `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`;
+}
+
+/** Minutes to put on the timer: the task's own, or the "(60 min)" in a Sunday task's title. */
+export function taskMinutes(task) {
+  if (task.minutes) return task.minutes;
+  const m = String(task.title || '').match(/\((\d+)\s*min\)/);
+  return m ? Number(m[1]) : 25;
+}
+
+/** Split an error-log line "wrote → correct (rule)" or "wrote → correct → rule". Other lines stay plain. */
+export function parseMistake(line) {
+  const text = String(line).trim();
+  const parts = text.split(/\s*(?:→|->)\s*/);
+  if (parts.length < 2 || !parts[0] || !parts[1]) return { plain: text };
+  let [wrong, right, rule] = parts;
+  if (!rule) {
+    const m = right.match(/^(.*?)\s*\(([^()]+)\)\s*$/);
+    if (m) [, right, rule] = m;
+  }
+  return { wrong, right, rule: rule || '' };
+}
+
+/** Split a long task title at " : " (French spacing), so a list can show the short part. */
+export function splitTitle(title) {
+  const text = String(title ?? '');
+  const i = text.indexOf(' : ');
+  return i < 0 ? { head: text, tail: '' } : { head: text.slice(0, i), tail: text.slice(i + 3) };
+}
+
+/** Turn "Ch. 3: topic. Read the rule → close the book → exercises" into { intro, steps }. */
+export function detailParts(detail) {
+  const parts = String(detail ?? '')
+    .split(' → ')
+    .map((x) => x.trim())
+    .filter(Boolean);
+  if (parts.length < 2) return { intro: parts[0] || '', steps: [] };
+  const cut = parts[0].lastIndexOf('. ');
+  const intro = cut >= 0 ? parts[0].slice(0, cut + 1) : '';
+  const first = cut >= 0 ? parts[0].slice(cut + 2) : parts[0];
+  const steps = [first, ...parts.slice(1)].map((x) => x.charAt(0).toUpperCase() + x.slice(1));
+  return { intro, steps };
+}
+
+/** Every error-log line from every day, newest day first, each knowing where it came from. */
+export function mistakeLines(notes) {
+  const out = [];
+  for (const [date, entry] of Object.entries(notes || {})) {
+    String(entry?.[0] ?? '')
+      .split('\n')
+      .forEach((line, index) => {
+        if (line.trim()) out.push({ date, index, ...parseMistake(line) });
+      });
+  }
+  return out.sort((a, b) => (a.date === b.date ? a.index - b.index : a.date < b.date ? 1 : -1));
+}
+
+/** Rules that keep coming back: three times means redo the chapter. */
+export function repeatedMistakes(lines, min = 3) {
+  const groups = new Map();
+  for (const m of lines) {
+    const label = String(m.rule || m.right || '').trim();
+    if (!label) continue;
+    const key = label.toLowerCase().replace(/\s+/g, ' ');
+    const g = groups.get(key) || { label, count: 0, firstDate: m.date };
+    g.count++;
+    if (m.date < g.firstDate) g.firstDate = m.date;
+    groups.set(key, g);
+  }
+  return [...groups.values()].filter((g) => g.count >= min).sort((a, b) => b.count - a.count);
+}
+
+/** Add one line to a day's error log. */
+export function addNoteLine(text, line) {
+  const kept = String(text ?? '').replace(/\s+$/, '');
+  return kept ? `${kept}\n${line.trim()}` : line.trim();
+}
+
+/** Remove one line (by its position) from a day's error log. */
+export function removeNoteLine(text, index) {
+  return String(text ?? '')
+    .split('\n')
+    .filter((_, i) => i !== index)
+    .join('\n');
+}
+
 /** Book pages in a label like "p. 122–123, 126–127". */
 export function pagesFrom(label) {
   const pages = [];

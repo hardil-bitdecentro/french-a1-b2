@@ -9,5 +9,12 @@ workers_dev = true
 binding = "SYNC"
 id = "a4e774c493c3408fab7d4fc4db22b0d9"
 
+# Sends the study reminders. One KV read a minute, and a write only when something was sent.
+[triggers]
+crons = ["* * * * *"]
+
+# VAPID_PRIVATE_KEY is a secret set with `wrangler secret put`, never in this file.
 [vars]
 ALLOWED_ORIGINS = "https://hardil-bitdecentro.github.io"
+VAPID_PUBLIC_KEY = "BD-iHxg8LNRjUSwa_ItSAtyJEohe-8fcTFthheCe0eUPeoIQhWHeFgFO_ka4dIOOf3qtsJVC8blLjLn8sgy8iOQ"
+VAPID_SUBJECT = "https://hardil-bitdecentro.github.io/french-a1-b2/"
