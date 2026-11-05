@@ -212,6 +212,13 @@ function taskRow(iso, t, done, cardStats) {
         <p class="task-title">${esc(t.title)}</p>
         ${detail ? `<p class="task-detail">${esc(detail)}</p>` : ''}
         ${actions.length ? `<div class="acts">${actions.join('')}</div>` : ''}
+        ${(t.players || [])
+          .map(
+            (a) => `
+          <p class="audio-label">${esc(a.label)}</p>
+          <audio class="book-audio" controls preload="none" src="${esc(a.url)}" aria-label="${esc(a.label)}"></audio>`,
+          )
+          .join('')}
       </div>
       ${t.minutes ? `<span class="mins">${t.minutes} min</span>` : ''}
     </li>`;
@@ -319,12 +326,14 @@ function viewMistakes() {
 }
 
 function viewAudio() {
+  const planned = {};
+  for (const d of plan.days) for (const n of d.book_audio?.items || []) planned[n] = d;
   const rows = (kind) =>
     BOOK_AUDIO.filter((a) => a.kind === kind)
       .map(
         (a) => `
         <li>
-          <p class="task-title">${esc(a.title)} <span class="sub">p. ${a.page}</span></p>
+          <p class="task-title">${esc(a.title)} <span class="sub">p. ${a.page} · in your plan on <a href="#/day/${planned[a.n].date}">${esc(planned[a.n].day)}</a></span></p>
           <audio class="book-audio" controls preload="none" src="${esc(a.url)}" aria-label="${esc(a.title)}, page ${a.page}"></audio>
         </li>`,
       )
@@ -332,7 +341,7 @@ function viewAudio() {
   return `
     <p class="crumb"><a href="#/materials">← Materials</a></p>
     <h1>Book audio</h1>
-    <p class="sub">The Débutant book's recordings. Open the page, listen once with the text covered, once following it, then repeat aloud. They play from CLE International's site, so they need internet.</p>
+    <p class="sub">The Débutant book's recordings. Each one is in your plan once you've done the grammar it uses, going by the book's own labels. Open the page, listen once with the text covered, once following it, then repeat aloud. They play from CLE International's site, so they need internet.</p>
     <section class="card">
       <h2>Dialogues</h2>
       <ul class="plain">${rows('dialogue')}</ul>

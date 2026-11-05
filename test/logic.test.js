@@ -287,6 +287,80 @@ describe('book audio', () => {
   });
 });
 
+describe('book audio in the plan', () => {
+  const withAudio = plan.days.filter((d) => d.book_audio);
+  const dayOf = (n) => withAudio.find((d) => d.book_audio.items.includes(n)).date;
+
+  it('places all 38 recordings exactly once', () => {
+    const all = withAudio.flatMap((d) => d.book_audio.items).sort((a, b) => a - b);
+    expect(all).toEqual(Array.from({ length: 38 }, (_, i) => i + 1));
+  });
+
+  it("keeps the 28 dialogues in the book's order", () => {
+    for (let n = 2; n <= 28; n++) expect(dayOf(n) >= dayOf(n - 1)).toBe(true);
+  });
+
+  it('never plays a recording before the grammar its label names', () => {
+    expect(dayOf(1) >= '2026-11-16').toBe(true); // être, avoir: ch. 19
+    expect(dayOf(9) >= '2026-11-20').toBe(true); // numbers: ch. 28
+    expect(dayOf(16) >= '2026-11-25').toBe(true); // -ir, -re, -oir: ch. 39
+    expect(dayOf(17) >= '2026-11-26').toBe(true); // vouloir, pouvoir, devoir: ch. 40
+    expect(dayOf(19) >= '2026-11-27').toBe(true); // near future: ch. 43
+    expect(dayOf(20) >= '2026-11-27').toBe(true); // passé composé in -é: ch. 44
+    expect(dayOf(22) >= '2026-11-28').toBe(true); // passé composé with être: ch. 46
+    expect(dayOf(26) >= '2026-11-30').toBe(true); // imparfait: ch. 47
+    expect(dayOf(27) >= '2026-11-30').toBe(true); // simple future: ch. 48
+    expect(dayOf(31) >= '2026-11-16').toBe(true); // song with pas de: ch. 20
+    expect(dayOf(35) >= '2026-12-02').toBe(true); // song with questions: ch. 51–52
+    expect(dayOf(37) >= '2026-12-03').toBe(true); // song with ne… plus: ch. 53
+  });
+
+  it('adds a task that links to each recording, and keeps the day at 4 hours', () => {
+    for (const d of withAudio) {
+      const tasks = sessionsFor(d)[1].tasks;
+      const audio = tasks.find((t) => t.id === 'book-audio');
+      const video = tasks.find((t) => t.id === 'youtube');
+      expect(audio.players).toHaveLength(d.book_audio.items.length);
+      expect(audio.players[0].url).toContain('progressive.cle-international.com');
+      expect(audio.links).toBeUndefined(); // a plain link to these files would download them
+      expect(audio.minutes + video.minutes).toBe(60);
+      expect(totalMinutes(d)).toBe(240);
+    }
+    const t = sessionsFor(plan.days.find((d) => d.date === '2026-11-16'))[1].tasks.find((x) => x.id === 'book-audio');
+    expect(t.title).toBe('Book audio: Dialogues 1–4 (p. 158), song: Oui et non');
+  });
+});
+
+describe('annexes (p. 152–153)', () => {
+  const on = (date) => plan.days.find((d) => d.date === date);
+
+  it('reads each section once its chapters are done', () => {
+    const detail = (date) => sessionsFor(on(date))[0].tasks.find((t) => t.id === 'book').detail;
+    expect(detail('2026-12-01')).toContain('Annexes §7');
+    expect(detail('2026-12-03')).toContain('Annexes §1–3');
+    expect(detail('2026-12-05')).toContain('Annexes §4');
+    expect(sessionsFor(on('2026-12-01'))[0].tasks.find((t) => t.id === 'book').title).toContain('+ Annexes');
+    expect(
+      on('2026-12-03')
+        .yt_links.map((l) => l.topic)
+        .join(),
+    ).toContain('Adverbs');
+    expect(
+      on('2026-12-01')
+        .yt_links.map((l) => l.topic)
+        .join(),
+    ).toContain('Recent past');
+  });
+
+  it('finishes on Sunday 6 Dec with links to Vincent', () => {
+    const sunday = on('2026-12-06');
+    const task = sessionsFor(sunday)[0].tasks.find((t) => t.title.startsWith('Annexes §5'));
+    const labels = task.links.map((l) => l.label).join(' | ');
+    for (const t of ['Imperative', 'Indirect speech', 'celui, celle']) expect(labels).toContain(t);
+    expect(labels).not.toContain('(cut)');
+  });
+});
+
 describe('vocabulary book', () => {
   const vocabDays = plan.days.filter((d) => d.vocab);
 
@@ -344,13 +418,13 @@ describe('Vincent course (November)', () => {
     }
   });
 
-  it('fills the hour: Vincent first, Super Easy French for the rest', () => {
+  it('fills the hour: Vincent, then book audio, then Super Easy French', () => {
     for (const d of vDays) {
       const min = d.yt_links.reduce((a, g) => a + g.to - g.from, 0) / 60;
+      const used = min + (d.book_audio?.minutes || 0) + d.yt_rest;
       expect(min).toBeGreaterThan(0);
-      expect(min).toBeLessThan(65);
-      expect(min + d.yt_rest).toBeGreaterThan(55);
-      expect(min + d.yt_rest).toBeLessThan(65);
+      expect(used).toBeGreaterThan(55);
+      expect(used).toBeLessThan(65);
     }
   });
 
@@ -362,15 +436,46 @@ describe('Vincent course (November)', () => {
         .join(' | ');
     expect(topicsOn('2026-11-07')).toContain('être'); // ch. 4
     expect(topicsOn('2026-11-10')).toContain('-er verbs: spelling changes'); // ch. 8
+    expect(topicsOn('2026-11-10')).toContain('Regular -er verbs'); // ch. 7, conjugation
+    expect(topicsOn('2026-11-16')).toContain('avoir'); // ch. 19, conjugation
+    expect(topicsOn('2026-11-17')).toContain('The preposition en'); // ch. 22
+    expect(topicsOn('2026-11-19')).toContain("c'est + adjective"); // ch. 27
+    expect(topicsOn('2026-11-20')).toContain('Numbers 0–9'); // ch. 28
     expect(topicsOn('2026-11-20')).toContain('Telling the time'); // ch. 29
-    expect(topicsOn('2026-11-27')).toContain('Passé composé'); // ch. 44
+    expect(topicsOn('2026-11-21')).toContain('Weather'); // ch. 30
+    expect(topicsOn('2026-11-25')).toContain('venir'); // ch. 39, three-form verb
+    expect(topicsOn('2026-11-27')).toContain('Passé composé of parler'); // ch. 44, -er verb
+    expect(topicsOn('2026-11-28')).toContain('Passé composé of avoir'); // ch. 45, irregular
+    expect(topicsOn('2026-11-28')).toContain('Verbs that take être'); // ch. 46
     expect(topicsOn('2026-11-30')).toContain('Imparfait'); // ch. 47
-    expect(topicsOn('2026-12-05')).toContain('Relative pronouns'); // ch. 60
+    expect(topicsOn('2026-12-02')).toContain('Three ways to ask a question'); // ch. 51
+    expect(topicsOn('2026-12-05')).toContain('Relative pronouns: qui, que'); // ch. 60
+  });
+
+  it('stops a long lesson where it leaves the chapter', () => {
+    const link = (date, topic) => plan.days.find((d) => d.date === date).yt_links.find((l) => l.topic.includes(topic));
+    expect(link('2026-12-05', 'Relative pronouns').to).toBe(13690); // before agreement, dont, où
+    expect(link('2026-11-13', 'ce, cet, cette').to).toBe(11989); // before celui, celle
+    expect(link('2026-11-28', 'avoir or être + participle').to).toBe(24774); // before the advanced tenses
+    expect(link('2026-11-17', 'The preposition en').to).toBe(24380); // before en + -ant
+  });
+
+  it("labels anything off the day's grammar as extra", () => {
+    const topics = vDays.flatMap((d) => d.yt_links.map((l) => l.topic)).join(' | ');
+    for (const t of ['Words that match English', 'Silent e', 'Liaison: required', '108 adjectives', 'False friends'])
+      expect(topics).toContain(`${t} (extra)`);
   });
 
   it('keeps grammar beyond this volume out of November', () => {
     const all = vDays.flatMap((d) => d.yt_links.map((l) => l.topic)).join(' | ');
-    for (const later of ['Subjunctive', 'Conditional', 'Passive', 'Plus-que-parfait', 'Reported speech']) {
+    for (const later of [
+      'Subjunctive',
+      'Conditional',
+      'Passive',
+      'Plus-que-parfait',
+      'Indirect speech',
+      'Imperative',
+    ]) {
       expect(all).not.toContain(later);
     }
   });
@@ -387,7 +492,7 @@ describe('Vincent course (November)', () => {
 
   it('adds Super Easy French to the task only when the hour has room', () => {
     const task = (d) => sessionsFor(d)[1].tasks.find((t) => t.id === 'youtube');
-    const room = vDays.find((d) => d.yt_rest);
+    const room = vDays.find((d) => d.yt_rest && !d.book_audio);
     expect(task(room).links).toHaveLength(room.yt_links.length + 1);
     expect(task(room).links.at(-1).label).toBe(`Super Easy French · ${room.yt_rest} min`);
     expect(task(room).minutes).toBe(60);

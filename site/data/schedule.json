@@ -65,6 +65,7 @@
     }
    ],
    "yt_rest": 0,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 1–2",
@@ -92,22 +93,22 @@
    "sent": 0,
    "say": 0,
    "tv5": "TV5MONDE EDU · A1 · 2 exercises",
-   "yt": "Vincent (33 min), then Super Easy French (27 min)",
+   "yt": "Vincent (30 min), then Super Easy French (30 min)",
    "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": [
     {
      "video": 1,
      "id": "keBSvVsEibI",
      "from": 4653,
-     "to": 5154,
-     "topic": "Vowel combinations, Nasal sounds"
+     "to": 4980,
+     "topic": "Vowel combinations (extra)"
     },
     {
      "video": 5,
      "id": "b1sXCZDuxSY",
      "from": 5260,
      "to": 5838,
-     "topic": "Silent e"
+     "topic": "Silent e (extra)"
     },
     {
      "video": 1,
@@ -124,7 +125,8 @@
      "topic": "tu or vous"
     }
    ],
-   "yt_rest": 27,
+   "yt_rest": 30,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 3–4",
@@ -157,6 +159,7 @@
    "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -175,7 +178,7 @@
    "sent": 0,
    "say": 0,
    "tv5": "TV5MONDE EDU · A1 · 2 exercises",
-   "yt": "Vincent (30 min), then Super Easy French (30 min)",
+   "yt": "Vincent (26 min), then Super Easy French (29 min)",
    "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": [
     {
@@ -186,28 +189,28 @@
      "topic": "ne… pas"
     },
     {
-     "video": 2,
-     "id": "QzY_nYZ0RSQ",
-     "from": 7997,
-     "to": 8601,
-     "topic": "Three ways to ask a question"
-    },
-    {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 26438,
      "to": 26991,
-     "topic": "Liaison: required"
+     "topic": "Liaison: required (extra)"
     },
     {
-     "video": 1,
-     "id": "keBSvVsEibI",
-     "from": 7417,
-     "to": 7758,
-     "topic": "Regular -er verbs"
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 7402,
+     "to": 8112,
+     "topic": "Useful verbs (1) (extra), Useful verbs (2) (extra)"
     }
    ],
-   "yt_rest": 30,
+   "yt_rest": 29,
+   "book_audio": {
+    "title": "song: Je parle français",
+    "items": [
+     29
+    ],
+    "minutes": 5
+   },
    "vocab": null,
    "sunday": false,
    "book": "Déb. 5–6",
@@ -236,15 +239,15 @@
    "sent": 0,
    "say": 0,
    "tv5": "TV5MONDE EDU · A1 · 2 exercises",
-   "yt": "Vincent (59 min)",
+   "yt": "Vincent (53 min)",
    "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": [
     {
-     "video": 3,
-     "id": "12YUmS3rNr8",
-     "from": 7402,
-     "to": 8112,
-     "topic": "Useful verbs (1), Useful verbs (2)"
+     "video": 1,
+     "id": "keBSvVsEibI",
+     "from": 7417,
+     "to": 7758,
+     "topic": "Regular -er verbs"
     },
     {
      "video": 5,
@@ -262,6 +265,13 @@
     }
    ],
    "yt_rest": 0,
+   "book_audio": {
+    "title": "song: C'est dur",
+    "items": [
+     30
+    ],
+    "minutes": 5
+   },
    "vocab": null,
    "sunday": false,
    "book": "Déb. 7–9",
@@ -309,7 +319,7 @@
      "id": "12YUmS3rNr8",
      "from": 26991,
      "to": 27733,
-     "topic": "Liaison: optional"
+     "topic": "Liaison: forbidden (extra)"
     },
     {
      "video": 1,
@@ -323,10 +333,11 @@
      "id": "12YUmS3rNr8",
      "from": 27733,
      "to": 28105,
-     "topic": "Liaison: forbidden"
+     "topic": "Liaison: optional (extra)"
     }
    ],
    "yt_rest": 25,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 10–11",
@@ -370,7 +381,7 @@
      "id": "ppYImLa36ug",
      "from": 11707,
      "to": 12600,
-     "topic": "Words that match English"
+     "topic": "Words that match English (extra)"
     },
     {
      "video": 3,
@@ -381,6 +392,7 @@
     }
    ],
    "yt_rest": 25,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 12–13",
@@ -409,7 +421,7 @@
    "sent": 0,
    "say": 0,
    "tv5": "TV5MONDE EDU · A1 · 2 exercises",
-   "yt": "Vincent (61 min)",
+   "yt": "Vincent (45 min), then Super Easy French (15 min)",
    "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": [
     {
@@ -444,15 +456,8 @@
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 11665,
-     "to": 12202,
-     "topic": "Demonstratives"
-    },
-    {
-     "video": 1,
-     "id": "keBSvVsEibI",
-     "from": 1530,
-     "to": 1841,
-     "topic": "avoir"
+     "to": 11989,
+     "topic": "ce, cet, cette, ces in depth"
     },
     {
      "video": 2,
@@ -460,16 +465,10 @@
      "from": 7004,
      "to": 7997,
      "topic": "Adjectives: where they go"
-    },
-    {
-     "video": 3,
-     "id": "12YUmS3rNr8",
-     "from": 6982,
-     "to": 7402,
-     "topic": "Clothes"
     }
    ],
-   "yt_rest": 0,
+   "yt_rest": 15,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 14–16",
@@ -502,7 +501,7 @@
    "sent": 0,
    "say": 0,
    "tv5": "TV5MONDE EDU · A1 · 2 exercises",
-   "yt": "Vincent (41 min), then Super Easy French (19 min)",
+   "yt": "Vincent (48 min), then Super Easy French (12 min)",
    "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": [
     {
@@ -517,7 +516,7 @@
      "id": "ppYImLa36ug",
      "from": 12600,
      "to": 14004,
-     "topic": "Words that match English"
+     "topic": "Words that match English (extra)"
     },
     {
      "video": 2,
@@ -527,14 +526,22 @@
      "topic": "The body"
     },
     {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 6982,
+     "to": 7402,
+     "topic": "Beauty and hygiene (extra)"
+    },
+    {
      "video": 4,
      "id": "ppYImLa36ug",
      "from": 14004,
      "to": 14399,
-     "topic": "The mouth"
+     "topic": "The body: the mouth"
     }
    ],
-   "yt_rest": 19,
+   "yt_rest": 12,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 17–18",
@@ -567,6 +574,7 @@
    "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -585,15 +593,15 @@
    "sent": 0,
    "say": 0,
    "tv5": "TV5MONDE EDU · A1 · 2 exercises",
-   "yt": "Vincent (32 min), then Super Easy French (28 min)",
+   "yt": "Vincent (15 min), then Super Easy French (20 min)",
    "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": [
     {
-     "video": 4,
-     "id": "ppYImLa36ug",
-     "from": 16696,
-     "to": 17995,
-     "topic": "Words that match English"
+     "video": 1,
+     "id": "keBSvVsEibI",
+     "from": 1530,
+     "to": 1841,
+     "topic": "avoir"
     },
     {
      "video": 3,
@@ -603,7 +611,18 @@
      "topic": "Articles after a negative"
     }
    ],
-   "yt_rest": 28,
+   "yt_rest": 20,
+   "book_audio": {
+    "title": "Dialogues 1–4 (p. 158), song: Oui et non",
+    "items": [
+     1,
+     2,
+     3,
+     4,
+     31
+    ],
+    "minutes": 25
+   },
    "vocab": null,
    "sunday": false,
    "book": "Déb. 19–20",
@@ -632,22 +651,15 @@
    "sent": 0,
    "say": 0,
    "tv5": "TV5MONDE EDU · A1 · 2 exercises",
-   "yt": "Vincent (59 min)",
+   "yt": "Vincent (63 min)",
    "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": [
     {
      "video": 3,
      "id": "12YUmS3rNr8",
-     "from": 1146,
-     "to": 1600,
-     "topic": "In town"
-    },
-    {
-     "video": 3,
-     "id": "12YUmS3rNr8",
      "from": 22342,
-     "to": 23387,
-     "topic": "Uses of à"
+     "to": 23928,
+     "topic": "The preposition à, The preposition de"
     },
     {
      "video": 1,
@@ -661,7 +673,7 @@
      "id": "keBSvVsEibI",
      "from": 11852,
      "to": 12160,
-     "topic": "More countries"
+     "topic": "Countries: the Americas"
     },
     {
      "video": 1,
@@ -673,9 +685,9 @@
     {
      "video": 3,
      "id": "12YUmS3rNr8",
-     "from": 11466,
-     "to": 11801,
-     "topic": "Geography words"
+     "from": 23928,
+     "to": 24380,
+     "topic": "The preposition en"
     },
     {
      "video": 2,
@@ -686,6 +698,7 @@
     }
    ],
    "yt_rest": 0,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 21–23",
@@ -718,7 +731,7 @@
    "sent": 0,
    "say": 0,
    "tv5": "TV5MONDE EDU · A1 · 2 exercises",
-   "yt": "Vincent (38 min), then Super Easy French (22 min)",
+   "yt": "Vincent (33 min), then Super Easy French (12 min)",
    "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": [
     {
@@ -733,31 +746,40 @@
      "id": "QzY_nYZ0RSQ",
      "from": 6815,
      "to": 7004,
-     "topic": "Home words"
+     "topic": "The house"
     },
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 12594,
      "to": 12984,
-     "topic": "Home words, The kitchen"
+     "topic": "The living room, The kitchen"
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
-     "from": 1600,
+     "from": 1146,
      "to": 1883,
-     "topic": "In the house"
+     "topic": "In town, In the house"
     },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
-     "from": 23387,
-     "to": 24529,
-     "topic": "Uses of de"
+     "from": 11466,
+     "to": 11801,
+     "topic": "Geography words"
     }
    ],
-   "yt_rest": 22,
+   "yt_rest": 12,
+   "book_audio": {
+    "title": "Dialogues 5–7 (p. 159)",
+    "items": [
+     5,
+     6,
+     7
+    ],
+    "minutes": 15
+   },
    "vocab": null,
    "sunday": false,
    "book": "Déb. 24–25",
@@ -786,25 +808,32 @@
    "sent": 0,
    "say": 0,
    "tv5": "TV5MONDE EDU · A1 · 2 exercises",
-   "yt": "Vincent (23 min), then Super Easy French (37 min)",
+   "yt": "Vincent (23 min), then Super Easy French (32 min)",
    "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": [
-    {
-     "video": 2,
-     "id": "QzY_nYZ0RSQ",
-     "from": 12202,
-     "to": 12594,
-     "topic": "c'est for describing"
-    },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 18359,
      "to": 19348,
-     "topic": "Adjectives (1)"
+     "topic": "108 adjectives (extra)"
+    },
+    {
+     "video": 2,
+     "id": "QzY_nYZ0RSQ",
+     "from": 12202,
+     "to": 12594,
+     "topic": "c'est + adjective"
     }
    ],
-   "yt_rest": 37,
+   "yt_rest": 32,
+   "book_audio": {
+    "title": "Dialogue 8 (p. 160)",
+    "items": [
+     8
+    ],
+    "minutes": 5
+   },
    "vocab": null,
    "sunday": false,
    "book": "Déb. 26–27",
@@ -833,7 +862,7 @@
    "sent": 0,
    "say": 0,
    "tv5": "TV5MONDE EDU · A1 · 2 exercises",
-   "yt": "Vincent (41 min), then Super Easy French (19 min)",
+   "yt": "Vincent (47 min)",
    "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": [
     {
@@ -846,9 +875,9 @@
     {
      "video": 1,
      "id": "keBSvVsEibI",
-     "from": 5154,
+     "from": 4980,
      "to": 5380,
-     "topic": "Numbers 10–20"
+     "topic": "Numbers 0–9, Numbers 10–20"
     },
     {
      "video": 1,
@@ -872,6 +901,13 @@
      "topic": "First, second, third"
     },
     {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 3424,
+     "to": 3636,
+     "topic": "Ordinal numbers"
+    },
+    {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
      "from": 6345,
@@ -879,7 +915,15 @@
      "topic": "Telling the time"
     }
    ],
-   "yt_rest": 19,
+   "yt_rest": 0,
+   "book_audio": {
+    "title": "Dialogues 9–10 (p. 161)",
+    "items": [
+     9,
+     10
+    ],
+    "minutes": 10
+   },
    "vocab": null,
    "sunday": false,
    "book": "Déb. 28–29",
@@ -908,7 +952,7 @@
    "sent": 0,
    "say": 0,
    "tv5": "TV5MONDE EDU · A1 · 2 exercises",
-   "yt": "Vincent (58 min)",
+   "yt": "Vincent (61 min)",
    "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": [
     {
@@ -921,9 +965,9 @@
     {
      "video": 3,
      "id": "12YUmS3rNr8",
-     "from": 12009,
+     "from": 11801,
      "to": 12126,
-     "topic": "Climate"
+     "topic": "Weather, Climates"
     },
     {
      "video": 2,
@@ -944,7 +988,7 @@
      "id": "12YUmS3rNr8",
      "from": 5274,
      "to": 5728,
-     "topic": "Cooking words, Cooking verbs"
+     "topic": "Cooking, Courses of a meal"
     },
     {
      "video": 3,
@@ -962,6 +1006,7 @@
     }
    ],
    "yt_rest": 0,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 30–31",
@@ -994,6 +1039,7 @@
    "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -1012,7 +1058,7 @@
    "sent": 0,
    "say": 0,
    "tv5": "TV5MONDE EDU · A1 · 2 exercises",
-   "yt": "Vincent (49 min), then Super Easy French (11 min)",
+   "yt": "Vincent (37 min), then Super Easy French (8 min)",
    "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": [
     {
@@ -1027,7 +1073,14 @@
      "id": "QzY_nYZ0RSQ",
      "from": 10507,
      "to": 11089,
-     "topic": "plusieurs and other amounts"
+     "topic": "Expressing quantity"
+    },
+    {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 8471,
+     "to": 8733,
+     "topic": "Fish, Grains"
     },
     {
      "video": 2,
@@ -1037,21 +1090,23 @@
      "topic": "Comparatives"
     },
     {
-     "video": 3,
-     "id": "12YUmS3rNr8",
-     "from": 19348,
-     "to": 20336,
-     "topic": "Adjectives (2)"
-    },
-    {
      "video": 4,
      "id": "ppYImLa36ug",
      "from": 4775,
      "to": 5449,
-     "topic": "Superlative, Superlative with nouns"
+     "topic": "Superlative, Superlative with a noun"
     }
    ],
-   "yt_rest": 11,
+   "yt_rest": 8,
+   "book_audio": {
+    "title": "Dialogues 11–13 (p. 162)",
+    "items": [
+     11,
+     12,
+     13
+    ],
+    "minutes": 15
+   },
    "vocab": null,
    "sunday": false,
    "book": "Déb. 32–34",
@@ -1084,7 +1139,7 @@
    "sent": 0,
    "say": 0,
    "tv5": "TV5MONDE EDU · A1 · 2 exercises",
-   "yt": "Vincent (32 min), then Super Easy French (28 min)",
+   "yt": "Vincent (29 min), then Super Easy French (21 min)",
    "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": [
     {
@@ -1099,14 +1154,7 @@
      "id": "12YUmS3rNr8",
      "from": 20336,
      "to": 21656,
-     "topic": "Adjectives (3)"
-    },
-    {
-     "video": 1,
-     "id": "keBSvVsEibI",
-     "from": 8032,
-     "to": 8220,
-     "topic": "venir"
+     "topic": "120 adjectives (extra)"
     },
     {
      "video": 2,
@@ -1116,7 +1164,15 @@
      "topic": "partir"
     }
    ],
-   "yt_rest": 28,
+   "yt_rest": 21,
+   "book_audio": {
+    "title": "Dialogues 14–15 (p. 163)",
+    "items": [
+     14,
+     15
+    ],
+    "minutes": 10
+   },
    "vocab": null,
    "sunday": false,
    "book": "Déb. 35–36",
@@ -1145,7 +1201,7 @@
    "sent": 0,
    "say": 0,
    "tv5": "TV5MONDE EDU · A1 · 2 exercises",
-   "yt": "Vincent (20 min), then Super Easy French (40 min)",
+   "yt": "Vincent (40 min), then Super Easy French (10 min)",
    "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": [
     {
@@ -1154,6 +1210,13 @@
      "from": 12160,
      "to": 12713,
      "topic": "attendre, répondre"
+    },
+    {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 19348,
+     "to": 20336,
+     "topic": "100 adjectives (extra)"
     },
     {
      "video": 2,
@@ -1168,9 +1231,24 @@
      "from": 1883,
      "to": 2399,
      "topic": "savoir or connaître"
+    },
+    {
+     "video": 1,
+     "id": "keBSvVsEibI",
+     "from": 8032,
+     "to": 8220,
+     "topic": "venir"
     }
    ],
-   "yt_rest": 40,
+   "yt_rest": 10,
+   "book_audio": {
+    "title": "Dialogue 16 (p. 164), song: Quand tu pleures",
+    "items": [
+     16,
+     32
+    ],
+    "minutes": 10
+   },
    "vocab": null,
    "sunday": false,
    "book": "Déb. 37–39",
@@ -1203,7 +1281,7 @@
    "sent": 0,
    "say": 0,
    "tv5": "TV5MONDE EDU · A1 · 2 exercises",
-   "yt": "Vincent (29 min), then Super Easy French (31 min)",
+   "yt": "Vincent (29 min), then Super Easy French (21 min)",
    "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": [
     {
@@ -1249,7 +1327,15 @@
      "topic": "aller"
     }
    ],
-   "yt_rest": 31,
+   "yt_rest": 21,
+   "book_audio": {
+    "title": "Dialogues 17–18 (p. 165)",
+    "items": [
+     17,
+     18
+    ],
+    "minutes": 10
+   },
    "vocab": null,
    "sunday": false,
    "book": "Déb. 40–42",
@@ -1282,7 +1368,7 @@
    "sent": 0,
    "say": 0,
    "tv5": "TV5MONDE EDU · A1 · 2 exercises",
-   "yt": "Vincent (40 min), then Super Easy French (20 min)",
+   "yt": "Vincent (39 min)",
    "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": [
     {
@@ -1316,12 +1402,22 @@
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
-     "from": 8601,
-     "to": 8758,
-     "topic": "Passé composé with avoir"
+     "from": 9082,
+     "to": 9182,
+     "topic": "Passé composé of parler"
     }
    ],
-   "yt_rest": 20,
+   "yt_rest": 0,
+   "book_audio": {
+    "title": "Dialogues 19–21 (p. 165–166), song: Ah, quelle journée !",
+    "items": [
+     19,
+     20,
+     21,
+     33
+    ],
+    "minutes": 20
+   },
    "vocab": null,
    "sunday": false,
    "book": "Déb. 43–44",
@@ -1350,7 +1446,7 @@
    "sent": 0,
    "say": 0,
    "tv5": "TV5MONDE EDU · A1 · 2 exercises",
-   "yt": "Vincent (47 min), then Super Easy French (13 min)",
+   "yt": "Vincent (46 min)",
    "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": [
     {
@@ -1363,9 +1459,16 @@
     {
      "video": 2,
      "id": "QzY_nYZ0RSQ",
-     "from": 8758,
+     "from": 8601,
+     "to": 9082,
+     "topic": "Passé composé of avoir, Passé composé of être, Passé composé of aller"
+    },
+    {
+     "video": 2,
+     "id": "QzY_nYZ0RSQ",
+     "from": 9182,
      "to": 9315,
-     "topic": "Passé composé, verb by verb"
+     "topic": "Passé composé of finir"
     },
     {
      "video": 2,
@@ -1378,11 +1481,26 @@
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 24529,
-     "to": 25230,
-     "topic": "être or avoir in the past"
+     "to": 24774,
+     "topic": "avoir or être + participle"
+    },
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 8592,
+     "to": 8905,
+     "topic": "Verbs that take être"
     }
    ],
-   "yt_rest": 13,
+   "yt_rest": 0,
+   "book_audio": {
+    "title": "Dialogues 22–23 (p. 167)",
+    "items": [
+     22,
+     23
+    ],
+    "minutes": 10
+   },
    "vocab": null,
    "sunday": false,
    "book": "Déb. 45–46",
@@ -1415,6 +1533,7 @@
    "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -1434,7 +1553,7 @@
    "sent": 0,
    "say": 0,
    "tv5": "TV5MONDE EDU · A1 · 2 exercises",
-   "yt": "Vincent (24 min), then Super Easy French (36 min)",
+   "yt": "Vincent (24 min)",
    "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": [
     {
@@ -1452,7 +1571,20 @@
      "topic": "Simple future"
     }
    ],
-   "yt_rest": 36,
+   "yt_rest": 0,
+   "book_audio": {
+    "title": "Dialogues 24–28 (p. 168–169), songs: C'est ma vie, Votez pour moi",
+    "items": [
+     24,
+     25,
+     26,
+     27,
+     28,
+     34,
+     36
+    ],
+    "minutes": 35
+   },
    "vocab": null,
    "sunday": false,
    "book": "Déb. 47–48",
@@ -1481,9 +1613,16 @@
    "sent": 0,
    "say": 0,
    "tv5": "TV5MONDE EDU · A1 · 2 exercises",
-   "yt": "Vincent (19 min), then Super Easy French (41 min)",
+   "yt": "Vincent (46 min), then Super Easy French (14 min)",
    "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": [
+    {
+     "video": 2,
+     "id": "QzY_nYZ0RSQ",
+     "from": 10247,
+     "to": 10507,
+     "topic": "Time words: last week, next week"
+    },
     {
      "video": 3,
      "id": "12YUmS3rNr8",
@@ -1492,14 +1631,22 @@
      "topic": "Imparfait or passé composé"
     },
     {
-     "video": 2,
-     "id": "QzY_nYZ0RSQ",
-     "from": 10247,
-     "to": 10507,
-     "topic": "Time words"
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 15976,
+     "to": 16316,
+     "topic": "Recent past: venir de"
+    },
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 16696,
+     "to": 17995,
+     "topic": "Words that match English (extra)"
     }
    ],
-   "yt_rest": 41,
+   "yt_rest": 14,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 49–50",
@@ -1514,6 +1661,7 @@
      "topic": "il y a, pendant, depuis, dans"
     }
    ],
+   "book_annex": "Annexes §7, p. 153: passé récent",
    "write": "Ta vie : j'habite ici depuis…, il y a 2 ans, j'ai…, dans 1 an, je vais… (Your life: past, present, future)",
    "speak": "Raconte ta vie : j'habite, j'ai habité, je vais habiter",
    "retest": "yesterday: Déb. 47–48 · day −7: Déb. 35–36",
@@ -1528,7 +1676,7 @@
    "sent": 0,
    "say": 0,
    "tv5": "TV5MONDE EDU · A1 · 2 exercises",
-   "yt": "Vincent (24 min), then Super Easy French (36 min)",
+   "yt": "Vincent (34 min), then Super Easy French (21 min)",
    "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": [
     {
@@ -1536,7 +1684,7 @@
      "id": "keBSvVsEibI",
      "from": 6367,
      "to": 6733,
-     "topic": "quand, où, comment"
+     "topic": "quand, où, comment, combien"
     },
     {
      "video": 1,
@@ -1553,6 +1701,13 @@
      "topic": "pourquoi"
     },
     {
+     "video": 2,
+     "id": "QzY_nYZ0RSQ",
+     "from": 7997,
+     "to": 8601,
+     "topic": "Three ways to ask a question"
+    },
+    {
      "video": 1,
      "id": "keBSvVsEibI",
      "from": 3351,
@@ -1567,7 +1722,14 @@
      "topic": "qui, que, quoi"
     }
    ],
-   "yt_rest": 36,
+   "yt_rest": 21,
+   "book_audio": {
+    "title": "song: Ça, c'est la question",
+    "items": [
+     35
+    ],
+    "minutes": 5
+   },
    "vocab": null,
    "sunday": false,
    "book": "Déb. 51–52",
@@ -1596,7 +1758,7 @@
    "sent": 0,
    "say": 0,
    "tv5": "TV5MONDE EDU · A1 · 2 exercises",
-   "yt": "Vincent (12 min), then Super Easy French (48 min)",
+   "yt": "Vincent (35 min), then Super Easy French (20 min)",
    "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": [
     {
@@ -1604,17 +1766,31 @@
      "id": "QzY_nYZ0RSQ",
      "from": 9427,
      "to": 9614,
-     "topic": "False friends"
+     "topic": "False friends (extra)"
+    },
+    {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 0,
+     "to": 1146,
+     "topic": "Adverbs, Adverbs in -ment"
     },
     {
      "video": 5,
      "id": "b1sXCZDuxSY",
      "from": 0,
-     "to": 538,
-     "topic": "Words that match English"
+     "to": 747,
+     "topic": "Words that match English (extra), Where adverbs go in the past"
     }
    ],
-   "yt_rest": 48,
+   "yt_rest": 20,
+   "book_audio": {
+    "title": "song: Bonnes résolutions",
+    "items": [
+     37
+    ],
+    "minutes": 5
+   },
    "vocab": null,
    "sunday": false,
    "book": "Déb. 53–54",
@@ -1629,6 +1805,7 @@
      "topic": "negatives and questions in the passé composé"
     }
    ],
+   "book_annex": "Annexes §1–3, p. 152: adverbs, where adverbs and negatives go",
    "write": "Une mauvaise journée : je n'ai rien mangé, je ne suis pas sorti(e), je ne vois personne… (A bad day)",
    "speak": "Raconte une journée où rien ne marche : je n'ai pas…, je n'ai rien…",
    "retest": "yesterday: Déb. 51–52 · day −7: Déb. 40–42",
@@ -1662,6 +1839,7 @@
     }
    ],
    "yt_rest": 24,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 55–57",
@@ -1694,7 +1872,7 @@
    "sent": 0,
    "say": 0,
    "tv5": "TV5MONDE EDU · A2 · 3 exercises",
-   "yt": "Vincent (44 min), then Super Easy French (16 min)",
+   "yt": "Vincent (28 min), then Super Easy French (27 min)",
    "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": [
     {
@@ -1715,11 +1893,18 @@
      "video": 3,
      "id": "12YUmS3rNr8",
      "from": 13042,
-     "to": 14648,
-     "topic": "Relative pronouns"
+     "to": 13690,
+     "topic": "Relative pronouns: qui, que"
     }
    ],
-   "yt_rest": 16,
+   "yt_rest": 27,
+   "book_audio": {
+    "title": "song: Ma langue",
+    "items": [
+     38
+    ],
+    "minutes": 5
+   },
    "vocab": null,
    "sunday": false,
    "book": "Déb. 58–60",
@@ -1738,6 +1923,7 @@
      "topic": "qui and que: relative pronouns"
     }
    ],
+   "book_annex": "Annexes §4, p. 152: where object pronouns go",
    "write": "E-mail à ton propriétaire : je lui écris…, l'appartement que…, le voisin qui… (Email to your landlord)",
    "speak": "BILAN : présente-toi 3 min sans notes, enregistre-toi, compare avec le jour 1",
    "retest": "yesterday: Déb. 55–57 · day −7: Déb. 45–46",
@@ -1756,13 +1942,40 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": true,
+   "sunday_links": {
+    "4": [
+     {
+      "video": 2,
+      "id": "QzY_nYZ0RSQ",
+      "from": 11989,
+      "to": 12202,
+      "topic": "celui, celle"
+     },
+     {
+      "video": 3,
+      "id": "12YUmS3rNr8",
+      "from": 25230,
+      "to": 26438,
+      "topic": "Imperative"
+     },
+     {
+      "video": 4,
+      "id": "ppYImLa36ug",
+      "from": 5935,
+      "to": 6430,
+      "topic": "Indirect speech"
+     }
+    ]
+   },
    "sunday_items": [
     "Flashcard reviews (15 min)",
     "Week re-test (60 min): Bilan 6 (p. 124–125) + Bilan 7 (p. 136–137) + Bilan 8 (p. 150–151): recap exercises and test, no notes, then check the Corrigés, then the final test on p. 173. With time left, 1 exercise from each of Déb. 47–60",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
+    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
+    "Annexes §5, §6, §8, §9, p. 153 (45 min): imperative, indirect speech, demonstrative and possessive pronouns. Read each one, then watch Vincent's lessons"
    ],
    "week": 5
   },
@@ -1778,6 +1991,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 1, first half",
    "sunday": false,
    "book": "Int. 1",
@@ -1799,6 +2013,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 2",
@@ -1820,6 +2035,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 1, second half",
    "sunday": false,
    "book": "Int. 3",
@@ -1841,6 +2057,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 4",
@@ -1862,6 +2079,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 2, first half",
    "sunday": false,
    "book": "Int. 5",
@@ -1883,6 +2101,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 6",
@@ -1904,6 +2123,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -1926,6 +2146,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 2, second half",
    "sunday": false,
    "book": "Int. 7",
@@ -1946,6 +2167,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 8",
@@ -1966,6 +2188,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 3, first half",
    "sunday": false,
    "book": "Int. 9",
@@ -1986,6 +2209,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 10",
@@ -2006,6 +2230,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 3, second half",
    "sunday": false,
    "book": "Int. 11",
@@ -2026,6 +2251,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 12",
@@ -2046,6 +2272,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -2068,6 +2295,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 4, first half",
    "sunday": false,
    "book": "Int. 13",
@@ -2088,6 +2316,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 14",
@@ -2108,6 +2337,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 4, second half",
    "sunday": false,
    "book": "Int. 15",
@@ -2128,6 +2358,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 16",
@@ -2148,6 +2379,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 5, first half",
    "sunday": false,
    "book": "Int. 17",
@@ -2168,6 +2400,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 18",
@@ -2188,6 +2421,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -2211,6 +2445,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 5, second half",
    "sunday": false,
    "book": "Int. 19",
@@ -2231,6 +2466,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 20",
@@ -2251,6 +2487,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 6, first half",
    "sunday": false,
    "book": "Int. 21",
@@ -2271,6 +2508,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 22",
@@ -2291,6 +2529,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 6, second half",
    "sunday": false,
    "book": "Int. 23",
@@ -2311,6 +2550,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 24",
@@ -2331,6 +2571,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -2353,6 +2594,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 7, first half",
    "sunday": false,
    "book": "Int. 25",
@@ -2373,6 +2615,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 26",
@@ -2393,6 +2636,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 7, second half",
    "sunday": false,
    "book": "Int. 27",
@@ -2413,6 +2657,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 28",
@@ -2433,6 +2678,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 8, first half",
    "sunday": false,
    "book": "Int. 29",
@@ -2453,6 +2699,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 30",
@@ -2473,6 +2720,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -2495,6 +2743,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 8, second half",
    "sunday": false,
    "book": "Int. 31",
@@ -2515,6 +2764,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 32",
@@ -2535,6 +2785,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 9, first half",
    "sunday": false,
    "book": "Int. 33",
@@ -2555,6 +2806,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 34",
@@ -2575,6 +2827,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 9, second half",
    "sunday": false,
    "book": "Int. 35",
@@ -2595,6 +2848,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 36",
@@ -2615,6 +2869,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -2637,6 +2892,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 10, first half",
    "sunday": false,
    "book": "Int. 37",
@@ -2657,6 +2913,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 38",
@@ -2677,6 +2934,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 10, second half",
    "sunday": false,
    "book": "Int. 39",
@@ -2697,6 +2955,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 40",
@@ -2717,6 +2976,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 11, first half",
    "sunday": false,
    "book": "Int. 41",
@@ -2737,6 +2997,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 42",
@@ -2757,6 +3018,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -2779,6 +3041,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 11, second half",
    "sunday": false,
    "book": "Int. 43",
@@ -2799,6 +3062,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 44",
@@ -2819,6 +3083,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 12, first half",
    "sunday": false,
    "book": "Int. 45",
@@ -2839,6 +3104,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 46",
@@ -2859,6 +3125,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 12, second half",
    "sunday": false,
    "book": "Int. 47",
@@ -2879,6 +3146,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 48",
@@ -2899,6 +3167,7 @@
    "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -2922,6 +3191,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 13, first half",
    "sunday": false,
    "book": "Int. 49",
@@ -2942,6 +3212,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 50",
@@ -2962,6 +3233,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 13, second half",
    "sunday": false,
    "book": "Int. 51",
@@ -2982,6 +3254,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 52",
@@ -3002,6 +3275,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 14, first half",
    "sunday": false,
    "book": "Av. 1",
@@ -3022,6 +3296,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 2",
@@ -3042,6 +3317,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -3065,6 +3341,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 14, second half",
    "sunday": false,
    "book": "Av. 3–4",
@@ -3085,6 +3362,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 5",
@@ -3105,6 +3383,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 15, first half",
    "sunday": false,
    "book": "Av. 6–7",
@@ -3125,6 +3404,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 8",
@@ -3145,6 +3425,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 15, second half",
    "sunday": false,
    "book": "Av. 9–10",
@@ -3165,6 +3446,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 11",
@@ -3185,6 +3467,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -3208,6 +3491,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 16, first half",
    "sunday": false,
    "book": "Av. 12",
@@ -3228,6 +3512,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 13–14",
@@ -3248,6 +3533,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 16, second half",
    "sunday": false,
    "book": "Av. 15",
@@ -3268,6 +3554,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 16–17",
@@ -3288,6 +3575,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 17, first half",
    "sunday": false,
    "book": "Av. 18",
@@ -3308,6 +3596,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 19–20",
@@ -3328,6 +3617,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -3351,6 +3641,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 17, second half",
    "sunday": false,
    "book": "Av. 21",
@@ -3371,6 +3662,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 22–23",
@@ -3391,6 +3683,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 18, first half",
    "sunday": false,
    "book": "Av. 24",
@@ -3411,6 +3704,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 25",
@@ -3431,6 +3725,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 18, second half",
    "sunday": false,
    "book": "Av. 26–27",
@@ -3451,6 +3746,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 28",
@@ -3471,6 +3767,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -3495,6 +3792,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 19, first half",
    "sunday": false,
    "book": "Av. 29–30",
@@ -3515,6 +3813,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 31",
@@ -3535,6 +3834,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 19, second half",
    "sunday": false,
    "book": "Av. 32–33",
@@ -3555,6 +3855,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 34",
@@ -3575,6 +3876,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 20, first half",
    "sunday": false,
    "book": "Av. 35–36",
@@ -3595,6 +3897,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 37",
@@ -3615,6 +3918,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -3638,6 +3942,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 20, second half",
    "sunday": false,
    "book": "Av. 38",
@@ -3658,6 +3963,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 39–40",
@@ -3678,6 +3984,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 21, first half",
    "sunday": false,
    "book": "Av. 41",
@@ -3698,6 +4005,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 42–43",
@@ -3718,6 +4026,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 21, second half",
    "sunday": false,
    "book": "Av. 44",
@@ -3738,6 +4047,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 45–46",
@@ -3758,6 +4068,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -3781,6 +4092,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 22, first half",
    "sunday": false,
    "book": "Av. 47",
@@ -3801,6 +4113,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 48",
@@ -3821,6 +4134,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 22, second half",
    "sunday": false,
    "book": "Av. 49–50",
@@ -3841,6 +4155,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 51",
@@ -3861,6 +4176,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 23, first half",
    "sunday": false,
    "book": "Av. 52–53",
@@ -3881,6 +4197,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 54",
@@ -3901,6 +4218,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -3924,6 +4242,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 23, second half",
    "sunday": false,
    "book": "Av. 55–56",
@@ -3944,6 +4263,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 57",
@@ -3964,6 +4284,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 24, first half",
    "sunday": false,
    "book": "Av. 58–59",
@@ -3984,6 +4305,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 60",
@@ -4004,6 +4326,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 24, second half",
    "sunday": false,
    "book": "Av. 61",
@@ -4024,6 +4347,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 62–63",
@@ -4044,6 +4368,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -4068,6 +4393,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 25, first half",
    "sunday": false,
    "book": "Av. 64",
@@ -4088,6 +4414,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 65–66",
@@ -4108,6 +4435,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": "ch. 25, second half",
    "sunday": false,
    "book": "Av. 67",
@@ -4128,6 +4456,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 68–69",
@@ -4148,6 +4477,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 70",
@@ -4168,6 +4498,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 71–72",
@@ -4188,6 +4519,7 @@
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -4211,6 +4543,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4231,6 +4564,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4251,6 +4585,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4271,6 +4606,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4291,6 +4627,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4311,6 +4648,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4331,6 +4669,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -4354,6 +4693,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4374,6 +4714,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4394,6 +4735,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4414,6 +4756,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4434,6 +4777,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4454,6 +4798,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4474,6 +4819,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -4496,6 +4842,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4516,6 +4863,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4536,6 +4884,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4556,6 +4905,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4576,6 +4926,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4596,6 +4947,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4616,6 +4968,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -4639,6 +4992,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4659,6 +5013,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4679,6 +5034,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4699,6 +5055,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4719,6 +5076,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4739,6 +5097,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4759,6 +5118,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -4781,6 +5141,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4801,6 +5162,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4821,6 +5183,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4841,6 +5204,7 @@
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
    "yt_rest": null,
+   "book_audio": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",

@@ -214,7 +214,10 @@ export function sessionsFor(day) {
         id: 'sunday',
         title: 'Review day',
         note: 'No new chapters today.',
-        tasks: day.sunday_items.map((text, i) => ({ id: `sun-${i}`, title: text })),
+        tasks: day.sunday_items.map((text, i) => {
+          const links = day.sunday_links?.[i];
+          return { id: `sun-${i}`, title: text, ...(links ? { links: vincentLinks(links) } : {}) };
+        }),
       },
     ];
   }
@@ -229,9 +232,12 @@ export function sessionsFor(day) {
     },
     {
       id: 'book',
-      title: exam ? day.book : `Book: ${day.book}${day.book_pages ? `, ${day.book_pages}` : ''}`,
+      title: exam
+        ? day.book
+        : `Book: ${day.book}${day.book_pages ? `, ${day.book_pages}` : ''}${day.book_annex ? ' + Annexes' : ''}`,
       detail:
         (day.book_topics ? `${day.book_topics.map((t) => `Ch. ${t.ch}: ${t.topic}`).join(' · ')}. ` : '') +
+        (day.book_annex ? `${day.book_annex}. ` : '') +
         'Read the rule → close the book, say it aloud → exercises without looking → check the Corrigés',
       minutes: m.book,
       kind: 'explain',
@@ -263,9 +269,23 @@ export function sessionsFor(day) {
       detail:
         "Mostly this morning's topics, explained in English. Repeat every word aloud with Vincent." +
         (day.yt_rest ? ' Then Super Easy French: subtitles on, then shadow 1 minute aloud.' : ''),
-      minutes: m.youtube,
+      minutes: m.youtube - (day.book_audio?.minutes || 0),
       links,
     });
+    if (day.book_audio) {
+      afternoon.push({
+        id: 'book-audio',
+        title: `Book audio: ${day.book_audio.title}`,
+        detail:
+          'Open the page. Listen with the text covered, then following it, then repeat aloud and do the questions on the page.',
+        minutes: day.book_audio.minutes,
+        // Played in the page: the publisher serves these as downloads, so a plain link would save a file.
+        players: day.book_audio.items.map((n) => {
+          const a = BOOK_AUDIO[n - 1];
+          return { label: `${a.title} · p. ${a.page}`, url: a.url };
+        }),
+      });
+    }
   } else if (m.youtube) {
     afternoon.push({
       id: 'youtube',

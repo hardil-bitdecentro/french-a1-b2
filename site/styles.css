@@ -734,3 +734,8 @@ code {
   height: 40px;
   margin-top: 0.35rem;
 }
+.audio-label {
+  margin: 0.6rem 0 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
