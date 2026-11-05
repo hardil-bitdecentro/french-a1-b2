@@ -109,6 +109,60 @@ export const BOOK_AUDIO = [
   })),
 ];
 
+/** Everyday topics the word deck leaves thin. Added as the learner's own flashcards with one tap. */
+export const WORD_SETS = {
+  clothes: {
+    title: 'clothes',
+    words: [
+      ['un pantalon', 'trousers'],
+      ['un jean', 'jeans'],
+      ['une chemise', 'a shirt'],
+      ['un t-shirt', 'a T-shirt'],
+      ['un pull', 'a jumper'],
+      ['une robe', 'a dress'],
+      ['une jupe', 'a skirt'],
+      ['une veste', 'a jacket'],
+      ['un manteau', 'a coat'],
+      ['un costume', 'a suit'],
+      ['une cravate', 'a tie'],
+      ['une ceinture', 'a belt'],
+      ['une écharpe', 'a scarf'],
+      ['un chapeau', 'a hat'],
+      ['une casquette', 'a cap'],
+      ['des gants', 'gloves'],
+      ['des chaussettes', 'socks'],
+      ['des chaussures', 'shoes'],
+      ['des bottes', 'boots'],
+      ['des baskets', 'trainers'],
+    ],
+  },
+  transport: {
+    title: 'transport',
+    words: [
+      ['le métro', 'the underground'],
+      ['le bus', 'the bus'],
+      ['le train', 'the train'],
+      ['le tramway', 'the tram'],
+      ['le taxi', 'the taxi'],
+      ['le vélo', 'the bicycle'],
+      ['la voiture', 'the car'],
+      ["l'avion", 'the plane (masculine)'],
+      ['à pied', 'on foot'],
+      ['la gare', 'the train station'],
+      ['la station', 'the metro station'],
+      ["l'arrêt de bus", 'the bus stop (masculine)'],
+      ["l'aéroport", 'the airport (masculine)'],
+      ['le quai', 'the platform'],
+      ['le billet', 'the ticket (train, plane)'],
+      ['le ticket', 'the ticket (metro, bus)'],
+      ['la correspondance', 'the connection, the change'],
+      ['le départ', 'the departure'],
+      ["l'arrivée", 'the arrival (feminine)'],
+      ['le retard', 'the delay'],
+    ],
+  },
+};
+
 export const WRITING_PROMPT = (topic) =>
   `Corrige ce texte (niveau visé : B2, TCF Canada). Sujet : ${topic}\n` +
   `Donne-moi : 1) la version corrigée, 2) chaque erreur avec la règle expliquée en anglais, ` +
@@ -238,7 +292,7 @@ export function sessionsFor(day) {
       detail:
         (day.book_topics ? `${day.book_topics.map((t) => `Ch. ${t.ch}: ${t.topic}`).join(' · ')}. ` : '') +
         (day.book_annex ? `${day.book_annex}. ` : '') +
-        'Read the rule → close the book, say it aloud → exercises without looking → check the Corrigés',
+        'Read the rule → close the book, say it aloud → exercises without looking → check the Corrigés. Take as long as it needs.',
       minutes: m.book,
       kind: 'explain',
       copy: EXPLAIN_PROMPT(day.book, day.book_topics),
@@ -295,6 +349,15 @@ export function sessionsFor(day) {
       link: youtubeLink(day.yt),
     });
   }
+  if (day.read_task) {
+    afternoon.push({
+      id: 'reading',
+      title: `Read: ${day.read_task}`,
+      detail: 'In real life or online. Read for the gist, look up 3 words, then make a flashcard from one of them.',
+      minutes: 10,
+      action: { label: 'Add a card', href: '#/cards/add/vocab' },
+    });
+  }
   afternoon.push({
     id: 'speak',
     title: `Speak: ${day.speak}`,
@@ -325,6 +388,17 @@ export function sessionsFor(day) {
       };
   const evening = [
     newWords,
+    ...(day.word_set
+      ? [
+          {
+            id: 'word-set',
+            title: `New words: ${WORD_SETS[day.word_set].title} (${WORD_SETS[day.word_set].words.length} cards)`,
+            detail: 'Add them once, then learn them in Cards with your other flashcards.',
+            minutes: 10,
+            addWords: day.word_set,
+          },
+        ]
+      : []),
     {
       id: 'retest',
       title: `Re-test: ${day.retest}`,

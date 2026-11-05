@@ -80,8 +80,9 @@
      "topic": "describing: masculine and feminine adjectives"
     }
    ],
-   "write": "Présente-toi : nom, nationalité, profession, ville. Puis décris une personne : il est…, elle est… (Introduce yourself, then describe someone)",
+   "write": "Remplis une fiche : nom, prénom, nationalité, profession, ville. Puis écris 4 phrases : je suis…, il est…, elle est… (Fill in a form, then describe someone)",
    "speak": "Présente-toi 2 min : nom, nationalité, profession, ville",
+   "read_task": "signs around you: ouvert, fermé, entrée, sortie, poussez, tirez",
    "retest": "nothing yet (first day)",
    "week": 1
   },
@@ -143,6 +144,7 @@
    ],
    "write": "8 phrases avec être : je suis, tu es, nous sommes, ils sont + adjectif au pluriel. (8 sentences with être)",
    "speak": "Décris tes amis : ils sont…, elles sont…, nous sommes…",
+   "read_task": "food packets: find 5 adjectives (grand, petit, frais, bio, nouveau…)",
    "retest": "yesterday: Déb. 1–2",
    "retest_note": "Déb. 1–2: introducing yourself: nationality, job; describing: masculine and feminine adjectives",
    "week": 1
@@ -227,6 +229,7 @@
    ],
    "write": "Tes goûts : j'aime…, je n'aime pas…, est-ce que tu aimes… ? (Likes and dislikes, with questions)",
    "speak": "Pose 6 questions avec est-ce que et réponds : oui… / non, je ne… pas",
+   "read_task": "notices with ne… pas: ne pas fumer, ne pas toucher, ne pas entrer",
    "retest": "yesterday: Déb. 3–4",
    "retest_note": "Déb. 3–4: describing: plural adjectives; être; tu or vous; nous or on",
    "week": 2
@@ -292,6 +295,7 @@
    ],
    "write": "Ta journée typique : je me lève, je me lave, je travaille, je mange… (Your typical day)",
    "speak": "Décris ta journée typique",
+   "read_task": "a supermarket leaflet: find 10 products you can name",
    "retest": "yesterday: Déb. 5–6",
    "retest_note": "Déb. 5–6: yes/no questions; ne… pas; -er verbs; aimer",
    "week": 2
@@ -354,6 +358,7 @@
    ],
    "write": "Dans ta chambre : 12 objets avec un, une, des. Attention au genre ! (12 things in your room)",
    "speak": "Nomme à voix haute tout ce que tu vois : un…, une…, des…",
+   "read_task": "shop and aisle signs: note 8 words with un or une",
    "retest": "yesterday: Déb. 7–9",
    "retest_note": "Déb. 7–9: -er verbs: the full present; -er verbs: spelling changes; reflexive -er verbs",
    "week": 2
@@ -407,8 +412,9 @@
      "topic": "au, à la, aux; du, de la, des"
     }
    ],
-   "write": "Ta ville : je visite le…, je suis au…, à la…, je parle du…, de la… (Your town, with au, à la, du, de la)",
+   "write": "Carte postale de ta ville : je visite le…, je suis au…, à la…, je parle du…, de la… Bises ! (A postcard from your town)",
    "speak": "Décris ta ville : le musée, la gare, au marché, à la boulangerie",
+   "read_task": "street signs: centre-ville, gare, mairie, à la…, au…",
    "retest": "yesterday: Déb. 10–11",
    "retest_note": "Déb. 10–11: nouns: gender and articles; nouns: plural",
    "week": 2
@@ -489,6 +495,8 @@
    ],
    "write": "Décris une photo de famille : mon, ma, mes, ce, cette ; j'ai un frère… (A family photo)",
    "speak": "Parle de ta famille : mon père, ma mère, j'ai un frère…",
+   "read_task": "a real form: nom, prénom, date de naissance, adresse, signature",
+   "word_set": "clothes",
    "retest": "yesterday: Déb. 12–13 · day −7: Déb. 1–2",
    "retest_note": "Déb. 12–13: un, une, des; le, la, les; au, à la, aux; du, de la, des. Déb. 1–2: introducing yourself: nationality, job; describing: masculine and feminine adjectives",
    "week": 2
@@ -558,6 +566,7 @@
    ],
    "write": "Décris un ami : il a les yeux…, il a … ans. Puis : j'ai mal à…, j'ai faim, j'ai froid. (A friend, and how you feel)",
    "speak": "Jeu de rôle : chez le médecin, dis où tu as mal",
+   "read_task": "a pharmacy window or medicine box: mal de tête, douleur, fièvre",
    "retest": "yesterday: Déb. 14–16 · day −7: Déb. 3–4",
    "retest_note": "Déb. 14–16: mon, ton, son; ce, cette, ces; avoir + noun; where adjectives go. Déb. 3–4: describing: plural adjectives; être; tu or vous; nous or on",
    "week": 2
@@ -639,6 +648,7 @@
    ],
    "write": "Ce que tu as et ce que tu n'as pas : j'ai…, je n'ai pas de… (What you have and don't have)",
    "speak": "Réponds à 10 questions : tu as une voiture ? Non, je n'ai pas de voiture",
+   "read_task": "rules on a door or a bus: pas de…, il n'y a pas de…",
    "retest": "yesterday: Déb. 17–18 · day −7: Déb. 5–6",
    "retest_note": "Déb. 17–18: looks and age; aches, hunger, cold. Déb. 5–6: yes/no questions; ne… pas; -er verbs; aimer",
    "week": 3
@@ -719,6 +729,7 @@
    ],
    "write": "Je suis de…, j'habite à…, en…, au… Puis décris ta chambre : sur, sous, dans, devant. (Cities, countries, where things are)",
    "speak": "Où habites-tu ? Quels pays connais-tu ? À Paris, en France, au Japon…",
+   "read_task": "a neighbourhood map: à côté de, près de, loin de, devant",
    "retest": "yesterday: Déb. 19–20 · day −7: Déb. 7–9",
    "retest_note": "Déb. 19–20: avoir: the full present; pas le, pas la; pas de. Déb. 7–9: -er verbs: the full present; -er verbs: spelling changes; reflexive -er verbs",
    "week": 3
@@ -796,6 +807,7 @@
    ],
    "write": "Qu'est-ce qu'il y a dans ta ville ? Il y a…, il n'y a pas de… (What your town has and doesn't)",
    "speak": "Montre 8 objets : qu'est-ce que c'est ? C'est un…, ce n'est pas un…",
+   "read_task": "a flat-rental ad: il y a, cuisine, chambre, meublé, charges",
    "retest": "yesterday: Déb. 21–23 · day −7: Déb. 10–11",
    "retest_note": "Déb. 21–23: place: à, de, chez, près de, loin de; cities and countries: à, au, en; dans, sur, sous, devant, derrière. Déb. 10–11: nouns: gender and articles; nouns: plural",
    "week": 3
@@ -850,6 +862,7 @@
    ],
    "write": "Ton avis sur 6 choses à Paris : c'est beau, c'est cher… ; c'est un musée, il est grand. (Your opinions)",
    "speak": "Décris 4 personnes ou lieux : c'est…, il est…",
+   "read_task": "restaurant reviews: c'est bon, c'est cher, c'est beau",
    "retest": "yesterday: Déb. 24–25 · day −7: Déb. 12–13",
    "retest_note": "Déb. 24–25: il y a; il n'y a pas de; qui est-ce, qu'est-ce que c'est; ce n'est pas. Déb. 12–13: un, une, des; le, la, les; au, à la, aux; du, de la, des",
    "week": 3
@@ -938,8 +951,9 @@
      "topic": "telling the time"
     }
    ],
-   "write": "Ton emploi du temps : lundi à 8 heures, je… Puis 3 dates importantes. (Your timetable and dates)",
+   "write": "2 messages à un ami : rendez-vous samedi 14 novembre à 19 heures, devant la gare. Puis ton emploi du temps de lundi. (Arrange a meeting; your timetable)",
    "speak": "Dis à voix haute : ta date de naissance, ton téléphone, 6 prix, l'heure de 8 choses de ta journée",
+   "read_task": "opening hours and a train timetable: lundi, 8 h 30, départ, arrivée",
    "retest": "yesterday: Déb. 26–27 · day −7: Déb. 14–16",
    "retest_note": "Déb. 26–27: c'est or il est; c'est + adjective: general comments. Déb. 14–16: mon, ton, son; ce, cette, ces; avoir + noun; where adjectives go",
    "week": 3
@@ -1023,6 +1037,7 @@
    ],
    "write": "Le temps et les repas : en hiver, il fait froid… ; je mange du…, de la…, des… (Weather and food)",
    "speak": "Jeu de rôle : commande au restaurant, puis parle du temps",
+   "read_task": "a weather forecast and a restaurant menu",
    "retest": "yesterday: Déb. 28–29 · day −7: Déb. 17–18",
    "retest_note": "Déb. 28–29: numbers, dates, days; telling the time. Déb. 17–18: looks and age; aches, hunger, cold",
    "week": 3
@@ -1127,6 +1142,7 @@
    ],
    "write": "Compare deux villes : plus… que, moins… que, autant de… (Compare two cities)",
    "speak": "Jeu de rôle : au marché (un kilo de, beaucoup de, pas de)",
+   "read_task": "price tags at a market: le kilo, le litre, moins cher, plus cher",
    "retest": "yesterday: Déb. 30–31 · day −7: Déb. 19–20",
    "retest_note": "Déb. 30–31: weather, months, seasons; du, de la, des: some. Déb. 19–20: avoir: the full present; pas le, pas la; pas de",
    "week": 4
@@ -1189,6 +1205,7 @@
    ],
    "write": "Tes matins : je pars à…, je sors…, je finis…, je choisis… (Your mornings)",
    "speak": "Raconte un matin normal : je pars, je sors, je finis, je dors",
+   "read_task": "cinema listings: le film, la séance, la durée, finit à",
    "retest": "yesterday: Déb. 32–34 · day −7: Déb. 21–23",
    "retest_note": "Déb. 32–34: amounts: un kilo de, beaucoup de, pas de; comparing: plus, moins, aussi; comparing amounts; superlatives. Déb. 21–23: place: à, de, chez, près de, loin de; cities and countries: à, au, en; dans, sur, sous, devant, derrière",
    "week": 4
@@ -1269,6 +1286,7 @@
    ],
    "write": "Ce que tu sais et qui tu connais : je sais…, je connais…, je crois…, je bois… (What you know, who you know)",
    "speak": "Parle de ce que tu sais faire et de qui tu connais",
+   "read_task": "a library or school notice: inscription, horaires, à savoir",
    "retest": "yesterday: Déb. 35–36 · day −7: Déb. 24–25",
    "retest_note": "Déb. 35–36: -ir verbs like finir; -ir verbs like partir. Déb. 24–25: il y a; il n'y a pas de; qui est-ce, qu'est-ce que c'est; ce n'est pas",
    "week": 4
@@ -1354,8 +1372,10 @@
      "topic": "aller"
     }
    ],
-   "write": "Tes objectifs et tes loisirs : je veux, je peux, je dois ; je fais du… ; je vais à… (Goals and hobbies)",
+   "write": "SMS : invite un ami ce week-end. Tu veux… ? On peut… ? Je dois… Je fais du… Je vais à… (A text to invite a friend)",
    "speak": "Parle de tes loisirs et de ce que tu veux faire ce mois-ci",
+   "read_task": "a leaflet for local activities: cours de…, faire du sport, on peut",
+   "word_set": "transport",
    "retest": "yesterday: Déb. 37–39 · day −7: Déb. 26–27",
    "retest_note": "Déb. 37–39: -re verbs like écrire; savoir, connaître, croire, voir; three-form verbs like boire. Déb. 26–27: c'est or il est; c'est + adjective: general comments",
    "week": 4
@@ -1434,6 +1454,7 @@
    ],
    "write": "Le week-end prochain : je vais + verbe. Le week-end dernier : j'ai mangé, j'ai parlé… (Next and last weekend)",
    "speak": "Qu'est-ce que tu vas faire ce week-end ? Qu'est-ce que tu as fait hier ?",
+   "read_task": "an event poster: demain, ce week-end, vous allez…",
    "retest": "yesterday: Déb. 40–42 · day −7: Déb. 28–29",
    "retest_note": "Déb. 40–42: vouloir, pouvoir, devoir + infinitive; faire and dire; aller. Déb. 28–29: numbers, dates, days; telling the time",
    "week": 4
@@ -1517,6 +1538,7 @@
    ],
    "write": "Ton arrivée en France : je suis arrivé(e), j'ai vu, j'ai pris… (Arriving in France)",
    "speak": "Raconte ton arrivée en France",
+   "read_task": "a short post or message in the past: j'ai visité, je suis allé(e)",
    "retest": "yesterday: Déb. 43–44 · day −7: Déb. 30–31",
    "retest_note": "Déb. 43–44: near future: je vais + verb; passé composé with avoir: -er verbs. Déb. 30–31: weather, months, seasons; du, de la, des: some",
    "week": 4
@@ -1601,6 +1623,7 @@
    ],
    "write": "Quand j'étais petit(e), j'habitais… Dans 10 ans, je serai… (Your childhood and your future)",
    "speak": "Parle de ton enfance et de ta vie dans 10 ans",
+   "read_task": "a horoscope: tu seras, tu auras, vous aurez",
    "retest": "yesterday: Déb. 45–46 · day −7: Déb. 32–34",
    "retest_note": "Déb. 45–46: passé composé with avoir: other verbs; passé composé with être. Déb. 32–34: amounts: un kilo de, beaucoup de, pas de; comparing: plus, moins, aussi; comparing amounts; superlatives",
    "week": 5
@@ -1664,6 +1687,7 @@
    "book_annex": "Annexes §7, p. 153: passé récent",
    "write": "Ta vie : j'habite ici depuis…, il y a 2 ans, j'ai…, dans 1 an, je vais… (Your life: past, present, future)",
    "speak": "Raconte ta vie : j'habite, j'ai habité, je vais habiter",
+   "read_task": "a short biography on Vikidia: il est né en…, depuis, il y a",
    "retest": "yesterday: Déb. 47–48 · day −7: Déb. 35–36",
    "retest_note": "Déb. 47–48: imparfait; simple future. Déb. 35–36: -ir verbs like finir; -ir verbs like partir",
    "week": 5
@@ -1746,6 +1770,7 @@
    ],
    "write": "8 questions à un nouveau collègue : où, quand, comment, pourquoi, qui, quelle… (Questions for a colleague)",
    "speak": "Jeu de rôle : demande ton chemin, puis pose 8 questions à Claude",
+   "read_task": "a shop's FAQ page: où, quand, comment, combien, pourquoi",
    "retest": "yesterday: Déb. 49–50 · day −7: Déb. 37–39",
    "retest_note": "Déb. 49–50: present, past, future: overview; il y a, pendant, depuis, dans. Déb. 37–39: -re verbs like écrire; savoir, connaître, croire, voir; three-form verbs like boire",
    "week": 5
@@ -1808,6 +1833,7 @@
    "book_annex": "Annexes §1–3, p. 152: adverbs, where adverbs and negatives go",
    "write": "Une mauvaise journée : je n'ai rien mangé, je ne suis pas sorti(e), je ne vois personne… (A bad day)",
    "speak": "Raconte une journée où rien ne marche : je n'ai pas…, je n'ai rien…",
+   "read_task": "building or park rules: ne… jamais, rien, personne, plus de",
    "retest": "yesterday: Déb. 51–52 · day −7: Déb. 40–42",
    "retest_note": "Déb. 51–52: questions: où, quand, comment, combien, pourquoi; questions: qui, que, quel. Déb. 40–42: vouloir, pouvoir, devoir + infinitive; faire and dire; aller",
    "week": 5
@@ -1860,6 +1886,7 @@
    ],
    "write": "Réponds sans répéter : 8 questions avec en, y, le, la, les. Tu manges du pain ? Oui, j'en mange. (Answer with pronouns)",
    "speak": "Jeu de rôle : au marché avec en et le, la, les : j'en prends deux, je le prends",
+   "read_task": "a short recipe: find en, y, le, la, les",
    "retest": "yesterday: Déb. 53–54 · day −7: Déb. 43–44",
    "retest_note": "Déb. 53–54: ne… rien, jamais, plus, personne; negatives and questions in the passé composé. Déb. 43–44: near future: je vais + verb; passé composé with avoir: -er verbs",
    "week": 5
@@ -1926,6 +1953,7 @@
    "book_annex": "Annexes §4, p. 152: where object pronouns go",
    "write": "E-mail à ton propriétaire : je lui écris…, l'appartement que…, le voisin qui… (Email to your landlord)",
    "speak": "BILAN : présente-toi 3 min sans notes, enregistre-toi, compare avec le jour 1",
+   "read_task": "a short article for learners: find 5 uses of qui and que",
    "retest": "yesterday: Déb. 55–57 · day −7: Déb. 45–46",
    "retest_note": "Déb. 55–57: the pronoun en; the pronoun y; le, la, les: direct object pronouns. Déb. 45–46: passé composé with avoir: other verbs; passé composé with être",
    "week": 5

@@ -35,24 +35,24 @@ def is_sunday(d):
 # ---------- content pools ----------
 # Phase 1 prompts, one per study day, practising that day's chapters (DEB_DAYS) and nothing later.
 W1 = [
-    "Présente-toi : nom, nationalité, profession, ville. Puis décris une personne : il est…, elle est… (Introduce yourself, then describe someone)",
+    "Remplis une fiche : nom, prénom, nationalité, profession, ville. Puis écris 4 phrases : je suis…, il est…, elle est… (Fill in a form, then describe someone)",
     "8 phrases avec être : je suis, tu es, nous sommes, ils sont + adjectif au pluriel. (8 sentences with être)",
     "Tes goûts : j'aime…, je n'aime pas…, est-ce que tu aimes… ? (Likes and dislikes, with questions)",
     "Ta journée typique : je me lève, je me lave, je travaille, je mange… (Your typical day)",
     "Dans ta chambre : 12 objets avec un, une, des. Attention au genre ! (12 things in your room)",
-    "Ta ville : je visite le…, je suis au…, à la…, je parle du…, de la… (Your town, with au, à la, du, de la)",
+    "Carte postale de ta ville : je visite le…, je suis au…, à la…, je parle du…, de la… Bises ! (A postcard from your town)",
     "Décris une photo de famille : mon, ma, mes, ce, cette ; j'ai un frère… (A family photo)",
     "Décris un ami : il a les yeux…, il a … ans. Puis : j'ai mal à…, j'ai faim, j'ai froid. (A friend, and how you feel)",
     "Ce que tu as et ce que tu n'as pas : j'ai…, je n'ai pas de… (What you have and don't have)",
     "Je suis de…, j'habite à…, en…, au… Puis décris ta chambre : sur, sous, dans, devant. (Cities, countries, where things are)",
     "Qu'est-ce qu'il y a dans ta ville ? Il y a…, il n'y a pas de… (What your town has and doesn't)",
     "Ton avis sur 6 choses à Paris : c'est beau, c'est cher… ; c'est un musée, il est grand. (Your opinions)",
-    "Ton emploi du temps : lundi à 8 heures, je… Puis 3 dates importantes. (Your timetable and dates)",
+    "2 messages à un ami : rendez-vous samedi 14 novembre à 19 heures, devant la gare. Puis ton emploi du temps de lundi. (Arrange a meeting; your timetable)",
     "Le temps et les repas : en hiver, il fait froid… ; je mange du…, de la…, des… (Weather and food)",
     "Compare deux villes : plus… que, moins… que, autant de… (Compare two cities)",
     "Tes matins : je pars à…, je sors…, je finis…, je choisis… (Your mornings)",
     "Ce que tu sais et qui tu connais : je sais…, je connais…, je crois…, je bois… (What you know, who you know)",
-    "Tes objectifs et tes loisirs : je veux, je peux, je dois ; je fais du… ; je vais à… (Goals and hobbies)",
+    "SMS : invite un ami ce week-end. Tu veux… ? On peut… ? Je dois… Je fais du… Je vais à… (A text to invite a friend)",
     "Le week-end prochain : je vais + verbe. Le week-end dernier : j'ai mangé, j'ai parlé… (Next and last weekend)",
     "Ton arrivée en France : je suis arrivé(e), j'ai vu, j'ai pris… (Arriving in France)",
     "Quand j'étais petit(e), j'habitais… Dans 10 ans, je serai… (Your childhood and your future)",
@@ -90,6 +90,38 @@ S1 = [
     "Jeu de rôle : au marché avec en et le, la, les : j'en prends deux, je le prends",
     "BILAN : présente-toi 3 min sans notes, enregistre-toi, compare avec le jour 1",
 ]
+# Everyday French to read, one per Débutant study day, using that day's grammar where it can.
+R1 = [
+    "signs around you: ouvert, fermé, entrée, sortie, poussez, tirez",
+    "food packets: find 5 adjectives (grand, petit, frais, bio, nouveau…)",
+    "notices with ne… pas: ne pas fumer, ne pas toucher, ne pas entrer",
+    "a supermarket leaflet: find 10 products you can name",
+    "shop and aisle signs: note 8 words with un or une",
+    "street signs: centre-ville, gare, mairie, à la…, au…",
+    "a real form: nom, prénom, date de naissance, adresse, signature",
+    "a pharmacy window or medicine box: mal de tête, douleur, fièvre",
+    "rules on a door or a bus: pas de…, il n'y a pas de…",
+    "a neighbourhood map: à côté de, près de, loin de, devant",
+    "a flat-rental ad: il y a, cuisine, chambre, meublé, charges",
+    "restaurant reviews: c'est bon, c'est cher, c'est beau",
+    "opening hours and a train timetable: lundi, 8 h 30, départ, arrivée",
+    "a weather forecast and a restaurant menu",
+    "price tags at a market: le kilo, le litre, moins cher, plus cher",
+    "cinema listings: le film, la séance, la durée, finit à",
+    "a library or school notice: inscription, horaires, à savoir",
+    "a leaflet for local activities: cours de…, faire du sport, on peut",
+    "an event poster: demain, ce week-end, vous allez…",
+    "a short post or message in the past: j'ai visité, je suis allé(e)",
+    "a horoscope: tu seras, tu auras, vous aurez",
+    "a short biography on Vikidia: il est né en…, depuis, il y a",
+    "a shop's FAQ page: où, quand, comment, combien, pourquoi",
+    "building or park rules: ne… jamais, rien, personne, plus de",
+    "a short recipe: find en, y, le, la, les",
+    "a short article for learners: find 5 uses of qui and que",
+]
+# Everyday topics the word deck and Vincent leave thin, added as one-tap flashcards: words in site/logic.js.
+WORD_SET_DAYS = {7: "clothes", 18: "transport"}
+
 W2_T1 = [
     "Invite un ami à ton anniversaire (date, lieu, quoi apporter).",
     "Excuse-toi auprès de ton voisin pour le bruit d'hier soir.",
@@ -485,7 +517,7 @@ VOCAB_FROM, VOCAB_TO = date(2026, 12, 6), date(2027, 4, 2)
 vocab = {}
 _vdays = study_days(VOCAB_FROM, VOCAB_TO)
 _units = VOCAB_CHAPTERS * 2
-assert len(_vdays) >= _units
+assert len(_vdays) >= _units and len(R1) == 26
 for u in range(_units):
     vocab[_vdays[(u * len(_vdays)) // _units]] = (u // 2 + 1, u % 2)
 
@@ -832,6 +864,9 @@ for d in all_days():
     if ph == 1:
         row["write"] = take(W1, "w1")
         row["speak"] = take(S1, "s1")
+        row["read_task"] = R1[idx["w1"] - 1]
+        if idx["w1"] in WORD_SET_DAYS:
+            row["word_set"] = WORD_SET_DAYS[idx["w1"]]
     elif ph == 2:
         if study_n % 2:
             row["write"] = "Tâche 1 (60–120 mots) : " + take(W2_T1, "w2a")
@@ -959,7 +994,7 @@ PHASE_NAME = {1: "Débutant (A1)", 2: "Intermédiaire (A2→B1)", 3: "Avancé (B
 L = []
 L.append("# French A1 → B2: day-by-day schedule")
 L.append("")
-L.append("Fri 6 Nov 2026 → Thu 6 May 2027 · 4 h/day · the full plan and the reasoning are in "
+L.append("Fri 6 Nov 2026 → Thu 6 May 2027 · at least 4 h/day · the full plan and the reasoning are in "
          "`French A1 to B2 in 6 months (TCF Canada).md` next to this file.")
 L.append("")
 L.append("## The same every day (only the items in the tables change)")
@@ -1123,6 +1158,9 @@ if len(sys.argv) > 4:
                      f"{hms(l['from'])} → {hms(l['to'])}")
         if r["book_audio"]:
             M.append(f"- Audio: {r['book_audio']['title']}")
+        M.append(f"- Everyday reading: {r['read_task']}")
+        if r.get("word_set"):
+            M.append(f"- New word set: {r['word_set']}")
         if r["yt_rest"]:
             M.append(f"- Super Easy French: {r['yt_rest']} min")
         M.append("")

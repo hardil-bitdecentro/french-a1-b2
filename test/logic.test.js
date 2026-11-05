@@ -4,6 +4,7 @@ import {
   MINUTES,
   EXPLAIN_PROMPT,
   BOOK_AUDIO,
+  WORD_SETS,
   hms,
   vincentLinks,
   localISO,
@@ -113,8 +114,11 @@ describe('daily checklist', () => {
     }
   });
 
-  it('every study day is 240 minutes of tasks', () => {
-    for (const d of studyDays) expect(totalMinutes(d)).toBe(240);
+  it('every study day is at least 4 hours: the core blocks plus any extras', () => {
+    for (const d of studyDays) {
+      const extras = (d.read_task ? 10 : 0) + (d.word_set ? 10 : 0);
+      expect(totalMinutes(d)).toBe(240 + extras);
+    }
   });
 
   it('study days have three sessions; Sundays have one review list', () => {
@@ -287,6 +291,40 @@ describe('book audio', () => {
   });
 });
 
+describe('everyday French in the Débutant month', () => {
+  const deb = studyDays.filter((d) => d.phase === 1);
+  const on = (date) => plan.days.find((d) => d.date === date);
+
+  it('asks for practical writing: a form, a postcard, messages and a text', () => {
+    expect(on('2026-11-06').write).toContain('Remplis une fiche');
+    expect(on('2026-11-12').write).toContain('Carte postale');
+    expect(on('2026-11-20').write).toContain('rendez-vous');
+    expect(on('2026-11-26').write).toContain('SMS');
+  });
+
+  it('sets a different everyday reading task on every study day, and only in this month', () => {
+    expect(new Set(deb.map((d) => d.read_task)).size).toBe(26);
+    expect(studyDays.filter((d) => d.read_task)).toHaveLength(26);
+    const t = sessionsFor(deb[12])[1].tasks.find((x) => x.id === 'reading');
+    expect(t.title).toContain('train timetable');
+    expect(t.minutes).toBe(10);
+  });
+
+  it('offers clothes and transport as one-tap flashcards on the right days', () => {
+    expect(on('2026-11-13').word_set).toBe('clothes');
+    expect(on('2026-11-26').word_set).toBe('transport');
+    expect(deb.filter((d) => d.word_set)).toHaveLength(2);
+    const t = sessionsFor(on('2026-11-26'))[2].tasks.find((x) => x.id === 'word-set');
+    expect(t.addWords).toBe('transport');
+    expect(t.title).toBe('New words: transport (20 cards)');
+    for (const set of Object.values(WORD_SETS)) {
+      expect(set.words).toHaveLength(20);
+      expect(new Set(set.words.map(([fr]) => fr)).size).toBe(20);
+      for (const [fr, en] of set.words) expect(fr && en).toBeTruthy();
+    }
+  });
+});
+
 describe('book audio in the plan', () => {
   const withAudio = plan.days.filter((d) => d.book_audio);
   const dayOf = (n) => withAudio.find((d) => d.book_audio.items.includes(n)).date;
@@ -315,7 +353,7 @@ describe('book audio in the plan', () => {
     expect(dayOf(37) >= '2026-12-03').toBe(true); // song with ne… plus: ch. 53
   });
 
-  it('adds a task that links to each recording, and keeps the day at 4 hours', () => {
+  it('adds players for each recording, and keeps the video hour at 60 minutes', () => {
     for (const d of withAudio) {
       const tasks = sessionsFor(d)[1].tasks;
       const audio = tasks.find((t) => t.id === 'book-audio');
@@ -324,7 +362,6 @@ describe('book audio in the plan', () => {
       expect(audio.players[0].url).toContain('progressive.cle-international.com');
       expect(audio.links).toBeUndefined(); // a plain link to these files would download them
       expect(audio.minutes + video.minutes).toBe(60);
-      expect(totalMinutes(d)).toBe(240);
     }
     const t = sessionsFor(plan.days.find((d) => d.date === '2026-11-16'))[1].tasks.find((x) => x.id === 'book-audio');
     expect(t.title).toBe('Book audio: Dialogues 1–4 (p. 158), song: Oui et non');

@@ -2,6 +2,7 @@ import {
   PHASE_NAMES,
   LINKS,
   BOOK_AUDIO,
+  WORD_SETS,
   WRITING_PROMPT,
   SPEAKING_PROMPT,
   EXPLAIN_PROMPT,
@@ -18,7 +19,7 @@ import {
   esc,
 } from './logic.js';
 import * as S from './store.js';
-import { queueStats, newLimitFor, sentLimitFor, sayLimitFor } from './cards.js';
+import { queueStats, newLimitFor, sentLimitFor, sayLimitFor, newOwnCard } from './cards.js';
 import { renderCards, cardsClick, cardsKey, cardsSubmit, cardsChange, resetReview } from './cards-view.js';
 import { createSync } from './syncctl.js';
 import { idbGet, idbSet } from './db.js';
@@ -197,6 +198,12 @@ function taskRow(iso, t, done, cardStats) {
     );
   if (t.kind === 'explain')
     actions.push(`<a class="act" href="${LINKS.claude}" target="_blank" rel="noopener">Open Claude ↗</a>`);
+  if (t.addWords)
+    actions.push(
+      S.setting(state, `wordset:${t.addWords}`, false)
+        ? '<span class="sub">Added to your flashcards ✓</span>'
+        : `<button class="act" type="button" data-add-words="${esc(t.addWords)}">Add ${WORD_SETS[t.addWords].words.length} flashcards</button>`,
+    );
   let detail = t.detail || '';
   if (cardStats && t.id === 'anki-review') detail = `${cardStats.due} due now`;
   if (cardStats && t.id === 'anki-new' && !t.detail)
@@ -460,6 +467,7 @@ function viewMethod() {
 
     <section class="card">
       <h2>Your 4 hours, timed for memory</h2>
+      <p>4 hours is the minimum, not the limit. The goal is B2 by May, so if the book or your flashcard reviews need longer, give them longer. Never rush or skip them to fit the clock.</p>
       <table class="tbl">
         <thead><tr><th>Session</th><th>What</th><th>Why then</th></tr></thead>
         <tbody>
@@ -631,6 +639,17 @@ app.addEventListener('click', async (e) => {
     const i = Number(check.dataset.grammar);
     S.setGrammar(state, i, !S.grammarOn(state, i));
     save();
+    rerender();
+    return;
+  }
+  const addWords = e.target.closest('[data-add-words]');
+  if (addWords) {
+    const name = addWords.dataset.addWords;
+    if (!S.setting(state, `wordset:${name}`, false)) {
+      for (const [front, back] of WORD_SETS[name].words) S.putCard(state, newOwnCard({ front, back, src: 'vocab' }));
+      S.setSetting(state, `wordset:${name}`, true);
+      save();
+    }
     rerender();
     return;
   }
