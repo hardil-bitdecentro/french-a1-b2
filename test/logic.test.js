@@ -194,6 +194,79 @@ describe('English explanation prompt', () => {
   });
 });
 
+describe('Débutant book (from its contents pages)', () => {
+  const deb = studyDays.filter((d) => d.phase === 1);
+  const sundays = plan.days.filter((d) => d.sunday);
+
+  it('covers chapters 1–60 once each, in order', () => {
+    expect(deb.flatMap((d) => d.book_topics.map((t) => t.ch))).toEqual(Array.from({ length: 60 }, (_, i) => i + 1));
+  });
+
+  it('keeps the first days and splits the passé composé across two days', () => {
+    expect(deb.slice(0, 2).map((d) => d.book)).toEqual(['Déb. 1–2', 'Déb. 3–4']);
+    expect(plan.days.find((d) => d.date === '2026-11-27').book).toBe('Déb. 43–44');
+    expect(plan.days.find((d) => d.date === '2026-11-28').book).toBe('Déb. 45–46');
+  });
+
+  it('shows pages and topics on the book task, and skips the bilan pages', () => {
+    const d = deb[1];
+    expect(d.book_pages).toBe('p. 14–17');
+    const book = sessionsFor(d)[0].tasks.find((t) => t.id === 'book');
+    expect(book.title).toBe('Book: Déb. 3–4, p. 14–17');
+    expect(book.detail).toContain('Ch. 4: être');
+    expect(plan.days.find((x) => x.date === '2026-12-01').book_pages).toBe('p. 122–123, 126–127');
+  });
+
+  it('never assigns more than 8 pages in a morning', () => {
+    for (const d of deb) {
+      const pages = [...d.book_pages.matchAll(/(\d+)–(\d+)/g)].reduce((a, m) => a + Number(m[2]) - Number(m[1]) + 1, 0);
+      expect(pages).toBeLessThanOrEqual(8);
+    }
+  });
+
+  it('names the topics in the explain prompt instead of asking for the title', () => {
+    const p = sessionsFor(deb[1])[0].tasks.find((t) => t.id === 'book').copy;
+    expect(p).toContain('These chapters cover: 3) describing: plural adjectives; 4) être');
+    expect(p).not.toContain('[type it here]');
+    expect(EXPLAIN_PROMPT('Int. 7')).toContain('[type it here]');
+  });
+
+  it('names the topics in the evening re-test', () => {
+    const t = sessionsFor(deb[1])[2].tasks.find((x) => x.id === 'retest');
+    expect(t.title).toBe('Re-test: yesterday: Déb. 1–2');
+    expect(t.detail).toContain('Déb. 1–2: introducing yourself');
+    expect(t.detail).toContain('from memory');
+  });
+
+  it('sets each of the 8 bilans once, on the first Sunday after its last chapter', () => {
+    const where = (n) => sundays.filter((d) => d.sunday_items.some((t) => t.includes(`Bilan ${n} (`)));
+    const expected = {
+      1: '2026-11-15',
+      2: '2026-11-22',
+      3: '2026-11-22',
+      4: '2026-11-29',
+      5: '2026-11-29',
+      6: '2026-12-06',
+      7: '2026-12-06',
+      8: '2026-12-06',
+    };
+    for (const [n, date] of Object.entries(expected)) expect(where(n).map((d) => d.date)).toEqual([date]);
+    const last = sundays.find((d) => d.date === '2026-12-06');
+    expect(last.sunday_items.some((t) => t.includes('final test on p. 173'))).toBe(true);
+  });
+
+  it('practises only grammar already reached in the book', () => {
+    const before = (date) => deb.filter((d) => d.date < date);
+    for (const d of before('2026-11-27')) {
+      expect(`${d.write} ${d.speak}`).not.toMatch(/j'ai mangé|je suis arrivé|as fait hier|ton arrivée/i);
+    }
+    for (const d of before('2026-11-30')) expect(`${d.write} ${d.speak}`).not.toMatch(/quand j'étais|ton enfance/i);
+    for (const d of before('2026-12-04')) expect(`${d.write} ${d.speak}`).not.toMatch(/j'en |avec en/i);
+    expect(deb[3].write).toContain('je me lève'); // reflexive verbs, ch. 9
+    expect(deb.at(-1).speak).toContain('BILAN');
+  });
+});
+
 describe('vocabulary book', () => {
   const vocabDays = plan.days.filter((d) => d.vocab);
 
@@ -237,36 +310,69 @@ describe('Vincent course (November)', () => {
     expect(vDays.map((d) => d.date)).toEqual(phase1);
   });
 
-  it('covers all 5 videos end to end with no gaps or overlaps', () => {
+  it('never repeats any part of a video and stays inside it', () => {
     const segs = vDays.flatMap((d) => d.yt_links);
     for (let v = 1; v <= 5; v++) {
-      const mine = segs.filter((g) => g.video === v);
-      expect(mine[0].from).toBe(0);
-      for (let i = 1; i < mine.length; i++) expect(mine[i].from).toBe(mine[i - 1].to);
-      expect(mine[mine.length - 1].to).toBe(lengths[v]);
+      const mine = segs.filter((g) => g.video === v).sort((a, b) => a.from - b.from);
+      expect(mine.length).toBeGreaterThan(0);
+      for (const g of mine) {
+        expect(g.from).toBeLessThan(g.to);
+        expect(g.to).toBeLessThanOrEqual(lengths[v]);
+        expect(g.topic.length).toBeGreaterThan(0);
+      }
+      for (let i = 1; i < mine.length; i++) expect(mine[i].from).toBeGreaterThanOrEqual(mine[i - 1].to);
     }
   });
 
-  it('gives each day roughly an hour', () => {
+  it('fills the hour: Vincent first, Super Easy French for the rest', () => {
     for (const d of vDays) {
       const min = d.yt_links.reduce((a, g) => a + g.to - g.from, 0) / 60;
-      expect(min).toBeGreaterThan(45);
-      expect(min).toBeLessThan(75);
+      expect(min).toBeGreaterThan(0);
+      expect(min).toBeLessThan(65);
+      expect(min + d.yt_rest).toBeGreaterThan(55);
+      expect(min + d.yt_rest).toBeLessThan(65);
     }
   });
 
-  it('builds links that start at the right second', () => {
-    const links = vincentLinks([{ video: 1, id: 'keBSvVsEibI', from: 3669, to: 7183 }]);
+  it('puts each lesson on the day of its chapter', () => {
+    const topicsOn = (date) =>
+      plan.days
+        .find((d) => d.date === date)
+        .yt_links.map((l) => l.topic)
+        .join(' | ');
+    expect(topicsOn('2026-11-07')).toContain('être'); // ch. 4
+    expect(topicsOn('2026-11-10')).toContain('-er verbs: spelling changes'); // ch. 8
+    expect(topicsOn('2026-11-20')).toContain('Telling the time'); // ch. 29
+    expect(topicsOn('2026-11-27')).toContain('Passé composé'); // ch. 44
+    expect(topicsOn('2026-11-30')).toContain('Imparfait'); // ch. 47
+    expect(topicsOn('2026-12-05')).toContain('Relative pronouns'); // ch. 60
+  });
+
+  it('keeps grammar beyond this volume out of November', () => {
+    const all = vDays.flatMap((d) => d.yt_links.map((l) => l.topic)).join(' | ');
+    for (const later of ['Subjunctive', 'Conditional', 'Passive', 'Plus-que-parfait', 'Reported speech']) {
+      expect(all).not.toContain(later);
+    }
+  });
+
+  it('builds links that start on the lesson and say where to stop', () => {
+    const links = vincentLinks([{ video: 1, id: 'keBSvVsEibI', from: 969, to: 1530, topic: 'être' }]);
     expect(links).toEqual([
       {
-        label: 'Day 1 video at 1:01:09',
-        url: 'https://www.youtube.com/watch?v=keBSvVsEibI&t=3669s',
-        stop: '1:59:43',
+        label: 'être · stop at 0:25:30',
+        url: 'https://www.youtube.com/watch?v=keBSvVsEibI&t=969s',
       },
     ]);
-    const task = sessionsFor(vDays[4])[1].tasks.find((t) => t.id === 'youtube');
-    expect(task.links).toHaveLength(vDays[4].yt_links.length);
-    expect(task.minutes).toBe(60);
+  });
+
+  it('adds Super Easy French to the task only when the hour has room', () => {
+    const task = (d) => sessionsFor(d)[1].tasks.find((t) => t.id === 'youtube');
+    const room = vDays.find((d) => d.yt_rest);
+    expect(task(room).links).toHaveLength(room.yt_links.length + 1);
+    expect(task(room).links.at(-1).label).toBe(`Super Easy French · ${room.yt_rest} min`);
+    expect(task(room).minutes).toBe(60);
+    const full = vDays.find((d) => !d.yt_rest);
+    expect(task(full).links).toHaveLength(full.yt_links.length);
   });
 
   it('formats H:MM:SS', () => {

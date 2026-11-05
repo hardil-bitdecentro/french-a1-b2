@@ -33,60 +33,61 @@ def is_sunday(d):
 
 
 # ---------- content pools ----------
+# Phase 1 prompts, one per study day, practising that day's chapters (DEB_DAYS) and nothing later.
 W1 = [
-    "Présente-toi : nom, âge, pays, travail, ville. (Introduce yourself)",
-    "Décris ta famille. (Your family)",
-    "Ta journée typique : je me lève, je travaille… (Your typical day)",
-    "Décris ton logement : il y a…, à côté de, sur, sous. (Your home)",
-    "Ce que tu aimes / n'aimes pas manger. (Food likes and dislikes)",
-    "Décris ton meilleur ami : physique et caractère. (Your best friend)",
-    "Ta ville en France : qu'est-ce qu'il y a ? (Your town)",
-    "Message : invite un ami au cinéma. (Invite a friend)",
-    "Tes loisirs : je fais du…, je joue au… (Your hobbies)",
-    "Ton week-end prochain : je vais + infinitif. (Next weekend)",
-    "Au restaurant : écris le dialogue de ta commande. (Ordering food)",
-    "Tes vêtements aujourd'hui et la météo. (Clothes and weather)",
-    "8 questions à un nouveau collègue. (Asking questions)",
-    "Ton dernier week-end : passé composé avec avoir. (Last weekend)",
-    "Ton arrivée en France : passé composé avec être. (Arriving in France)",
-    "E-mail à ton propriétaire : un problème dans l'appartement. (Email to landlord)",
-    "Compare deux villes : plus… que, moins… que. (Compare two cities)",
-    "Ta matinée d'hier : je me suis levé(e)… (Yesterday morning)",
-    "Tes 5 objectifs du mois : je veux, je dois, il faut. (Your goals)",
-    "Décris une photo de famille : mon, ma, mes, son, sa, ses. (Family photo)",
-    "Ton travail : horaires, tâches, collègues. (Your job)",
-    "Carte postale à un ami dans ton pays. (Postcard)",
-    "Quand j'étais enfant… : imparfait. (Your childhood)",
-    "Une soirée où il pleuvait : imparfait + passé composé. (A rainy evening)",
-    "Au marché : ta liste et le dialogue (un kilo de, un peu de). (At the market)",
-    "Réponds à une annonce : tu veux louer une chambre. (Reply to an ad)",
+    "Présente-toi : nom, nationalité, profession, ville. Puis décris une personne : il est…, elle est… (Introduce yourself, then describe someone)",
+    "8 phrases avec être : je suis, tu es, nous sommes, ils sont + adjectif au pluriel. (8 sentences with être)",
+    "Tes goûts : j'aime…, je n'aime pas…, est-ce que tu aimes… ? (Likes and dislikes, with questions)",
+    "Ta journée typique : je me lève, je me lave, je travaille, je mange… (Your typical day)",
+    "Dans ta chambre : 12 objets avec un, une, des. Attention au genre ! (12 things in your room)",
+    "Ta ville : je visite le…, je suis au…, à la…, je parle du…, de la… (Your town, with au, à la, du, de la)",
+    "Décris une photo de famille : mon, ma, mes, ce, cette ; j'ai un frère… (A family photo)",
+    "Décris un ami : il a les yeux…, il a … ans. Puis : j'ai mal à…, j'ai faim, j'ai froid. (A friend, and how you feel)",
+    "Ce que tu as et ce que tu n'as pas : j'ai…, je n'ai pas de… (What you have and don't have)",
+    "Je suis de…, j'habite à…, en…, au… Puis décris ta chambre : sur, sous, dans, devant. (Cities, countries, where things are)",
+    "Qu'est-ce qu'il y a dans ta ville ? Il y a…, il n'y a pas de… (What your town has and doesn't)",
+    "Ton avis sur 6 choses à Paris : c'est beau, c'est cher… ; c'est un musée, il est grand. (Your opinions)",
+    "Ton emploi du temps : lundi à 8 heures, je… Puis 3 dates importantes. (Your timetable and dates)",
+    "Le temps et les repas : en hiver, il fait froid… ; je mange du…, de la…, des… (Weather and food)",
+    "Compare deux villes : plus… que, moins… que, autant de… (Compare two cities)",
+    "Tes matins : je pars à…, je sors…, je finis…, je choisis… (Your mornings)",
+    "Ce que tu sais et qui tu connais : je sais…, je connais…, je crois…, je bois… (What you know, who you know)",
+    "Tes objectifs et tes loisirs : je veux, je peux, je dois ; je fais du… ; je vais à… (Goals and hobbies)",
+    "Le week-end prochain : je vais + verbe. Le week-end dernier : j'ai mangé, j'ai parlé… (Next and last weekend)",
+    "Ton arrivée en France : je suis arrivé(e), j'ai vu, j'ai pris… (Arriving in France)",
+    "Quand j'étais petit(e), j'habitais… Dans 10 ans, je serai… (Your childhood and your future)",
+    "Ta vie : j'habite ici depuis…, il y a 2 ans, j'ai…, dans 1 an, je vais… (Your life: past, present, future)",
+    "8 questions à un nouveau collègue : où, quand, comment, pourquoi, qui, quelle… (Questions for a colleague)",
+    "Une mauvaise journée : je n'ai rien mangé, je ne suis pas sorti(e), je ne vois personne… (A bad day)",
+    "Réponds sans répéter : 8 questions avec en, y, le, la, les. Tu manges du pain ? Oui, j'en mange. (Answer with pronouns)",
+    "E-mail à ton propriétaire : je lui écris…, l'appartement que…, le voisin qui… (Email to your landlord)",
 ]
 S1 = [
-    "Présente-toi 2 min (nom, âge, pays, travail, ville)",
-    "Parle de ta famille",
+    "Présente-toi 2 min : nom, nationalité, profession, ville",
+    "Décris tes amis : ils sont…, elles sont…, nous sommes…",
+    "Pose 6 questions avec est-ce que et réponds : oui… / non, je ne… pas",
     "Décris ta journée typique",
-    "Décris ton logement",
-    "Parle de ce que tu aimes manger",
-    "Décris ton meilleur ami",
-    "Décris ta ville",
-    "Parle de tes loisirs",
-    "Dis ce que tu vas faire ce week-end",
-    "Jeu de rôle : commande au restaurant",
-    "Jeu de rôle : achète un vêtement",
-    "Pose 8 questions à Claude sur sa « vie »",
-    "Raconte ton dernier week-end",
+    "Nomme à voix haute tout ce que tu vois : un…, une…, des…",
+    "Décris ta ville : le musée, la gare, au marché, à la boulangerie",
+    "Parle de ta famille : mon père, ma mère, j'ai un frère…",
+    "Jeu de rôle : chez le médecin, dis où tu as mal",
+    "Réponds à 10 questions : tu as une voiture ? Non, je n'ai pas de voiture",
+    "Où habites-tu ? Quels pays connais-tu ? À Paris, en France, au Japon…",
+    "Montre 8 objets : qu'est-ce que c'est ? C'est un…, ce n'est pas un…",
+    "Décris 4 personnes ou lieux : c'est…, il est…",
+    "Dis à voix haute : ta date de naissance, ton téléphone, 6 prix, l'heure de 8 choses de ta journée",
+    "Jeu de rôle : commande au restaurant, puis parle du temps",
+    "Jeu de rôle : au marché (un kilo de, beaucoup de, pas de)",
+    "Raconte un matin normal : je pars, je sors, je finis, je dors",
+    "Parle de ce que tu sais faire et de qui tu connais",
+    "Parle de tes loisirs et de ce que tu veux faire ce mois-ci",
+    "Qu'est-ce que tu vas faire ce week-end ? Qu'est-ce que tu as fait hier ?",
     "Raconte ton arrivée en France",
-    "Jeu de rôle : demande ton chemin dans la rue",
-    "Parle de ton travail",
-    "Compare deux villes",
-    "Raconte ta matinée d'hier",
-    "Parle de tes projets pour l'année prochaine",
-    "Jeu de rôle : achète un billet de train",
-    "Jeu de rôle : prends rendez-vous chez le médecin",
-    "Parle de ton enfance",
-    "La météo et ce que tu fais selon le temps",
-    "Jeu de rôle : au marché",
-    "Jeu de rôle : appelle pour visiter un appartement",
+    "Parle de ton enfance et de ta vie dans 10 ans",
+    "Raconte ta vie : j'habite, j'ai habité, je vais habiter",
+    "Jeu de rôle : demande ton chemin, puis pose 8 questions à Claude",
+    "Raconte une journée où rien ne marche : je n'ai pas…, je n'ai rien…",
+    "Jeu de rôle : au marché avec en et le, la, les : j'en prends deux, je le prends",
     "BILAN : présente-toi 3 min sans notes, enregistre-toi, compare avec le jour 1",
 ]
 W2_T1 = [
@@ -363,10 +364,114 @@ def study_days(a, b):
     return out
 
 
+# ---------- Débutant, from the book's contents pages ----------
+# One study day per entry (first chapter, last chapter). Follows the pages and topics: each -er, avoir, numbers
+# and passé composé group stays together, and no day runs past 8 pages.
+DEB_DAYS = [(1, 2), (3, 4), (5, 6), (7, 9), (10, 11), (12, 13), (14, 16), (17, 18), (19, 20), (21, 23), (24, 25),
+            (26, 27), (28, 29), (30, 31), (32, 34), (35, 36), (37, 39), (40, 42), (43, 44), (45, 46), (47, 48),
+            (49, 50), (51, 52), (53, 54), (55, 57), (58, 60)]
+# First page of chapters 1 to 60.
+DEB_START = [8, 10, 14, 16, 18, 20, 22, 24, 26, 30, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 56, 58, 60, 62, 64, 66, 68,
+             72, 76, 78, 80, 82, 84, 86, 90, 92, 94, 96, 98, 100, 102, 104, 108, 110, 112, 114, 118, 120, 122, 126,
+             128, 130, 132, 134, 138, 140, 142, 144, 146, 148]
+# (bilan number, last chapter it covers, first page). Recap exercises and the test take 2 pages.
+DEB_BILANS = [(1, 9, 28), (2, 20, 54), (3, 27, 70), (4, 34, 88), (5, 42, 106), (6, 49, 124), (7, 54, 136), (8, 60, 150)]
+# Short topic per chapter, in our own words. Index 0 is chapter 1.
+DEB_TOPICS = [
+    "introducing yourself: nationality, job",
+    "describing: masculine and feminine adjectives",
+    "describing: plural adjectives",
+    "être; tu or vous; nous or on",
+    "yes/no questions; ne… pas",
+    "-er verbs; aimer",
+    "-er verbs: the full present",
+    "-er verbs: spelling changes",
+    "reflexive -er verbs",
+    "nouns: gender and articles",
+    "nouns: plural",
+    "un, une, des; le, la, les",
+    "au, à la, aux; du, de la, des",
+    "mon, ton, son",
+    "ce, cette, ces",
+    "avoir + noun; where adjectives go",
+    "looks and age",
+    "aches, hunger, cold",
+    "avoir: the full present",
+    "pas le, pas la; pas de",
+    "place: à, de, chez, près de, loin de",
+    "cities and countries: à, au, en",
+    "dans, sur, sous, devant, derrière",
+    "il y a; il n'y a pas de",
+    "qui est-ce, qu'est-ce que c'est; ce n'est pas",
+    "c'est or il est",
+    "c'est + adjective: general comments",
+    "numbers, dates, days",
+    "telling the time",
+    "weather, months, seasons",
+    "du, de la, des: some",
+    "amounts: un kilo de, beaucoup de, pas de",
+    "comparing: plus, moins, aussi",
+    "comparing amounts; superlatives",
+    "-ir verbs like finir",
+    "-ir verbs like partir",
+    "-re verbs like écrire",
+    "savoir, connaître, croire, voir",
+    "three-form verbs like boire",
+    "vouloir, pouvoir, devoir + infinitive",
+    "faire and dire",
+    "aller",
+    "near future: je vais + verb",
+    "passé composé with avoir: -er verbs",
+    "passé composé with avoir: other verbs",
+    "passé composé with être",
+    "imparfait",
+    "simple future",
+    "present, past, future: overview",
+    "il y a, pendant, depuis, dans",
+    "questions: où, quand, comment, combien, pourquoi",
+    "questions: qui, que, quel",
+    "ne… rien, jamais, plus, personne",
+    "negatives and questions in the passé composé",
+    "the pronoun en",
+    "the pronoun y",
+    "le, la, les: direct object pronouns",
+    "lui, leur: indirect object pronouns",
+    "moi, toi, lui: stressed pronouns",
+    "qui and que: relative pronouns",
+]
+assert sum(hi - lo + 1 for lo, hi in DEB_DAYS) == len(DEB_START) == len(DEB_TOPICS) == 60
+
+
+def deb_pages(lo, hi):
+    """Pages of chapters lo..hi, e.g. 'p. 14–17', or 'p. 122–123, 126–127' when a bilan falls between them."""
+    runs = []
+    for ch in range(lo, hi + 1):
+        first = DEB_START[ch - 1]
+        bilan = next((p for _n, last, p in DEB_BILANS if last == ch), None)
+        end = bilan - 1 if bilan else DEB_START[ch] - 1
+        if runs and runs[-1][1] + 1 == first:
+            runs[-1][1] = end
+        else:
+            runs.append([first, end])
+    return "p. " + ", ".join(f"{a}–{b}" for a, b in runs)
+
+
+def deb_topics_text(t):
+    """'Déb. 1–2: topic; topic' for a chapter tuple from Débutant, otherwise None."""
+    if not t or t[0] != "Déb.":
+        return None
+    return f"{ch_label(t)}: " + "; ".join(DEB_TOPICS[ch - 1] for ch in range(t[1], t[2] + 1))
+
+
 # chapter assignment: day -> (code, first, last)
 chapters = {}
 for code, _name, n, a, b in BOOKS:
     days = study_days(a, b)
+    if code == "Déb.":
+        assert len(days) == len(DEB_DAYS)
+        for d, (lo, hi) in zip(days, DEB_DAYS):
+            chapters[d] = (code, lo, hi)
+        continue
     k = len(days)
     for i, d in enumerate(days):
         lo = (i * n) // k + 1
@@ -438,75 +543,150 @@ def anki_new(d):
     return 15
 
 
-# Vincent, "Learn French in 5 Days - The Legacy Version" (playlist PLdR5FaFp7N5M): video id, length (s),
-# and lesson start times (s) read from each video's transcript ("Hi everyone and welcome to Learn French
-# with Vincent" opens every lesson). 1 hour a day across the Débutant phase, cut on lesson boundaries.
+YOUTUBE_MINUTES = 60  # the phase 1 YouTube slot in site/logic.js
+
+# Vincent, "Learn French in 5 Days - The Legacy Version" (playlist PLdR5FaFp7N5M): video id, length (s), lessons.
+# Each lesson: start (s, from the transcript), topic, and the Débutant chapter whose day it is watched on.
+# None = not in November: beyond this volume (conditional, subjunctive, passive…), a repeat, or a list we could
+# not label. Those wait for the Intermédiaire contents.
+_MATCH = "Words that match English"
+_PC = "Passé composé, verb by verb"
 VINCENT = [
-    ("keBSvVsEibI", 15015, [0, 202, 470, 742, 969, 1530, 1841, 2205, 2639, 2809, 3072, 3351, 3669, 4288, 4653,
-                            4980, 5154, 5380, 5908, 6367, 6733, 6910, 7183, 7417, 7758, 8032, 8220, 8582, 8887,
-                            9206, 9469, 9746, 10386, 10679, 10926, 11371, 11852, 12160, 12526, 12713, 13042,
-                            13250, 13602, 13924, 14197, 14398, 14602]),
-    ("QzY_nYZ0RSQ", 16978, [0, 439, 775, 1119, 1304, 1575, 1859, 2081, 2275, 2422, 2596, 3226, 3807, 3935, 4076,
-                            4378, 5658, 6345, 6815, 7004, 7997, 8601, 8758, 8888, 9082, 9182, 9315, 9427, 9614,
-                            9948, 10247, 10507, 11089, 11327, 11665, 12202, 12594, 12741, 12984, 13372, 13933,
-                            14056, 14230, 14344, 14462, 14564, 14708, 14829, 15426, 16384]),
-    ("12YUmS3rNr8", 28105, [0, 574, 1146, 1600, 1883, 2399, 3424, 3636, 3780, 3955, 4119, 4558, 5274, 5551, 5728,
-                            6982, 7402, 7795, 8112, 8317, 8471, 8637, 8733, 9567, 10419, 10961, 11466, 11801,
-                            12009, 12126, 13042, 14648, 15131, 15586, 15976, 16316, 16621, 17753, 18359, 19348,
-                            20336, 21656, 22342, 23387, 24529, 25230, 26438, 26991, 27733]),
-    ("ppYImLa36ug", 17995, [0, 1389, 2500, 2762, 3016, 3301, 3585, 3822, 4349, 4775, 5308, 5449, 5935, 6430, 6643,
-                            7312, 8238, 8592, 8905, 9191, 9489, 9766, 9977, 10234, 10417, 10681, 10897, 11053,
-                            11286, 11534, 11707, 11977, 12206, 12406, 12600, 12819, 13005, 13189, 13411, 13590,
-                            13769, 14004, 14399, 14678, 14982, 15296, 15389, 15478, 15541, 15662, 15749, 15850,
-                            16052, 16219, 16352, 16493, 16696, 16943, 17205, 17485, 17640, 17791]),
-    ("b1sXCZDuxSY", 14074, [0, 255, 538, 747, 1080, 1269, 1546, 1760, 2070, 2356, 2513, 2686, 2943, 3236, 3391,
-                            3571, 3765, 3987, 4149, 4459, 4733, 5017, 5260, 5838, 5959, 6265, 6414, 6851, 7125,
-                            7732, 8293, 8926, 9341, 9653, 9968, 10191, 10481, 10864, 11145, 11462, 11742, 12000,
-                            12173, 12326, 12718, 13666]),
+    ("keBSvVsEibI", 15015, [
+        (0, "Vowels", 1), (202, "Consonants", 1), (470, "Accents", 1), (742, "Special characters", 1), (969, "être", 4),
+        (1530, "avoir", 16), (1841, "aller", 42), (2205, "s'appeler", 1), (2639, "Introducing yourself", 1),
+        (2809, "le, la, les", 12), (3072, "un, une, des", 12), (3351, "quel, quelle", 52),
+        (3669, "Days and months", 28), (4288, "Jobs: masculine and feminine", 1), (4653, "Vowel combinations", 3),
+        (4980, "Nasal sounds", 3), (5154, "Numbers 10–20", 28), (5380, "mon, ma, mes", 14), (5908, "moi, toi, lui", 59),
+        (6367, "quand, où, comment", 51), (6733, "faire", 41), (6910, "ne… pas", 5), (7183, "ce, cette, ces", 15),
+        (7417, "Regular -er verbs", 6), (7758, "Numbers 20–50", 28), (8032, "venir", 36), (8220, "Family words", 14),
+        (8582, "qui, que, quoi", 52), (8887, "Asking someone's name", 1), (9206, "Marital status", 14),
+        (9469, "Regular -ir verbs", 35), (9746, "Plurals", 11), (10386, "pouvoir", 40), (10679, "devoir", 40),
+        (10926, "Countries: Europe", 22), (11371, "Nationalities", 1), (11852, "More countries", 22),
+        (12160, "attendre", 37), (12526, "répondre", 37), (12713, "tu or vous", 4),
+        (13042, "Yesterday, today, tomorrow", 43), (13250, "Numbers 50–75", 28), (13602, "Numbers 75–100", 28),
+        (13924, "parce que", 51), (14197, "Countries: Middle East", 22), (14398, "Countries: Far East", 22),
+        (14602, "Reflexive verbs", 9),
+    ]),
+    ("QzY_nYZ0RSQ", 16978, [
+        (0, "Near future", 43), (439, "Noun gender", 10), (775, "du, de la, des", 31), (1119, "pourquoi", 51),
+        (1304, "Where is it? sur, sous, dans", 23), (1575, "Here, there, over there", 23), (1859, "il faut", 40),
+        (2081, "First, second, third", 28), (2275, "partir", 36), (2422, "venir, second take", None),
+        (2596, "Direct objects", 57), (3226, "Indirect objects", 58), (3807, "vouloir", 40), (3935, "savoir", 38),
+        (4076, "il y a", 24), (4378, "Passé composé", 44), (5658, "Past participles", 45),
+        (6345, "Telling the time", 29), (6815, "Home words", 24), (7004, "Adjectives: where they go", 16),
+        (7997, "Three ways to ask a question", 5), (8601, "Passé composé with avoir", 44), (8758, _PC, 45),
+        (8888, _PC, 45), (9082, _PC, 45), (9182, _PC, 45), (9315, "Metres, litres, kilos", 32),
+        (9427, "False friends", 53), (9614, "The body", 18), (9948, "The face", 17), (10247, "Time words", 50),
+        (10507, "plusieurs and other amounts", 32), (11089, "Colours", 2), (11327, "Impersonal il", 30),
+        (11665, "Demonstratives", 15), (12202, "c'est for describing", 26), (12594, "Home words", 24),
+        (12741, "The kitchen", 24), (12984, "Fruit and vegetables", 31), (13372, "Comparatives", 33), (13933, _PC, 45),
+        (14056, _PC, 45), (14230, _PC, 45), (14344, _PC, 45), (14462, _PC, 45), (14564, _PC, 45), (14708, _PC, 45),
+        (14829, "Simple future", 48), (15426, "The pronoun en", 55), (16384, "The pronoun y", 56),
+    ]),
+    ("12YUmS3rNr8", 28105, [
+        (0, "Where adverbs go", None), (574, "Adverbs in -ment", None), (1146, "In town", 21),
+        (1600, "In the house", 24), (1883, "savoir or connaître", 38), (2399, "Conditional", None),
+        (3424, "chaque, chacun", None), (3636, "Conditional: être", None), (3780, "Conditional: avoir", None),
+        (3955, "Conditional: aller", None), (4119, "lequel", None), (4558, "Jobs", 1), (5274, "Cooking words", 31),
+        (5551, "Cooking verbs", 31), (5728, "Past conditional", None), (6982, "Clothes", 16),
+        (7402, "Useful verbs (1)", 7), (7795, "Useful verbs (2)", 7), (8112, "At the café", 31),
+        (8317, "At the restaurant", 31), (8471, "Word list", None), (8637, "Word list", None), (8733, "Imparfait", 47),
+        (9567, "Imparfait or passé composé", 49), (10419, "Passive", None), (10961, "Passive: examples", None),
+        (11466, "Geography words", 22), (11801, "Word list", None), (12009, "Climate", 30),
+        (12126, "Plus-que-parfait", None), (13042, "Relative pronouns", 60), (14648, "Two pronouns (1)", None),
+        (15131, "Two pronouns (2)", None), (15586, "être en train de", None), (15976, "venir de", None),
+        (16316, "Near future, review", 43), (16621, "Future perfect", None), (17753, "Articles after a negative", 20),
+        (18359, "Adjectives (1)", 26), (19348, "Adjectives (2)", 33), (20336, "Adjectives (3)", 35),
+        (21656, "à and de with articles", 13), (22342, "Uses of à", 21), (23387, "Uses of de", 24),
+        (24529, "être or avoir in the past", 46), (25230, "Imperative", None), (26438, "Liaison: required", 5),
+        (26991, "Liaison: optional", 10), (27733, "Liaison: forbidden", 11),
+    ]),
+    ("ppYImLa36ug", 17995, [
+        (0, "Subjunctive", None), (1389, "Past subjunctive", None), (2500, "Subjunctive: uses", None),
+        (2762, "Subjunctive: uses", None), (3016, "Subjunctive: uses", None), (3301, "Subjunctive: uses", None),
+        (3585, "Subjunctive: uses", None), (3822, "Present participle", None), (4349, "Gerund", None),
+        (4775, "Superlative", 34), (5308, "Superlative with nouns", 34), (5449, "si clauses", None),
+        (5935, "Reported speech", None), (6430, "Reported speech", None), (6643, "Reported speech", None),
+        (7312, "Reported speech", None), (8238, "Reflexive verbs: special cases", None),
+        (8592, "être or avoir: special cases", None), (8905, "Homographs", None), (9191, "Homophones", None),
+        (9489, "Homophones", None), (9766, "Homophones", None), (9977, "Homophones", None), (10234, "Prefixes", None),
+        (10417, "Prefixes", None), (10681, "Prefixes", None), (10897, "Prefixes", None), (11053, "Suffixes", None),
+        (11286, "Suffixes", None), (11534, "Suffixes", None), (11707, _MATCH, 12), (11977, _MATCH, 12),
+        (12206, _MATCH, 12), (12406, _MATCH, 12), (12600, _MATCH, 17), (12819, _MATCH, 17), (13005, _MATCH, 17),
+        (13189, _MATCH, 17), (13411, _MATCH, 17), (13590, _MATCH, 17), (13769, _MATCH, 17), (14004, "The mouth", 18),
+        (14399, "Homonyms", None), (14678, "Verbs with prefixes", None), (14982, "Verbs with prefixes", None),
+        (15296, "Verbs with prefixes", None), (15389, "Verbs with prefixes", None), (15478, "Verbs with prefixes", None),
+        (15541, "Verbs with prefixes", None), (15662, "Verbs with prefixes", None), (15749, "Verbs with prefixes", None),
+        (15850, "Verbs with prefixes", None), (16052, "Verbs with prefixes", None), (16219, "Verbs with prefixes", None),
+        (16352, "Verbs with prefixes", None), (16493, "Verbs with prefixes", None), (16696, _MATCH, 19),
+        (16943, _MATCH, 19), (17205, _MATCH, 19), (17485, _MATCH, 19), (17640, _MATCH, 19), (17791, _MATCH, 19),
+    ]),
+    ("b1sXCZDuxSY", 14074, [
+        (0, _MATCH, 53), (255, _MATCH, 53), (538, "Adverbs in compound tenses", None), (747, "Adverb phrases", None),
+        (1080, "Adverb phrases", None), (1269, "Opposites", None), (1546, "Opposites", None), (1760, "Uses of faire", 41),
+        (2070, "Adverb phrases", None), (2356, "Adverb phrases", None), (2513, "Adverb phrases", None),
+        (2686, "Food words", 31), (2943, "Food words", 31), (3236, "Food words", 31), (3391, "Food words", 31),
+        (3571, "Food words", 31), (3765, "Food words", 31), (3987, "Food words", 31),
+        (4149, "Plurals of compound nouns", None), (4459, "Plurals of compound nouns", None),
+        (4733, "Plurals of compound nouns", None), (5017, "Plurals of compound nouns", None), (5260, "Silent e", 3),
+        (5838, "Medical words", None), (5959, "Medical words", None), (6265, "Medical words", None),
+        (6414, "Verbs and prepositions", None), (6851, "Participle agreement", None),
+        (7125, "Verbs and prepositions", None), (7732, "Verbs and prepositions", None),
+        (8293, "Verbs and prepositions", None), (8926, "Participles: more", None),
+        (9341, "-er verbs: spelling changes", 8), (9653, "-er verbs: spelling changes", 8),
+        (9968, "-er verbs: spelling changes", 8), (10191, "-er verbs: spelling changes", 8),
+        (10481, "-er verbs: spelling changes", 8), (10864, "-er verbs: spelling changes", 8),
+        (11145, "-er verbs: spelling changes", 8), (11462, "-er verbs: spelling changes", 8),
+        (11742, "Exclamations", None), (12000, "Exclamations", None), (12173, "Interjections", None),
+        (12326, "Verbs and prepositions", None), (12718, "Verbs and prepositions", None),
+        (13666, "Verbs and prepositions", None),
+    ]),
 ]
+assert [len(v[2]) for v in VINCENT] == [47, 50, 49, 62, 46]
 
 
 def hms(sec):
     return f"{sec // 3600}:{sec % 3600 // 60:02d}:{sec % 60:02d}"
 
 
-def vincent_slots(days):
-    """Split the whole course over `days` (study days), cutting only at lesson starts."""
-    offsets, o = [], 0
-    for _vid, length, _st in VINCENT:
-        offsets.append(o)
-        o += length
-    total = o
-    lesson_starts = [offsets[v] + st for v, (_i, _l, sts) in enumerate(VINCENT) for st in sts]
-    cuts = sorted(set(lesson_starts[1:] + offsets[1:]))  # every lesson start is a legal cut
-    ends, prev = [], 0
-    for i in range(len(days) - 1):
-        target = (i + 1) * total / len(days)
-        cand = [c for c in cuts if c > prev]
-        best = min(cand, key=lambda c: abs(c - target))
-        ends.append(best)
-        prev = best
-    ends.append(total)
-    slots, start = {}, 0
-    for d, end in zip(days, ends):
-        segs = []
-        for v, (vid, length, _st) in enumerate(VINCENT):
-            a, b = max(start, offsets[v]), min(end, offsets[v] + length)
-            if b > a:
-                segs.append({"video": v + 1, "id": vid, "from": a - offsets[v], "to": b - offsets[v],
-                             "length": length})
-        first = next(i for i, ls in enumerate(lesson_starts) if ls >= start) + 1
-        last = sum(1 for ls in lesson_starts if ls < end)
-        parts = [f"Day {g['video']} video {hms(g['from'])} → {'end' if g['to'] == g['length'] else hms(g['to'])}"
-                 for g in segs]
-        slots[d] = {
-            "text": f"Vincent · Learn French in 5 Days (Legacy) · {', then '.join(parts)} · "
-                    f"lessons {first}–{last} of {len(lesson_starts)}",
-            "links": [{k: g[k] for k in ("video", "id", "from", "to")} for g in segs],
-            "minutes": round((end - start) / 60),
+def vincent_days(days):
+    """Each study day's lessons: those matched to its chapters, joined where they run on in the same video."""
+    by_chapter = {}
+    parked = 0
+    for v, (vid, length, lessons) in enumerate(VINCENT):
+        starts = [st for st, _t, _h in lessons]
+        assert starts == sorted(starts) and starts[0] == 0
+        for j, (st, topic, home) in enumerate(lessons):
+            end = starts[j + 1] if j + 1 < len(starts) else length
+            if home is None:
+                parked += end - st
+            else:
+                by_chapter.setdefault(home, []).append(
+                    {"video": v + 1, "id": vid, "from": st, "to": end, "topics": [topic]})
+    out = {}
+    for d in days:
+        _code, lo, hi = chapters[d]
+        links = []
+        for ch in range(lo, hi + 1):
+            for seg in by_chapter.get(ch, []):
+                prev = links[-1] if links else None
+                if prev and prev["id"] == seg["id"] and prev["to"] == seg["from"]:
+                    prev["to"] = seg["to"]
+                    prev["topics"] += [t for t in seg["topics"] if t not in prev["topics"]]
+                else:
+                    links.append({**seg, "topics": list(seg["topics"])})
+        minutes = round(sum(g["to"] - g["from"] for g in links) / 60)
+        rest = max(0, YOUTUBE_MINUTES - minutes)
+        rest = rest if rest >= 5 else 0  # not worth opening another video
+        then = f", then Super Easy French ({rest} min)" if rest else ""
+        out[d] = {
+            "text": f"Vincent ({minutes} min){then}",
+            "links": [{"video": g["video"], "id": g["id"], "from": g["from"], "to": g["to"],
+                       "topic": ", ".join(g["topics"])} for g in links],
+            "rest": rest,
         }
-        start = end
-    return slots
+    return out, parked
 
 
 def tv5(d):
@@ -523,7 +703,7 @@ def tv5(d):
 
 def youtube(d):
     if d <= BOOKS[0][4]:
-        return "Vincent · Learn French in 5 Days (Legacy) · 1 hour, the exact part for each day is listed"
+        return "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together"
     if d < date(2027, 2, 1):
         return "Easy French · 'Super Easy French' playlist, next video"
     if d < EXAM_MODE_START:
@@ -541,7 +721,7 @@ def take(pool, key):
     return item
 
 
-vincent = vincent_slots(study_days(BOOKS[0][3], BOOKS[0][4]))
+vincent, vincent_parked = vincent_days(study_days(BOOKS[0][3], BOOKS[0][4]))
 rows = []
 study_n = 0
 for d in all_days():
@@ -557,6 +737,7 @@ for d in all_days():
         "yt": vincent[d]["text"] if d in vincent else youtube(d),
         "yt_kind": youtube(d),
         "yt_links": vincent[d]["links"] if d in vincent else None,
+        "yt_rest": vincent[d]["rest"] if d in vincent else None,
         "vocab": vocab_label(vocab[d]) if d in vocab else None,
     }
     if is_sunday(d):
@@ -568,6 +749,10 @@ for d in all_days():
     # book
     if ph < 4:
         row["book"] = ch_label(chapters[d])
+        code, lo, hi = chapters[d]
+        if code == "Déb.":
+            row["book_pages"] = deb_pages(lo, hi)
+            row["book_topics"] = [{"ch": c, "topic": DEB_TOPICS[c - 1]} for c in range(lo, hi + 1)]
     else:
         row["book"] = "Error-log chapters: redo the 2 weakest (any volume)"
     # writing + speaking
@@ -606,13 +791,18 @@ for d in all_days():
     # evening re-test
     if ph < 4:
         parts = []
+        notes = []
         y = prev_study_day(d)
         if y in chapters and y >= START:
             parts.append(f"yesterday: {ch_label(chapters[y])}")
+            notes.append(deb_topics_text(chapters[y]))
         w = d - timedelta(days=7)
         if w in chapters:
             parts.append(f"day −7: {ch_label(chapters[w])}")
+            notes.append(deb_topics_text(chapters[w]))
         row["retest"] = " · ".join(parts) if parts else "nothing yet (first day)"
+        if any(notes):
+            row["retest_note"] = ". ".join(n for n in notes if n)
     else:
         row["retest"] = "1 exercise from each error-log chapter done this week"
     rows.append(row)
@@ -657,7 +847,13 @@ for row in rows:
     vtxt = ""
     if vch:
         vtxt = f" and Vocab. ch. {vch[0]}" + (f"–{vch[-1]}" if vch[-1] != vch[0] else "")
-    if labs:
+    bilans = [b for b in DEB_BILANS if any(c == "Déb." and lo <= b[1] <= hi for c, lo, hi in labs)]
+    if bilans:
+        names = " + ".join(f"Bilan {n} (p. {p}–{p + 1})" for n, _last, p in bilans)
+        final = ", then the final test on p. 173" if bilans[-1][0] == 8 else ""
+        items.append(f"Week re-test (60 min): {names}: recap exercises and test, no notes, then check the Corrigés"
+                     f"{final}. With time left, 1 exercise from each of {span(labs)}{vtxt}")
+    elif labs:
         items.append(f"Week re-test (60 min): 1 exercise from each of {span(labs)}{vtxt}, covered, from memory")
     elif d >= EXAM_MODE_START:
         items.append("Re-test (60 min): every error-log chapter you redid this week")
@@ -771,18 +967,19 @@ for wi, wk in enumerate(weeks, 1):
             words += f" + {r['sent']} sentences"
         if r["say"]:
             words += f" + {r['say']} to say"
-        L.append(f"| {r['day']} | {r['book']} | {r['write']} | {r['speak']} | {words} | {r['retest']} |")
+        book = f"{r['book']}, {r['book_pages']}" if r.get("book_pages") else r["book"]
+        L.append(f"| {r['day']} | {book} | {r['write']} | {r['speak']} | {words} | {r['retest']} |")
     L.append("")
     vrows = [r for r in wk if r.get("yt_links")]
     if vrows:
-        L.append("**Vincent this week (afternoon, 1 h):**")
+        L.append("**Vincent this week (afternoon, matched to the day's chapters):**")
         for r in vrows:
             parts = []
             for l in r["yt_links"]:
                 url = f"https://www.youtube.com/watch?v={l['id']}&t={l['from']}s"
-                parts.append(f"[Day {l['video']} video from {hms(l['from'])}]({url}) → stop at {hms(l['to'])}")
-            lessons = r["yt"].rsplit(" · ", 1)[1]
-            L.append(f"- {r['day']}: {', then '.join(parts)} ({lessons})")
+                parts.append(f"[{l['topic']}]({url}) → stop at {hms(l['to'])}")
+            rest = f"; then Super Easy French, {r['yt_rest']} min" if r["yt_rest"] else ""
+            L.append(f"- {r['day']}: {', '.join(parts)}{rest}")
         L.append("")
     for s in sundays:
         L.append(f"**{s['day']}: review day, no new chapters (4 h)**")
@@ -812,8 +1009,9 @@ with open(OUT_CSV, "w", newline="", encoding="utf-8") as f:
             w.writerow([r["date"], r["day"], r["phase"], "REVIEW DAY", "", "", "", r["anki"], r["sent"], "", "", "",
                         " | ".join(r["sunday_items"]), ""])
         else:
+            topics = ": " + ", ".join(l["topic"] for l in r["yt_links"]) if r.get("yt_links") else ""
             w.writerow([r["date"], r["day"], r["phase"], r["book"], r["write"], r["speak"], r["retest"],
-                        r["anki"], r["sent"], r["vocab"] or "", r["tv5"], r["yt"], "", ""])
+                        r["anki"], r["sent"], r["vocab"] or "", r["tv5"], r["yt"] + topics, "", ""])
 
 if len(sys.argv) > 3:
     import json
@@ -832,3 +1030,6 @@ for code, name, n, a, b in BOOKS:
     ds = study_days(a, b)
     print(f"{name}: {n} ch over {len(ds)} study days ({a}..{b}) = {n/len(ds):.2f}/day")
 print("pool use:", idx)
+watched = sum(l["to"] - l["from"] for slot in vincent.values() for l in slot["links"])
+print(f"Vincent: {watched / 3600:.1f} h matched to Débutant, {vincent_parked / 3600:.1f} h waiting for later volumes")
+print("Vincent minutes per day:", [round(sum(l["to"] - l["from"] for l in s["links"]) / 60) for s in vincent.values()])

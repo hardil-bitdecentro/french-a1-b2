@@ -9,7 +9,7 @@ export const PHASE_NAMES = {
 
 // Minutes per block for each phase. Every phase adds up to 240 (4 hours).
 export const MINUTES = {
-  // Phase 1: Vincent's English-explained A1 course gets 1 hour (finishes with the Débutant volume).
+  // Phase 1: 1 hour of Vincent's lessons on the day's chapters, topped up with Super Easy French.
   1: {
     ankiReview: 15,
     book: 50,
@@ -90,20 +90,23 @@ const VOLUMES = {
 };
 
 /**
- * Prompt asking Claude to explain the day's book chapter(s) in English. The chapter titles are not
- * in the data, so the prompt names the volume and chapter numbers and asks for a photo of the rule page.
+ * Prompt asking Claude to explain the day's book chapter(s) in English. It names the volume, the chapter
+ * numbers and, where the plan has them (Débutant), the topics; otherwise it asks for the chapter title.
  */
-export const EXPLAIN_PROMPT = (book) => {
+export const EXPLAIN_PROMPT = (book, topics) => {
   const m = String(book).match(/^(Déb\.|Int\.|Av\.) (\d+)(?:–(\d+))?$/);
   const where = m
     ? `"Grammaire progressive du français", ${VOLUMES[m[1]].name}, ` +
       (m[3] ? `chapters ${m[2]} to ${m[3]}` : `chapter ${m[2]}`) +
       ` (my level: ${VOLUMES[m[1]].level})`
     : `"Grammaire progressive du français", [volume + chapter number]`;
+  const about = topics?.length
+    ? `These chapters cover: ${topics.map((t) => `${t.ch}) ${t.topic}`).join('; ')}.\n\n`
+    : `If there's no photo, the chapter title is: [type it here].\n\n`;
   return (
     `I'm a native English speaker learning French with ${where}. ` +
     `I'm attaching a photo of the rule page (the left page) for each chapter. ` +
-    `If there's no photo, the chapter title is: [type it here].\n\n` +
+    about +
     `For each chapter, explain in English:\n` +
     `1) the rule in plain words, and how it differs from English;\n` +
     `2) when to use it and when not to;\n` +
@@ -150,12 +153,11 @@ export function hms(sec) {
   return `${h}:${m}:${s}`;
 }
 
-/** Direct links that start each part of the day's Vincent slot at the right second. */
+/** Direct links to the day's Vincent lessons: each starts on the lesson and says where to stop. */
 export function vincentLinks(ytLinks) {
   return ytLinks.map((l) => ({
-    label: `Day ${l.video} video at ${hms(l.from)}`,
+    label: `${l.topic} · stop at ${hms(l.to)}`,
     url: `https://www.youtube.com/watch?v=${l.id}&t=${l.from}s`,
-    stop: hms(l.to),
   }));
 }
 
@@ -188,11 +190,13 @@ export function sessionsFor(day) {
     },
     {
       id: 'book',
-      title: exam ? day.book : `Book: ${day.book}`,
-      detail: 'Read the rule → close the book, say it aloud → exercises without looking → check the Corrigés',
+      title: exam ? day.book : `Book: ${day.book}${day.book_pages ? `, ${day.book_pages}` : ''}`,
+      detail:
+        (day.book_topics ? `${day.book_topics.map((t) => `Ch. ${t.ch}: ${t.topic}`).join(' · ')}. ` : '') +
+        'Read the rule → close the book, say it aloud → exercises without looking → check the Corrigés',
       minutes: m.book,
       kind: 'explain',
-      copy: EXPLAIN_PROMPT(day.book),
+      copy: EXPLAIN_PROMPT(day.book, day.book_topics),
     },
   ];
   if (m.cards)
@@ -213,10 +217,13 @@ export function sessionsFor(day) {
   const afternoon = [{ id: 'input', title: day.tv5, minutes: m.input, link: exam ? LINKS.tcf : LINKS.tv5 }];
   if (m.youtube && day.yt_links) {
     const links = vincentLinks(day.yt_links);
+    if (day.yt_rest) links.push({ label: `Super Easy French · ${day.yt_rest} min`, url: LINKS.superEasyFrench });
     afternoon.push({
       id: 'youtube',
       title: day.yt,
-      detail: `Repeat every word aloud with Vincent. Stop at ${links.map((l) => l.stop).join(' / ')}.`,
+      detail:
+        "Mostly this morning's topics, explained in English. Repeat every word aloud with Vincent." +
+        (day.yt_rest ? ' Then Super Easy French: subtitles on, then shadow 1 minute aloud.' : ''),
       minutes: m.youtube,
       links,
     });
@@ -262,7 +269,7 @@ export function sessionsFor(day) {
     {
       id: 'retest',
       title: `Re-test: ${day.retest}`,
-      detail: '1 exercise each, answers covered, from memory',
+      detail: `${day.retest_note ? `${day.retest_note}. ` : ''}1 exercise each, answers covered, from memory`,
       minutes: m.retest,
     },
     {
