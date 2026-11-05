@@ -66,6 +66,7 @@
    ],
    "yt_rest": 0,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 1–2",
@@ -128,6 +129,7 @@
    ],
    "yt_rest": 30,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 3–4",
@@ -162,6 +164,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -213,6 +216,7 @@
     ],
     "minutes": 5
    },
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 5–6",
@@ -275,6 +279,7 @@
     ],
     "minutes": 5
    },
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 7–9",
@@ -342,6 +347,7 @@
    ],
    "yt_rest": 25,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 10–11",
@@ -398,6 +404,7 @@
    ],
    "yt_rest": 25,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 12–13",
@@ -475,6 +482,7 @@
    ],
    "yt_rest": 15,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 14–16",
@@ -550,6 +558,7 @@
    ],
    "yt_rest": 12,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 17–18",
@@ -584,6 +593,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -632,6 +642,7 @@
     ],
     "minutes": 25
    },
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 19–20",
@@ -709,6 +720,7 @@
    ],
    "yt_rest": 0,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 21–23",
@@ -791,6 +803,7 @@
     ],
     "minutes": 15
    },
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 24–25",
@@ -846,6 +859,7 @@
     ],
     "minutes": 5
    },
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 26–27",
@@ -937,6 +951,7 @@
     ],
     "minutes": 10
    },
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 28–29",
@@ -1021,6 +1036,7 @@
    ],
    "yt_rest": 0,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 30–31",
@@ -1055,6 +1071,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -1122,6 +1139,7 @@
     ],
     "minutes": 15
    },
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 32–34",
@@ -1189,6 +1207,7 @@
     ],
     "minutes": 10
    },
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 35–36",
@@ -1266,6 +1285,7 @@
     ],
     "minutes": 10
    },
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 37–39",
@@ -1354,6 +1374,7 @@
     ],
     "minutes": 10
    },
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 40–42",
@@ -1438,6 +1459,7 @@
     ],
     "minutes": 20
    },
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 43–44",
@@ -1522,6 +1544,7 @@
     ],
     "minutes": 10
    },
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 45–46",
@@ -1556,6 +1579,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -1607,6 +1631,7 @@
     ],
     "minutes": 35
    },
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 47–48",
@@ -1670,6 +1695,7 @@
    ],
    "yt_rest": 14,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 49–50",
@@ -1754,6 +1780,7 @@
     ],
     "minutes": 5
    },
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 51–52",
@@ -1816,6 +1843,7 @@
     ],
     "minutes": 5
    },
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 53–54",
@@ -1866,6 +1894,7 @@
    ],
    "yt_rest": 24,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 55–57",
@@ -1932,6 +1961,7 @@
     ],
     "minutes": 5
    },
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Déb. 58–60",
@@ -1971,6 +2001,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": true,
    "sunday_links": {
@@ -2020,6 +2051,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 2,
+     "id": "QzY_nYZ0RSQ",
+     "from": 2422,
+     "to": 2596,
+     "topic": "venir, second take"
+    }
+   ],
    "vocab": "ch. 1, first half",
    "sunday": false,
    "book": "Int. 1",
@@ -2042,6 +2082,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 2",
@@ -2064,6 +2105,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 2399,
+     "to": 3424,
+     "topic": "Conditional"
+    }
+   ],
    "vocab": "ch. 1, second half",
    "sunday": false,
    "book": "Int. 3",
@@ -2086,6 +2136,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 4",
@@ -2108,6 +2159,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 3636,
+     "to": 3780,
+     "topic": "Conditional: être"
+    }
+   ],
    "vocab": "ch. 2, first half",
    "sunday": false,
    "book": "Int. 5",
@@ -2130,6 +2190,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 3780,
+     "to": 3955,
+     "topic": "Conditional: avoir"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Int. 6",
@@ -2152,6 +2221,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -2175,6 +2245,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 3955,
+     "to": 4119,
+     "topic": "Conditional: aller"
+    }
+   ],
    "vocab": "ch. 2, second half",
    "sunday": false,
    "book": "Int. 7",
@@ -2196,6 +2275,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 4119,
+     "to": 4558,
+     "topic": "lequel, laquelle"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Int. 8",
@@ -2217,6 +2305,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": "ch. 3, first half",
    "sunday": false,
    "book": "Int. 9",
@@ -2238,6 +2327,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 12126,
+     "to": 13042,
+     "topic": "Plus-que-parfait"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Int. 10",
@@ -2259,6 +2357,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": "ch. 3, second half",
    "sunday": false,
    "book": "Int. 11",
@@ -2280,6 +2379,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 12",
@@ -2301,6 +2401,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -2324,6 +2425,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": "ch. 4, first half",
    "sunday": false,
    "book": "Int. 13",
@@ -2345,6 +2447,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 13690,
+     "to": 14648,
+     "topic": "Relative pronouns: agreement, dont, où"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Int. 14",
@@ -2366,6 +2477,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": "ch. 4, second half",
    "sunday": false,
    "book": "Int. 15",
@@ -2387,6 +2499,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Int. 16",
@@ -2408,6 +2521,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 14648,
+     "to": 15131,
+     "topic": "Two pronouns: en"
+    }
+   ],
    "vocab": "ch. 5, first half",
    "sunday": false,
    "book": "Int. 17",
@@ -2429,6 +2551,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 15131,
+     "to": 15586,
+     "topic": "Two pronouns: le, la, les"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Int. 18",
@@ -2450,6 +2581,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -2474,6 +2606,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": "ch. 5, second half",
    "sunday": false,
    "book": "Int. 19",
@@ -2495,6 +2628,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 15586,
+     "to": 15976,
+     "topic": "Present continuous"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Int. 20",
@@ -2516,6 +2658,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": "ch. 6, first half",
    "sunday": false,
    "book": "Int. 21",
@@ -2537,6 +2680,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 5449,
+     "to": 5935,
+     "topic": "si clauses"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Int. 22",
@@ -2558,6 +2710,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 747,
+     "to": 1080,
+     "topic": "Adverb phrases"
+    }
+   ],
    "vocab": "ch. 6, second half",
    "sunday": false,
    "book": "Int. 23",
@@ -2579,6 +2740,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 1080,
+     "to": 1269,
+     "topic": "Adverb phrases"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Int. 24",
@@ -2600,6 +2770,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -2623,6 +2794,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 1269,
+     "to": 1546,
+     "topic": "Opposites"
+    }
+   ],
    "vocab": "ch. 7, first half",
    "sunday": false,
    "book": "Int. 25",
@@ -2644,6 +2824,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 1546,
+     "to": 1760,
+     "topic": "Opposites"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Int. 26",
@@ -2665,6 +2854,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 2070,
+     "to": 2356,
+     "topic": "Adverb phrases"
+    }
+   ],
    "vocab": "ch. 7, second half",
    "sunday": false,
    "book": "Int. 27",
@@ -2686,6 +2884,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 2356,
+     "to": 2686,
+     "topic": "Adverb phrases"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Int. 28",
@@ -2707,6 +2914,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 4149,
+     "to": 4459,
+     "topic": "Plurals of compound nouns"
+    }
+   ],
    "vocab": "ch. 8, first half",
    "sunday": false,
    "book": "Int. 29",
@@ -2728,6 +2944,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 4459,
+     "to": 4733,
+     "topic": "Plurals of compound nouns"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Int. 30",
@@ -2749,6 +2974,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -2772,6 +2998,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 4733,
+     "to": 5017,
+     "topic": "Plurals of compound nouns"
+    }
+   ],
    "vocab": "ch. 8, second half",
    "sunday": false,
    "book": "Int. 31",
@@ -2793,6 +3028,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 5017,
+     "to": 5260,
+     "topic": "Plurals of compound nouns"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Int. 32",
@@ -2814,6 +3058,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 5838,
+     "to": 5959,
+     "topic": "Medical words"
+    }
+   ],
    "vocab": "ch. 9, first half",
    "sunday": false,
    "book": "Int. 33",
@@ -2835,6 +3088,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 5959,
+     "to": 6265,
+     "topic": "Medical words"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Int. 34",
@@ -2856,6 +3118,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 6265,
+     "to": 6414,
+     "topic": "Medical words"
+    }
+   ],
    "vocab": "ch. 9, second half",
    "sunday": false,
    "book": "Int. 35",
@@ -2877,6 +3148,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 6414,
+     "to": 6851,
+     "topic": "Verbs and prepositions"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Int. 36",
@@ -2898,6 +3178,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -2921,6 +3202,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": "ch. 10, first half",
    "sunday": false,
    "book": "Int. 37",
@@ -2942,6 +3224,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 7125,
+     "to": 7732,
+     "topic": "Verbs and prepositions"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Int. 38",
@@ -2963,6 +3254,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": "ch. 10, second half",
    "sunday": false,
    "book": "Int. 39",
@@ -2984,6 +3276,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 7732,
+     "to": 8293,
+     "topic": "Verbs and prepositions"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Int. 40",
@@ -3005,6 +3306,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": "ch. 11, first half",
    "sunday": false,
    "book": "Int. 41",
@@ -3026,6 +3328,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 8293,
+     "to": 8926,
+     "topic": "Verbs and prepositions"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Int. 42",
@@ -3047,6 +3358,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -3070,6 +3382,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": "ch. 11, second half",
    "sunday": false,
    "book": "Int. 43",
@@ -3091,6 +3404,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 11742,
+     "to": 12000,
+     "topic": "Exclamations: adjectives"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Int. 44",
@@ -3112,6 +3434,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 12000,
+     "to": 12173,
+     "topic": "Exclamations: adverbs"
+    }
+   ],
    "vocab": "ch. 12, first half",
    "sunday": false,
    "book": "Int. 45",
@@ -3133,6 +3464,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 12173,
+     "to": 12326,
+     "topic": "Interjections"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Int. 46",
@@ -3154,6 +3494,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 12326,
+     "to": 12718,
+     "topic": "Verbs and prepositions"
+    }
+   ],
    "vocab": "ch. 12, second half",
    "sunday": false,
    "book": "Int. 47",
@@ -3175,6 +3524,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 12718,
+     "to": 13304,
+     "topic": "Verbs and prepositions"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Int. 48",
@@ -3196,6 +3554,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -3220,6 +3579,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": "ch. 13, first half",
    "sunday": false,
    "book": "Int. 49",
@@ -3241,6 +3601,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 13304,
+     "to": 13666,
+     "topic": "Verbs and prepositions"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Int. 50",
@@ -3262,6 +3631,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": "ch. 13, second half",
    "sunday": false,
    "book": "Int. 51",
@@ -3283,6 +3653,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 13666,
+     "to": 14074,
+     "topic": "Verbs and prepositions"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Int. 52",
@@ -3304,6 +3683,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": "ch. 14, first half",
    "sunday": false,
    "book": "Av. 1",
@@ -3325,6 +3705,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 5728,
+     "to": 6982,
+     "topic": "Past conditional"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Av. 2",
@@ -3346,6 +3735,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -3370,6 +3760,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": "ch. 14, second half",
    "sunday": false,
    "book": "Av. 3–4",
@@ -3391,6 +3782,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 5",
@@ -3412,6 +3804,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 10419,
+     "to": 10961,
+     "topic": "Passive"
+    }
+   ],
    "vocab": "ch. 15, first half",
    "sunday": false,
    "book": "Av. 6–7",
@@ -3433,6 +3834,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 8",
@@ -3454,6 +3856,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 10961,
+     "to": 11466,
+     "topic": "Passive: conjugation"
+    }
+   ],
    "vocab": "ch. 15, second half",
    "sunday": false,
    "book": "Av. 9–10",
@@ -3475,6 +3886,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 11",
@@ -3496,6 +3908,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -3520,6 +3933,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 16621,
+     "to": 17753,
+     "topic": "Future perfect"
+    }
+   ],
    "vocab": "ch. 16, first half",
    "sunday": false,
    "book": "Av. 12",
@@ -3541,6 +3963,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 13–14",
@@ -3562,6 +3985,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 24380,
+     "to": 24529,
+     "topic": "en + -ant"
+    }
+   ],
    "vocab": "ch. 16, second half",
    "sunday": false,
    "book": "Av. 15",
@@ -3583,6 +4015,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 24774,
+     "to": 25230,
+     "topic": "Other compound tenses"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Av. 16–17",
@@ -3604,6 +4045,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": "ch. 17, first half",
    "sunday": false,
    "book": "Av. 18",
@@ -3625,6 +4067,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 19–20",
@@ -3646,6 +4089,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -3670,6 +4114,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 0,
+     "to": 1389,
+     "topic": "Subjunctive"
+    }
+   ],
    "vocab": "ch. 17, second half",
    "sunday": false,
    "book": "Av. 21",
@@ -3691,6 +4144,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 22–23",
@@ -3712,6 +4166,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": "ch. 18, first half",
    "sunday": false,
    "book": "Av. 24",
@@ -3733,6 +4188,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 1389,
+     "to": 2500,
+     "topic": "Past subjunctive"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Av. 25",
@@ -3754,6 +4218,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": "ch. 18, second half",
    "sunday": false,
    "book": "Av. 26–27",
@@ -3775,6 +4240,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 2500,
+     "to": 2762,
+     "topic": "Subjunctive with conjunctions"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Av. 28",
@@ -3796,6 +4270,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -3821,6 +4296,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 2762,
+     "to": 3016,
+     "topic": "Subjunctive: opinion, doubt"
+    }
+   ],
    "vocab": "ch. 19, first half",
    "sunday": false,
    "book": "Av. 29–30",
@@ -3842,6 +4326,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 3016,
+     "to": 3301,
+     "topic": "Subjunctive: feelings"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Av. 31",
@@ -3863,6 +4356,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 3301,
+     "to": 3585,
+     "topic": "Subjunctive: advice, wishes, orders"
+    }
+   ],
    "vocab": "ch. 19, second half",
    "sunday": false,
    "book": "Av. 32–33",
@@ -3884,6 +4386,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 3585,
+     "to": 3822,
+     "topic": "Subjunctive: negative structures"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Av. 34",
@@ -3905,6 +4416,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 3822,
+     "to": 4349,
+     "topic": "Present participle"
+    }
+   ],
    "vocab": "ch. 20, first half",
    "sunday": false,
    "book": "Av. 35–36",
@@ -3926,6 +4446,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 4349,
+     "to": 4775,
+     "topic": "Gerund"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Av. 37",
@@ -3947,6 +4476,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -3971,6 +4501,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 6430,
+     "to": 6643,
+     "topic": "Indirect speech: time words"
+    }
+   ],
    "vocab": "ch. 20, second half",
    "sunday": false,
    "book": "Av. 38",
@@ -3992,6 +4531,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 6643,
+     "to": 7312,
+     "topic": "Indirect speech: sentence changes"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Av. 39–40",
@@ -4013,6 +4561,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": "ch. 21, first half",
    "sunday": false,
    "book": "Av. 41",
@@ -4034,6 +4583,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 42–43",
@@ -4055,6 +4605,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 7312,
+     "to": 8238,
+     "topic": "Indirect speech: tense changes"
+    }
+   ],
    "vocab": "ch. 21, second half",
    "sunday": false,
    "book": "Av. 44",
@@ -4076,6 +4635,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Av. 45–46",
@@ -4097,6 +4657,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -4121,6 +4682,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 8238,
+     "to": 8592,
+     "topic": "Verbs with que + indicative"
+    }
+   ],
    "vocab": "ch. 22, first half",
    "sunday": false,
    "book": "Av. 47",
@@ -4142,6 +4712,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 8905,
+     "to": 9191,
+     "topic": "Homographs"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Av. 48",
@@ -4163,6 +4742,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 9191,
+     "to": 9766,
+     "topic": "Homophones"
+    }
+   ],
    "vocab": "ch. 22, second half",
    "sunday": false,
    "book": "Av. 49–50",
@@ -4184,6 +4772,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 9766,
+     "to": 9977,
+     "topic": "Homophones"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Av. 51",
@@ -4205,6 +4802,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 9977,
+     "to": 10417,
+     "topic": "Homophones, Prefixes"
+    }
+   ],
    "vocab": "ch. 23, first half",
    "sunday": false,
    "book": "Av. 52–53",
@@ -4226,6 +4832,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 10417,
+     "to": 10681,
+     "topic": "Prefixes"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Av. 54",
@@ -4247,6 +4862,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -4271,6 +4887,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 10681,
+     "to": 11053,
+     "topic": "Prefixes"
+    }
+   ],
    "vocab": "ch. 23, second half",
    "sunday": false,
    "book": "Av. 55–56",
@@ -4292,6 +4917,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 11053,
+     "to": 11286,
+     "topic": "Suffixes"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Av. 57",
@@ -4313,6 +4947,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 11286,
+     "to": 11707,
+     "topic": "Suffixes"
+    }
+   ],
    "vocab": "ch. 24, first half",
    "sunday": false,
    "book": "Av. 58–59",
@@ -4334,6 +4977,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 14399,
+     "to": 14678,
+     "topic": "Shortened words"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Av. 60",
@@ -4355,6 +5007,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 14678,
+     "to": 14982,
+     "topic": "Verbs with prefixes"
+    }
+   ],
    "vocab": "ch. 24, second half",
    "sunday": false,
    "book": "Av. 61",
@@ -4376,6 +5037,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 14982,
+     "to": 15389,
+     "topic": "Verbs with prefixes"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Av. 62–63",
@@ -4397,6 +5067,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -4422,6 +5093,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 15389,
+     "to": 15749,
+     "topic": "Verbs with prefixes"
+    }
+   ],
    "vocab": "ch. 25, first half",
    "sunday": false,
    "book": "Av. 64",
@@ -4443,6 +5123,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 15749,
+     "to": 16052,
+     "topic": "Verbs with prefixes"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Av. 65–66",
@@ -4464,6 +5153,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 16052,
+     "to": 16352,
+     "topic": "Verbs with prefixes"
+    }
+   ],
    "vocab": "ch. 25, second half",
    "sunday": false,
    "book": "Av. 67",
@@ -4485,6 +5183,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 16352,
+     "to": 16696,
+     "topic": "Verbs with prefixes"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Av. 68–69",
@@ -4506,6 +5213,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 6851,
+     "to": 7125,
+     "topic": "Present participle or verbal adjective"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Av. 70",
@@ -4527,6 +5243,15 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 8926,
+     "to": 9341,
+     "topic": "Past participles that never change"
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "book": "Av. 71–72",
@@ -4548,6 +5273,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -4572,6 +5298,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4593,6 +5320,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4614,6 +5342,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4635,6 +5364,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4656,6 +5386,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4677,6 +5408,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4698,6 +5430,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -4722,6 +5455,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4743,6 +5477,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4764,6 +5499,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4785,6 +5521,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4806,6 +5543,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4827,6 +5565,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4848,6 +5587,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -4871,6 +5611,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4892,6 +5633,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4913,6 +5655,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4934,6 +5677,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4955,6 +5699,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4976,6 +5721,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -4997,6 +5743,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -5021,6 +5768,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -5042,6 +5790,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -5063,6 +5812,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -5084,6 +5834,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -5105,6 +5856,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -5126,6 +5878,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -5147,6 +5900,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": true,
    "sunday_items": [
@@ -5170,6 +5924,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -5191,6 +5946,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -5212,6 +5968,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
@@ -5233,6 +5990,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",

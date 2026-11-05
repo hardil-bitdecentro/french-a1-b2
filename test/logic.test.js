@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import {
   MINUTES,
   EXPLAIN_PROMPT,
+  CHECK_PROMPT,
   BOOK_AUDIO,
   WORD_SETS,
   hms,
@@ -25,6 +26,8 @@ import {
 
 const plan = JSON.parse(readFileSync(new URL('../site/data/schedule.json', import.meta.url), 'utf8'));
 const studyDays = plan.days.filter((d) => !d.sunday);
+/** The core 4 hours plus Vincent's later lessons, which run on top. */
+const coreAndVincent = (d) => 240 + Math.round((d.vincent_later || []).reduce((sum, l) => sum + l.to - l.from, 0) / 60);
 
 describe('dates', () => {
   it('localISO uses the local calendar day, not UTC', () => {
@@ -116,7 +119,8 @@ describe('daily checklist', () => {
 
   it('every study day is at least 4 hours: the core blocks plus any extras', () => {
     for (const d of studyDays) {
-      const extras = (d.read_task ? 10 : 0) + (d.word_set ? 10 : 0);
+      const later = (d.vincent_later || []).reduce((sum, l) => sum + l.to - l.from, 0);
+      const extras = (d.read_task ? 10 : 0) + (d.word_set ? 10 : 0) + Math.round(later / 60);
       expect(totalMinutes(d)).toBe(240 + extras);
     }
   });
@@ -325,6 +329,22 @@ describe('everyday French in the Débutant month', () => {
   });
 });
 
+describe('checking answers without the Corrigés', () => {
+  it('names the chapters and asks for right or wrong, the rule and the error log', () => {
+    const p = CHECK_PROMPT('Déb. 3–4', [{ ch: 3, topic: 'plural adjectives' }]);
+    expect(p).toContain('Déb. 3–4 (plural adjectives)');
+    expect(p).toContain('mark every answer right or wrong');
+    expect(p).toContain('ask me instead of guessing');
+    expect(p).toContain('what I wrote → correct version → rule');
+  });
+
+  it('is on the book task on study days with chapters, and not in exam mode', () => {
+    const book = (d) => sessionsFor(d)[0].tasks.find((t) => t.id === 'book');
+    for (const d of studyDays.filter((x) => x.phase < 4)) expect(book(d).check).toContain(d.book);
+    for (const d of studyDays.filter((x) => x.phase === 4)) expect(book(d).check).toBeUndefined();
+  });
+});
+
 describe('book audio in the plan', () => {
   const withAudio = plan.days.filter((d) => d.book_audio);
   const dayOf = (n) => withAudio.find((d) => d.book_audio.items.includes(n)).date;
@@ -423,7 +443,7 @@ describe('vocabulary book', () => {
     const title = (d) => sessionsFor(d)[2].tasks.find((t) => t.id === 'anki-new').title;
     expect(title(vday)).toBe('Vocabulary book: ch. 1, first half');
     expect(title(other)).toMatch(/^Flashcards: \d+ new words$/);
-    expect(totalMinutes(vday)).toBe(240);
+    expect(totalMinutes(vday)).toBe(coreAndVincent(vday));
   });
 
   it('adds the week’s vocab chapters to the Sunday re-test', () => {
@@ -543,6 +563,72 @@ describe('Vincent course (November)', () => {
   });
 });
 
+describe('the whole Vincent series', () => {
+  const lengths = { 1: 15015, 2: 16978, 3: 28105, 4: 17995, 5: 14074 };
+  const later = plan.days.filter((d) => d.vincent_later);
+  const sunday = plan.days.find((d) => d.date === '2026-12-06');
+  const all = [
+    ...plan.days.flatMap((d) => d.yt_links || []),
+    ...plan.days.flatMap((d) => d.vincent_later || []),
+    ...Object.values(sunday.sunday_links).flat(),
+  ];
+
+  it('covers all 5 videos end to end: nothing skipped, nothing twice', () => {
+    for (let v = 1; v <= 5; v++) {
+      const mine = all.filter((g) => g.video === v).sort((a, b) => a.from - b.from);
+      expect(mine[0].from).toBe(0);
+      for (let i = 1; i < mine.length; i++) expect(mine[i].from).toBe(mine[i - 1].to);
+      expect(mine.at(-1).to).toBe(lengths[v]);
+    }
+  });
+
+  it('runs the remaining lessons only on study days in the two later phases', () => {
+    for (const d of later) {
+      expect(d.sunday).toBe(false);
+      expect([2, 3]).toContain(d.phase);
+    }
+    expect(later.every((d) => d.date >= '2026-12-07' && d.date <= '2027-04-03')).toBe(true);
+  });
+
+  it('keeps each phase to its level', () => {
+    const topics = (ph) =>
+      later
+        .filter((d) => d.phase === ph)
+        .flatMap((d) => d.vincent_later.map((l) => l.topic))
+        .join(' | ');
+    expect(topics(2)).toContain('Conditional');
+    expect(topics(2)).toContain('Plus-que-parfait');
+    expect(topics(2)).toContain('dont, où');
+    expect(topics(2)).not.toContain('Subjunctive');
+    expect(topics(3)).toContain('Subjunctive');
+    expect(topics(3)).toContain('Passive');
+    expect(topics(3)).toContain('Future perfect');
+    expect(topics(3)).not.toContain('Plus-que-parfait');
+  });
+
+  it('teaches the conditional and the subjunctive in order', () => {
+    const when = (topic) => later.find((d) => d.vincent_later.some((l) => l.topic.includes(topic))).date;
+    expect(when('Conditional') <= when('Conditional: aller')).toBe(true);
+    expect(when('Subjunctive') <= when('Past subjunctive')).toBe(true);
+  });
+
+  it('adds a task with links that keeps its own minutes', () => {
+    const d = later[0];
+    const t = sessionsFor(d)[1].tasks.find((x) => x.id === 'vincent-later');
+    const secs = d.vincent_later.reduce((sum, l) => sum + l.to - l.from, 0);
+    expect(t.minutes).toBe(Math.round(secs / 60));
+    expect(t.title).toBe(`Vincent (${t.minutes} min)`);
+    expect(t.links).toHaveLength(d.vincent_later.length);
+  });
+
+  it('keeps every lesson short enough to fit a day', () => {
+    for (const d of later) {
+      const secs = d.vincent_later.reduce((sum, l) => sum + l.to - l.from, 0);
+      expect(secs / 60).toBeLessThan(40);
+    }
+  });
+});
+
 describe('sentences in the plan', () => {
   it('8 a day on study days from 4 Jan to 3 Apr, and the evening task says so', () => {
     const withSent = plan.days.filter((d) => d.sent);
@@ -552,7 +638,7 @@ describe('sentences in the plan', () => {
     const day = withSent.find((d) => !d.vocab);
     const t = sessionsFor(day)[2].tasks.find((x) => x.id === 'anki-new');
     expect(t.title).toBe(`Flashcards: ${day.anki} new words + 8 sentences`);
-    expect(totalMinutes(day)).toBe(240);
+    expect(totalMinutes(day)).toBe(coreAndVincent(day));
   });
 });
 

@@ -196,6 +196,7 @@ function taskRow(iso, t, done, cardStats) {
     actions.push(
       `<button class="act" type="button" data-copy="${esc(t.copy)}">${COPY_LABELS[t.kind] || 'Copy prompt'}</button>`,
     );
+  if (t.check) actions.push(`<button class="act" type="button" data-copy="${esc(t.check)}">Check my answers</button>`);
   if (t.kind === 'explain')
     actions.push(`<a class="act" href="${LINKS.claude}" target="_blank" rel="noopener">Open Claude ↗</a>`);
   if (t.addWords)
@@ -370,9 +371,9 @@ function viewMaterials() {
       <h2>The book: Grammaire progressive du français (CLE International)</h2>
       <p>The grammar workbook FLE teachers recommend most for self-study: the rule on the left page, exercises on the right. Three volumes take you from A1 to B2. <b>Always buy the matching Corrigés (answer key)</b>, or you can't check your own work.</p>
       <ul class="plain volumes">
-        <li><p class="vol-when">Buy now · used 6 Nov – 5 Dec · A1</p><p class="task-title">Niveau débutant, 3e éd. (2025 "+ appli" printing), 60 chapters + Corrigés</p><p class="sub">ISBN 9782090398502 · ${isbn('9782090398502')}</p></li>
+        <li><p class="vol-when">Buy now · used 6 Nov – 5 Dec · A1</p><p class="task-title">Niveau débutant, 3e éd. (2025 "+ appli" printing), 60 chapters + Corrigés</p><p class="sub">ISBN 9782090398502 · ${isbn('9782090398502')} · Corrigés 9782090381023</p></li>
         <li><p class="vol-when">Buy late Nov · used 7 Dec – 4 Feb · A2–B1</p><p class="task-title">Niveau intermédiaire, 4e éd. + Corrigés</p><p class="sub">ISBN 9782090381030 · ${isbn('9782090381030')} · Corrigés 9782090381047</p></li>
-        <li><p class="vol-when">Buy late Jan · used 5 Feb – 3 Apr · B1–B2</p><p class="task-title">Niveau avancé, 3e éd., 72 chapters + Corrigés</p><p class="sub">ISBN 9782090381979 · ${isbn('9782090381979')}</p></li>
+        <li><p class="vol-when">Buy late Jan · used 5 Feb – 3 Apr · B1–B2</p><p class="task-title">Niveau avancé, 3e éd., 72 chapters + Corrigés</p><p class="sub">ISBN 9782090381979 · ${isbn('9782090381979')} · Corrigés 9782090381986</p></li>
       </ul>
       <div class="acts"><a class="act" href="#/audio">▶ Débutant audio: 28 dialogues + 10 songs →</a></div>
       <p class="sub">Also at Gibert Joseph, Decitre and Cultura, or borrow them free from your médiathèque. The plan assumes 52 chapters in Intermédiaire; if your copy has a different number, keep about one a day and let the dates slide.</p>
@@ -410,7 +411,7 @@ function viewMaterials() {
     <section class="card">
       <h2>YouTube (free)</h2>
       <ul class="plain">
-        <li><b>6 Nov – 5 Dec · Vincent, "Learn French in 5 Days" (Legacy Version)</b>, matched to the book: Vincent's original course, explained in English, with slow pronunciation drills. That makes it the English companion to the French-only Débutant book, so each afternoon you watch his lessons on that morning's chapters, in the book's order, and Super Easy French fills the rest of the hour. Each link starts on the lesson and tells you where to stop. His advanced lessons (conditional, subjunctive, passive and more) wait until you reach them in the later volumes. Skip the paid french4me site advertised in the description; you don't need it. <a href="${LINKS.vincent}" target="_blank" rel="noopener">Playlist ↗</a></li>
+        <li><b>6 Nov – 5 Dec · Vincent, "Learn French in 5 Days" (Legacy Version)</b>, matched to the book: Vincent's original course, explained in English, with slow pronunciation drills. That makes it the English companion to the French-only Débutant book, so each afternoon you watch his lessons on that morning's chapters, in the book's order, and Super Easy French fills the rest of the hour. Each link starts on the lesson and tells you where to stop. His advanced lessons (conditional, subjunctive, passive and more) then carry on through December to April, so you watch the whole series. Skip the paid french4me site advertised in the description; you don't need it. <a href="${LINKS.vincent}" target="_blank" rel="noopener">Playlist ↗</a></li>
         <li><b>Dec – Jan · Super Easy French</b> (Easy French): slow, real French for beginners. <a href="${LINKS.superEasyFrench}" target="_blank" rel="noopener">Videos ↗</a></li>
         <li><b>Feb – Mar · Easy French</b>: street interviews with French and English subtitles, which is what TCF listening sounds like. Subtitles on, then off. <a href="${LINKS.easyFrench}" target="_blank" rel="noopener">Channel ↗</a></li>
       </ul>

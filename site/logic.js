@@ -209,6 +209,18 @@ export const EXPLAIN_PROMPT = (book, topics) => {
   );
 };
 
+/** Prompt asking Claude to mark the day's exercises from a photo, for when the Corrigés aren't to hand. */
+export const CHECK_PROMPT = (book, topics) =>
+  `I'm a native English speaker working through "Grammaire progressive du français", ${book}` +
+  (topics?.length ? ` (${topics.map((t) => t.topic).join('; ')})` : '') +
+  `. I'm attaching a photo of the exercise page with my answers written in.\n\n` +
+  `For each exercise:\n` +
+  `1) mark every answer right or wrong;\n` +
+  `2) give the correct answer for each wrong one, and say when more than one answer is acceptable;\n` +
+  `3) explain each mistake in one line of English, with the rule;\n` +
+  `4) if you can't read my writing or the question, ask me instead of guessing.\n\n` +
+  `Then list my mistakes for my error log, one per line: what I wrote → correct version → rule.`;
+
 /** Local calendar date as YYYY-MM-DD. Never use toISOString(): it is UTC and shifts the day in France. */
 export function localISO(date) {
   const y = date.getFullYear();
@@ -292,10 +304,11 @@ export function sessionsFor(day) {
       detail:
         (day.book_topics ? `${day.book_topics.map((t) => `Ch. ${t.ch}: ${t.topic}`).join(' · ')}. ` : '') +
         (day.book_annex ? `${day.book_annex}. ` : '') +
-        'Read the rule → close the book, say it aloud → exercises without looking → check the Corrigés. Take as long as it needs.',
+        'Read the rule → close the book, say it aloud → exercises without looking → check your answers (Corrigés, or the button below). Take as long as it needs.',
       minutes: m.book,
       kind: 'explain',
       copy: EXPLAIN_PROMPT(day.book, day.book_topics),
+      check: exam ? undefined : CHECK_PROMPT(day.book, day.book_topics),
     },
   ];
   if (m.cards)
@@ -347,6 +360,17 @@ export function sessionsFor(day) {
       detail: 'Watch with subtitles, again without, then shadow 1 minute aloud',
       minutes: m.youtube,
       link: youtubeLink(day.yt),
+    });
+  }
+  if (day.vincent_later) {
+    const seconds = day.vincent_later.reduce((sum, l) => sum + l.to - l.from, 0);
+    const minutes = Math.round(seconds / 60);
+    afternoon.push({
+      id: 'vincent-later',
+      title: `Vincent (${minutes} min)`,
+      detail: 'His next lessons, explained in English, in order of difficulty. Repeat the examples aloud.',
+      minutes,
+      links: vincentLinks(day.vincent_later),
     });
   }
   if (day.read_task) {

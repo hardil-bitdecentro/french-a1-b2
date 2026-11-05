@@ -583,7 +583,8 @@ YOUTUBE_MINUTES = 60  # the phase 1 YouTube slot in site/logic.js
 # 256 lessons. Every start and topic was checked against the full transcript and the lesson's own title slide.
 # Four long lessons are cut where they leave the chapter's topic (marked "cut"), so a link can stop there.
 # Each part: start (s), topic, and where it is watched: a Débutant chapter, "sun" (Sunday 6 Dec, with the
-# Annexes), or None (beyond this volume, or a repeat: waits for the Intermédiaire and Avancé contents).
+# Annexes), or a later phase by level: "p2" (Intermédiaire) or "p3" (Avancé), in table order. Move those onto
+# their chapters' days once the books' contents are in.
 # "(extra)" = useful, but not on that day's grammar: pronunciation and word lists placed on days with room.
 _X = " (extra)"
 _MATCH = "Words that match English" + _X
@@ -611,7 +612,7 @@ VINCENT = [
     ("QzY_nYZ0RSQ", 16978, [
         (0, "Near future", 43), (439, "Noun gender", 10), (775, "du, de la, des", 31), (1119, "pourquoi", 51),
         (1304, "Where is it? sur, sous, dans", 23), (1575, "Here, there, over there", 23), (1859, "il faut", 40),
-        (2081, "First, second, third", 28), (2275, "partir", 36), (2422, "venir, second take", None),
+        (2081, "First, second, third", 28), (2275, "partir", 36), (2422, "venir, second take", "p2"),
         (2596, "Direct objects", 57), (3226, "Indirect objects", 58), (3807, "vouloir", 40), (3935, "savoir", 38),
         (4076, "il y a", 24), (4378, "Passé composé", 44), (5658, "Past participles", 45),
         (6345, "Telling the time", 29), (6815, "The house", 24), (7004, "Adjectives: where they go", 16),
@@ -628,59 +629,59 @@ VINCENT = [
     ]),
     ("12YUmS3rNr8", 28105, [
         (0, "Adverbs", 53), (574, "Adverbs in -ment", 53), (1146, "In town", 24), (1600, "In the house", 24),
-        (1883, "savoir or connaître", 38), (2399, "Conditional", None), (3424, "Ordinal numbers", 28),
-        (3636, "Conditional: être", None), (3780, "Conditional: avoir", None), (3955, "Conditional: aller", None),
-        (4119, "lequel, laquelle", None), (4558, "Jobs", 1), (5274, "Cooking", 31), (5551, "Courses of a meal", 31),
-        (5728, "Past conditional", None), (6982, "Beauty and hygiene" + _X, 18), (7402, "Useful verbs (1)" + _X, 6),
+        (1883, "savoir or connaître", 38), (2399, "Conditional", "p2"), (3424, "Ordinal numbers", 28),
+        (3636, "Conditional: être", "p2"), (3780, "Conditional: avoir", "p2"), (3955, "Conditional: aller", "p2"),
+        (4119, "lequel, laquelle", "p2"), (4558, "Jobs", 1), (5274, "Cooking", 31), (5551, "Courses of a meal", 31),
+        (5728, "Past conditional", "p3"), (6982, "Beauty and hygiene" + _X, 18), (7402, "Useful verbs (1)" + _X, 6),
         (7795, "Useful verbs (2)" + _X, 6), (8112, "At the café", 31), (8317, "At the restaurant", 31),
         (8471, "Fish", 32), (8637, "Grains", 32), (8733, "Imparfait", 47), (9567, "Imparfait or passé composé", 49),
-        (10419, "Passive", None), (10961, "Passive: conjugation", None), (11466, "Geography words", 24),
-        (11801, "Weather", 30), (12009, "Climates", 30), (12126, "Plus-que-parfait", None),
-        (13042, "Relative pronouns: qui, que", 60), (13690, "Relative pronouns: agreement, dont, où (cut)", None),
-        (14648, "Two pronouns: en", None), (15131, "Two pronouns: le, la, les", None), (15586, "Present continuous", None),
-        (15976, "Recent past: venir de", 49), (16316, "Near future, review", 43), (16621, "Future perfect", None),
+        (10419, "Passive", "p3"), (10961, "Passive: conjugation", "p3"), (11466, "Geography words", 24),
+        (11801, "Weather", 30), (12009, "Climates", 30), (12126, "Plus-que-parfait", "p2"),
+        (13042, "Relative pronouns: qui, que", 60), (13690, "Relative pronouns: agreement, dont, où (cut)", "p2"),
+        (14648, "Two pronouns: en", "p2"), (15131, "Two pronouns: le, la, les", "p2"), (15586, "Present continuous", "p2"),
+        (15976, "Recent past: venir de", 49), (16316, "Near future, review", 43), (16621, "Future perfect", "p3"),
         (17753, "Articles after a negative", 20), (18359, "108 adjectives" + _X, 26), (19348, "100 adjectives" + _X, 37),
         (20336, "120 adjectives" + _X, 35), (21656, "à and de with articles", 13), (22342, "The preposition à", 21),
-        (23387, "The preposition de", 21), (23928, "The preposition en", 22), (24380, "en + -ant (cut)", None),
-        (24529, "avoir or être + participle", 46), (24774, "Other compound tenses (cut)", None),
+        (23387, "The preposition de", 21), (23928, "The preposition en", 22), (24380, "en + -ant (cut)", "p3"),
+        (24529, "avoir or être + participle", 46), (24774, "Other compound tenses (cut)", "p3"),
         (25230, "Imperative", "sun"), (26438, "Liaison: required" + _X, 5), (26991, "Liaison: forbidden" + _X, 10),
         (27733, "Liaison: optional" + _X, 11),
     ]),
     ("ppYImLa36ug", 17995, [
-        (0, "Subjunctive", None), (1389, "Past subjunctive", None), (2500, "Subjunctive with conjunctions", None),
-        (2762, "Subjunctive: opinion, doubt", None), (3016, "Subjunctive: feelings", None),
-        (3301, "Subjunctive: advice, wishes, orders", None), (3585, "Subjunctive: negative structures", None),
-        (3822, "Present participle", None), (4349, "Gerund", None), (4775, "Superlative", 34),
-        (5308, "Superlative with a noun", 34), (5449, "si clauses", None), (5935, "Indirect speech", "sun"),
-        (6430, "Indirect speech: time words", None), (6643, "Indirect speech: sentence changes", None),
-        (7312, "Indirect speech: tense changes", None), (8238, "Verbs with que + indicative", None),
-        (8592, "Verbs that take être", 46), (8905, "Homographs", None), (9191, "Homophones", None),
-        (9489, "Homophones", None), (9766, "Homophones", None), (9977, "Homophones", None), (10234, "Prefixes", None),
-        (10417, "Prefixes", None), (10681, "Prefixes", None), (10897, "Prefixes", None), (11053, "Suffixes", None),
-        (11286, "Suffixes", None), (11534, "Suffixes", None), (11707, _MATCH, 12), (11977, _MATCH, 12),
+        (0, "Subjunctive", "p3"), (1389, "Past subjunctive", "p3"), (2500, "Subjunctive with conjunctions", "p3"),
+        (2762, "Subjunctive: opinion, doubt", "p3"), (3016, "Subjunctive: feelings", "p3"),
+        (3301, "Subjunctive: advice, wishes, orders", "p3"), (3585, "Subjunctive: negative structures", "p3"),
+        (3822, "Present participle", "p3"), (4349, "Gerund", "p3"), (4775, "Superlative", 34),
+        (5308, "Superlative with a noun", 34), (5449, "si clauses", "p2"), (5935, "Indirect speech", "sun"),
+        (6430, "Indirect speech: time words", "p3"), (6643, "Indirect speech: sentence changes", "p3"),
+        (7312, "Indirect speech: tense changes", "p3"), (8238, "Verbs with que + indicative", "p3"),
+        (8592, "Verbs that take être", 46), (8905, "Homographs", "p3"), (9191, "Homophones", "p3"),
+        (9489, "Homophones", "p3"), (9766, "Homophones", "p3"), (9977, "Homophones", "p3"), (10234, "Prefixes", "p3"),
+        (10417, "Prefixes", "p3"), (10681, "Prefixes", "p3"), (10897, "Prefixes", "p3"), (11053, "Suffixes", "p3"),
+        (11286, "Suffixes", "p3"), (11534, "Suffixes", "p3"), (11707, _MATCH, 12), (11977, _MATCH, 12),
         (12206, _MATCH, 12), (12406, _MATCH, 12), (12600, _MATCH, 17), (12819, _MATCH, 17), (13005, _MATCH, 17),
         (13189, _MATCH, 17), (13411, _MATCH, 17), (13590, _MATCH, 17), (13769, _MATCH, 17),
-        (14004, "The body: the mouth", 18), (14399, "Shortened words", None), (14678, "Verbs with prefixes", None),
-        (14982, "Verbs with prefixes", None), (15296, "Verbs with prefixes", None), (15389, "Verbs with prefixes", None),
-        (15478, "Verbs with prefixes", None), (15541, "Verbs with prefixes", None), (15662, "Verbs with prefixes", None),
-        (15749, "Verbs with prefixes", None), (15850, "Verbs with prefixes", None), (16052, "Verbs with prefixes", None),
-        (16219, "Verbs with prefixes", None), (16352, "Verbs with prefixes", None), (16493, "Verbs with prefixes", None),
+        (14004, "The body: the mouth", 18), (14399, "Shortened words", "p3"), (14678, "Verbs with prefixes", "p3"),
+        (14982, "Verbs with prefixes", "p3"), (15296, "Verbs with prefixes", "p3"), (15389, "Verbs with prefixes", "p3"),
+        (15478, "Verbs with prefixes", "p3"), (15541, "Verbs with prefixes", "p3"), (15662, "Verbs with prefixes", "p3"),
+        (15749, "Verbs with prefixes", "p3"), (15850, "Verbs with prefixes", "p3"), (16052, "Verbs with prefixes", "p3"),
+        (16219, "Verbs with prefixes", "p3"), (16352, "Verbs with prefixes", "p3"), (16493, "Verbs with prefixes", "p3"),
         (16696, _MATCH, 49), (16943, _MATCH, 49), (17205, _MATCH, 49), (17485, _MATCH, 49), (17640, _MATCH, 49),
         (17791, _MATCH, 49),
     ]),
     ("b1sXCZDuxSY", 14074, [
-        (0, _MATCH, 53), (255, _MATCH, 53), (538, "Where adverbs go in the past", 53), (747, "Adverb phrases", None),
-        (1080, "Adverb phrases", None), (1269, "Opposites", None), (1546, "Opposites", None), (1760, "Uses of faire", 41),
-        (2070, "Adverb phrases", None), (2356, "Adverb phrases", None), (2513, "Adverb phrases", None),
+        (0, _MATCH, 53), (255, _MATCH, 53), (538, "Where adverbs go in the past", 53), (747, "Adverb phrases", "p2"),
+        (1080, "Adverb phrases", "p2"), (1269, "Opposites", "p2"), (1546, "Opposites", "p2"), (1760, "Uses of faire", 41),
+        (2070, "Adverb phrases", "p2"), (2356, "Adverb phrases", "p2"), (2513, "Adverb phrases", "p2"),
         (2686, _FOOD, 31), (2943, _FOOD, 31), (3236, _FOOD, 31), (3391, _FOOD, 31), (3571, _FOOD, 31), (3765, _FOOD, 31),
-        (3987, _FOOD, 31), (4149, "Plurals of compound nouns", None), (4459, "Plurals of compound nouns", None),
-        (4733, "Plurals of compound nouns", None), (5017, "Plurals of compound nouns", None), (5260, "Silent e" + _X, 3),
-        (5838, "Medical words", None), (5959, "Medical words", None), (6265, "Medical words", None), (6414, _VP, None),
-        (6851, "Present participle or verbal adjective", None), (7125, _VP, None), (7732, _VP, None), (8293, _VP, None),
-        (8926, "Past participles that never change", None), (9341, _SPELL, 8), (9653, _SPELL, 8), (9968, _SPELL, 8),
+        (3987, _FOOD, 31), (4149, "Plurals of compound nouns", "p2"), (4459, "Plurals of compound nouns", "p2"),
+        (4733, "Plurals of compound nouns", "p2"), (5017, "Plurals of compound nouns", "p2"), (5260, "Silent e" + _X, 3),
+        (5838, "Medical words", "p2"), (5959, "Medical words", "p2"), (6265, "Medical words", "p2"), (6414, _VP, "p2"),
+        (6851, "Present participle or verbal adjective", "p3"), (7125, _VP, "p2"), (7732, _VP, "p2"), (8293, _VP, "p2"),
+        (8926, "Past participles that never change", "p3"), (9341, _SPELL, 8), (9653, _SPELL, 8), (9968, _SPELL, 8),
         (10191, _SPELL, 8), (10481, _SPELL, 8), (10864, _SPELL, 8), (11145, _SPELL, 8), (11462, _SPELL, 8),
-        (11742, "Exclamations: adjectives", None), (12000, "Exclamations: adverbs", None), (12173, "Interjections", None),
-        (12326, _VP, None), (12718, _VP, None), (13304, _VP, None), (13666, _VP, None),
+        (11742, "Exclamations: adjectives", "p2"), (12000, "Exclamations: adverbs", "p2"), (12173, "Interjections", "p2"),
+        (12326, _VP, "p2"), (12718, _VP, "p2"), (13304, _VP, "p2"), (13666, _VP, "p2"),
     ]),
 ]
 assert [len(v[2]) for v in VINCENT] == [47, 51, 53, 62, 47]
@@ -743,33 +744,35 @@ def hms(sec):
     return f"{sec // 3600}:{sec % 3600 // 60:02d}:{sec % 60:02d}"
 
 
-def vincent_days(days):
-    """Each study day's lessons: those on its chapters, joined where they run on in the same video."""
-    by_chapter = {}
-    parked = 0
+def vincent_parts():
+    """Every part of the course, grouped by where it is watched, in table order."""
+    groups = {}
     for v, (vid, length, lessons) in enumerate(VINCENT):
         starts = [st for st, _t, _h in lessons]
         assert starts == sorted(starts) and starts[0] == 0
         for j, (st, topic, home) in enumerate(lessons):
             end = starts[j + 1] if j + 1 < len(starts) else length
-            if home is None:
-                parked += end - st
-            else:
-                by_chapter.setdefault(home, []).append(
-                    {"video": v + 1, "id": vid, "from": st, "to": end, "topics": [topic.replace(" (cut)", "")]})
+            groups.setdefault(home, []).append(
+                {"video": v + 1, "id": vid, "from": st, "to": end, "topics": [topic.replace(" (cut)", "")]})
+    return groups
 
-    def links_for(segments):
-        links = []
-        for seg in segments:
-            prev = links[-1] if links else None
-            if prev and prev["id"] == seg["id"] and prev["to"] == seg["from"]:
-                prev["to"] = seg["to"]
-                prev["topics"] += [t for t in seg["topics"] if t not in prev["topics"]]
-            else:
-                links.append({**seg, "topics": list(seg["topics"])})
-        return [{"video": g["video"], "id": g["id"], "from": g["from"], "to": g["to"],
-                 "topic": ", ".join(g["topics"])} for g in links]
 
+def links_for(segments):
+    """Links for a run of parts, joined where they run on in the same video."""
+    links = []
+    for seg in segments:
+        prev = links[-1] if links else None
+        if prev and prev["id"] == seg["id"] and prev["to"] == seg["from"]:
+            prev["to"] = seg["to"]
+            prev["topics"] += [t for t in seg["topics"] if t not in prev["topics"]]
+        else:
+            links.append({**seg, "topics": list(seg["topics"])})
+    return [{"video": g["video"], "id": g["id"], "from": g["from"], "to": g["to"],
+             "topic": ", ".join(g["topics"])} for g in links]
+
+
+def vincent_days(days, by_chapter):
+    """Each Débutant study day's lessons: those on its chapters."""
     out = {}
     for i, d in enumerate(days, 1):
         _code, lo, hi = chapters[d]
@@ -788,7 +791,18 @@ def vincent_days(days):
             "rest": rest,
             "audio": {"title": audio_title(audio), "items": audio, "minutes": audio_min} if audio else None,
         }
-    return out, parked, links_for(by_chapter["sun"])
+    return out
+
+
+def vincent_later(days, parts):
+    """Spread parts evenly over `days` in order, never splitting one: a part goes where its midpoint falls."""
+    total = sum(g["to"] - g["from"] for g in parts)
+    per_day, done = {}, 0
+    for g in parts:
+        length = g["to"] - g["from"]
+        per_day.setdefault(days[int((done + length / 2) / total * len(days))], []).append(g)
+        done += length
+    return {d: links_for(segs) for d, segs in per_day.items()}
 
 
 def tv5(d):
@@ -823,7 +837,12 @@ def take(pool, key):
     return item
 
 
-vincent, vincent_parked, annex_links = vincent_days(study_days(BOOKS[0][3], BOOKS[0][4]))
+_vparts = vincent_parts()
+assert set(k for k in _vparts if not isinstance(k, int)) == {"sun", "p2", "p3"}
+vincent = vincent_days(study_days(BOOKS[0][3], BOOKS[0][4]), _vparts)
+annex_links = links_for(_vparts["sun"])
+later = {**vincent_later(study_days(BOOKS[1][3], BOOKS[1][4]), _vparts["p2"]),
+         **vincent_later(study_days(BOOKS[2][3], BOOKS[2][4]), _vparts["p3"])}
 rows = []
 study_n = 0
 for d in all_days():
@@ -841,6 +860,7 @@ for d in all_days():
         "yt_links": vincent[d]["links"] if d in vincent else None,
         "yt_rest": vincent[d]["rest"] if d in vincent else None,
         "book_audio": vincent[d]["audio"] if d in vincent else None,
+        "vincent_later": later.get(d),
         "vocab": vocab_label(vocab[d]) if d in vocab else None,
     }
     if is_sunday(d):
@@ -1093,6 +1113,14 @@ for wi, wk in enumerate(weeks, 1):
             audio = f"; book audio: {r['book_audio']['title']}" if r["book_audio"] else ""
             L.append(f"- {r['day']}: {', '.join(parts)}{audio}{rest}")
         L.append("")
+    lrows = [r for r in wk if r.get("vincent_later")]
+    if lrows:
+        L.append("**Vincent this week (afternoon, on top of the YouTube slot):**")
+        for r in lrows:
+            parts = [f"[{l['topic']}](https://www.youtube.com/watch?v={l['id']}&t={l['from']}s) → stop at {hms(l['to'])}"
+                     for l in r["vincent_later"]]
+            L.append(f"- {r['day']}: {', '.join(parts)}")
+        L.append("")
     for s in sundays:
         L.append(f"**{s['day']}: review day, no new chapters (4 h)**")
         for it in s["sunday_items"]:
@@ -1170,6 +1198,9 @@ if len(sys.argv) > 4:
     with open(sys.argv[4], "w", encoding="utf-8") as f:
         f.write("\n".join(M) + "\n")
 watched = sum(l["to"] - l["from"] for slot in vincent.values() for l in slot["links"])
-print(f"Vincent: {watched / 3600:.1f} h matched to Débutant, {vincent_parked / 3600:.1f} h waiting for later volumes")
+for key, name, n in (("p2", "Intermédiaire", 52), ("p3", "Avancé", 50)):
+    secs = sum(g["to"] - g["from"] for g in _vparts[key])
+    print(f"Vincent in {name}: {secs / 3600:.1f} h, about {secs / 60 / n:.0f} min a study day")
+print(f"Vincent in Débutant: {watched / 3600:.1f} h")
 print("Vincent minutes per day:", [round(sum(l["to"] - l["from"] for l in s["links"]) / 60) for s in vincent.values()])
 print("Hour used per day:", [round(sum(l["to"] - l["from"] for l in s["links"]) / 60) + (s["audio"]["minutes"] if s["audio"] else 0) + s["rest"] for s in vincent.values()])
