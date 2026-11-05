@@ -49,6 +49,9 @@ function save() {
   sync.schedule();
 }
 
+/** The plan-wide reset (plan.resetAt): keeps older progress from coming back from any source. */
+const applyPlanReset = (s) => (plan && plan.resetAt ? S.applyReset(s, plan.resetAt) : s);
+
 const sync = createSync({
   url: SYNC_URL,
   storage: localStorage,
@@ -65,6 +68,7 @@ const sync = createSync({
     await idbSet('deck', d);
     if (plan) rerender({ keepScroll: true });
   },
+  prune: (s) => applyPlanReset(s),
   onStatus: (s) => {
     syncStatus = s;
     const el = document.getElementById('sync-status');
@@ -236,7 +240,7 @@ function viewPlan() {
     .join('');
   return `
     <h1>The 182-day plan</h1>
-    <p class="sub">4 Nov 2026 → 4 May 2027. Tap a day to open its checklist.</p>
+    <p class="sub">6 Nov 2026 → 6 May 2027. Tap a day to open its checklist.</p>
     <div class="progress-row">
       <div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="${overall.total}" aria-valuenow="${overall.complete}" aria-label="Days complete"><span style="width:${overall.pct}%"></span></div>
       <p class="sub"><b>${overall.complete}</b> of ${overall.total} days complete (${overall.pct}%)${(() => {
@@ -324,9 +328,9 @@ function viewMaterials() {
       <h2>The book: Grammaire progressive du français (CLE International)</h2>
       <p>The grammar workbook FLE teachers recommend most for self-study: the rule on the left page, exercises on the right. Three volumes take you from A1 to B2. <b>Always buy the matching Corrigés (answer key)</b>, or you can't check your own work.</p>
       <ul class="plain volumes">
-        <li><p class="vol-when">Buy now · used 4 Nov – 3 Dec · A1</p><p class="task-title">Niveau débutant, 3e éd. (2025 "+ appli" printing), 60 chapters + Corrigés</p><p class="sub">ISBN 9782090398502 · ${isbn('9782090398502')}</p></li>
-        <li><p class="vol-when">Buy late Nov · used 4 Dec – 2 Feb · A2–B1</p><p class="task-title">Niveau intermédiaire, 4e éd. + Corrigés</p><p class="sub">ISBN 9782090381030 · ${isbn('9782090381030')} · Corrigés 9782090381047</p></li>
-        <li><p class="vol-when">Buy late Jan · used 3 Feb – 2 Apr · B1–B2</p><p class="task-title">Niveau avancé, 3e éd., 72 chapters + Corrigés</p><p class="sub">ISBN 9782090381979 · ${isbn('9782090381979')}</p></li>
+        <li><p class="vol-when">Buy now · used 6 Nov – 5 Dec · A1</p><p class="task-title">Niveau débutant, 3e éd. (2025 "+ appli" printing), 60 chapters + Corrigés</p><p class="sub">ISBN 9782090398502 · ${isbn('9782090398502')}</p></li>
+        <li><p class="vol-when">Buy late Nov · used 7 Dec – 4 Feb · A2–B1</p><p class="task-title">Niveau intermédiaire, 4e éd. + Corrigés</p><p class="sub">ISBN 9782090381030 · ${isbn('9782090381030')} · Corrigés 9782090381047</p></li>
+        <li><p class="vol-when">Buy late Jan · used 5 Feb – 3 Apr · B1–B2</p><p class="task-title">Niveau avancé, 3e éd., 72 chapters + Corrigés</p><p class="sub">ISBN 9782090381979 · ${isbn('9782090381979')}</p></li>
       </ul>
       <p class="sub">Also at Gibert Joseph, Decitre and Cultura, or borrow them free from your médiathèque. The plan assumes 52 chapters in Intermédiaire; if your copy has a different number, keep about one a day and let the dates slide.</p>
     </section>
@@ -335,7 +339,7 @@ function viewMaterials() {
       <h2>The vocabulary book: Vocabulaire progressif du français (CLE International)</h2>
       <p>Same publisher and layout as the grammar books: a themed lesson on the left page, exercises on the right. It teaches words <b>by topic</b> (housing, work, health, travel…), which is what the TCF writing and speaking tasks are about. A frequency deck alone teaches words one at a time.</p>
       <ul class="plain volumes">
-        <li><p class="vol-when">Buy late Nov · used 4 Dec – 31 Mar · A2–B1</p><p class="task-title">Niveau intermédiaire + appli, 3e éd. (2025 printing), 25 chapters + Corrigés</p><p class="sub">ISBN 9782090398571 · ${isbn('9782090398571')} · Corrigés 9782090380163</p></li>
+        <li><p class="vol-when">Buy late Nov · used 7 Dec – 2 Apr · A2–B1</p><p class="task-title">Niveau intermédiaire + appli, 3e éd. (2025 printing), 25 chapters + Corrigés</p><p class="sub">ISBN 9782090398571 · ${isbn('9782090398571')} · Corrigés 9782090380163</p></li>
       </ul>
       <p class="sub">Half a chapter on 50 evenings (the app shows which), in place of that evening's deck words. Turn its key phrases into flashcards, so the app handles the spacing.</p>
     </section>
@@ -348,7 +352,7 @@ function viewMaterials() {
         <li><p class="vol-when">Grammar · €26.80 · 176 pages</p><p class="task-title">Grammaire progressive du français, débutant + appli, 3e éd.</p><p class="sub">In stock: Forum des Halles, Ternes. Limited: Saint-Lazare, Gare Montparnasse, Bercy Village, La Défense-CNIT, Thiais, Créteil, Vélizy, Parinor. Not at Gare Châtelet, Gare Auber, Gare de l'Est. <a href="https://www.fnac.com/a21695847/Maia-Gregoire-Grammaire-progressive-du-francais-debutant-appli-3e-ed" target="_blank" rel="noopener">Fnac page ↗</a></p></li>
         <li><p class="vol-when">Grammar answer key · €12.70 · 40 pages</p><p class="task-title">Grammaire progressive du français A1 débutant, corrigés 3e éd.</p><p class="sub">Limited: Forum des Halles, Montparnasse, Ternes, Beaugrenelle, Boulogne. <a href="https://www.fnac.com/a12795338/Maia-Gregoire-Grammaire-progressive-du-francais-A1-debutant-corriges-3eme-edition" target="_blank" rel="noopener">Fnac page ↗</a></p></li>
         <li><p class="vol-when">Vocabulary · €28.10 · 208 pages</p><p class="task-title">Vocabulaire progressif intermédiaire + appli, 3e éd.</p><p class="sub">In stock: Forum des Halles. Limited: Montparnasse, Ternes, Gennevilliers, La Défense-CNIT, Herblay, Cergy, Carré Sénart, Val d'Europe. <a href="https://www.fnac.com/a21695846/Claire-Leroy-Miquel-Vocabulaire-progressif-intermediaire-appli-3e-edition" target="_blank" rel="noopener">Fnac page ↗</a></p></li>
-        <li><p class="vol-when">Vocabulary answer key · €13.50 · 32 pages</p><p class="task-title">Corrigés vocabulaire progressif, niveau intermédiaire, 3e éd.</p><p class="sub"><b>Only at Forum des Halles</b>, limited, so buy or reserve it early even though you only need the book from 4 Dec. <a href="https://www.fnac.com/a11187087/Claire-Miquel-Corriges-vocabulaire-progressif-niveau-intermediaire-3e-edition" target="_blank" rel="noopener">Fnac page ↗</a></p></li>
+        <li><p class="vol-when">Vocabulary answer key · €13.50 · 32 pages</p><p class="task-title">Corrigés vocabulaire progressif, niveau intermédiaire, 3e éd.</p><p class="sub"><b>Only at Forum des Halles</b>, limited, so buy or reserve it early even though you only need the book from 7 Dec. <a href="https://www.fnac.com/a11187087/Claire-Miquel-Corriges-vocabulaire-progressif-niveau-intermediaire-3e-edition" target="_blank" rel="noopener">Fnac page ↗</a></p></li>
       </ul>
       <p class="sub">Intermédiaire and Avancé grammar volumes: buy in late Nov / late Jan; use the Amazon.fr / Fnac links in the book list above.</p>
     </section>
@@ -363,7 +367,7 @@ function viewMaterials() {
     <section class="card">
       <h2>YouTube (free)</h2>
       <ul class="plain">
-        <li><b>4 Nov – 3 Dec · Vincent, "Learn French in 5 Days" (Legacy Version)</b>, 1 hour a day: Vincent's original A1 course, explained in English, with slow pronunciation drills. That makes it the English companion to the French-only Débutant book. Its 254 short lessons (5 videos, 25.6 h) are split into one-hour parts that start and end on a lesson. Each day's task has links that jump straight to the right second. Skip the paid french4me site advertised in the description; you don't need it. <a href="${LINKS.vincent}" target="_blank" rel="noopener">Playlist ↗</a></li>
+        <li><b>6 Nov – 5 Dec · Vincent, "Learn French in 5 Days" (Legacy Version)</b>, 1 hour a day: Vincent's original A1 course, explained in English, with slow pronunciation drills. That makes it the English companion to the French-only Débutant book. Its 254 short lessons (5 videos, 25.6 h) are split into one-hour parts that start and end on a lesson. Each day's task has links that jump straight to the right second. Skip the paid french4me site advertised in the description; you don't need it. <a href="${LINKS.vincent}" target="_blank" rel="noopener">Playlist ↗</a></li>
         <li><b>Dec – Jan · Super Easy French</b> (Easy French): slow, real French for beginners. <a href="${LINKS.superEasyFrench}" target="_blank" rel="noopener">Videos ↗</a></li>
         <li><b>Feb – Mar · Easy French</b>: street interviews with French and English subtitles, which is what TCF listening sounds like. Subtitles on, then off. <a href="${LINKS.easyFrench}" target="_blank" rel="noopener">Channel ↗</a></li>
       </ul>
@@ -469,11 +473,11 @@ function viewMethod() {
       <h2>Checkpoints</h2>
       <table class="tbl">
         <tbody>
-          <tr><td>3 Dec</td><td>Débutant finished · ~700 words · 2-min self-intro, no notes</td></tr>
-          <tr><td>3 Jan</td><td>Half of Intermédiaire · ~1,400 words · 10-min conversation</td></tr>
-          <tr><td>3 Feb</td><td>Intermédiaire finished · ~2,100 words · first listening/reading mock (250–330 is normal)</td></tr>
-          <tr><td>3 Mar</td><td>Half of Avancé · subjonctif, conditionnel, relatives · mocks ≥ 400</td></tr>
-          <tr><td>3 Apr</td><td>Avancé finished · ~3,300 words · mocks ≥ 440 · writing/speaking ~10/20</td></tr>
+          <tr><td>5 Dec</td><td>Débutant finished · ~700 words · 2-min self-intro, no notes</td></tr>
+          <tr><td>5 Jan</td><td>Half of Intermédiaire · ~1,400 words · 10-min conversation</td></tr>
+          <tr><td>5 Feb</td><td>Intermédiaire finished · ~2,100 words · first listening/reading mock (250–330 is normal)</td></tr>
+          <tr><td>5 Mar</td><td>Half of Avancé · subjonctif, conditionnel, relatives · mocks ≥ 400</td></tr>
+          <tr><td>5 Apr</td><td>Avancé finished · ~3,300 words · mocks ≥ 440 · writing/speaking ~10/20</td></tr>
           <tr><td>May</td><td>Two full mocks in a row at NCLC 7+ in all four skills → sit the exam</td></tr>
         </tbody>
       </table>
@@ -662,7 +666,7 @@ app.addEventListener('change', async (e) => {
   try {
     const data = JSON.parse(await e.target.files[0].text());
     if (!data || typeof data !== 'object' || typeof data.done !== 'object') throw new Error('shape');
-    state = S.merge(state, S.migrate(data));
+    state = applyPlanReset(S.merge(state, S.migrate(data)));
     save();
     resetReview();
     rerender({ msg: ['#backup-msg', 'Backup restored (merged with this device).'] });
@@ -691,6 +695,14 @@ Promise.all([
     plan = data;
     byDate = new Map(plan.days.map((d) => [d.date, d]));
     deck = savedDeck || null;
+    const before = JSON.stringify(state);
+    const after = applyPlanReset(state);
+    if (JSON.stringify(after) !== before) {
+      // Keep this device's old progress privately, so the reset can be undone by hand if ever needed.
+      if (!localStorage.getItem(`${KEY}:before-reset`)) localStorage.setItem(`${KEY}:before-reset`, before);
+      state = after;
+      persist();
+    }
     route();
     if (sync.enabled) sync.syncNow({ full: !deck });
   })

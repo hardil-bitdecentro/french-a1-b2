@@ -13,6 +13,7 @@ import {
   liveCards,
   merge,
   differs,
+  applyReset,
 } from '../site/store.js';
 
 describe('migrate', () => {
@@ -73,5 +74,50 @@ describe('merge (two devices)', () => {
     expect(differs(a, a)).toBe(false);
     expect(differs(a, setDone(emptyState(), 'd', 'y', true, 11))).toBe(true);
     expect(differs(a, setDone(emptyState(), 'd', 'x', true, 5))).toBe(false); // older: ignored
+  });
+});
+
+describe('applyReset (progress reset across devices)', () => {
+  const AT = 1000;
+  function before() {
+    const s = emptyState();
+    setDone(s, '2026-11-04', 'book', true, 900);
+    setDone(s, '2026-11-06', 'book', true, 1100);
+    setGrammar(s, 1, true, 900);
+    setNote(s, '2026-11-04', 'je suis allé', 900);
+    putCard(s, { id: 'w0', kind: 'deck', rank: 0, s: { reps: 3, state: 2 } }, 900);
+    putCard(s, { id: 's0', kind: 'sent', idx: 0, s: { reps: 1, state: 2 } }, 900);
+    putCard(s, { id: 'w1', kind: 'deck', rank: 1, s: { reps: 1, state: 2 } }, 1100);
+    putCard(s, { id: 'm1', kind: 'mine', front: 'le loyer', back: 'rent', s: { reps: 5, state: 2 } }, 900);
+    s.settings.autoplay = [false, 900];
+    return s;
+  }
+
+  it('clears ticks, grammar and started cards from before the reset, not after', () => {
+    const r = applyReset(before(), AT);
+    expect(doneIds(r, '2026-11-04')).toEqual([]);
+    expect(doneIds(r, '2026-11-06')).toEqual(['book']);
+    expect(grammarOn(r, 1)).toBe(false);
+    expect(r.cards.w0).toBeUndefined();
+    expect(r.cards.s0).toBeUndefined();
+    expect(r.cards.w1.s.reps).toBe(1);
+  });
+
+  it('keeps notes, settings and your own cards, which restart as new', () => {
+    const r = applyReset(before(), AT);
+    expect(noteText(r, '2026-11-04')).toBe('je suis allé');
+    expect(r.settings.autoplay[0]).toBe(false);
+    expect(r.cards.m1.front).toBe('le loyer');
+    expect(r.cards.m1.s).toMatchObject({ reps: 0, state: 0 });
+  });
+
+  it('is stable: applying it twice changes nothing', () => {
+    const once = applyReset(before(), AT);
+    expect(applyReset(once, AT)).toEqual(once);
+  });
+
+  it('does nothing without a reset time', () => {
+    const s = before();
+    expect(applyReset(s, undefined)).toEqual(s);
   });
 });

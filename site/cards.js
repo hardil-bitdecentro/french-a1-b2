@@ -240,12 +240,12 @@ export function newLimitFor(day) {
   return day.anki;
 }
 
-/** Plan's new speaking-card limit for a day (6 a day from 11 Jan to 2 Apr, none on Sundays). */
+/** Plan's new speaking-card limit for a day (6 a day from 11 Jan to 3 Apr, none on Sundays). */
 export function sayLimitFor(day) {
   return day && !day.sunday ? day.say || 0 : 0;
 }
 
-/** Plan's new-sentence limit for a day (8 a day from 4 Jan to 2 Apr, none on Sundays). */
+/** Plan's new-sentence limit for a day (8 a day from 4 Jan to 3 Apr, none on Sundays). */
 export function sentLimitFor(day) {
   return day && !day.sunday ? day.sent || 0 : 0;
 }

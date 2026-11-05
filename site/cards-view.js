@@ -203,7 +203,7 @@ export function renderCards(ctx, sub) {
                  ? `<p><b>${deck.sentences.length.toLocaleString('en')}</b> reading sentences, <b>${sentStarted}</b> started.</p>`
                  : `<p class="sub"><b>No sentences in this copy of the deck.</b> Re-import the latest <code>french-5000-words.json</code> to add the 3,464 reading sentences.</p>`
              }
-             <p class="sub">New words come in frequency order, 25 → 15 a day on plan days (none on Sundays and vocabulary-book evenings). Reading sentences start on 4 Jan: 8 a day, easy ones first, until 2 Apr. Speaking cards (see the English, say the French) start on 11 Jan: 6 a day, each one unlocking 2 days after you first read that sentence.</p>`
+             <p class="sub">New words come in frequency order, 25 → 15 a day on plan days (none on Sundays and vocabulary-book evenings). Reading sentences start on 4 Jan: 8 a day, easy ones first, until 3 Apr. Speaking cards (see the English, say the French) start on 11 Jan: 6 a day, each one unlocking 2 days after you first read that sentence.</p>`
           : `<p class="sub">Import <code>french-5000-words.json</code> (made from your Anki deck, in <code>~/projects/french-private/</code>). It stays on your device and in your encrypted sync, never on the website.</p>`
       }
       <label class="act file">${deck ? 'Replace deck' : 'Import word deck'}<input type="file" id="deck-file" accept="application/json,.json" /></label>

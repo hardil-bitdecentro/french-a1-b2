@@ -1,6 +1,16 @@
 import { describe, expect, it } from 'vitest';
 import { createSync, SYNC_KEY_STORAGE } from '../site/syncctl.js';
-import { emptyState, setDone, setNote, doneIds, noteText, putCard, liveCards, setSetting } from '../site/store.js';
+import {
+  emptyState,
+  setDone,
+  setNote,
+  doneIds,
+  noteText,
+  putCard,
+  liveCards,
+  setSetting,
+  applyReset,
+} from '../site/store.js';
 import worker from '../worker/src/index.js';
 
 const ORIGIN = 'https://hardil-bitdecentro.github.io';
@@ -19,7 +29,7 @@ function storage() {
 }
 
 /** One simulated device: its own local state, deck and storage, talking to the shared Worker. */
-function device(env, deck = null) {
+function device(env, deck = null, prune = undefined) {
   const d = { state: emptyState(), deck, statuses: [] };
   d.sync = createSync({
     url: 'https://sync.example',
@@ -32,6 +42,7 @@ function device(env, deck = null) {
     fetchImpl: (url, init = {}) =>
       worker.fetch(new Request(url, { ...init, headers: { ...(init.headers || {}), Origin: ORIGIN } }), env),
     debounceMs: 0,
+    prune,
   });
   return d;
 }
@@ -102,6 +113,30 @@ describe('two devices syncing through the Worker', () => {
     await phone.sync.syncNow();
     await laptop.sync.syncNow();
     expect(deckGets).toBe(0);
+  });
+
+  it('a reset sticks: old progress on the server cannot come back, and the server copy gets cleaned', async () => {
+    const env = { SYNC: memoryKV(), ALLOWED_ORIGINS: ORIGIN };
+    const AT = 1000;
+    const laptop = device(env);
+    setDone(laptop.state, '2026-11-04', 'book', true, 900); // synced before the reset
+    const key = await laptop.sync.enable();
+
+    // A phone on the new app version: it applies the reset to whatever sync brings in.
+    const phone = device(env, null, (s) => applyReset(s, AT));
+    await phone.sync.pair(key);
+    expect(doneIds(phone.state, '2026-11-04')).toEqual([]);
+
+    // The server copy no longer has it either, so an old-free device stays clean.
+    const fresh = device(env);
+    await fresh.sync.pair(key);
+    expect(doneIds(fresh.state, '2026-11-04')).toEqual([]);
+
+    // New progress still syncs normally.
+    setDone(phone.state, '2026-11-06', 'book', true, 2000);
+    await phone.sync.syncNow();
+    await fresh.sync.syncNow();
+    expect(doneIds(fresh.state, '2026-11-06')).toEqual(['book']);
   });
 
   it('rejects a bad pairing code and can be turned off', async () => {

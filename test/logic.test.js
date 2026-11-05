@@ -52,9 +52,9 @@ describe('dates', () => {
 });
 
 describe('schedule data', () => {
-  it('has 182 consecutive days from 4 Nov 2026 to 4 May 2027', () => {
-    expect(plan.start).toBe('2026-11-04');
-    expect(plan.end).toBe('2027-05-04');
+  it('has 182 consecutive days from 6 Nov 2026 to 6 May 2027', () => {
+    expect(plan.start).toBe('2026-11-06');
+    expect(plan.end).toBe('2027-05-06');
     expect(plan.days).toHaveLength(182);
     plan.days.forEach((d, i) => expect(d.date).toBe(addDays(plan.start, i)));
   });
@@ -83,8 +83,8 @@ describe('schedule data', () => {
     }
   });
 
-  it('switches to exam mode on 3 Apr 2027 with no new chapters', () => {
-    for (const d of studyDays.filter((x) => x.date >= '2027-04-03')) {
+  it('switches to exam mode on 5 Apr 2027 with no new chapters', () => {
+    for (const d of studyDays.filter((x) => x.date >= '2027-04-05')) {
       expect(d.phase).toBe(4);
       expect(d.book).toMatch(/^Error-log chapters/);
     }
@@ -100,7 +100,7 @@ describe('schedule data', () => {
   it('groups into 27 Monday-to-Sunday weeks', () => {
     const weeks = groupByWeek(plan.days);
     expect(weeks).toHaveLength(27);
-    expect(weeks[0].days).toHaveLength(5); // starts on a Wednesday
+    expect(weeks[0].days).toHaveLength(3); // starts on a Friday
     expect(weeks[1].days[0].day).toMatch(/^Mon /);
   });
 });
@@ -197,13 +197,13 @@ describe('English explanation prompt', () => {
 describe('vocabulary book', () => {
   const vocabDays = plan.days.filter((d) => d.vocab);
 
-  it('covers chapters 1–25 in two halves each, in order, between 4 Dec and 31 Mar on study days', () => {
+  it('covers chapters 1–25 in two halves each, in order, between 7 Dec and 2 Apr on study days', () => {
     const expected = [];
     for (let c = 1; c <= 25; c++) expected.push(`ch. ${c}, first half`, `ch. ${c}, second half`);
     expect(vocabDays.map((d) => d.vocab)).toEqual(expected);
     for (const d of vocabDays) {
       expect(d.sunday).toBe(false);
-      expect(d.date >= '2026-12-04' && d.date <= '2027-03-31').toBe(true);
+      expect(d.date >= '2026-12-07' && d.date <= '2027-04-02').toBe(true);
     }
   });
 
@@ -223,7 +223,7 @@ describe('vocabulary book', () => {
   });
 
   it('adds the week’s vocab chapters to the Sunday re-test', () => {
-    const sunday = plan.days.find((d) => d.date === '2026-12-06');
+    const sunday = plan.days.find((d) => d.date === '2026-12-13');
     expect(sunday.sunday_items.some((t) => t.includes('Vocab. ch. 1'))).toBe(true);
   });
 });
@@ -276,10 +276,10 @@ describe('Vincent course (November)', () => {
 });
 
 describe('sentences in the plan', () => {
-  it('8 a day on study days from 4 Jan to 2 Apr, and the evening task says so', () => {
+  it('8 a day on study days from 4 Jan to 3 Apr, and the evening task says so', () => {
     const withSent = plan.days.filter((d) => d.sent);
     expect(withSent[0].date).toBe('2027-01-04');
-    expect(withSent.at(-1).date).toBe('2027-04-02');
+    expect(withSent.at(-1).date).toBe('2027-04-03');
     expect(withSent.every((d) => d.sent === 8 && !d.sunday)).toBe(true);
     const day = withSent.find((d) => !d.vocab);
     const t = sessionsFor(day)[2].tasks.find((x) => x.id === 'anki-new');
@@ -289,10 +289,10 @@ describe('sentences in the plan', () => {
 });
 
 describe('speaking cards in the plan', () => {
-  it('6 a day on study days from 11 Jan to 2 Apr, named in the evening task', () => {
+  it('6 a day on study days from 11 Jan to 3 Apr, named in the evening task', () => {
     const withSay = plan.days.filter((d) => d.say);
     expect(withSay[0].date).toBe('2027-01-11');
-    expect(withSay.at(-1).date).toBe('2027-04-02');
+    expect(withSay.at(-1).date).toBe('2027-04-03');
     expect(withSay.every((d) => d.say === 6 && d.sent === 8 && !d.sunday)).toBe(true);
     const day = withSay.find((d) => !d.vocab);
     const t = sessionsFor(day)[2].tasks.find((x) => x.id === 'anki-new');

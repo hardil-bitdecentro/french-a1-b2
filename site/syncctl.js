@@ -1,12 +1,12 @@
 // Sync controller: pairing, pull → merge → push with conflict retry, and the word deck.
 // No DOM access, so it can be tested in Node with an in-memory storage and the real Worker.
 import { deriveKeys, client, newSyncKey, validSyncKey, pairLink } from './sync.js';
-import { merge, differs, setting, setSetting } from './store.js';
+import { merge, differs, migrate, setting, setSetting } from './store.js';
 
 export const SYNC_KEY_STORAGE = 'fr-a1-b2:sync-key';
 
 /**
- * opts: { url, storage, getState, setState, getDeck, setDeck, onStatus, fetchImpl, debounceMs }
+ * opts: { url, storage, getState, setState, getDeck, setDeck, onStatus, fetchImpl, debounceMs, prune }
  * setState must NOT schedule another sync (it is called with merged data from the server).
  */
 export function createSync(opts) {
@@ -20,6 +20,7 @@ export function createSync(opts) {
     onStatus = () => {},
     fetchImpl,
     debounceMs = 15000,
+    prune = (s) => s,
   } = opts;
   let key = storage.getItem(SYNC_KEY_STORAGE);
   let api = null;
@@ -39,9 +40,11 @@ export function createSync(opts) {
     for (let attempt = 0; attempt < 4; attempt++) {
       const remote = await api.get('state');
       const local = getState();
-      const merged = merge(local, remote ? remote.value : {});
+      const merged = prune(merge(local, remote ? remote.value : {}));
       if (differs(local, merged)) setState(merged);
-      if (remote && !differs(remote.value, merged)) return; // server already has everything
+      // prune can only be cleared from the server by writing over it, even when nothing else changed
+      const stale = remote && JSON.stringify(prune(migrate(remote.value))) !== JSON.stringify(migrate(remote.value));
+      if (remote && !stale && !differs(remote.value, merged)) return; // server already has everything
       const res = await api.put('state', merged, remote ? remote.v : null);
       if (res.ok) return;
     }

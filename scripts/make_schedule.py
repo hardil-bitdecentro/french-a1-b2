@@ -6,16 +6,18 @@ from datetime import date, timedelta
 OUT_MD = sys.argv[1]
 OUT_CSV = sys.argv[2]
 
-START = date(2026, 11, 4)
-END = date(2027, 5, 4)
+START = date(2026, 11, 6)
+END = date(2027, 5, 6)
+# Progress last changed before this moment (ms) is cleared on every device: see applyReset in site/store.js.
+RESET_AT_MS = 1793910600000  # 5 Nov 2026 21:30 CET, when day 1 moved to 6 Nov
 
 # Book volumes: (code, name, chapters, first day, last day)
 BOOKS = [
-    ("Déb.", "Débutant 3e", 60, date(2026, 11, 4), date(2026, 12, 3)),
-    ("Int.", "Intermédiaire 4e", 52, date(2026, 12, 4), date(2027, 2, 2)),
-    ("Av.", "Avancé 3e", 72, date(2027, 2, 3), date(2027, 4, 2)),
+    ("Déb.", "Débutant 3e", 60, date(2026, 11, 6), date(2026, 12, 5)),
+    ("Int.", "Intermédiaire 4e", 52, date(2026, 12, 6), date(2027, 2, 4)),
+    ("Av.", "Avancé 3e", 72, date(2027, 2, 5), date(2027, 4, 4)),
 ]
-EXAM_MODE_START = date(2027, 4, 3)
+EXAM_MODE_START = date(2027, 4, 5)
 FULL_MOCK_FROM = date(2027, 4, 18)
 
 FR_MONTHS = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
@@ -372,9 +374,9 @@ for code, _name, n, a, b in BOOKS:
         chapters[d] = (code, lo, hi)
 
 # Vocabulary book (Vocabulaire progressif du français, intermédiaire): 25 chapters, each split into
-# two halves, on 50 evenly spaced study days between 4 Dec and 31 Mar. Other evenings use the word deck.
+# two halves, on 50 evenly spaced study days between 7 Dec and 2 Apr. Other evenings use the word deck.
 VOCAB_CHAPTERS = 25
-VOCAB_FROM, VOCAB_TO = date(2026, 12, 4), date(2027, 3, 31)
+VOCAB_FROM, VOCAB_TO = date(2026, 12, 6), date(2027, 4, 2)
 vocab = {}
 _vdays = study_days(VOCAB_FROM, VOCAB_TO)
 _units = VOCAB_CHAPTERS * 2
@@ -419,12 +421,12 @@ SAY_PER_DAY = 6
 
 
 def sent_new(d):
-    """New reading sentences (French → English flashcards) per study day, 4 Jan → 2 Apr."""
+    """New reading sentences (French → English flashcards) per study day, 4 Jan → 3 Apr."""
     return SENTENCES_PER_DAY if SENTENCES_FROM <= d <= BOOKS[2][4] and not is_sunday(d) else 0
 
 
 def say_new(d):
-    """New speaking cards (English → say it in French) per study day, 11 Jan → 2 Apr."""
+    """New speaking cards (English → say it in French) per study day, 11 Jan → 3 Apr."""
     return SAY_PER_DAY if SAY_FROM <= d <= BOOKS[2][4] and not is_sunday(d) else 0
 
 
@@ -508,11 +510,11 @@ def vincent_slots(days):
 
 
 def tv5(d):
-    if d < date(2026, 12, 2):
+    if d < date(2026, 12, 4):
         return "TV5MONDE EDU · A1 · 2 exercises"
-    if d < date(2027, 1, 17):
+    if d < date(2027, 1, 19):
         return "TV5MONDE EDU · A2 · 3 exercises"
-    if d < date(2027, 3, 17):
+    if d < date(2027, 3, 19):
         return "TV5MONDE EDU · B1 · 3 exercises"
     if d < EXAM_MODE_START:
         return "TV5MONDE EDU · B2 · 3 exercises"
@@ -685,7 +687,7 @@ PHASE_NAME = {1: "Débutant (A1)", 2: "Intermédiaire (A2→B1)", 3: "Avancé (B
 L = []
 L.append("# French A1 → B2: day-by-day schedule")
 L.append("")
-L.append("Wed 4 Nov 2026 → Tue 4 May 2027 · 4 h/day · the full plan and the reasoning are in "
+L.append("Fri 6 Nov 2026 → Thu 6 May 2027 · 4 h/day · the full plan and the reasoning are in "
          "`French A1 to B2 in 6 months (TCF Canada).md` next to this file.")
 L.append("")
 L.append("## The same every day (only the items in the tables change)")
@@ -707,7 +709,7 @@ L.append("Minutes shift by phase (more writing/speaking later); see section 6 of
          "Any day can be swapped with the next Sunday; just keep the order.")
 L.append("")
 L.append("**Vocabulary book:** Vocabulaire progressif du français, niveau intermédiaire 3e éd. (25 ch.), "
-         "half a chapter on the evenings listed (4 Dec – 31 Mar); the other evenings use the flashcard word deck.")
+         "half a chapter on the evenings listed (7 Dec – 2 Apr); the other evenings use the flashcard word deck.")
 L.append("")
 L.append("**Book volumes:** Déb. = Niveau débutant 3e éd. (60 ch.) · Int. = Niveau intermédiaire 4e éd. "
          "(planned as 52 ch.; if your copy differs, keep ~1 a day and let the dates slide) · "
@@ -790,7 +792,7 @@ for wi, wk in enumerate(weeks, 1):
 
 L.append("---")
 L.append("")
-L.append("## After 4 May")
+L.append("## After 6 May")
 L.append("")
 L.append("If the last two Sunday full mocks (25 Apr and 2 May) were both NCLC 7+ in all four skills "
          "(listening ≥ 458, reading ≥ 453, writing ≥ 10, speaking ≥ 10; aim for ~480 / 12), sit the exam. "
@@ -822,7 +824,7 @@ if len(sys.argv) > 3:
             o["week"] = wi
             out.append(o)
     with open(sys.argv[3], "w", encoding="utf-8") as f:
-        json.dump({"start": START.isoformat(), "end": END.isoformat(), "days": out},
+        json.dump({"start": START.isoformat(), "end": END.isoformat(), "resetAt": RESET_AT_MS, "days": out},
                   f, ensure_ascii=False, indent=1)
 
 print("days:", len(rows), "study days:", study_n)

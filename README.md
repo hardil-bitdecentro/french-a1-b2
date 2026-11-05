@@ -1,6 +1,6 @@
 # Français A1 → B2 in 6 months
 
-A day-by-day study plan (4 Nov 2026 → 4 May 2027, 4 hours a day) as a small static web app:
+A day-by-day study plan (6 Nov 2026 → 6 May 2027, 4 hours a day) as a small static web app:
 **https://hardil-bitdecentro.github.io/french-a1-b2/**
 
 - **Today**: the day's checklist in three sessions, with minutes, links and copy-ready Claude prompts.

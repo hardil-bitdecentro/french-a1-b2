@@ -120,3 +120,42 @@ export function merge(a, b) {
 export function differs(base, incoming) {
   return JSON.stringify(merge(base, incoming)) !== JSON.stringify(merge(base, {}));
 }
+
+/**
+ * A plan-wide progress reset. Anything last changed before `resetAt` (ms) is cleared, on every device and
+ * whichever copy it comes from: ticks, the grammar checklist and started deck/sentence/speaking cards go;
+ * your own cards stay but restart as new; mistake notes and settings stay. Pure and idempotent.
+ */
+export function applyReset(state, resetAt) {
+  const s = migrate(state);
+  if (!resetAt) return s;
+  const keepPairs = (map) => Object.fromEntries(Object.entries(map).filter(([, v]) => tsOfPair(v) >= resetAt));
+  const done = {};
+  for (const [date, tasks] of Object.entries(s.done)) {
+    const kept = keepPairs(tasks);
+    if (Object.keys(kept).length) done[date] = kept;
+  }
+  const cards = {};
+  for (const [id, c] of Object.entries(s.cards)) {
+    if (tsOfCard(c) >= resetAt) cards[id] = c;
+    else if (c.del && id.startsWith('m')) cards[id] = c;
+    else if (c.kind === 'mine') {
+      cards[id] = {
+        ...c,
+        u: resetAt,
+        s: {
+          due: new Date(resetAt).toISOString(),
+          stability: 0,
+          difficulty: 0,
+          elapsed_days: 0,
+          scheduled_days: 0,
+          reps: 0,
+          lapses: 0,
+          learning_steps: 0,
+          state: 0,
+        },
+      };
+    }
+  }
+  return { ...s, done, grammar: keepPairs(s.grammar), cards };
+}
