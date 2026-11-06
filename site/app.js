@@ -1005,7 +1005,8 @@ app.addEventListener('change', async (e) => {
     const change = slotOn ? { on: e.target.checked } : { time: e.target.value };
     try {
       await reminders.setSlot(slotOn || slotTime, change);
-      flash('#rem-msg', 'Saved.');
+      if (reminders.isOn()) flash('#rem-msg', 'Saved.');
+      else rerender();
     } catch {
       flash('#rem-msg', "Couldn't save that: you may be offline. Try again when you're online.");
     }
@@ -1049,7 +1050,8 @@ window.addEventListener('online', () => {
 window.addEventListener('offline', () => plan && !isEditing() && rerender());
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js').catch(() => {});
+  // updateViaCache: 'none', or the browser reuses its cached copy of sw-push.js for up to 10 minutes after an update.
+  navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).catch(() => {});
 }
 
 document.addEventListener('visibilitychange', () => {
@@ -1096,7 +1098,13 @@ Promise.all([
       startTicking();
     }
     if (sync.enabled) sync.syncNow({ full: !deck });
-    reminders.refresh().catch(() => {});
+    // refresh() turns reminders off if notification permission was taken back, so show that.
+    reminders
+      .refresh()
+      .catch(() => {})
+      .finally(() => {
+        if (location.hash === '#/more' && !reminders.isOn() && !isEditing()) rerender();
+      });
     updateQuiet();
   })
   .catch(() => {

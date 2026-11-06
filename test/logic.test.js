@@ -627,6 +627,13 @@ describe('the tutor page', () => {
   });
 });
 
+describe('app updates', () => {
+  it('never reuses a cached copy of the service worker files', () => {
+    const app = readFileSync(new URL('../site/app.js', import.meta.url), 'utf8');
+    expect(app).toMatch(/register\('sw\.js', \{ updateViaCache: 'none' \}\)/);
+  });
+});
+
 describe('offline photo reader', () => {
   it('saves every engine file the photo page uses', async () => {
     const sw = readFileSync(new URL('../site/sw.js', import.meta.url), 'utf8');
