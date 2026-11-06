@@ -626,7 +626,9 @@ describe('scheduled', () => {
       const [h, m] = time.split(':').map(Number);
       // Paris is UTC+1 on this date
       await worker.scheduled({ scheduledTime: Date.UTC(2026, 10, 5, h - 1, m) }, env);
-      expect(sent()).toEqual([{ title, body: text, tag: `${id}-2026-11-05`, url: './#/today' }]);
+      expect(sent()).toEqual([
+        { title, body: text, tag: `${id}-2026-11-05`, once: `${id}-2026-11-05`, url: './#/today' },
+      ]);
       expect(stored().lastSent).toEqual({ [id]: '2026-11-05' });
     });
 
@@ -665,13 +667,13 @@ describe('scheduled', () => {
     });
   });
 
-  describe('the 5-minute catch-up window', () => {
+  describe('the 2-minute catch-up window', () => {
     it.each([
       ['one minute early', '2026-11-05T06:59:00Z', 0],
       ['on time', '2026-11-05T07:00:00Z', 1],
       ['one minute late', '2026-11-05T07:01:00Z', 1],
-      ['five minutes late', '2026-11-05T07:05:00Z', 1],
-      ['six minutes late', '2026-11-05T07:06:00Z', 0],
+      ['two minutes late', '2026-11-05T07:02:00Z', 1],
+      ['three minutes late', '2026-11-05T07:03:00Z', 0],
     ])('%s', async (_name, iso, count) => {
       const { env, calls } = setup({ slots: only('morning', '08:00') });
       await run(env, iso);
@@ -680,7 +682,7 @@ describe('scheduled', () => {
 
     it('sends once when the run on the minute was skipped, and not again', async () => {
       const { env, calls } = setup({ slots: only('morning', '08:00') });
-      for (const iso of ['2026-11-05T07:03:00Z', '2026-11-05T07:04:00Z', '2026-11-05T07:05:00Z']) await run(env, iso);
+      for (const iso of ['2026-11-05T07:01:00Z', '2026-11-05T07:02:00Z', '2026-11-05T07:03:00Z']) await run(env, iso);
       expect(calls).toHaveLength(1);
     });
 
@@ -805,7 +807,15 @@ describe('scheduled', () => {
     it('fires once at its time, then is cleared', async () => {
       const { env, calls, sent, stored } = setup({ slots, timer: { at: due, title: 'Cards' } });
       await worker.scheduled({ scheduledTime: due }, env);
-      expect(sent()).toEqual([{ title: "Time's up", body: 'Cards', tag: 'timer', url: './#/today' }]);
+      expect(sent()).toEqual([
+        {
+          title: "Time's up",
+          body: 'Cards',
+          tag: 'timer',
+          once: expect.stringMatching(/^timer-\d+$/),
+          url: './#/today',
+        },
+      ]);
       expect(stored().timer).toBeNull();
       await worker.scheduled({ scheduledTime: due + 60000 }, env);
       expect(calls).toHaveLength(1);
@@ -1471,7 +1481,16 @@ describe('sw-push.js', () => {
       },
       clients,
     };
-    vm.runInNewContext(source, { self, URL });
+    const saved = new Map();
+    const caches = {
+      open: async () => ({
+        match: async (k) => saved.get(k),
+        put: async (k, v) => void saved.set(k, v),
+        keys: async () => [...saved.keys()],
+        delete: async (k) => saved.delete(k),
+      }),
+    };
+    vm.runInNewContext(source, { self, URL, caches, Response, encodeURIComponent, Promise });
     const fire = async (type, event) => {
       const waits = [];
       listeners[type]({ ...event, waitUntil: (p) => waits.push(p) });
@@ -1502,6 +1521,24 @@ describe('sw-push.js', () => {
         data: { url: './#/today' },
       },
     ]);
+  });
+
+  it('shows a reminder once, even if the server sends it again after it was dismissed', async () => {
+    const { fire, shown } = loadWorker();
+    const event = (once) => pushEvent(() => ({ title: 'Morning session', tag: 'morning-2026-11-05', once }));
+    await fire('push', event('morning-2026-11-05'));
+    await fire('push', event('morning-2026-11-05'));
+    expect(shown).toHaveLength(1);
+    await fire('push', event('morning-2026-11-06'));
+    expect(shown).toHaveLength(2);
+  });
+
+  it('always shows a push with no once, such as the test reminder', async () => {
+    const { fire, shown } = loadWorker();
+    const event = pushEvent(() => ({ title: 'Test reminder', tag: 'test' }));
+    await fire('push', event);
+    await fire('push', event);
+    expect(shown).toHaveLength(2);
   });
 
   it.each([

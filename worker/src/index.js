@@ -28,7 +28,9 @@ const PUSH_INDEX = 'push:index';
 const MAX_PUSH_BODY = 8 * 1024; // chars
 const MAX_DEVICES_PER_ID = 5;
 const MAX_DEVICES = 20;
-const CATCH_UP_MINUTES = 5; // a slot still fires this long after its time, in case a cron run was skipped
+// A slot still fires this long after its time, in case a cron run was skipped. Kept short because a KV read can be
+// a minute old, so a run may not yet see that the slot was sent. The service worker hides any repeat (see `once`).
+const CATCH_UP_MINUTES = 2;
 const MAX_SENDS_PER_RUN = 8; // a send takes about 1 ms of CPU and the free plan allows 10 ms a run; the rest go next minute
 const TIMER_RETRY_MS = 60 * 60 * 1000; // a timer whose send keeps failing is dropped after this long
 const HOME_URL = './#/today';
@@ -275,11 +277,25 @@ function dueJobs(key, record, now) {
     const late = minutes - toMinutes(time);
     if (late < 0 || late > CATCH_UP_MINUTES) continue;
     const [title, body] = SLOT_TEXT[id];
-    jobs.push({ key, slot: id, date, payload: { title, body, tag: `${id}-${date}`, url: HOME_URL } });
+    jobs.push({
+      key,
+      slot: id,
+      date,
+      payload: { title, body, tag: `${id}-${date}`, once: `${id}-${date}`, url: HOME_URL },
+    });
   }
   if (record.timer && record.timer.at <= now) {
     const { title, url } = record.timer;
-    jobs.push({ key, payload: { title: "Time's up", body: title, tag: 'timer', url: url || HOME_URL } });
+    jobs.push({
+      key,
+      payload: {
+        title: "Time's up",
+        body: title,
+        tag: 'timer',
+        once: `timer-${record.timer.at}`,
+        url: url || HOME_URL,
+      },
+    });
   }
   return jobs;
 }

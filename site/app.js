@@ -449,6 +449,7 @@ function paintTimer() {
     saveTimer();
     stopTicking();
     releaseScreen();
+    reminders.clearTimer().catch(() => {});
     if (onPage && !isEditing()) rerender();
     else paintTimer();
   }

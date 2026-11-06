@@ -16,6 +16,29 @@
 
   const text = (value, fallback) => (typeof value === 'string' && value ? value : fallback);
 
+  /**
+   * The server can send a reminder twice, because what it reads can be a minute old. A dismissed reminder must not
+   * come back, so each one is shown once. If this can't be checked, showing it again is better than losing it.
+   */
+  async function firstTime(once) {
+    if (typeof once !== 'string' || !once) return true;
+    try {
+      const cache = await caches.open('push-shown');
+      const key = `shown/${encodeURIComponent(once)}`;
+      if (await cache.match(key)) return false;
+      await cache.put(key, new Response(''));
+      const all = await cache.keys();
+      await Promise.all(all.slice(0, -30).map((old) => cache.delete(old)));
+    } catch {
+      // no cache available
+    }
+    return true;
+  }
+
+  async function show(title, options, once) {
+    if (await firstTime(once)) await self.registration.showNotification(title, options);
+  }
+
   self.addEventListener('push', (event) => {
     const data = readPayload(event);
     const options = {
@@ -24,7 +47,7 @@
       data: { url: text(data.url, HOME) },
     };
     if (typeof data.tag === 'string' && data.tag) options.tag = data.tag;
-    event.waitUntil(self.registration.showNotification(text(data.title, FALLBACK_TITLE), options));
+    event.waitUntil(show(text(data.title, FALLBACK_TITLE), options, data.once));
   });
 
   async function openApp(url) {
