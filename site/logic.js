@@ -590,7 +590,7 @@ export function sessionsFor(day) {
     afternoon.push({
       id: 'vincent-later',
       title: `Vincent (${minutes} min)`,
-      detail: 'His next lessons, explained in English, in order of difficulty. Repeat the examples aloud.',
+      detail: 'His lessons for this stage of the book, explained in English. Repeat the examples aloud.',
       minutes,
       links: vincentLinks(day.vincent_later),
     });

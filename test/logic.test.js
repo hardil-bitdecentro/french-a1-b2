@@ -218,6 +218,50 @@ describe('Intermédiaire, mapped to the book', () => {
   });
 });
 
+describe('Intermédiaire: videos, activities and prompts follow the book', () => {
+  const byPages = (p) => plan.days.find((d) => d.phase === 2 && d.book_pages === p);
+  const topics = (d) => (d.vincent_later || []).map((l) => l.topic).join(' | ');
+
+  it('puts each grammar lesson on the day its chapter is in the book', () => {
+    expect(topics(byPages('p. 132–137'))).toContain('Conditional');
+    expect(topics(byPages('p. 140–143'))).toContain('dont, où');
+    expect(topics(byPages('p. 214–219'))).toContain('Plus-que-parfait');
+    expect(topics(byPages('p. 232–237'))).toContain('si clauses');
+    expect(topics(byPages('p. 128–131'))).toContain('Two pronouns');
+  });
+
+  it('starts the verbs-and-prepositions lessons at their chapter, one a day', () => {
+    const days = plan.days.filter((d) => topics(d).includes('Verbs and prepositions')).map((d) => d.date);
+    expect(days[0]).toBe(byPages('p. 160–165').date);
+    expect(new Set(days).size).toBe(days.length);
+  });
+
+  it('places each communication activity once, on a Sunday after its grammar', () => {
+    const on = (needle) =>
+      plan.days.filter((d) => d.sunday_items?.some((i) => i.includes(`Activité communicative (25 min): ${needle}`)));
+    const expected = {
+      'p. 266': 'p. 144–147',
+      'p. 264': 'p. 210–213',
+      'p. 265': 'p. 214–219',
+      'p. 272': 'p. 198–203',
+      'p. 267': 'p. 232–237',
+      'p. 268–269': 'p. 246–249',
+      'p. 270': 'p. 250–253',
+      'p. 271': 'p. 254–255',
+    };
+    for (const [pages, grammar] of Object.entries(expected)) {
+      expect(on(pages)).toHaveLength(1);
+      expect(on(pages)[0].date > byPages(grammar).date).toBe(true);
+    }
+  });
+
+  it('asks for the conditional and the imparfait only after their chapters', () => {
+    const writeDay = (needle) => plan.days.find((d) => d.write?.includes(needle)).date;
+    expect(writeDay('gagnais au loto') > byPages('p. 232–237').date).toBe(true);
+    expect(writeDay("souvenir d'enfance") > byPages('p. 210–213').date).toBe(true);
+  });
+});
+
 describe('plan review changes', () => {
   const dated = (iso) => plan.days.find((d) => d.date === iso);
   const ids = (d) => (d.extras || []).map((x) => x.id);

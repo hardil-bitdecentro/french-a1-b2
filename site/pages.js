@@ -84,6 +84,7 @@ export function viewMaterials() {
         <li><p class="vol-when">Vocabulary answer key · €13.50 · 32 pages</p><p class="task-title">Corrigés vocabulaire progressif, niveau intermédiaire, 3e éd.</p><p class="sub"><b>Only at Forum des Halles</b>, limited, so buy or reserve it early even though you only need the book from 10 Dec. <a href="https://www.fnac.com/a11187087/Claire-Miquel-Corriges-vocabulaire-progressif-niveau-intermediaire-3e-edition" target="_blank" rel="noopener">Fnac page ↗</a></p></li>
       </ul>
       <p class="sub">Intermédiaire and Avancé grammar volumes: buy them this week, before you leave France; use the Amazon.fr / Fnac links in the book list above.</p>
+      <p class="sub">Intermédiaire audio, for the Sunday communication activities: <a href="https://progressive.cle-international.com/9782090381030" target="_blank" rel="noopener">progressive.cle-international.com ↗</a></p>
     </section>
 
     <section class="card">

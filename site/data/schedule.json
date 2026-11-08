@@ -2308,16 +2308,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 2,
-     "id": "QzY_nYZ0RSQ",
-     "from": 2422,
-     "to": 2596,
-     "topic": "venir, second take",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": "ch. 1, first half",
    "sunday": false,
    "extras": [],
@@ -2369,16 +2360,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 3,
-     "id": "12YUmS3rNr8",
-     "from": 2399,
-     "to": 3424,
-     "topic": "Conditional",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": "ch. 1, second half",
    "sunday": false,
    "extras": [],
@@ -2456,11 +2438,11 @@
    "book_audio": null,
    "vincent_later": [
     {
-     "video": 3,
-     "id": "12YUmS3rNr8",
-     "from": 3636,
-     "to": 3780,
-     "topic": "Conditional: être",
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 4149,
+     "to": 5260,
+     "topic": "Plurals of compound nouns",
      "first": true
     }
    ],
@@ -2489,16 +2471,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 3,
-     "id": "12YUmS3rNr8",
-     "from": 3780,
-     "to": 3955,
-     "topic": "Conditional: avoir",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "extras": [],
@@ -2525,11 +2498,11 @@
    "book_audio": null,
    "vincent_later": [
     {
-     "video": 3,
-     "id": "12YUmS3rNr8",
-     "from": 3955,
-     "to": 4119,
-     "topic": "Conditional: aller",
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 1269,
+     "to": 1546,
+     "topic": "Opposites",
      "first": true
     }
    ],
@@ -2557,16 +2530,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 3,
-     "id": "12YUmS3rNr8",
-     "from": 4119,
-     "to": 4558,
-     "topic": "lequel, laquelle",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "extras": [],
@@ -2640,16 +2604,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 3,
-     "id": "12YUmS3rNr8",
-     "from": 12126,
-     "to": 13042,
-     "topic": "Plus-que-parfait",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "extras": [],
@@ -2749,16 +2704,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 3,
-     "id": "12YUmS3rNr8",
-     "from": 13690,
-     "to": 14648,
-     "topic": "Relative pronouns: agreement, dont, où",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "extras": [],
@@ -2783,7 +2729,24 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 747,
+     "to": 1269,
+     "topic": "Adverb phrases",
+     "first": true
+    },
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 2070,
+     "to": 2686,
+     "topic": "Adverb phrases",
+     "first": true
+    }
+   ],
    "vocab": "ch. 4, second half",
    "sunday": false,
    "extras": [],
@@ -2858,16 +2821,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 3,
-     "id": "12YUmS3rNr8",
-     "from": 14648,
-     "to": 15131,
-     "topic": "Two pronouns: en",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": "ch. 5, first half",
    "sunday": false,
    "extras": [],
@@ -2892,16 +2846,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 3,
-     "id": "12YUmS3rNr8",
-     "from": 15131,
-     "to": 15586,
-     "topic": "Two pronouns: le, la, les",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "extras": [],
@@ -2926,7 +2871,16 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 1546,
+     "to": 1760,
+     "topic": "Opposites",
+     "first": true
+    }
+   ],
    "vocab": "ch. 5, second half",
    "sunday": false,
    "extras": [],
@@ -2951,16 +2905,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 3,
-     "id": "12YUmS3rNr8",
-     "from": 15586,
-     "to": 15976,
-     "topic": "Present continuous",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "extras": [],
@@ -2985,7 +2930,16 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": null,
+   "vincent_later": [
+    {
+     "video": 2,
+     "id": "QzY_nYZ0RSQ",
+     "from": 2422,
+     "to": 2596,
+     "topic": "venir, second take",
+     "first": true
+    }
+   ],
    "vocab": "ch. 6, first half",
    "sunday": false,
    "extras": [
@@ -3041,16 +2995,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 4,
-     "id": "ppYImLa36ug",
-     "from": 5449,
-     "to": 5935,
-     "topic": "si clauses",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "extras": [
@@ -3083,16 +3028,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 5,
-     "id": "b1sXCZDuxSY",
-     "from": 747,
-     "to": 1080,
-     "topic": "Adverb phrases",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": "ch. 6, second half",
    "sunday": false,
    "extras": [
@@ -3125,16 +3061,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 5,
-     "id": "b1sXCZDuxSY",
-     "from": 1080,
-     "to": 1269,
-     "topic": "Adverb phrases",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "extras": [
@@ -3149,7 +3076,7 @@
    "book": "Int. 28",
    "book_pages": "p. 124–127",
    "book_focus": "direct and indirect object pronouns",
-   "write": "Tâche 2 (120–150 mots) : Un souvenir d'enfance (imparfait + passé composé).",
+   "write": "Tâche 2 (120–150 mots) : Une fois où tu as parlé français et tu étais fier/fière.",
    "speak": "Tâche 1 : Ton logement actuel et ce que tu aimerais changer",
    "retest": "yesterday: Int. 26–27 · day −7: Int. 22",
    "week": 9
@@ -3169,11 +3096,11 @@
    "book_audio": null,
    "vincent_later": [
     {
-     "video": 5,
-     "id": "b1sXCZDuxSY",
-     "from": 1269,
-     "to": 1546,
-     "topic": "Opposites",
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 14648,
+     "to": 15586,
+     "topic": "Two pronouns: en, Two pronouns: le, la, les",
      "first": true
     }
    ],
@@ -3211,11 +3138,19 @@
    "book_audio": null,
    "vincent_later": [
     {
-     "video": 5,
-     "id": "b1sXCZDuxSY",
-     "from": 1546,
-     "to": 1760,
-     "topic": "Opposites",
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 2399,
+     "to": 3424,
+     "topic": "Conditional",
+     "first": true
+    },
+    {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 3636,
+     "to": 4119,
+     "topic": "Conditional: être, Conditional: avoir, Conditional: aller",
      "first": true
     }
    ],
@@ -3253,11 +3188,19 @@
    "book_audio": null,
    "vincent_later": [
     {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 13690,
+     "to": 14648,
+     "topic": "Relative pronouns: agreement, dont, où",
+     "first": true
+    },
+    {
      "video": 5,
      "id": "b1sXCZDuxSY",
-     "from": 2070,
-     "to": 2356,
-     "topic": "Adverb phrases",
+     "from": 5838,
+     "to": 5959,
+     "topic": "Medical words",
      "first": true
     }
    ],
@@ -3325,11 +3268,11 @@
    "book_audio": null,
    "vincent_later": [
     {
-     "video": 5,
-     "id": "b1sXCZDuxSY",
-     "from": 2356,
-     "to": 2686,
-     "topic": "Adverb phrases",
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 4119,
+     "to": 4558,
+     "topic": "lequel, laquelle",
      "first": true
     }
    ],
@@ -3369,9 +3312,9 @@
     {
      "video": 5,
      "id": "b1sXCZDuxSY",
-     "from": 4149,
-     "to": 4459,
-     "topic": "Plurals of compound nouns",
+     "from": 11742,
+     "to": 12326,
+     "topic": "Exclamations: adjectives, Exclamations: adverbs, Interjections",
      "first": true
     }
    ],
@@ -3407,16 +3350,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 5,
-     "id": "b1sXCZDuxSY",
-     "from": 4459,
-     "to": 4733,
-     "topic": "Plurals of compound nouns",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "extras": [
@@ -3449,16 +3383,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 5,
-     "id": "b1sXCZDuxSY",
-     "from": 4733,
-     "to": 5017,
-     "topic": "Plurals of compound nouns",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": "ch. 8, second half",
    "sunday": false,
    "extras": [
@@ -3495,9 +3420,9 @@
     {
      "video": 5,
      "id": "b1sXCZDuxSY",
-     "from": 5017,
-     "to": 5260,
-     "topic": "Plurals of compound nouns",
+     "from": 6414,
+     "to": 6851,
+     "topic": "Verbs and prepositions",
      "first": true
     }
    ],
@@ -3537,9 +3462,9 @@
     {
      "video": 5,
      "id": "b1sXCZDuxSY",
-     "from": 5838,
-     "to": 5959,
-     "topic": "Medical words",
+     "from": 7125,
+     "to": 7732,
+     "topic": "Verbs and prepositions",
      "first": true
     }
    ],
@@ -3588,7 +3513,8 @@
     "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Int. 32–39 and Vocab. ch. 8–9, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays"
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
+    "Activité communicative (25 min): p. 266, relative pronouns. Listen to the recording if you have it, answer the questions, then do the free writing or speaking at the end"
    ],
    "week": 10
   },
@@ -3609,9 +3535,9 @@
     {
      "video": 5,
      "id": "b1sXCZDuxSY",
-     "from": 5959,
-     "to": 6265,
-     "topic": "Medical words",
+     "from": 7732,
+     "to": 8293,
+     "topic": "Verbs and prepositions",
      "first": true
     }
    ],
@@ -3651,9 +3577,9 @@
     {
      "video": 5,
      "id": "b1sXCZDuxSY",
-     "from": 6265,
-     "to": 6414,
-     "topic": "Medical words",
+     "from": 8293,
+     "to": 8926,
+     "topic": "Verbs and prepositions",
      "first": true
     }
    ],
@@ -3693,8 +3619,8 @@
     {
      "video": 5,
      "id": "b1sXCZDuxSY",
-     "from": 6414,
-     "to": 6851,
+     "from": 12326,
+     "to": 12718,
      "topic": "Verbs and prepositions",
      "first": true
     }
@@ -3731,7 +3657,16 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 12718,
+     "to": 13304,
+     "topic": "Verbs and prepositions",
+     "first": true
+    }
+   ],
    "vocab": "ch. 10, first half",
    "sunday": false,
    "extras": [
@@ -3768,9 +3703,17 @@
     {
      "video": 5,
      "id": "b1sXCZDuxSY",
-     "from": 7125,
-     "to": 7732,
+     "from": 13304,
+     "to": 13666,
      "topic": "Verbs and prepositions",
+     "first": true
+    },
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 5959,
+     "to": 6265,
+     "topic": "Medical words",
      "first": true
     }
    ],
@@ -3806,7 +3749,16 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 13666,
+     "to": 14074,
+     "topic": "Verbs and prepositions",
+     "first": true
+    }
+   ],
    "vocab": "ch. 10, second half",
    "sunday": false,
    "extras": [
@@ -3869,16 +3821,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 5,
-     "id": "b1sXCZDuxSY",
-     "from": 7732,
-     "to": 8293,
-     "topic": "Verbs and prepositions",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "extras": [
@@ -3893,7 +3836,7 @@
    "book": "Int. 40",
    "book_pages": "p. 194–197",
    "book_focus": "negation and questions in the passé composé",
-   "write": "Tâche 2 (120–150 mots) : Ce que tu ferais si tu gagnais au loto (conditionnel).",
+   "write": "Tâche 2 (120–150 mots) : Ta meilleure journée de 2026.",
    "speak": "Tâche 1 : Une fête de ton pays",
    "retest": "yesterday: Int. 40 · day −7: Int. 39",
    "week": 12
@@ -3944,16 +3887,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 5,
-     "id": "b1sXCZDuxSY",
-     "from": 8293,
-     "to": 8926,
-     "topic": "Verbs and prepositions",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "extras": [
@@ -4021,11 +3955,11 @@
    "book_audio": null,
    "vincent_later": [
     {
-     "video": 5,
-     "id": "b1sXCZDuxSY",
-     "from": 11742,
-     "to": 12000,
-     "topic": "Exclamations: adjectives",
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 12126,
+     "to": 13042,
+     "topic": "Plus-que-parfait",
      "first": true
     }
    ],
@@ -4043,7 +3977,7 @@
    "book": "Int. 44–45",
    "book_pages": "p. 214–219",
    "book_focus": "plus-que-parfait; indirect speech in the past",
-   "write": "Tâche 2 (120–150 mots) : Une fois où tu as parlé français et tu étais fier/fière.",
+   "write": "Tâche 2 (120–150 mots) : Un souvenir d'enfance (imparfait + passé composé).",
    "speak": "Tâche 1 : Parle de ton quartier",
    "retest": "yesterday: Int. 43 · day −7: Int. 40",
    "week": 12
@@ -4063,11 +3997,11 @@
    "book_audio": null,
    "vincent_later": [
     {
-     "video": 5,
-     "id": "b1sXCZDuxSY",
-     "from": 12000,
-     "to": 12173,
-     "topic": "Exclamations: adverbs",
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 15586,
+     "to": 15976,
+     "topic": "Present continuous",
      "first": true
     }
    ],
@@ -4117,7 +4051,9 @@
     "Week re-test (60 min): Bilans 5 and 6 (p. 220–221), no notes, then check the Corrigés. With time left, 1 exercise from each of Int. 40–47 and Vocab. ch. 11–12",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
-    "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Int. 19–47"
+    "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Int. 19–47",
+    "Activité communicative (25 min): p. 264, past tenses and the passive. Listen to the recording if you have it, answer the questions, then do the free writing or speaking at the end",
+    "Activité communicative (25 min): p. 265, past tenses with the plus-que-parfait. Listen to the recording if you have it, answer the questions, then do the free writing or speaking at the end"
    ],
    "week": 12
   },
@@ -4134,16 +4070,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 5,
-     "id": "b1sXCZDuxSY",
-     "from": 12173,
-     "to": 12326,
-     "topic": "Interjections",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "extras": [
@@ -4178,11 +4105,11 @@
    "book_audio": null,
    "vincent_later": [
     {
-     "video": 5,
-     "id": "b1sXCZDuxSY",
-     "from": 12326,
-     "to": 12718,
-     "topic": "Verbs and prepositions",
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 5449,
+     "to": 5935,
+     "topic": "si clauses",
      "first": true
     }
    ],
@@ -4218,16 +4145,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 5,
-     "id": "b1sXCZDuxSY",
-     "from": 12718,
-     "to": 13304,
-     "topic": "Verbs and prepositions",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "extras": [
@@ -4260,7 +4178,16 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": null,
+   "vincent_later": [
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 6265,
+     "to": 6414,
+     "topic": "Medical words",
+     "first": true
+    }
+   ],
    "vocab": "ch. 13, first half",
    "sunday": false,
    "extras": [
@@ -4293,16 +4220,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 5,
-     "id": "b1sXCZDuxSY",
-     "from": 13304,
-     "to": 13666,
-     "topic": "Verbs and prepositions",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "extras": [
@@ -4317,7 +4235,7 @@
    "book": "Int. 51",
    "book_pages": "p. 246–249",
    "book_focus": "impersonal phrases; subjunctive or indicative; past subjunctive; conjunctions",
-   "write": "Tâche 2 (120–150 mots) : Ta meilleure journée de 2026.",
+   "write": "Tâche 2 (120–150 mots) : Ce que tu ferais si tu gagnais au loto (conditionnel).",
    "speak": "Tâche 1 : La musique que tu écoutes",
    "retest": "yesterday: Int. 51 · day −7: Int. 44–45",
    "week": 13
@@ -4383,6 +4301,8 @@
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
     "Mock section from your mock bank (45–60 min): listening (35 min)",
+    "Activité communicative (25 min): p. 272, time expressions. Listen to the recording if you have it, answer the questions, then do the free writing or speaking at the end",
+    "Activité communicative (25 min): p. 267, the conditional. Listen to the recording if you have it, answer the questions, then do the free writing or speaking at the end",
     "Book your exam seats (20 min): a real TCF Canada sitting in mid-March as a checkpoint, and your main sitting in May. Sessions can fill up, and a retake needs a gap of 20–30 days"
    ],
    "week": 13
@@ -4400,16 +4320,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 5,
-     "id": "b1sXCZDuxSY",
-     "from": 13666,
-     "to": 14074,
-     "topic": "Verbs and prepositions",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "extras": [
@@ -4630,7 +4541,8 @@
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
     "Mock section from your mock bank (45–60 min): reading (60 min)",
-    "Intermédiaire final test (p. 273–276, 30 min): no notes, then check the Corrigés"
+    "Intermédiaire final test (p. 273–276, 30 min): no notes, then check the Corrigés",
+    "Activité communicative (25 min): p. 268–269, the subjunctive. Listen to the recording if you have it, answer the questions, then do the free writing or speaking at the end"
    ],
    "week": 14
   },
@@ -4874,7 +4786,9 @@
     "Week re-test (60 min): 1 exercise from each of Av. 8–15 and Vocab. ch. 15–16, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
-    "Mock section from your mock bank (45–60 min): writing (60 min)"
+    "Mock section from your mock bank (45–60 min): writing (60 min)",
+    "Activité communicative (25 min): p. 270, cause, consequence, purpose. Listen to the recording if you have it, answer the questions, then do the free writing or speaking at the end",
+    "Activité communicative (25 min): p. 271, opposition and concession. Listen to the recording if you have it, answer the questions, then do the free writing or speaking at the end"
    ],
    "week": 15
   },

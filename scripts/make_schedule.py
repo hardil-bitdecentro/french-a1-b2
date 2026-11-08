@@ -176,7 +176,7 @@ W2_T2 = [
     "Témoignage : apprendre une langue à l'âge adulte.",
     "Une journée sans téléphone.",
     "Un lieu en France que tu as visité : décris-le et conseille-le.",
-    "Un souvenir d'enfance (imparfait + passé composé).",
+    "Une fois où tu as parlé français et tu étais fier/fière.",
     "Une rencontre importante dans ta vie.",
     "Tes habitudes alimentaires et comment elles ont changé en France.",
     "Une erreur qui t'a appris quelque chose.",
@@ -184,12 +184,12 @@ W2_T2 = [
     "Explique le métier de développeur à quelqu'un qui ne le connaît pas.",
     "Tes fêtes de fin d'année cette année.",
     "Le sport dans ta vie.",
-    "Ce que tu ferais si tu gagnais au loto (conditionnel).",
+    "Ta meilleure journée de 2026.",
     "Ton week-end idéal dans ta ville.",
-    "Une fois où tu as parlé français et tu étais fier/fière.",
+    "Un souvenir d'enfance (imparfait + passé composé).",
     "Comment tu as appris à cuisiner un plat.",
     "Avantages et inconvénients de vivre en ville.",
-    "Ta meilleure journée de 2026.",
+    "Ce que tu ferais si tu gagnais au loto (conditionnel).",
     "Un objet important pour toi et son histoire.",
     "Une fois où tu t'es perdu(e).",
 ]
@@ -642,7 +642,40 @@ INT_DAYS = [
 # (first bilan, second bilan, last chapter covered, first page, second page)
 INT_BILANS = [(1, 2, 15, 72, 73), (3, 4, 31, 138, 139), (5, 6, 45, 220, 221), (7, 8, 52, 256, 257)]
 INT_FINAL_TEST = "p. 273–276"
+# Vincent's lessons that match a chapter of this book: lesson -> first page of the study day it belongs to.
+INT_VINCENT = {
+    "Plurals of compound nouns": 26,
+    "Adverb phrases": 80,
+    "venir, second take": 112,
+    "Two pronouns: en": 128,
+    "Two pronouns: le, la, les": 128,
+    "Conditional": 132,
+    "Conditional: être": 132,
+    "Conditional: avoir": 132,
+    "Conditional: aller": 132,
+    "Relative pronouns: agreement, dont, où": 140,
+    "lequel, laquelle": 144,
+    "Exclamations: adjectives": 148,
+    "Exclamations: adverbs": 148,
+    "Interjections": 148,
+    "Plus-que-parfait": 214,
+    "Present continuous": 222,
+    "si clauses": 232,
+}
+INT_VERBS_PREP = ("Verbs and prepositions", 160)  # eight long lessons, one a day from this page's study day
+# The book's communication activities, on the Sunday after their grammar: Sunday, pages, topic, last page needed.
+INT_ACTIVITIES = [
+    (date(2027, 1, 17), "p. 266", "relative pronouns", 147),
+    (date(2027, 1, 31), "p. 264", "past tenses and the passive", 213),
+    (date(2027, 1, 31), "p. 265", "past tenses with the plus-que-parfait", 219),
+    (date(2027, 2, 7), "p. 272", "time expressions", 203),
+    (date(2027, 2, 7), "p. 267", "the conditional", 237),
+    (date(2027, 2, 14), "p. 268–269", "the subjunctive", 249),
+    (date(2027, 2, 21), "p. 270", "cause, consequence, purpose", 253),
+    (date(2027, 2, 21), "p. 271", "opposition and concession", 255),
+]
 _int_gaps = {b[3]: b[4] for b in INT_BILANS}
+assert len(INT_ACTIVITIES) == 8
 for _a, _b in zip(INT_DAYS, INT_DAYS[1:]):
     _next = _a[3] + 1
     assert _b[2] == (_int_gaps[_next] + 1 if _next in _int_gaps else _next), _a
@@ -959,7 +992,7 @@ def vincent_days(days, by_chapter):
     return out
 
 
-def vincent_later(days, parts):
+def spread_parts(days, parts):
     """Spread parts evenly over `days` in order, never splitting one: a part goes where its midpoint falls."""
     total = sum(g["to"] - g["from"] for g in parts)
     per_day, done = {}, 0
@@ -967,6 +1000,29 @@ def vincent_later(days, parts):
         length = g["to"] - g["from"]
         per_day.setdefault(days[int((done + length / 2) / total * len(days))], []).append(g)
         done += length
+    return per_day
+
+
+def vincent_later(days, parts):
+    return {d: links_for(segs) for d, segs in spread_parts(days, parts).items()}
+
+
+def vincent_intermediate(days, parts):
+    """Put each lesson on the day its grammar is in the book. Lessons with no matching chapter are spread out."""
+    page_day = {e[2]: d for d, e in int_day.items()}
+    name, page = INT_VERBS_PREP
+    verb_days = iter([d for d in days if d >= page_day[page]])
+    per_day, rest = {}, []
+    for g in parts:
+        topic = g["topics"][0]
+        if topic == name:
+            per_day.setdefault(next(verb_days), []).append(g)
+        elif topic in INT_VINCENT:
+            per_day.setdefault(page_day[INT_VINCENT[topic]], []).append(g)
+        else:
+            rest.append(g)
+    for d, segs in spread_parts(days, rest).items():
+        per_day.setdefault(d, []).extend(segs)
     return {d: links_for(segs) for d, segs in per_day.items()}
 
 
@@ -1034,7 +1090,7 @@ _vparts = vincent_parts()
 assert set(k for k in _vparts if not isinstance(k, int)) == {"sun", "p2", "p3"}
 vincent = vincent_days(study_days(BOOKS[0][3], BOOKS[0][4]), _vparts)
 annex_links = links_for(_vparts["sun"])
-later = {**vincent_later(study_days(BOOKS[1][3], BOOKS[1][4]), _vparts["p2"]),
+later = {**vincent_intermediate(study_days(BOOKS[1][3], BOOKS[1][4]), _vparts["p2"]),
          **vincent_later(study_days(BOOKS[2][3], BOOKS[2][4]), _vparts["p3"])}
 rows = []
 study_n = 0
@@ -1221,6 +1277,10 @@ for row in rows:
         month_start_marker = d
     if labs and any(b[2] == 52 for b in int_bilans_due(d)):
         items.append(f"Intermédiaire final test ({INT_FINAL_TEST}, 30 min): no notes, then check the Corrigés")
+    for sunday, pages, topic, _last in INT_ACTIVITIES:
+        if d == sunday:
+            items.append(f"Activité communicative (25 min): {pages}, {topic}. Listen to the recording if you have it, "
+                         "answer the questions, then do the free writing or speaking at the end")
     if d == BASELINE_SUNDAY:
         items.append("Baseline test (45 min): official TCF Canada samples, timed, no help. Write your score down. "
                      "A low score is normal now; it only gives you something to measure against")
