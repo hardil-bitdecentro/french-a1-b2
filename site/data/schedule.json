@@ -76,6 +76,7 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Déb. 1–2",
    "book_pages": "p. 8–13",
    "book_topics": [
@@ -145,6 +146,7 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Déb. 3–4",
    "book_pages": "p. 14–17",
    "book_topics": [
@@ -213,6 +215,7 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Déb. 5–6",
    "book_pages": "p. 18–21",
    "book_topics": [
@@ -281,6 +284,7 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Déb. 7–9",
    "book_pages": "p. 22–27",
    "book_topics": [
@@ -356,6 +360,7 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Déb. 10–11",
    "book_pages": "p. 30–35",
    "book_topics": [
@@ -418,6 +423,7 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Déb. 12–13",
    "book_pages": "p. 36–39",
    "book_topics": [
@@ -465,7 +471,8 @@
     "Flashcard reviews (15 min)",
     "Week re-test (60 min): Bilan 1 (p. 28–29): recap exercises and test, no notes, then check the Corrigés. With time left, 1 exercise from each of Déb. 1–13",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
+    "Baseline test (45 min): official TCF Canada samples, timed, no help. Write your score down. A low score is normal now; it only gives you something to measure against"
    ],
    "week": 1
   },
@@ -534,6 +541,7 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Déb. 14–16",
    "book_pages": "p. 40–45",
    "book_topics": [
@@ -618,6 +626,7 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Déb. 17–18",
    "book_pages": "p. 46–49",
    "book_topics": [
@@ -682,6 +691,7 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Déb. 19–20",
    "book_pages": "p. 50–53",
    "book_topics": [
@@ -768,6 +778,7 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Déb. 21–23",
    "book_pages": "p. 56–61",
    "book_topics": [
@@ -859,6 +870,7 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Déb. 24–25",
    "book_pages": "p. 62–65",
    "book_topics": [
@@ -919,6 +931,7 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Déb. 26–27",
    "book_pages": "p. 66–69",
    "book_topics": [
@@ -968,7 +981,7 @@
     "Flashcard reviews (15 min)",
     "Week re-test (60 min): Bilan 2 (p. 54–55) + Bilan 3 (p. 70–71): recap exercises and test, no notes, then check the Corrigés. With time left, 1 exercise from each of Déb. 14–27",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays"
    ],
    "week": 2
   },
@@ -1052,6 +1065,7 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Déb. 28–29",
    "book_pages": "p. 72–77",
    "book_topics": [
@@ -1154,6 +1168,7 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Déb. 30–31",
    "book_pages": "p. 78–81",
    "book_topics": [
@@ -1240,6 +1255,7 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Déb. 32–34",
    "book_pages": "p. 82–87",
    "book_topics": [
@@ -1314,6 +1330,7 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Déb. 35–36",
    "book_pages": "p. 90–93",
    "book_topics": [
@@ -1399,6 +1416,7 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Déb. 37–39",
    "book_pages": "p. 94–99",
    "book_topics": [
@@ -1497,6 +1515,7 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Déb. 40–42",
    "book_pages": "p. 100–105",
    "book_topics": [
@@ -1552,7 +1571,7 @@
     "Flashcard reviews (15 min)",
     "Week re-test (60 min): Bilan 4 (p. 88–89) + Bilan 5 (p. 106–107): recap exercises and test, no notes, then check the Corrigés. With time left, 1 exercise from each of Déb. 28–42",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
     "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Déb. 1–42"
    ],
    "week": 3
@@ -1623,6 +1642,7 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Déb. 43–44",
    "book_pages": "p. 108–111",
    "book_topics": [
@@ -1716,6 +1736,7 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Déb. 45–46",
    "book_pages": "p. 112–117",
    "book_topics": [
@@ -1782,6 +1803,7 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Déb. 47–48",
    "book_pages": "p. 118–121",
    "book_topics": [
@@ -1852,6 +1874,7 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Déb. 49–50",
    "book_pages": "p. 122–123, 126–127",
    "book_topics": [
@@ -1945,6 +1968,7 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Déb. 51–52",
    "book_pages": "p. 128–131",
    "book_topics": [
@@ -2021,6 +2045,7 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Déb. 53–54",
    "book_pages": "p. 132–135",
    "book_topics": [
@@ -2071,7 +2096,7 @@
     "Flashcard reviews (15 min)",
     "Week re-test (60 min): Bilan 6 (p. 124–125) + Bilan 7 (p. 136–137): recap exercises and test, no notes, then check the Corrigés. With time left, 1 exercise from each of Déb. 43–54",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays"
    ],
    "week": 4
   },
@@ -2108,6 +2133,7 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Déb. 55–57",
    "book_pages": "p. 138–143",
    "book_topics": [
@@ -2181,6 +2207,7 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Déb. 58–60",
    "book_pages": "p. 144–149",
    "book_topics": [
@@ -2263,7 +2290,7 @@
     "Flashcard reviews (15 min)",
     "Week re-test (60 min): Bilan 8 (p. 150–151): recap exercises and test, no notes, then check the Corrigés, then the final test on p. 173. With time left, 1 exercise from each of Déb. 55–60",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
     "Annexes §5, §6, §8, §9, p. 153 (45 min): imperative, indirect speech, demonstrative and possessive pronouns. Read each one, then watch Vincent's lessons"
    ],
    "week": 5
@@ -2293,7 +2320,10 @@
    ],
    "vocab": "ch. 1, first half",
    "sunday": false,
+   "extras": [],
    "book": "Int. 1",
+   "book_pages": "p. 8–11",
+   "book_focus": "être and subject pronouns",
    "write": "Tâche 1 (60–120 mots) : Invite un ami à ton anniversaire (date, lieu, quoi apporter).",
    "speak": "Tâche 2 : Tu veux t'inscrire dans une salle de sport : pose des questions (prix, horaires, cours)",
    "retest": "yesterday: Déb. 58–60 · day −7: Déb. 49–50",
@@ -2316,7 +2346,10 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Int. 2",
+   "book_pages": "p. 12–17",
+   "book_focus": "adjectives: gender, plural, agreement",
    "write": "Tâche 2 (120–150 mots) : Blog : ta première semaine en France.",
    "speak": "Tâche 1 : Présente-toi en détail (parcours, travail, projets), 2 min chrono",
    "retest": "yesterday: Int. 1 · day −7: Déb. 51–52",
@@ -2348,7 +2381,10 @@
    ],
    "vocab": "ch. 1, second half",
    "sunday": false,
+   "extras": [],
    "book": "Int. 3",
+   "book_pages": "p. 18–21",
+   "book_focus": "simple negation and questions",
    "write": "Tâche 1 (60–120 mots) : Excuse-toi auprès de ton voisin pour le bruit d'hier soir.",
    "speak": "Tâche 2 : Tu cherches une colocation : interroge le propriétaire",
    "retest": "yesterday: Int. 2 · day −7: Déb. 53–54",
@@ -2375,7 +2411,7 @@
     "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Int. 1–3 and Vocab. ch. 1, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays"
    ],
    "week": 5
   },
@@ -2395,7 +2431,10 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [],
    "book": "Int. 4",
+   "book_pages": "p. 22–25",
+   "book_focus": "nouns: gender of people, things, animals",
    "write": "Tâche 2 (120–150 mots) : Un repas de fête qui t'a marqué.",
    "speak": "Tâche 1 : Parle de ton parcours professionnel",
    "retest": "yesterday: Int. 3 · day −7: Déb. 55–57",
@@ -2427,7 +2466,10 @@
    ],
    "vocab": "ch. 2, first half",
    "sunday": false,
-   "book": "Int. 5",
+   "extras": [],
+   "book": "Int. 4",
+   "book_pages": "p. 26–31",
+   "book_focus": "noun plurals, articles, contractions with à and de",
    "write": "Tâche 1 (60–120 mots) : Demande à un collègue de changer la date d'une réunion.",
    "speak": "Tâche 2 : Ton ami organise un voyage : pose-lui des questions",
    "retest": "yesterday: Int. 4 · day −7: Déb. 58–60",
@@ -2459,10 +2501,13 @@
    ],
    "vocab": null,
    "sunday": false,
-   "book": "Int. 6",
+   "extras": [],
+   "book": "Int. 5–6",
+   "book_pages": "p. 32–37",
+   "book_focus": "c'est or il est; possessives",
    "write": "Tâche 2 (120–150 mots) : Une personne qui t'a inspiré, et pourquoi.",
    "speak": "Tâche 1 : Pourquoi apprends-tu le français ?",
-   "retest": "yesterday: Int. 5",
+   "retest": "yesterday: Int. 4",
    "week": 6
   },
   {
@@ -2490,10 +2535,13 @@
    ],
    "vocab": "ch. 2, second half",
    "sunday": false,
-   "book": "Int. 7",
+   "extras": [],
+   "book": "Int. 7–9",
+   "book_pages": "p. 38–43",
+   "book_focus": "family and group nouns; demonstratives; il y a or c'est",
    "write": "Tâche 1 (60–120 mots) : Demande des informations sur un cours à une école de langue.",
    "speak": "Tâche 2 : Tu veux suivre un cours de cuisine",
-   "retest": "yesterday: Int. 6 · day −7: Int. 1",
+   "retest": "yesterday: Int. 5–6 · day −7: Int. 1",
    "week": 6
   },
   {
@@ -2521,10 +2569,13 @@
    ],
    "vocab": null,
    "sunday": false,
-   "book": "Int. 8",
+   "extras": [],
+   "book": "Int. 10",
+   "book_pages": "p. 44–47",
+   "book_focus": "prepositions for towns, countries, places",
    "write": "Tâche 2 (120–150 mots) : Un voyage qui s'est mal passé.",
    "speak": "Tâche 1 : Décris une journée de travail récente",
-   "retest": "yesterday: Int. 7 · day −7: Int. 2",
+   "retest": "yesterday: Int. 7–9 · day −7: Int. 2",
    "week": 6
   },
   {
@@ -2543,10 +2594,13 @@
    "vincent_later": null,
    "vocab": "ch. 3, first half",
    "sunday": false,
-   "book": "Int. 9",
+   "extras": [],
+   "book": "Int. 11",
+   "book_pages": "p. 48–53",
+   "book_focus": "uses of avoir: age, hunger, appearance, negation",
    "write": "Tâche 1 (60–120 mots) : Conseille un restaurant à un ami.",
    "speak": "Tâche 2 : Tu veux acheter un vélo d'occasion",
-   "retest": "yesterday: Int. 8 · day −7: Int. 3",
+   "retest": "yesterday: Int. 10 · day −7: Int. 3",
    "week": 6
   },
   {
@@ -2567,9 +2621,9 @@
    "sunday": true,
    "sunday_items": [
     "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Int. 4–9 and Vocab. ch. 2–3, covered, from memory",
+    "Week re-test (60 min): 1 exercise from each of Int. 4–11 and Vocab. ch. 2–3, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays"
    ],
    "week": 6
   },
@@ -2598,10 +2652,13 @@
    ],
    "vocab": null,
    "sunday": false,
-   "book": "Int. 10",
+   "extras": [],
+   "book": "Int. 12",
+   "book_pages": "p. 54–57",
+   "book_focus": "where adjectives go; special adjectives",
    "write": "Tâche 2 (120–150 mots) : Article : une fête traditionnelle de ton pays.",
    "speak": "Tâche 1 : Parle d'un voyage que tu as fait",
-   "retest": "yesterday: Int. 9 · day −7: Int. 4",
+   "retest": "yesterday: Int. 11 · day −7: Int. 4",
    "week": 7
   },
   {
@@ -2620,10 +2677,13 @@
    "vincent_later": null,
    "vocab": "ch. 3, second half",
    "sunday": false,
-   "book": "Int. 11",
+   "extras": [],
+   "book": "Int. 13",
+   "book_pages": "p. 58–63",
+   "book_focus": "numbers: cardinal, ordinal, spoken and written",
    "write": "Tâche 1 (60–120 mots) : Réponds à un ami qui te demande comment va ta vie en France.",
    "speak": "Tâche 2 : Tu veux louer une voiture",
-   "retest": "yesterday: Int. 10 · day −7: Int. 5",
+   "retest": "yesterday: Int. 12 · day −7: Int. 4",
    "week": 7
   },
   {
@@ -2642,10 +2702,13 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
-   "book": "Int. 12",
+   "extras": [],
+   "book": "Int. 14",
+   "book_pages": "p. 64–67",
+   "book_focus": "days, dates, seasons, time, weather",
    "write": "Tâche 2 (120–150 mots) : Ton premier jour dans ton travail actuel.",
    "speak": "Tâche 1 : Parle de tes amis et de ce que vous faites ensemble",
-   "retest": "yesterday: Int. 11 · day −7: Int. 6",
+   "retest": "yesterday: Int. 13 · day −7: Int. 5–6",
    "week": 7
   },
   {
@@ -2664,10 +2727,13 @@
    "vincent_later": null,
    "vocab": "ch. 4, first half",
    "sunday": false,
-   "book": "Int. 13",
+   "extras": [],
+   "book": "Int. 15",
+   "book_pages": "p. 68–71",
+   "book_focus": "indefinite adjectives and pronouns",
    "write": "Tâche 1 (60–120 mots) : Écris à ton propriétaire : le chauffage ne marche pas.",
    "speak": "Tâche 2 : Tu veux t'inscrire à la médiathèque",
-   "retest": "yesterday: Int. 12 · day −7: Int. 7",
+   "retest": "yesterday: Int. 14 · day −7: Int. 7–9",
    "week": 7
   },
   {
@@ -2695,10 +2761,13 @@
    ],
    "vocab": null,
    "sunday": false,
-   "book": "Int. 14",
+   "extras": [],
+   "book": "Int. 16",
+   "book_pages": "p. 74–79",
+   "book_focus": "-er verbs: forms, sound, spelling",
    "write": "Tâche 2 (120–150 mots) : Ta ville idéale.",
    "speak": "Tâche 1 : Comment fêtes-tu les fêtes de fin d'année ?",
-   "retest": "yesterday: Int. 13 · day −7: Int. 8",
+   "retest": "yesterday: Int. 15 · day −7: Int. 10",
    "week": 7
   },
   {
@@ -2717,10 +2786,13 @@
    "vincent_later": null,
    "vocab": "ch. 4, second half",
    "sunday": false,
-   "book": "Int. 15",
+   "extras": [],
+   "book": "Int. 17–18",
+   "book_pages": "p. 80–85",
+   "book_focus": "duration with depuis, pour, pendant, en; adverbs",
    "write": "Tâche 1 (60–120 mots) : Annule un rendez-vous avec un ami et propose une autre date.",
    "speak": "Tâche 2 : Tu veux adopter un chat dans un refuge",
-   "retest": "yesterday: Int. 14 · day −7: Int. 9",
+   "retest": "yesterday: Int. 16 · day −7: Int. 11",
    "week": 7
   },
   {
@@ -2741,10 +2813,10 @@
    "sunday": true,
    "sunday_items": [
     "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Int. 10–15 and Vocab. ch. 3–4, covered, from memory",
+    "Week re-test (60 min): Bilans 1 and 2 (p. 72–73), no notes, then check the Corrigés. With time left, 1 exercise from each of Int. 12–18 and Vocab. ch. 3–4",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
-    "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Déb. 43–60, Int. 1–15"
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
+    "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Déb. 43–60, Int. 1–18"
    ],
    "week": 7
   },
@@ -2764,10 +2836,13 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
-   "book": "Int. 16",
+   "extras": [],
+   "book": "Int. 19",
+   "book_pages": "p. 86–89",
+   "book_focus": "quantities",
    "write": "Tâche 2 (120–150 mots) : Un film ou un livre que tu as aimé.",
    "speak": "Tâche 1 : Raconte le dernier film ou livre que tu as aimé",
-   "retest": "yesterday: Int. 15 · day −7: Int. 10",
+   "retest": "yesterday: Int. 17–18 · day −7: Int. 12",
    "week": 8
   },
   {
@@ -2795,10 +2870,13 @@
    ],
    "vocab": "ch. 5, first half",
    "sunday": false,
-   "book": "Int. 17",
+   "extras": [],
+   "book": "Int. 20–21",
+   "book_pages": "p. 90–95",
+   "book_focus": "the pronoun en; regions and origin",
    "write": "Tâche 1 (60–120 mots) : Propose ton aide comme bénévole à une association.",
    "speak": "Tâche 2 : Tu veux faire du bénévolat dans une association",
-   "retest": "yesterday: Int. 16 · day −7: Int. 11",
+   "retest": "yesterday: Int. 19 · day −7: Int. 13",
    "week": 8
   },
   {
@@ -2826,10 +2904,13 @@
    ],
    "vocab": null,
    "sunday": false,
-   "book": "Int. 18",
+   "extras": [],
+   "book": "Int. 22",
+   "book_pages": "p. 96–101",
+   "book_focus": "comparatives and superlatives; mieux or meilleur",
    "write": "Tâche 2 (120–150 mots) : Témoignage : apprendre une langue à l'âge adulte.",
    "speak": "Tâche 1 : Ta vie en France : qu'est-ce qui te plaît ?",
-   "retest": "yesterday: Int. 17 · day −7: Int. 12",
+   "retest": "yesterday: Int. 20–21 · day −7: Int. 14",
    "week": 8
   },
   {
@@ -2848,10 +2929,13 @@
    "vincent_later": null,
    "vocab": "ch. 5, second half",
    "sunday": false,
-   "book": "Int. 19",
+   "extras": [],
+   "book": "Int. 23–25",
+   "book_pages": "p. 102–107",
+   "book_focus": "aller + place; the pronoun y; à, de, jusqu'à",
    "write": "Tâche 1 (60–120 mots) : Annonce : tu vends ton vélo.",
    "speak": "Tâche 2 : Tu veux réserver une salle pour une fête",
-   "retest": "yesterday: Int. 18 · day −7: Int. 13",
+   "retest": "yesterday: Int. 22 · day −7: Int. 15",
    "week": 8
   },
   {
@@ -2879,10 +2963,13 @@
    ],
    "vocab": null,
    "sunday": false,
-   "book": "Int. 20",
+   "extras": [],
+   "book": "Int. 26",
+   "book_pages": "p. 108–111",
+   "book_focus": "-ir, -re, -oir verbs with two stems",
    "write": "Tâche 2 (120–150 mots) : Une journée sans téléphone.",
    "speak": "Tâche 1 : Tes projets pour les cinq prochaines années",
-   "retest": "yesterday: Int. 19 · day −7: Int. 14",
+   "retest": "yesterday: Int. 23–25 · day −7: Int. 16",
    "week": 8
   },
   {
@@ -2901,10 +2988,20 @@
    "vincent_later": null,
    "vocab": "ch. 6, first half",
    "sunday": false,
-   "book": "Int. 21",
+   "extras": [
+    {
+     "id": "tutor",
+     "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
+     "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
+     "minutes": 50
+    }
+   ],
+   "book": "Int. 26",
+   "book_pages": "p. 112–115",
+   "book_focus": "verbs with three stems; irregular verbs",
    "write": "Tâche 1 (60–120 mots) : Réserve une chambre d'hôtel (dates, demandes particulières).",
    "speak": "Tâche 2 : Un ami t'invite à un concert : pose des questions",
-   "retest": "yesterday: Int. 20 · day −7: Int. 15",
+   "retest": "yesterday: Int. 26 · day −7: Int. 17–18",
    "week": 8
   },
   {
@@ -2925,9 +3022,9 @@
    "sunday": true,
    "sunday_items": [
     "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Int. 16–21 and Vocab. ch. 5–6, covered, from memory",
+    "Week re-test (60 min): 1 exercise from each of Int. 19–26 and Vocab. ch. 5–6, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays"
    ],
    "week": 8
   },
@@ -2956,10 +3053,21 @@
    ],
    "vocab": null,
    "sunday": false,
-   "book": "Int. 22",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    }
+   ],
+   "book": "Int. 26",
+   "book_pages": "p. 116–119",
+   "book_focus": "mettre, prendre, faire; pouvoir, devoir, falloir",
    "write": "Tâche 2 (120–150 mots) : Un lieu en France que tu as visité : décris-le et conseille-le.",
    "speak": "Tâche 1 : Parle de ta ville d'origine",
-   "retest": "yesterday: Int. 21 · day −7: Int. 16",
+   "retest": "yesterday: Int. 26 · day −7: Int. 19",
    "week": 9
   },
   {
@@ -2987,10 +3095,21 @@
    ],
    "vocab": "ch. 6, second half",
    "sunday": false,
-   "book": "Int. 23",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    }
+   ],
+   "book": "Int. 26–27",
+   "book_pages": "p. 120–123",
+   "book_focus": "savoir, connaître, vouloir; reflexive verbs",
    "write": "Tâche 1 (60–120 mots) : Remercie un ami qui t'a aidé à déménager.",
    "speak": "Tâche 2 : Tu veux changer d'opérateur téléphonique",
-   "retest": "yesterday: Int. 22 · day −7: Int. 17",
+   "retest": "yesterday: Int. 26 · day −7: Int. 20–21",
    "week": 9
   },
   {
@@ -3018,10 +3137,21 @@
    ],
    "vocab": null,
    "sunday": false,
-   "book": "Int. 24",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    }
+   ],
+   "book": "Int. 28",
+   "book_pages": "p. 124–127",
+   "book_focus": "direct and indirect object pronouns",
    "write": "Tâche 2 (120–150 mots) : Un souvenir d'enfance (imparfait + passé composé).",
    "speak": "Tâche 1 : Ton logement actuel et ce que tu aimerais changer",
-   "retest": "yesterday: Int. 23 · day −7: Int. 18",
+   "retest": "yesterday: Int. 26–27 · day −7: Int. 22",
    "week": 9
   },
   {
@@ -3049,10 +3179,21 @@
    ],
    "vocab": "ch. 7, first half",
    "sunday": false,
-   "book": "Int. 25",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    }
+   ],
+   "book": "Int. 28",
+   "book_pages": "p. 128–131",
+   "book_focus": "order of object pronouns",
    "write": "Tâche 1 (60–120 mots) : Organise un week-end avec un ami.",
    "speak": "Tâche 2 : Tu veux ouvrir un compte en banque",
-   "retest": "yesterday: Int. 24 · day −7: Int. 19",
+   "retest": "yesterday: Int. 28 · day −7: Int. 23–25",
    "week": 9
   },
   {
@@ -3080,10 +3221,21 @@
    ],
    "vocab": null,
    "sunday": false,
-   "book": "Int. 26",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    }
+   ],
+   "book": "Int. 29–31",
+   "book_pages": "p. 132–137",
+   "book_focus": "stressed pronouns; imperative; polite conditional",
    "write": "Tâche 2 (120–150 mots) : Une rencontre importante dans ta vie.",
    "speak": "Tâche 1 : Tes habitudes alimentaires",
-   "retest": "yesterday: Int. 25 · day −7: Int. 20",
+   "retest": "yesterday: Int. 28 · day −7: Int. 26",
    "week": 9
   },
   {
@@ -3111,10 +3263,27 @@
    ],
    "vocab": "ch. 7, second half",
    "sunday": false,
-   "book": "Int. 27",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "tutor",
+     "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
+     "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
+     "minutes": 50
+    }
+   ],
+   "book": "Int. 32",
+   "book_pages": "p. 140–143",
+   "book_focus": "simple relative pronouns; mise en relief",
    "write": "Tâche 1 (60–120 mots) : Service client : ton colis n'est pas arrivé.",
    "speak": "Tâche 2 : Tu veux prendre des cours de danse",
-   "retest": "yesterday: Int. 26 · day −7: Int. 21",
+   "retest": "yesterday: Int. 29–31 · day −7: Int. 26",
    "week": 9
   },
   {
@@ -3135,9 +3304,9 @@
    "sunday": true,
    "sunday_items": [
     "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Int. 22–27 and Vocab. ch. 6–7, covered, from memory",
+    "Week re-test (60 min): Bilans 3 and 4 (p. 138–139), no notes, then check the Corrigés. With time left, 1 exercise from each of Int. 26–32 and Vocab. ch. 6–7",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays"
    ],
    "week": 9
   },
@@ -3166,10 +3335,21 @@
    ],
    "vocab": null,
    "sunday": false,
-   "book": "Int. 28",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    }
+   ],
+   "book": "Int. 32",
+   "book_pages": "p. 144–147",
+   "book_focus": "compound relative pronouns",
    "write": "Tâche 2 (120–150 mots) : Tes habitudes alimentaires et comment elles ont changé en France.",
    "speak": "Tâche 1 : Une personne importante pour toi",
-   "retest": "yesterday: Int. 27 · day −7: Int. 22",
+   "retest": "yesterday: Int. 32 · day −7: Int. 26",
    "week": 10
   },
   {
@@ -3197,10 +3377,21 @@
    ],
    "vocab": "ch. 8, first half",
    "sunday": false,
-   "book": "Int. 29",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    }
+   ],
+   "book": "Int. 33",
+   "book_pages": "p. 148–151",
+   "book_focus": "question words; quel; exclamations",
    "write": "Tâche 1 (60–120 mots) : Invite tes collègues à un pot.",
    "speak": "Tâche 2 : Tu cherches un emploi : interroge le recruteur",
-   "retest": "yesterday: Int. 28 · day −7: Int. 23",
+   "retest": "yesterday: Int. 32 · day −7: Int. 26–27",
    "week": 10
   },
   {
@@ -3228,10 +3419,21 @@
    ],
    "vocab": null,
    "sunday": false,
-   "book": "Int. 30",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    }
+   ],
+   "book": "Int. 34",
+   "book_pages": "p. 152–155",
+   "book_focus": "negation: ne jamais, ne plus, ni ni, ne que",
    "write": "Tâche 2 (120–150 mots) : Une erreur qui t'a appris quelque chose.",
    "speak": "Tâche 1 : Comment utilises-tu la technologie au quotidien ?",
-   "retest": "yesterday: Int. 29 · day −7: Int. 24",
+   "retest": "yesterday: Int. 33 · day −7: Int. 28",
    "week": 10
   },
   {
@@ -3259,10 +3461,21 @@
    ],
    "vocab": "ch. 8, second half",
    "sunday": false,
-   "book": "Int. 31",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    }
+   ],
+   "book": "Int. 35–36",
+   "book_pages": "p. 156–159",
+   "book_focus": "indirect speech in the present; gerund and present participle",
    "write": "Tâche 1 (60–120 mots) : Demande à ton voisin de garder ton chat pendant tes vacances.",
    "speak": "Tâche 2 : Week-end en Normandie : interroge l'office de tourisme",
-   "retest": "yesterday: Int. 30 · day −7: Int. 25",
+   "retest": "yesterday: Int. 34 · day −7: Int. 28",
    "week": 10
   },
   {
@@ -3290,10 +3503,21 @@
    ],
    "vocab": null,
    "sunday": false,
-   "book": "Int. 32",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    }
+   ],
+   "book": "Int. 37–38",
+   "book_pages": "p. 160–165",
+   "book_focus": "verbs with à and de; verbs of movement",
    "write": "Tâche 2 (120–150 mots) : Blog : conseils pour s'installer dans une nouvelle ville.",
    "speak": "Tâche 1 : Tes loisirs et ton sport préféré",
-   "retest": "yesterday: Int. 31 · day −7: Int. 26",
+   "retest": "yesterday: Int. 35–36 · day −7: Int. 29–31",
    "week": 10
   },
   {
@@ -3321,10 +3545,27 @@
    ],
    "vocab": "ch. 9, first half",
    "sunday": false,
-   "book": "Int. 33",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "tutor",
+     "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
+     "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
+     "minutes": 50
+    }
+   ],
+   "book": "Int. 39",
+   "book_pages": "p. 166–169",
+   "book_focus": "near future: use and form",
    "write": "Tâche 1 (60–120 mots) : Raconte ton dernier voyage à un ami.",
    "speak": "Tâche 2 : Tu veux acheter un ordinateur dans un magasin",
-   "retest": "yesterday: Int. 32 · day −7: Int. 27",
+   "retest": "yesterday: Int. 37–38 · day −7: Int. 32",
    "week": 10
   },
   {
@@ -3345,9 +3586,9 @@
    "sunday": true,
    "sunday_items": [
     "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Int. 28–33 and Vocab. ch. 8–9, covered, from memory",
+    "Week re-test (60 min): 1 exercise from each of Int. 32–39 and Vocab. ch. 8–9, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays"
    ],
    "week": 10
   },
@@ -3376,10 +3617,21 @@
    ],
    "vocab": null,
    "sunday": false,
-   "book": "Int. 34",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    }
+   ],
+   "book": "Int. 39",
+   "book_pages": "p. 170–173",
+   "book_focus": "near future with pronouns, adverbs, negation, questions",
    "write": "Tâche 2 (120–150 mots) : Explique le métier de développeur à quelqu'un qui ne le connaît pas.",
    "speak": "Tâche 1 : Tes meilleures vacances",
-   "retest": "yesterday: Int. 33 · day −7: Int. 28",
+   "retest": "yesterday: Int. 39 · day −7: Int. 32",
    "week": 11
   },
   {
@@ -3407,10 +3659,21 @@
    ],
    "vocab": "ch. 9, second half",
    "sunday": false,
-   "book": "Int. 35",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    }
+   ],
+   "book": "Int. 40",
+   "book_pages": "p. 174–177",
+   "book_focus": "passé composé with avoir",
    "write": "Tâche 1 (60–120 mots) : Demande à la mairie les horaires de la médiathèque.",
    "speak": "Tâche 2 : Tu organises un anniversaire surprise avec un ami",
-   "retest": "yesterday: Int. 34 · day −7: Int. 29",
+   "retest": "yesterday: Int. 39 · day −7: Int. 33",
    "week": 11
   },
   {
@@ -3438,10 +3701,21 @@
    ],
    "vocab": null,
    "sunday": false,
-   "book": "Int. 36",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    }
+   ],
+   "book": "Int. 40",
+   "book_pages": "p. 178–181",
+   "book_focus": "past participles",
    "write": "Tâche 2 (120–150 mots) : Tes fêtes de fin d'année cette année.",
    "speak": "Tâche 1 : Que fais-tu pour rester en bonne santé ?",
-   "retest": "yesterday: Int. 35 · day −7: Int. 30",
+   "retest": "yesterday: Int. 40 · day −7: Int. 34",
    "week": 11
   },
   {
@@ -3460,10 +3734,21 @@
    "vincent_later": null,
    "vocab": "ch. 10, first half",
    "sunday": false,
-   "book": "Int. 37",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    }
+   ],
+   "book": "Int. 40",
+   "book_pages": "p. 182–185",
+   "book_focus": "passé composé with être",
    "write": "Tâche 1 (60–120 mots) : Félicite un ami pour son nouveau travail.",
    "speak": "Tâche 2 : Tu veux t'inscrire à un club de randonnée",
-   "retest": "yesterday: Int. 36 · day −7: Int. 31",
+   "retest": "yesterday: Int. 40 · day −7: Int. 35–36",
    "week": 11
   },
   {
@@ -3491,10 +3776,21 @@
    ],
    "vocab": null,
    "sunday": false,
-   "book": "Int. 38",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    }
+   ],
+   "book": "Int. 40",
+   "book_pages": "p. 186–189",
+   "book_focus": "reflexive verbs in the past; être or avoir",
    "write": "Tâche 2 (120–150 mots) : Le sport dans ta vie.",
    "speak": "Tâche 1 : Ton week-end dernier",
-   "retest": "yesterday: Int. 37 · day −7: Int. 32",
+   "retest": "yesterday: Int. 40 · day −7: Int. 37–38",
    "week": 11
   },
   {
@@ -3513,10 +3809,27 @@
    "vincent_later": null,
    "vocab": "ch. 10, second half",
    "sunday": false,
-   "book": "Int. 39",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "tutor",
+     "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
+     "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
+     "minutes": 50
+    }
+   ],
+   "book": "Int. 40",
+   "book_pages": "p. 190–193",
+   "book_focus": "participle agreement; pronouns and adverbs in the past",
    "write": "Tâche 1 (60–120 mots) : Explique ton absence à ton professeur.",
    "speak": "Tâche 2 : Tu veux suivre une formation en ligne",
-   "retest": "yesterday: Int. 38 · day −7: Int. 33",
+   "retest": "yesterday: Int. 40 · day −7: Int. 39",
    "week": 11
   },
   {
@@ -3537,9 +3850,9 @@
    "sunday": true,
    "sunday_items": [
     "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Int. 34–39 and Vocab. ch. 9–10, covered, from memory",
+    "Week re-test (60 min): 1 exercise from each of Int. 39–40 and Vocab. ch. 9–10, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays"
    ],
    "week": 11
   },
@@ -3568,10 +3881,21 @@
    ],
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    }
+   ],
    "book": "Int. 40",
+   "book_pages": "p. 194–197",
+   "book_focus": "negation and questions in the passé composé",
    "write": "Tâche 2 (120–150 mots) : Ce que tu ferais si tu gagnais au loto (conditionnel).",
    "speak": "Tâche 1 : Une fête de ton pays",
-   "retest": "yesterday: Int. 39 · day −7: Int. 34",
+   "retest": "yesterday: Int. 40 · day −7: Int. 39",
    "week": 12
   },
   {
@@ -3590,10 +3914,21 @@
    "vincent_later": null,
    "vocab": "ch. 11, first half",
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    }
+   ],
    "book": "Int. 41",
+   "book_pages": "p. 198–203",
+   "book_focus": "time: origin and duration, chronology, sequence",
    "write": "Tâche 1 (60–120 mots) : Demande un conseil à un ami (travail ou logement).",
    "speak": "Tâche 2 : Tu veux louer un appartement pour les vacances",
-   "retest": "yesterday: Int. 40 · day −7: Int. 35",
+   "retest": "yesterday: Int. 40 · day −7: Int. 40",
    "week": 12
   },
   {
@@ -3621,10 +3956,21 @@
    ],
    "vocab": null,
    "sunday": false,
-   "book": "Int. 42",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    }
+   ],
+   "book": "Int. 42–43",
+   "book_pages": "p. 204–209",
+   "book_focus": "the passive; imparfait of habit",
    "write": "Tâche 2 (120–150 mots) : Ton week-end idéal dans ta ville.",
    "speak": "Tâche 1 : Comment apprends-tu le français ?",
-   "retest": "yesterday: Int. 41 · day −7: Int. 36",
+   "retest": "yesterday: Int. 41 · day −7: Int. 40",
    "week": 12
   },
   {
@@ -3643,10 +3989,21 @@
    "vincent_later": null,
    "vocab": "ch. 11, second half",
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    }
+   ],
    "book": "Int. 43",
+   "book_pages": "p. 210–213",
+   "book_focus": "imparfait or passé composé",
    "write": "Tâche 1 (60–120 mots) : Demande les tarifs et horaires d'une salle de sport.",
    "speak": "Tâche 2 : Ton voisin vend sa voiture : pose des questions",
-   "retest": "yesterday: Int. 42 · day −7: Int. 37",
+   "retest": "yesterday: Int. 42–43 · day −7: Int. 40",
    "week": 12
   },
   {
@@ -3674,10 +4031,21 @@
    ],
    "vocab": null,
    "sunday": false,
-   "book": "Int. 44",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    }
+   ],
+   "book": "Int. 44–45",
+   "book_pages": "p. 214–219",
+   "book_focus": "plus-que-parfait; indirect speech in the past",
    "write": "Tâche 2 (120–150 mots) : Une fois où tu as parlé français et tu étais fier/fière.",
    "speak": "Tâche 1 : Parle de ton quartier",
-   "retest": "yesterday: Int. 43 · day −7: Int. 38",
+   "retest": "yesterday: Int. 43 · day −7: Int. 40",
    "week": 12
   },
   {
@@ -3705,10 +4073,27 @@
    ],
    "vocab": "ch. 12, first half",
    "sunday": false,
-   "book": "Int. 45",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "tutor",
+     "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
+     "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
+     "minutes": 50
+    }
+   ],
+   "book": "Int. 46–47",
+   "book_pages": "p. 222–227",
+   "book_focus": "venir de, être en train de, être sur le point de; simple future",
    "write": "Tâche 1 (60–120 mots) : Souhaite bonne année à tes collègues et raconte tes vacances.",
    "speak": "Tâche 2 : Tu veux participer à un échange linguistique",
-   "retest": "yesterday: Int. 44 · day −7: Int. 39",
+   "retest": "yesterday: Int. 44–45 · day −7: Int. 40",
    "week": 12
   },
   {
@@ -3729,10 +4114,10 @@
    "sunday": true,
    "sunday_items": [
     "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Int. 40–45 and Vocab. ch. 11–12, covered, from memory",
+    "Week re-test (60 min): Bilans 5 and 6 (p. 220–221), no notes, then check the Corrigés. With time left, 1 exercise from each of Int. 40–47 and Vocab. ch. 11–12",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
-    "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Int. 16–45"
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
+    "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Int. 19–47"
    ],
    "week": 12
   },
@@ -3761,10 +4146,21 @@
    ],
    "vocab": null,
    "sunday": false,
-   "book": "Int. 46",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    }
+   ],
+   "book": "Int. 48–49",
+   "book_pages": "p. 228–231",
+   "book_focus": "futur antérieur; the conditional for imagining",
    "write": "Tâche 2 (120–150 mots) : Comment tu as appris à cuisiner un plat.",
    "speak": "Tâche 1 : Ton premier jour en France",
-   "retest": "yesterday: Int. 45 · day −7: Int. 40",
+   "retest": "yesterday: Int. 46–47 · day −7: Int. 40",
    "week": 13
   },
   {
@@ -3792,10 +4188,21 @@
    ],
    "vocab": "ch. 12, second half",
    "sunday": false,
-   "book": "Int. 47",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    }
+   ],
+   "book": "Int. 50",
+   "book_pages": "p. 232–237",
+   "book_focus": "hypotheses with si: future, present, past",
    "write": "Tâche 1 (60–120 mots) : Conseils pratiques à un ami qui veut venir en France.",
    "speak": "Tâche 2 : Tu veux réserver un restaurant pour 12 personnes",
-   "retest": "yesterday: Int. 46 · day −7: Int. 41",
+   "retest": "yesterday: Int. 48–49 · day −7: Int. 41",
    "week": 13
   },
   {
@@ -3823,10 +4230,21 @@
    ],
    "vocab": null,
    "sunday": false,
-   "book": "Int. 48",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    }
+   ],
+   "book": "Int. 51",
+   "book_pages": "p. 238–241",
+   "book_focus": "subjunctive: il faut que and how it is formed",
    "write": "Tâche 2 (120–150 mots) : Avantages et inconvénients de vivre en ville.",
    "speak": "Tâche 1 : Quel métier voulais-tu faire enfant ?",
-   "retest": "yesterday: Int. 47 · day −7: Int. 42",
+   "retest": "yesterday: Int. 50 · day −7: Int. 42–43",
    "week": 13
   },
   {
@@ -3845,10 +4263,21 @@
    "vincent_later": null,
    "vocab": "ch. 13, first half",
    "sunday": false,
-   "book": "Int. 49",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    }
+   ],
+   "book": "Int. 51",
+   "book_pages": "p. 242–245",
+   "book_focus": "verbs that take the subjunctive",
    "write": "Tâche 1 (60–120 mots) : Propose à un ami de faire un échange de langues.",
    "speak": "Tâche 2 : Tu veux t'inscrire à un cours de yoga",
-   "retest": "yesterday: Int. 48 · day −7: Int. 43",
+   "retest": "yesterday: Int. 51 · day −7: Int. 43",
    "week": 13
   },
   {
@@ -3876,10 +4305,21 @@
    ],
    "vocab": null,
    "sunday": false,
-   "book": "Int. 50",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    }
+   ],
+   "book": "Int. 51",
+   "book_pages": "p. 246–249",
+   "book_focus": "impersonal phrases; subjunctive or indicative; past subjunctive; conjunctions",
    "write": "Tâche 2 (120–150 mots) : Ta meilleure journée de 2026.",
    "speak": "Tâche 1 : La musique que tu écoutes",
-   "retest": "yesterday: Int. 49 · day −7: Int. 44",
+   "retest": "yesterday: Int. 51 · day −7: Int. 44–45",
    "week": 13
   },
   {
@@ -3898,10 +4338,27 @@
    "vincent_later": null,
    "vocab": "ch. 13, second half",
    "sunday": false,
-   "book": "Int. 51",
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "tutor",
+     "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
+     "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
+     "minutes": 50
+    }
+   ],
+   "book": "Int. 52",
+   "book_pages": "p. 250–253",
+   "book_focus": "cause, consequence, purpose",
    "write": "Tâche 1 (60–120 mots) : Demande à ta banque un rendez-vous et explique pourquoi.",
    "speak": "Tâche 2 : Tu veux visiter un musée avec un groupe",
-   "retest": "yesterday: Int. 50 · day −7: Int. 45",
+   "retest": "yesterday: Int. 51 · day −7: Int. 46–47",
    "week": 13
   },
   {
@@ -3922,10 +4379,11 @@
    "sunday": true,
    "sunday_items": [
     "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Int. 46–51 and Vocab. ch. 12–13, covered, from memory",
+    "Week re-test (60 min): 1 exercise from each of Int. 48–52 and Vocab. ch. 12–13, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
-    "Mock section (45–60 min): listening (35 min)"
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
+    "Mock section from your mock bank (45–60 min): listening (35 min)",
+    "Book your exam seats (20 min): a real TCF Canada sitting in mid-March as a checkpoint, and your main sitting in May. Sessions can fill up, and a retake needs a gap of 20–30 days"
    ],
    "week": 13
   },
@@ -3954,10 +4412,21 @@
    ],
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: 1jour1actu",
+     "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+     "minutes": 15,
+     "link": "https://www.1jour1actu.com/"
+    }
+   ],
    "book": "Int. 52",
+   "book_pages": "p. 254–255",
+   "book_focus": "opposition and concession",
    "write": "Tâche 2 (120–150 mots) : Un objet important pour toi et son histoire.",
    "speak": "Tâche 1 : Ce que tu as appris de nouveau ce mois-ci",
-   "retest": "yesterday: Int. 51 · day −7: Int. 46",
+   "retest": "yesterday: Int. 52 · day −7: Int. 48–49",
    "week": 14
   },
   {
@@ -3976,10 +4445,19 @@
    "vincent_later": null,
    "vocab": "ch. 14, first half",
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 1",
    "write": "Tâche 2 (120–150 mots) : Une décision difficile que tu as prise et ses conséquences.",
    "speak": "Tâche 3 (4 min 30) : Le télétravail est-il l'avenir du travail ?",
-   "retest": "yesterday: Int. 52 · day −7: Int. 47",
+   "retest": "yesterday: Int. 52 · day −7: Int. 50",
    "week": 14
   },
   {
@@ -4007,10 +4485,19 @@
    ],
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 2",
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Le télétravail : liberté ou isolement ?",
    "speak": "Tâche 2 (5 min 30) : Formation professionnelle : interroge le conseiller",
-   "retest": "yesterday: Av. 1 · day −7: Int. 48",
+   "retest": "yesterday: Av. 1 · day −7: Int. 51",
    "week": 14
   },
   {
@@ -4029,10 +4516,19 @@
    "vincent_later": null,
    "vocab": "ch. 14, second half",
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 3–4",
    "write": "Tâche 1 (60–120 mots) : Demande à ton manager une journée de télétravail par semaine, avec arguments.",
    "speak": "Tâche 3 (4 min 30) : Les réseaux sociaux sont-ils dangereux pour les jeunes ?",
-   "retest": "yesterday: Av. 2 · day −7: Int. 49",
+   "retest": "yesterday: Av. 2 · day −7: Int. 51",
    "week": 14
   },
   {
@@ -4051,10 +4547,19 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 5",
    "write": "Tâche 2 (120–150 mots) : Blog d'expatriés : ce qui t'a surpris en France.",
    "speak": "Tâche 2 (5 min 30) : Appartement meublé : interroge l'agent immobilier",
-   "retest": "yesterday: Av. 3–4 · day −7: Int. 50",
+   "retest": "yesterday: Av. 3–4 · day −7: Int. 51",
    "week": 14
   },
   {
@@ -4082,10 +4587,25 @@
    ],
    "vocab": "ch. 15, first half",
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "tutor",
+     "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
+     "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
+     "minutes": 50
+    }
+   ],
    "book": "Av. 6–7",
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Les réseaux sociaux rapprochent-ils ou isolent-ils les gens ?",
    "speak": "Tâche 3 (4 min 30) : Faut-il apprendre plusieurs langues aujourd'hui ?",
-   "retest": "yesterday: Av. 5 · day −7: Int. 51",
+   "retest": "yesterday: Av. 5 · day −7: Int. 52",
    "week": 14
   },
   {
@@ -4106,10 +4626,11 @@
    "sunday": true,
    "sunday_items": [
     "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Int. 52, Av. 1–7 and Vocab. ch. 14–15, covered, from memory",
+    "Week re-test (60 min): Bilans 7 and 8 (p. 256–257), no notes, then check the Corrigés. With time left, 1 exercise from each of Int. 52, Av. 1–7 and Vocab. ch. 14–15",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
-    "Mock section (45–60 min): reading (60 min)"
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
+    "Mock section from your mock bank (45–60 min): reading (60 min)",
+    "Intermédiaire final test (p. 273–276, 30 min): no notes, then check the Corrigés"
    ],
    "week": 14
   },
@@ -4129,6 +4650,15 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 8",
    "write": "Tâche 1 (60–120 mots) : Plains-toi auprès d'une agence immobilière d'un retard de travaux.",
    "speak": "Tâche 2 (5 min 30) : Séminaire d'entreprise : interroge le responsable de l'hôtel",
@@ -4160,6 +4690,15 @@
    ],
    "vocab": "ch. 15, second half",
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 9–10",
    "write": "Tâche 2 (120–150 mots) : Un projet professionnel dont tu es fier/fière.",
    "speak": "Tâche 3 (4 min 30) : Les villes devraient-elles interdire les voitures ?",
@@ -4182,6 +4721,15 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 11",
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Faut-il interdire les voitures dans le centre des villes ?",
    "speak": "Tâche 2 (5 min 30) : Ton ami part travailler au Canada : questions sur son projet",
@@ -4213,6 +4761,15 @@
    ],
    "vocab": "ch. 16, first half",
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 12",
    "write": "Tâche 1 (60–120 mots) : Convaincs un ami de participer à une course caritative.",
    "speak": "Tâche 3 (4 min 30) : L'argent fait-il le bonheur ?",
@@ -4235,6 +4792,15 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 13–14",
    "write": "Tâche 2 (120–150 mots) : Une expérience de bénévolat (réelle ou imaginaire).",
    "speak": "Tâche 2 (5 min 30) : Association écologique : questions avant d'adhérer",
@@ -4266,6 +4832,21 @@
    ],
    "vocab": "ch. 16, second half",
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "tutor",
+     "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
+     "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
+     "minutes": 50
+    }
+   ],
    "book": "Av. 15",
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Un service civique obligatoire pour les jeunes ?",
    "speak": "Tâche 3 (4 min 30) : Vaut-il mieux vivre en ville ou à la campagne ?",
@@ -4292,8 +4873,8 @@
     "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Av. 8–15 and Vocab. ch. 15–16, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
-    "Mock section (45–60 min): writing (60 min)"
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
+    "Mock section from your mock bank (45–60 min): writing (60 min)"
    ],
    "week": 15
   },
@@ -4322,6 +4903,15 @@
    ],
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 16–17",
    "write": "Tâche 1 (60–120 mots) : Propose à la mairie une amélioration pour ton quartier.",
    "speak": "Tâche 2 (5 min 30) : Vélo électrique : interroge le vendeur",
@@ -4344,6 +4934,15 @@
    "vincent_later": null,
    "vocab": "ch. 17, first half",
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 18",
    "write": "Tâche 2 (120–150 mots) : L'évolution de ton métier depuis dix ans.",
    "speak": "Tâche 3 (4 min 30) : L'IA va-t-elle remplacer les humains au travail ?",
@@ -4366,6 +4965,15 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 19–20",
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Apprendre une langue étrangère dès la maternelle ?",
    "speak": "Tâche 2 (5 min 30) : Stage en start-up : interroge le recruteur",
@@ -4397,6 +5005,15 @@
    ],
    "vocab": "ch. 17, second half",
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 21",
    "write": "Tâche 1 (60–120 mots) : Demande un remboursement à un organisme de formation.",
    "speak": "Tâche 3 (4 min 30) : Les voyages forment-ils la jeunesse ?",
@@ -4419,6 +5036,15 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 22–23",
    "write": "Tâche 2 (120–150 mots) : Un malentendu culturel que tu as vécu.",
    "speak": "Tâche 2 (5 min 30) : École pour un enfant : interroge la directrice",
@@ -4441,6 +5067,21 @@
    "vincent_later": null,
    "vocab": "ch. 18, first half",
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "tutor",
+     "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
+     "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
+     "minutes": 50
+    }
+   ],
    "book": "Av. 24",
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : La semaine de quatre jours : bonne ou mauvaise idée ?",
    "speak": "Tâche 3 (4 min 30) : Faut-il manger moins de viande ?",
@@ -4467,9 +5108,9 @@
     "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Av. 16–24 and Vocab. ch. 17–18, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
-    "Mock section (45–60 min): speaking (12 min, recorded)",
-    "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Int. 46–52, Av. 1–24"
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
+    "Mock section from your mock bank (45–60 min): speaking (12 min, recorded)",
+    "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Int. 48–52, Av. 1–24"
    ],
    "week": 16
   },
@@ -4498,6 +5139,15 @@
    ],
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 25",
    "write": "Tâche 1 (60–120 mots) : Explique à un ami pourquoi tu ne peux pas venir à son mariage.",
    "speak": "Tâche 2 (5 min 30) : Voyage organisé : interroge l'agence",
@@ -4520,6 +5170,15 @@
    "vincent_later": null,
    "vocab": "ch. 18, second half",
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 26–27",
    "write": "Tâche 2 (120–150 mots) : Comment tu organises ton temps pour apprendre le français.",
    "speak": "Tâche 3 (4 min 30) : Le sport devrait-il être encouragé au travail ?",
@@ -4551,6 +5210,15 @@
    ],
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 28",
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Les devoirs à la maison sont-ils utiles ?",
    "speak": "Tâche 2 (5 min 30) : Marathon : interroge l'organisateur",
@@ -4582,6 +5250,15 @@
    ],
    "vocab": "ch. 19, first half",
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 29–30",
    "write": "Tâche 1 (60–120 mots) : Propose une fête des voisins à ton immeuble.",
    "speak": "Tâche 3 (4 min 30) : Un téléphone avant 15 ans ?",
@@ -4613,6 +5290,15 @@
    ],
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 31",
    "write": "Tâche 2 (120–150 mots) : Un échec qui t'a finalement aidé.",
    "speak": "Tâche 2 (5 min 30) : Changer de banque : interroge le conseiller",
@@ -4644,6 +5330,21 @@
    ],
    "vocab": "ch. 19, second half",
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "tutor",
+     "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
+     "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
+     "minutes": 50
+    }
+   ],
    "book": "Av. 32–33",
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Les musées devraient-ils être gratuits ?",
    "speak": "Tâche 3 (4 min 30) : Faut-il garder sa culture d'origine quand on vit à l'étranger ?",
@@ -4670,8 +5371,8 @@
     "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Av. 25–33 and Vocab. ch. 18–19, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
-    "Mock section (45–60 min): listening (35 min)"
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
+    "Mock section from your mock bank (45–60 min): listening (35 min)"
    ],
    "week": 17
   },
@@ -4700,6 +5401,15 @@
    ],
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 34",
    "write": "Tâche 1 (60–120 mots) : Réponds à une offre d'emploi de développeur.",
    "speak": "Tâche 2 (5 min 30) : Cours de théâtre : interroge le professeur",
@@ -4731,6 +5441,15 @@
    ],
    "vocab": "ch. 20, first half",
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 35–36",
    "write": "Tâche 2 (120–150 mots) : Une tradition de ton pays, pour des lecteurs français.",
    "speak": "Tâche 3 (4 min 30) : Des transports publics gratuits ?",
@@ -4762,6 +5481,15 @@
    ],
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 37",
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Vivre en ville ou à la campagne ?",
    "speak": "Tâche 2 (5 min 30) : Un collègue revient d'un congé sabbatique : pose-lui des questions",
@@ -4793,6 +5521,15 @@
    ],
    "vocab": "ch. 20, second half",
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 38",
    "write": "Tâche 1 (60–120 mots) : Réagis à un article du journal local sur les pistes cyclables.",
    "speak": "Tâche 3 (4 min 30) : Diplôme ou expérience : qu'est-ce qui compte le plus ?",
@@ -4824,6 +5561,15 @@
    ],
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 39–40",
    "write": "Tâche 2 (120–150 mots) : Un voyage qui a changé ta façon de voir le monde.",
    "speak": "Tâche 2 (5 min 30) : Gîte pour un week-end en famille",
@@ -4846,6 +5592,21 @@
    "vincent_later": null,
    "vocab": "ch. 21, first half",
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "tutor",
+     "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
+     "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
+     "minutes": 50
+    }
+   ],
    "book": "Av. 41",
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : L'intelligence artificielle : menace ou chance pour l'emploi ?",
    "speak": "Tâche 3 (4 min 30) : La télévision a-t-elle encore un avenir ?",
@@ -4872,8 +5633,8 @@
     "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Av. 34–41 and Vocab. ch. 20–21, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
-    "Mock section (45–60 min): reading (60 min)"
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
+    "Mock section from your mock bank (45–60 min): reading (60 min)"
    ],
    "week": 18
   },
@@ -4893,6 +5654,15 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 42–43",
    "write": "Tâche 1 (60–120 mots) : Demande une recommandation à un ancien collègue.",
    "speak": "Tâche 2 (5 min 30) : Voiture d'occasion chez un particulier",
@@ -4924,6 +5694,15 @@
    ],
    "vocab": "ch. 21, second half",
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 44",
    "write": "Tâche 2 (120–150 mots) : Le jour où tu as reçu une très bonne nouvelle.",
    "speak": "Tâche 3 (4 min 30) : Faut-il travailler moins pour vivre mieux ?",
@@ -4946,6 +5725,15 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 45–46",
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Faut-il interdire les téléphones à l'école ?",
    "speak": "Tâche 2 (5 min 30) : Salle d'escalade : inscription",
@@ -4977,6 +5765,15 @@
    ],
    "vocab": "ch. 22, first half",
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 47",
    "write": "Tâche 1 (60–120 mots) : Résilie ton abonnement au club de sport et explique pourquoi.",
    "speak": "Tâche 3 (4 min 30) : La mode éthique : effet de mode ou vraie prise de conscience ?",
@@ -5008,6 +5805,15 @@
    ],
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 48",
    "write": "Tâche 2 (120–150 mots) : Une application qui a changé ton quotidien.",
    "speak": "Tâche 2 (5 min 30) : Fête de quartier : interroge la mairie",
@@ -5039,6 +5845,21 @@
    ],
    "vocab": "ch. 22, second half",
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "tutor",
+     "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
+     "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
+     "minutes": 50
+    }
+   ],
    "book": "Av. 49–50",
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Le tourisme de masse : richesse ou problème ?",
    "speak": "Tâche 3 (4 min 30) : Les célébrités ont-elles une responsabilité envers leurs fans ?",
@@ -5065,8 +5886,8 @@
     "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Av. 42–50 and Vocab. ch. 21–22, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
-    "Mock section (45–60 min): writing (60 min)"
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
+    "Mock section from your mock bank (45–60 min): writing (60 min)"
    ],
    "week": 19
   },
@@ -5095,6 +5916,15 @@
    ],
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 51",
    "write": "Tâche 1 (60–120 mots) : Conseille un ami qui hésite à partir au Canada.",
    "speak": "Tâche 2 (5 min 30) : Abonnement de transport annuel",
@@ -5126,6 +5956,15 @@
    ],
    "vocab": "ch. 23, first half",
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 52–53",
    "write": "Tâche 2 (120–150 mots) : Ta première conversation entièrement en français.",
    "speak": "Tâche 3 (4 min 30) : Faut-il interdire la publicité dans l'espace public ?",
@@ -5157,6 +5996,15 @@
    ],
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 54",
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Acheter d'occasion : mode passagère ou vrai changement ?",
    "speak": "Tâche 2 (5 min 30) : Ton ami a déménagé : questions sur sa nouvelle vie",
@@ -5188,6 +6036,15 @@
    ],
    "vocab": "ch. 23, second half",
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 55–56",
    "write": "Tâche 1 (60–120 mots) : Compagnie aérienne : ton bagage est perdu.",
    "speak": "Tâche 3 (4 min 30) : Le bénévolat obligatoire pour les étudiants ?",
@@ -5219,6 +6076,15 @@
    ],
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 57",
    "write": "Tâche 2 (120–150 mots) : Ton quartier et son ambiance.",
    "speak": "Tâche 2 (5 min 30) : Cours de cuisine française",
@@ -5250,6 +6116,21 @@
    ],
    "vocab": "ch. 24, first half",
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "tutor",
+     "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
+     "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
+     "minutes": 50
+    }
+   ],
    "book": "Av. 58–59",
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Faut-il manger moins de viande pour la planète ?",
    "speak": "Tâche 3 (4 min 30) : Changer souvent d'emploi : bonne idée ?",
@@ -5276,8 +6157,8 @@
     "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Av. 51–59 and Vocab. ch. 23–24, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
-    "Mock section (45–60 min): speaking (12 min, recorded)",
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
+    "Mock section from your mock bank (45–60 min): speaking (12 min, recorded)",
     "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Av. 25–59"
    ],
    "week": 20
@@ -5307,6 +6188,15 @@
    ],
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 60",
    "write": "Tâche 1 (60–120 mots) : Propose à une bibliothèque de créer un club de conversation.",
    "speak": "Tâche 2 (5 min 30) : Colocation avec un(e) inconnu(e)",
@@ -5338,6 +6228,15 @@
    ],
    "vocab": "ch. 24, second half",
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 61",
    "write": "Tâche 2 (120–150 mots) : Une fois où tu as aidé un inconnu.",
    "speak": "Tâche 3 (4 min 30) : L'immigration enrichit-elle un pays ?",
@@ -5369,6 +6268,15 @@
    ],
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 62–63",
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Étudier à l'étranger : indispensable pour une carrière ?",
    "speak": "Tâche 2 (5 min 30) : Covoiturage régulier : interroge le conducteur",
@@ -5400,6 +6308,15 @@
    ],
    "vocab": "ch. 25, first half",
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 64",
    "write": "Tâche 1 (60–120 mots) : Recommande une série à un ami, en argumentant.",
    "speak": "Tâche 3 (4 min 30) : Faut-il limiter le tourisme dans certaines villes ?",
@@ -5431,6 +6348,15 @@
    ],
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 65–66",
    "write": "Tâche 2 (120–150 mots) : Ta vie au Canada dans cinq ans.",
    "speak": "Tâche 2 (5 min 30) : Réparer ton téléphone : interroge le technicien",
@@ -5462,6 +6388,21 @@
    ],
    "vocab": "ch. 25, second half",
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "tutor",
+     "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
+     "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
+     "minutes": 50
+    }
+   ],
    "book": "Av. 67",
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Faut-il limiter le temps d'écran des enfants ?",
    "speak": "Tâche 3 (4 min 30) : La lecture est-elle encore importante à l'ère numérique ?",
@@ -5488,8 +6429,8 @@
     "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Av. 60–67 and Vocab. ch. 24–25, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
-    "Mock section (45–60 min): listening (35 min)"
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
+    "Mock section from your mock bank (45–60 min): listening (35 min)"
    ],
    "week": 21
   },
@@ -5518,6 +6459,15 @@
    ],
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 68–69",
    "write": "Tâche 1 (60–120 mots) : Négocie le loyer avec ton propriétaire.",
    "speak": "Tâche 2 (5 min 30) : Club de lecture : inscription",
@@ -5549,6 +6499,15 @@
    ],
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 70",
    "write": "Tâche 2 (120–150 mots) : Les avantages et difficultés du travail à distance.",
    "speak": "Tâche 3 (4 min 30) : Peut-on être heureux sans internet ?",
@@ -5580,6 +6539,15 @@
    ],
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Av. 71–72",
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Le vélo en ville : avenir ou danger ?",
    "speak": "Tâche 2 (5 min 30) : Randonnée guidée en montagne",
@@ -5593,7 +6561,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -5602,6 +6570,22 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "Tâche 3 timed (40 min) : Les livres papier vont-ils disparaître ?",
    "speak": "2nd attempt, compare with your first recording: T2 « Formation professionnelle : interroge le conseiller » + T3 « Le télétravail est-il l'avenir du travail ? »",
@@ -5615,7 +6599,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -5624,6 +6608,22 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "Tâche 3 timed (40 min) : Grande entreprise ou start-up ?",
    "speak": "2nd attempt, compare with your first recording: T2 « Appartement meublé : interroge l'agent immobilier » + T3 « Les réseaux sociaux sont-ils dangereux pour les jeunes ? »",
@@ -5637,7 +6637,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -5646,6 +6646,28 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "tutor",
+     "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
+     "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
+     "minutes": 50
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "FULL writing paper, 60 min timed: tâche 1 + 2 + 3 (pick unused prompts)",
    "speak": "2nd attempt, compare with your first recording: T2 « Séminaire d'entreprise : interroge le responsable de l'hôtel » + T3 « Faut-il apprendre plusieurs langues aujourd'hui ? »",
@@ -5659,7 +6681,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -5672,8 +6694,8 @@
     "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Av. 68–72, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
-    "Mock section (45–60 min): reading (60 min)"
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
+    "Mock section from your mock bank (45–60 min): reading (60 min)"
    ],
    "week": 22
   },
@@ -5684,7 +6706,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -5693,6 +6715,22 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "Tâche 3 timed (40 min) : Des transports en commun gratuits ?",
    "speak": "2nd attempt, compare with your first recording: T2 « Ton ami part travailler au Canada : questions sur son projet » + T3 « Les villes devraient-elles interdire les voitures ? »",
@@ -5706,7 +6744,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -5715,6 +6753,22 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "Tâche 3 timed (40 min) : Les applications de rencontre ont-elles changé l'amour ?",
    "speak": "2nd attempt, compare with your first recording: T2 « Association écologique : questions avant d'adhérer » + T3 « L'argent fait-il le bonheur ? »",
@@ -5728,7 +6782,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -5737,6 +6791,28 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "tutor",
+     "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
+     "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
+     "minutes": 50
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "Tâche 3 timed (40 min) : Un uniforme à l'école ?",
    "speak": "2nd attempt, compare with your first recording: T2 « Vélo électrique : interroge le vendeur » + T3 « Vaut-il mieux vivre en ville ou à la campagne ? »",
@@ -5750,7 +6826,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -5759,6 +6835,22 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "Tâche 3 timed (40 min) : L'immigration qualifiée : une chance pour le pays d'accueil ?",
    "speak": "2nd attempt, compare with your first recording: T2 « Stage en start-up : interroge le recruteur » + T3 « L'IA va-t-elle remplacer les humains au travail ? »",
@@ -5772,7 +6864,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -5781,6 +6873,22 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "Tâche 3 timed (40 min) : Faut-il interdire les vols intérieurs courts ?",
    "speak": "2nd attempt, compare with your first recording: T2 « École pour un enfant : interroge la directrice » + T3 « Les voyages forment-ils la jeunesse ? »",
@@ -5794,7 +6902,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -5803,6 +6911,28 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "tutor",
+     "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
+     "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
+     "minutes": 50
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "FULL writing paper, 60 min timed: tâche 1 + 2 + 3 (pick unused prompts)",
    "speak": "2nd attempt, compare with your first recording: T2 « Voyage organisé : interroge l'agence » + T3 « Faut-il manger moins de viande ? »",
@@ -5816,7 +6946,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -5829,7 +6959,7 @@
     "Flashcard reviews (15 min)",
     "Re-test (60 min): every error-log chapter you redid this week",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "FULL MOCK, all 4 parts, real timing (≈3 h), then score it against the NCLC 7 table"
+    "FULL MOCK from your mock bank, all 4 parts, real timing (≈3 h), then score it against the NCLC 7 table"
    ],
    "week": 23
   },
@@ -5840,7 +6970,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -5849,6 +6979,22 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "Tâche 3 timed (40 min) : Le bilinguisme : atout indispensable au travail ?",
    "speak": "2nd attempt, compare with your first recording: T2 « Marathon : interroge l'organisateur » + T3 « Le sport devrait-il être encouragé au travail ? »",
@@ -5862,7 +7008,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -5871,6 +7017,22 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "Tâche 3 timed (40 min) : Faut-il taxer la malbouffe ?",
    "speak": "2nd attempt, compare with your first recording: T2 « Changer de banque : interroge le conseiller » + T3 « Un téléphone avant 15 ans ? »",
@@ -5884,7 +7046,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -5893,6 +7055,28 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "tutor",
+     "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
+     "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
+     "minutes": 50
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "Tâche 3 timed (40 min) : Les jeux vidéo : éducatifs ou perte de temps ?",
    "speak": "2nd attempt, compare with your first recording: T2 « Cours de théâtre : interroge le professeur » + T3 « Faut-il garder sa culture d'origine quand on vit à l'étranger ? »",
@@ -5906,7 +7090,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -5915,6 +7099,22 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "Tâche 3 timed (40 min) : Vivre seul ou en colocation ?",
    "speak": "2nd attempt, compare with your first recording: T2 « Un collègue revient d'un congé sabbatique : pose-lui des questions » + T3 « Des transports publics gratuits ? »",
@@ -5928,7 +7128,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -5937,6 +7137,22 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "Tâche 3 timed (40 min) : Faut-il travailler pendant ses études ?",
    "speak": "2nd attempt, compare with your first recording: T2 « Gîte pour un week-end en famille » + T3 « Diplôme ou expérience : qu'est-ce qui compte le plus ? »",
@@ -5950,7 +7166,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -5959,6 +7175,28 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "tutor",
+     "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
+     "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
+     "minutes": 50
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "FULL writing paper, 60 min timed: tâche 1 + 2 + 3 (pick unused prompts)",
    "speak": "2nd attempt, compare with your first recording: T2 « Voiture d'occasion chez un particulier » + T3 « La télévision a-t-elle encore un avenir ? »",
@@ -5972,7 +7210,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -5985,7 +7223,7 @@
     "Flashcard reviews (15 min)",
     "Re-test (60 min): every error-log chapter you redid this week",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "FULL MOCK, all 4 parts, real timing (≈3 h), then score it against the NCLC 7 table",
+    "FULL MOCK from your mock bank, all 4 parts, real timing (≈3 h), then score it against the NCLC 7 table",
     "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Av. 60–72"
    ],
    "week": 24
@@ -5997,7 +7235,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -6006,6 +7244,22 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "Tâche 3 timed (40 min) : Interdire la publicité destinée aux enfants ?",
    "speak": "2nd attempt, compare with your first recording: T2 « Salle d'escalade : inscription » + T3 « Faut-il travailler moins pour vivre mieux ? »",
@@ -6019,7 +7273,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -6028,6 +7282,22 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "Tâche 3 timed (40 min) : Un monde sans argent liquide : progrès ou danger ?",
    "speak": "2nd attempt, compare with your first recording: T2 « Fête de quartier : interroge la mairie » + T3 « La mode éthique : effet de mode ou vraie prise de conscience ? »",
@@ -6041,7 +7311,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -6050,6 +7320,28 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "tutor",
+     "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
+     "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
+     "minutes": 50
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "Tâche 3 timed (40 min) : Un animal de compagnie en appartement : bonne idée ?",
    "speak": "2nd attempt, compare with your first recording: T2 « Abonnement de transport annuel » + T3 « Les célébrités ont-elles une responsabilité envers leurs fans ? »",
@@ -6063,7 +7355,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -6072,6 +7364,22 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "Tâche 3 timed (40 min) : Le droit de vote à 16 ans ?",
    "speak": "2nd attempt, compare with your first recording: T2 « Ton ami a déménagé : questions sur sa nouvelle vie » + T3 « Faut-il interdire la publicité dans l'espace public ? »",
@@ -6085,7 +7393,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -6094,6 +7402,22 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "Tâche 3 timed (40 min) : Cuisine maison ou plats livrés ?",
    "speak": "2nd attempt, compare with your first recording: T2 « Cours de cuisine française » + T3 « Le bénévolat obligatoire pour les étudiants ? »",
@@ -6107,7 +7431,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -6116,6 +7440,28 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "tutor",
+     "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
+     "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
+     "minutes": 50
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "FULL writing paper, 60 min timed: tâche 1 + 2 + 3 (pick unused prompts)",
    "speak": "2nd attempt, compare with your first recording: T2 « Colocation avec un(e) inconnu(e) » + T3 « Changer souvent d'emploi : bonne idée ? »",
@@ -6129,7 +7475,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -6142,7 +7488,7 @@
     "Flashcard reviews (15 min)",
     "Re-test (60 min): every error-log chapter you redid this week",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "FULL MOCK, all 4 parts, real timing (≈3 h), then score it against the NCLC 7 table"
+    "FULL MOCK from your mock bank, all 4 parts, real timing (≈3 h), then score it against the NCLC 7 table"
    ],
    "week": 25
   },
@@ -6153,7 +7499,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -6162,6 +7508,22 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "Tâche 3 timed (40 min) : Influenceur : un vrai métier ?",
    "speak": "2nd attempt, compare with your first recording: T2 « Covoiturage régulier : interroge le conducteur » + T3 « L'immigration enrichit-elle un pays ? »",
@@ -6175,7 +7537,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -6184,6 +7546,22 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "Tâche 3 timed (40 min) : Faut-il protéger les petits commerces face aux grandes surfaces ?",
    "speak": "2nd attempt, compare with your first recording: T2 « Réparer ton téléphone : interroge le technicien » + T3 « Faut-il limiter le tourisme dans certaines villes ? »",
@@ -6197,7 +7575,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -6206,6 +7584,28 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "tutor",
+     "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
+     "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
+     "minutes": 50
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "Tâche 3 timed (40 min) : Le bénévolat devrait-il compter sur un CV ?",
    "speak": "2nd attempt, compare with your first recording: T2 « Club de lecture : inscription » + T3 « La lecture est-elle encore importante à l'ère numérique ? »",
@@ -6219,7 +7619,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -6228,6 +7628,22 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "Tâche 3 timed (40 min) : Apprendre en ligne ou en classe ?",
    "speak": "2nd attempt, compare with your first recording: T2 « Randonnée guidée en montagne » + T3 « Peut-on être heureux sans internet ? »",
@@ -6241,7 +7657,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -6250,6 +7666,22 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "Tâche 3 timed (40 min) : Faut-il encourager la voiture électrique ?",
    "speak": "2nd attempt, compare with your first recording: T2 « Formation professionnelle : interroge le conseiller » + T3 « Le télétravail est-il l'avenir du travail ? »",
@@ -6263,7 +7695,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -6272,6 +7704,28 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one full news article against the clock (France Info)",
+     "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+     "minutes": 20,
+     "link": "https://www.francetvinfo.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 30,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "tutor",
+     "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
+     "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
+     "minutes": 50
+    }
+   ],
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "FULL writing paper, 60 min timed: tâche 1 + 2 + 3 (pick unused prompts)",
    "speak": "2nd attempt, compare with your first recording: T2 « Appartement meublé : interroge l'agent immobilier » + T3 « Les réseaux sociaux sont-ils dangereux pour les jeunes ? »",
@@ -6285,7 +7739,7 @@
    "anki": 15,
    "sent": 0,
    "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "tv5": "Timed TCF-style listening + reading (your mock bank, official samples): 50 min",
    "yt": "(replaced by timed listening)",
    "yt_kind": "(replaced by timed listening)",
    "yt_links": null,
@@ -6298,7 +7752,7 @@
     "Flashcard reviews (15 min)",
     "Re-test (60 min): every error-log chapter you redid this week",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "FULL MOCK, all 4 parts, real timing (≈3 h), then score it against the NCLC 7 table"
+    "FULL MOCK from your mock bank, all 4 parts, real timing (≈3 h), then score it against the NCLC 7 table"
    ],
    "week": 26
   }

@@ -40,7 +40,10 @@ import {
 const plan = JSON.parse(readFileSync(new URL('../site/data/schedule.json', import.meta.url), 'utf8'));
 const studyDays = plan.days.filter((d) => !d.sunday);
 /** The core 4 hours plus Vincent's later lessons, which run on top. */
-const coreAndVincent = (d) => 240 + Math.round((d.vincent_later || []).reduce((sum, l) => sum + l.to - l.from, 0) / 60);
+const phaseCore = (d) => Object.values(MINUTES[d.phase]).reduce((a, b) => a + b, 0);
+const extraMinutes = (d) => (d.extras || []).reduce((sum, x) => sum + x.minutes, 0);
+const coreAndVincent = (d) =>
+  phaseCore(d) + extraMinutes(d) + Math.round((d.vincent_later || []).reduce((sum, l) => sum + l.to - l.from, 0) / 60);
 
 describe('dates', () => {
   it('localISO uses the local calendar day, not UTC', () => {
@@ -95,7 +98,8 @@ describe('schedule data', () => {
         if (!m || m[1] !== code) continue;
         const lo = Number(m[2]);
         const hi = Number(m[3] || m[2]);
-        for (let c = lo; c <= hi; c++) seen.push(c);
+        // A long chapter runs over several days, so only count it the first time.
+        for (let c = lo; c <= hi; c++) if (seen.at(-1) !== c) seen.push(c);
       }
       expect(seen).toEqual(Array.from({ length: count }, (_, i) => i + 1));
     }
@@ -124,19 +128,22 @@ describe('schedule data', () => {
 });
 
 describe('daily checklist', () => {
-  it('every phase adds up to exactly 4 hours', () => {
+  it('every phase is at least 4 hours', () => {
     for (const m of Object.values(MINUTES)) {
-      expect(Object.values(m).reduce((a, b) => a + b, 0)).toBe(240);
+      expect(Object.values(m).reduce((a, b) => a + b, 0)).toBeGreaterThanOrEqual(240);
     }
   });
 
   it('every study day is at least 4 hours: the core blocks plus any extras', () => {
     for (const d of studyDays) {
       const later = (d.vincent_later || []).reduce((sum, l) => sum + l.to - l.from, 0);
-      const extras = (d.read_task ? 10 : 0) + (d.word_set ? 10 : 0) + Math.round(later / 60);
+      // A two or three chapter Débutant day shows its real length instead of the 50-minute slot.
+      const bookOver = d.book_topics ? Math.max(0, d.book_topics.length * 40 - MINUTES[d.phase].book) : 0;
+      const extras =
+        (d.read_task ? 10 : 0) + (d.word_set ? 10 : 0) + Math.round(later / 60) + extraMinutes(d) + bookOver;
       // A long Vincent day can run a couple of minutes over the slot: that's fine, 4 hours is a minimum.
-      expect(totalMinutes(d)).toBeGreaterThanOrEqual(240 + extras - 4);
-      expect(totalMinutes(d)).toBeLessThanOrEqual(240 + extras + 4);
+      expect(totalMinutes(d)).toBeGreaterThanOrEqual(phaseCore(d) + extras - 4);
+      expect(totalMinutes(d)).toBeLessThanOrEqual(phaseCore(d) + extras + 4);
     }
   });
 
@@ -165,6 +172,101 @@ describe('daily checklist', () => {
       const ids = taskIds(d);
       expect(new Set(ids).size).toBe(ids.length);
     }
+  });
+});
+
+describe('Intermédiaire, mapped to the book', () => {
+  const int = studyDays.filter((d) => /^Int\. /.test(d.book));
+  const pages = (d) =>
+    d.book_pages
+      .match(/p\. (\d+)–(\d+)/)
+      .slice(1)
+      .map(Number);
+  const book = (d) => sessionsFor(d)[0].tasks.find((t) => t.id === 'book');
+
+  it('runs from p. 8 to p. 255 with no gap except the bilan pages', () => {
+    const bilans = new Set([72, 138, 220]);
+    expect(pages(int[0])[0]).toBe(8);
+    expect(pages(int.at(-1))[1]).toBe(255);
+    int.slice(1).forEach((d, i) => {
+      const prev = pages(int[i])[1] + 1;
+      expect(pages(d)[0]).toBe(bilans.has(prev) ? prev + 2 : prev);
+    });
+  });
+
+  it('never sets more than 6 pages in a day, and gives the passé composé six days', () => {
+    for (const d of int) expect(pages(d)[1] - pages(d)[0] + 1).toBeLessThanOrEqual(6);
+    expect(int.filter((d) => d.book === 'Int. 40')).toHaveLength(6);
+  });
+
+  it('shows the focus and pages, but never Débutant answers or the English-note task', () => {
+    const d = int[0];
+    expect(book(d).title).toContain(d.book_pages);
+    expect(book(d).detail).toContain('Être and subject pronouns');
+    expect(book(d).answerPages).toBeUndefined();
+    expect(taskIds(d)).not.toContain('before-book');
+  });
+
+  it('puts each pair of bilans on the Sunday after its last chapter, then the final test', () => {
+    const on = (needle) => plan.days.filter((d) => d.sunday_items?.some((i) => i.includes(needle))).map((d) => d.date);
+    const after = (needle) => on(needle)[0];
+    const lastDay = (ch) => int.filter((d) => d.book.match(/(\d+)$/)[1] >= ch).map((d) => d.date)[0];
+    expect(on('Bilans 1 and 2')).toHaveLength(1);
+    expect(after('Bilans 1 and 2') > lastDay(15)).toBe(true);
+    expect(on('Bilans 7 and 8')).toEqual(['2027-02-14']);
+    expect(on('Intermédiaire final test')).toEqual(['2027-02-14']);
+  });
+});
+
+describe('plan review changes', () => {
+  const dated = (iso) => plan.days.find((d) => d.date === iso);
+  const ids = (d) => (d.extras || []).map((x) => x.id);
+
+  it('adds a daily article from 4 Jan to the exam, and none before', () => {
+    expect(studyDays.filter((d) => d.date < '2027-01-04').every((d) => !ids(d).includes('article'))).toBe(true);
+    expect(studyDays.filter((d) => d.date >= '2027-01-04').every((d) => ids(d).includes('article'))).toBe(true);
+  });
+
+  it('keeps 30 minutes of native audio every exam-mode study day', () => {
+    for (const d of studyDays) expect(ids(d).includes('native-audio')).toBe(d.phase === 4);
+  });
+
+  it('has a tutor weekly from 2 Jan and twice a week in exam mode', () => {
+    const tutor = studyDays.filter((d) => ids(d).includes('tutor'));
+    expect(tutor[0].date).toBe('2027-01-02');
+    expect(tutor.filter((d) => d.phase < 4).every((d) => new Date(d.date).getUTCDay() === 6)).toBe(true);
+    const weekdays = new Set(tutor.filter((d) => d.phase === 4).map((d) => new Date(d.date).getUTCDay()));
+    expect([...weekdays].sort()).toEqual([3, 6]);
+  });
+
+  it('puts the extras in the afternoon session with their own minutes', () => {
+    const d = dated('2027-04-10');
+    const tasks = sessionsFor(d)[1].tasks;
+    for (const x of d.extras) expect(tasks.find((t) => t.id === x.id).minutes).toBe(x.minutes);
+  });
+
+  it('keeps all 72 Avancé chapters and tells you how to triage them', () => {
+    const av = studyDays.filter((d) => /^Av\. /.test(d.book));
+    const book = (d) => sessionsFor(d)[0].tasks.find((t) => t.id === 'book');
+    expect(av.every((d) => book(d).detail.includes('grammar checklist'))).toBe(true);
+    const other = studyDays.find((d) => /^Int\. /.test(d.book));
+    expect(book(other).detail).not.toContain('grammar checklist');
+  });
+
+  it('shows the real length of a multi-chapter Débutant day', () => {
+    const d = studyDays.find((x) => x.book_topics?.length === 3);
+    expect(sessionsFor(d)[0].tasks.find((t) => t.id === 'book').minutes).toBe(120);
+  });
+
+  it('schedules the baseline and the exam booking once each, on Sundays', () => {
+    const items = (needle) =>
+      plan.days.filter((d) => d.sunday_items?.some((i) => i.includes(needle))).map((d) => d.date);
+    expect(items('Baseline test')).toEqual(['2026-11-15']);
+    expect(items('Book your exam seats')).toEqual(['2027-02-07']);
+  });
+
+  it('no longer relies on being in France for speaking practice', () => {
+    expect(JSON.stringify(plan.days)).not.toMatch(/café-langue|Meetup/);
   });
 });
 

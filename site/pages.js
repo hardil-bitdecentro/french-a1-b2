@@ -57,8 +57,8 @@ export function viewMaterials() {
       <p>The grammar workbook FLE teachers recommend most for self-study: the rule on the left page, exercises on the right. Three volumes take you from A1 to B2. <b>Always buy the matching Corrigés (answer key)</b>, or you can't check your own work.</p>
       <ul class="plain volumes">
         <li><p class="vol-when">Buy now · used 9 Nov – 9 Dec · A1</p><p class="task-title">Niveau débutant, 3e éd. (2025 "+ appli" printing), 60 chapters + Corrigés</p><p class="sub">ISBN 9782090398502 · ${isbn('9782090398502')} · Corrigés 9782090381023</p></li>
-        <li><p class="vol-when">Buy late Nov · used 10 Dec – 8 Feb · A2–B1</p><p class="task-title">Niveau intermédiaire, 4e éd. + Corrigés</p><p class="sub">ISBN 9782090381030 · ${isbn('9782090381030')} · Corrigés 9782090381047</p></li>
-        <li><p class="vol-when">Buy late Jan · used 9 Feb – 7 Apr · B1–B2</p><p class="task-title">Niveau avancé, 3e éd., 72 chapters + Corrigés</p><p class="sub">ISBN 9782090381979 · ${isbn('9782090381979')} · Corrigés 9782090381986</p></li>
+        <li><p class="vol-when">Buy this week · used 10 Dec – 8 Feb · A2–B1</p><p class="task-title">Niveau intermédiaire, 4e éd. + Corrigés</p><p class="sub">ISBN 9782090381030 · ${isbn('9782090381030')} · Corrigés 9782090381047</p></li>
+        <li><p class="vol-when">Buy this week · used 9 Feb – 7 Apr · B1–B2</p><p class="task-title">Niveau avancé, 3e éd., 72 chapters + Corrigés</p><p class="sub">ISBN 9782090381979 · ${isbn('9782090381979')} · Corrigés 9782090381986</p></li>
       </ul>
       <div class="acts"><a class="act" href="#/audio">Débutant audio: 28 dialogues + 10 songs →</a></div>
       <p class="sub">Also at Gibert Joseph, Decitre and Cultura, or borrow them free from your médiathèque. The plan assumes 52 chapters in Intermédiaire; if your copy has a different number, keep about one a day and let the dates slide.</p>
@@ -68,7 +68,7 @@ export function viewMaterials() {
       <h2>The vocabulary book: Vocabulaire progressif du français (CLE International)</h2>
       <p>Same publisher and layout as the grammar books: a themed lesson on the left page, exercises on the right. It teaches words <b>by topic</b> (housing, work, health, travel…), which is what the TCF writing and speaking tasks are about. A frequency deck alone teaches words one at a time.</p>
       <ul class="plain volumes">
-        <li><p class="vol-when">Buy late Nov · used 10 Dec – 3 Apr · A2–B1</p><p class="task-title">Niveau intermédiaire + appli, 3e éd. (2025 printing), 25 chapters + Corrigés</p><p class="sub">ISBN 9782090398571 · ${isbn('9782090398571')} · Corrigés 9782090380163</p></li>
+        <li><p class="vol-when">Buy this week · used 10 Dec – 3 Apr · A2–B1</p><p class="task-title">Niveau intermédiaire + appli, 3e éd. (2025 printing), 25 chapters + Corrigés</p><p class="sub">ISBN 9782090398571 · ${isbn('9782090398571')} · Corrigés 9782090380163</p></li>
       </ul>
       <p class="sub">Half a chapter on 50 evenings (the app shows which), in place of that evening's deck words. Turn its key phrases into flashcards, so the app handles the spacing.</p>
     </section>
@@ -83,7 +83,7 @@ export function viewMaterials() {
         <li><p class="vol-when">Vocabulary · €28.10 · 208 pages</p><p class="task-title">Vocabulaire progressif intermédiaire + appli, 3e éd.</p><p class="sub">In stock: Forum des Halles. Limited: Montparnasse, Ternes, Gennevilliers, La Défense-CNIT, Herblay, Cergy, Carré Sénart, Val d'Europe. <a href="https://www.fnac.com/a21695846/Claire-Leroy-Miquel-Vocabulaire-progressif-intermediaire-appli-3e-edition" target="_blank" rel="noopener">Fnac page ↗</a></p></li>
         <li><p class="vol-when">Vocabulary answer key · €13.50 · 32 pages</p><p class="task-title">Corrigés vocabulaire progressif, niveau intermédiaire, 3e éd.</p><p class="sub"><b>Only at Forum des Halles</b>, limited, so buy or reserve it early even though you only need the book from 10 Dec. <a href="https://www.fnac.com/a11187087/Claire-Miquel-Corriges-vocabulaire-progressif-niveau-intermediaire-3e-edition" target="_blank" rel="noopener">Fnac page ↗</a></p></li>
       </ul>
-      <p class="sub">Intermédiaire and Avancé grammar volumes: buy in late Nov / late Jan; use the Amazon.fr / Fnac links in the book list above.</p>
+      <p class="sub">Intermédiaire and Avancé grammar volumes: buy them this week, before you leave France; use the Amazon.fr / Fnac links in the book list above.</p>
     </section>
 
     <section class="card">
@@ -117,7 +117,7 @@ export function viewMaterials() {
 
     <section class="card">
       <h2>Correction: Claude + real people</h2>
-      <p>Every day's writing and speaking task has a copy button with the full prompt. Paste it into Claude, then your text, or use voice mode for speaking. You're in France: whenever you can, swap a Claude session for a real conversation (café-langue, Meetup language exchange, shops).</p>
+      <p>Every day's writing and speaking task has a copy button with the full prompt. Paste it into Claude, then your text, or use voice mode for speaking. Claude's scores are estimates, so a real tutor marks you too (below). For extra conversation, use a free Tandem or HelloTalk partner.</p>
       <p><b>English explanations of the book:</b> the book is all in French. Read every rule in French first and try the exercises; that is reading practice for the TCF. Only if a rule is still unclear, use the book task's "Stuck? Explain in English" button. It copies a prompt that already names the volume and chapter numbers. In the Claude app, paste it, attach a photo of the chapter's rule page (the left page), and send. If you'd rather not take a photo, type the chapter title instead.</p>
       <details><summary>English explanation prompt</summary><pre class="note">${esc(EXPLAIN_PROMPT('Déb. 1–2'))}</pre></details>
       <details><summary>Writing correction prompt</summary><pre class="note">${esc(WRITING_PROMPT('[sujet du jour]'))}</pre></details>
@@ -127,8 +127,26 @@ export function viewMaterials() {
 
     <section class="card">
       <h2>Exam papers: official TCF Canada samples (free)</h2>
-      <p>From the people who write the test. Use them from February (Sunday mock sections) and daily in April.</p>
+      <p>From the people who write the test, but only a small set. Use them for your baseline on 15 Nov, then alongside a mock bank.</p>
       <div class="acts"><a class="act" href="${LINKS.tcf}" target="_blank" rel="noopener">france-education-international.fr ↗</a></div>
+    </section>
+
+    <section class="card">
+      <h2>Mock tests: PrepMyFuture (paid, €69–99)</h2>
+      <p>The plan has 14 Sundays with mocks, including 4 full ones. Buy a bank before February, when the Sunday mock sections start.</p>
+      <div class="acts"><a class="act" href="https://www.prepmyfuture.com/en/products/tcf-canada" target="_blank" rel="noopener">prepmyfuture.com ↗</a></div>
+    </section>
+
+    <section class="card">
+      <h2>Human marking: a TCF tutor (paid)</h2>
+      <p>Writing and speaking are half the exam. Book a teacher who has prepared TCF Canada candidates: Saturdays from 2 Jan, and Wednesdays too from 8 Apr. Each lesson is one timed speaking task and one writing task marked /20.</p>
+      <div class="acts"><a class="act" href="https://www.italki.com/" target="_blank" rel="noopener">italki ↗</a><a class="act" href="https://preply.com/" target="_blank" rel="noopener">Preply ↗</a></div>
+    </section>
+
+    <section class="card">
+      <h2>Reading and native listening (free)</h2>
+      <p>A daily article from 4 Jan: 1jour1actu first, then RFI français facile, then France Info. In exam mode, 30 minutes of RFI and InnerFrench a day.</p>
+      <div class="acts"><a class="act" href="https://www.1jour1actu.com/" target="_blank" rel="noopener">1jour1actu ↗</a><a class="act" href="https://francaisfacile.rfi.fr/" target="_blank" rel="noopener">RFI français facile ↗</a><a class="act" href="https://innerfrench.com/podcast/" target="_blank" rel="noopener">InnerFrench ↗</a><a class="act" href="https://www.francetvinfo.fr/" target="_blank" rel="noopener">France Info ↗</a></div>
     </section>`;
 }
 
@@ -203,12 +221,14 @@ export function viewMethod(state) {
       <h2>Checkpoints</h2>
       <table class="tbl">
         <tbody>
+          <tr><td>15 Nov</td><td>Baseline: official TCF samples, timed. Write the score down</td></tr>
           <tr><td>9 Dec</td><td>Débutant finished · ~700 words · 2-min self-intro, no notes</td></tr>
           <tr><td>9 Jan</td><td>Half of Intermédiaire · ~1,400 words · 10-min conversation</td></tr>
           <tr><td>8 Feb</td><td>Intermédiaire finished · ~2,100 words · first listening/reading mock (250–330 is normal)</td></tr>
           <tr><td>9 Mar</td><td>Half of Avancé · subjonctif, conditionnel, relatives · mocks ≥ 400</td></tr>
+          <tr><td>Mid-Mar</td><td>Real TCF Canada sitting as a checkpoint. NCLC 5 in speaking and listening opens the Francophone Mobility work permit</td></tr>
           <tr><td>7 Apr</td><td>Avancé finished · ~3,300 words · mocks ≥ 440 · writing/speaking ~10/20</td></tr>
-          <tr><td>May</td><td>Two full mocks in a row at NCLC 7+ in all four skills → sit the exam</td></tr>
+          <tr><td>May</td><td>Two full mocks in a row at NCLC 7+ in all four skills → sit the exam. May is the stretch date; if a skill is short, take a June or July sitting instead</td></tr>
         </tbody>
       </table>
     </section>

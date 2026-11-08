@@ -7,7 +7,7 @@ export const PHASE_NAMES = {
   4: 'Exam mode (B2)',
 };
 
-// Minutes per block for each phase. Every phase adds up to 240 (4 hours).
+// Minutes per block for each phase. Four hours is the minimum, and later phases run over it.
 export const MINUTES = {
   // Phase 1: 1 hour of Vincent's lessons on the day's chapters, topped up with Super Easy French.
   1: {
@@ -23,7 +23,7 @@ export const MINUTES = {
     errorLog: 10,
   },
   2: {
-    ankiReview: 15,
+    ankiReview: 30,
     book: 50,
     cards: 10,
     write: 20,
@@ -35,8 +35,8 @@ export const MINUTES = {
     errorLog: 10,
   },
   3: {
-    ankiReview: 15,
-    book: 40,
+    ankiReview: 30,
+    book: 50,
     cards: 10,
     write: 30,
     input: 30,
@@ -47,7 +47,7 @@ export const MINUTES = {
     errorLog: 10,
   },
   4: {
-    ankiReview: 15,
+    ankiReview: 30,
     book: 20,
     cards: 0,
     write: 50,
@@ -290,6 +290,12 @@ export function formatClock(seconds) {
   return `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`;
 }
 
+// A Débutant chapter takes about this long, so a two or three chapter day shows its real length.
+export const MINUTES_PER_DEB_CHAPTER = 40;
+
+export const AVANCE_TRIAGE =
+  ' If this chapter is on your grammar checklist, do all of it. If it is not, do the first exercise only and put the time you save into speaking.';
+
 /** Minutes to put on the timer: the task's own, or the "(60 min)" in a Sunday task's title. */
 export function taskMinutes(task) {
   if (task.minutes) return task.minutes;
@@ -504,15 +510,17 @@ export function sessionsFor(day) {
         : `Book: ${day.book}${day.book_pages ? `, ${day.book_pages}` : ''}${day.book_annex ? ' + Annexes' : ''}`,
       detail:
         (day.book_topics ? `${day.book_topics.map((t) => `Ch. ${t.ch}: ${t.topic}`).join(' · ')}. ` : '') +
+        (day.book_focus ? `${day.book_focus[0].toUpperCase()}${day.book_focus.slice(1)}. ` : '') +
         (day.book_annex ? `${day.book_annex}. ` : '') +
         (day.book_topics ? 'Read the examples on the left page, then the rule' : 'Read the rule') +
-        ' → close the book, say it aloud → exercises without looking → check your answers (Corrigés, or the button below). Take as long as it needs.',
+        ' → close the book, say it aloud → exercises without looking → check your answers (Corrigés, or the button below). Take as long as it needs.' +
+        (/^Av\. /.test(day.book) ? AVANCE_TRIAGE : ''),
       ...(day.book_topics ? { action: { label: 'French words in the book', href: '#/book-words' } } : {}),
-      minutes: m.book,
+      minutes: day.book_topics ? Math.max(m.book, day.book_topics.length * MINUTES_PER_DEB_CHAPTER) : m.book,
       kind: 'explain',
       copy: EXPLAIN_PROMPT(day.book, day.book_topics),
       check: exam ? undefined : CHECK_PROMPT(day.book, day.book_topics),
-      answerPages: pagesFrom(day.book_pages),
+      answerPages: day.book_topics ? pagesFrom(day.book_pages) : undefined, // the saved answers are Débutant only
     },
   ];
   if (m.cards)
@@ -596,6 +604,7 @@ export function sessionsFor(day) {
       action: { label: 'Add a card', href: '#/cards/add/vocab' },
     });
   }
+  afternoon.push(...(day.extras || []));
   afternoon.push({
     id: 'speak',
     title: `Speak: ${day.speak}`,

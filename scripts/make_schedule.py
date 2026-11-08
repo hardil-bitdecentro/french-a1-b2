@@ -19,6 +19,14 @@ BOOKS = [
 ]
 EXAM_MODE_START = date(2027, 4, 8)
 FULL_MOCK_FROM = date(2027, 4, 18)
+ARTICLE_FROM = date(2027, 1, 4)  # a daily article, because the TCF reading paper is long texts, not sentences
+TUTOR_FROM = date(2027, 1, 2)  # weekly human marking on Saturdays; twice a week once exam mode starts
+BASELINE_SUNDAY = date(2026, 11, 15)
+BOOK_SEATS_SUNDAY = date(2027, 2, 7)
+RFI_FACILE = "https://francaisfacile.rfi.fr/"
+INNERFRENCH = "https://innerfrench.com/podcast/"
+JOUR_ACTU = "https://www.1jour1actu.com/"
+FRANCE_INFO = "https://www.francetvinfo.fr/"
 
 FR_MONTHS = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
@@ -574,15 +582,87 @@ def deb_topics_text(t):
         return None
     return f"{ch_label(t)}: " + "; ".join(DEB_TOPICS[ch - 1] for ch in range(t[1], t[2] + 1))
 
+# ---------- Intermédiaire, from the book's contents pages (labels are our own) ----------
+# One study day per entry: first chapter, last chapter, first page, last page, focus. Chapters run from 2 to 24 pages,
+# so days follow the pages: long chapters are split at their sub-headings and short ones are grouped.
+INT_DAYS = [
+    (1, 1, 8, 11, "être and subject pronouns"),
+    (2, 2, 12, 17, "adjectives: gender, plural, agreement"),
+    (3, 3, 18, 21, "simple negation and questions"),
+    (4, 4, 22, 25, "nouns: gender of people, things, animals"),
+    (4, 4, 26, 31, "noun plurals, articles, contractions with à and de"),
+    (5, 6, 32, 37, "c'est or il est; possessives"),
+    (7, 9, 38, 43, "family and group nouns; demonstratives; il y a or c'est"),
+    (10, 10, 44, 47, "prepositions for towns, countries, places"),
+    (11, 11, 48, 53, "uses of avoir: age, hunger, appearance, negation"),
+    (12, 12, 54, 57, "where adjectives go; special adjectives"),
+    (13, 13, 58, 63, "numbers: cardinal, ordinal, spoken and written"),
+    (14, 14, 64, 67, "days, dates, seasons, time, weather"),
+    (15, 15, 68, 71, "indefinite adjectives and pronouns"),
+    (16, 16, 74, 79, "-er verbs: forms, sound, spelling"),
+    (17, 18, 80, 85, "duration with depuis, pour, pendant, en; adverbs"),
+    (19, 19, 86, 89, "quantities"),
+    (20, 21, 90, 95, "the pronoun en; regions and origin"),
+    (22, 22, 96, 101, "comparatives and superlatives; mieux or meilleur"),
+    (23, 25, 102, 107, "aller + place; the pronoun y; à, de, jusqu'à"),
+    (26, 26, 108, 111, "-ir, -re, -oir verbs with two stems"),
+    (26, 26, 112, 115, "verbs with three stems; irregular verbs"),
+    (26, 26, 116, 119, "mettre, prendre, faire; pouvoir, devoir, falloir"),
+    (26, 27, 120, 123, "savoir, connaître, vouloir; reflexive verbs"),
+    (28, 28, 124, 127, "direct and indirect object pronouns"),
+    (28, 28, 128, 131, "order of object pronouns"),
+    (29, 31, 132, 137, "stressed pronouns; imperative; polite conditional"),
+    (32, 32, 140, 143, "simple relative pronouns; mise en relief"),
+    (32, 32, 144, 147, "compound relative pronouns"),
+    (33, 33, 148, 151, "question words; quel; exclamations"),
+    (34, 34, 152, 155, "negation: ne jamais, ne plus, ni ni, ne que"),
+    (35, 36, 156, 159, "indirect speech in the present; gerund and present participle"),
+    (37, 38, 160, 165, "verbs with à and de; verbs of movement"),
+    (39, 39, 166, 169, "near future: use and form"),
+    (39, 39, 170, 173, "near future with pronouns, adverbs, negation, questions"),
+    (40, 40, 174, 177, "passé composé with avoir"),
+    (40, 40, 178, 181, "past participles"),
+    (40, 40, 182, 185, "passé composé with être"),
+    (40, 40, 186, 189, "reflexive verbs in the past; être or avoir"),
+    (40, 40, 190, 193, "participle agreement; pronouns and adverbs in the past"),
+    (40, 40, 194, 197, "negation and questions in the passé composé"),
+    (41, 41, 198, 203, "time: origin and duration, chronology, sequence"),
+    (42, 43, 204, 209, "the passive; imparfait of habit"),
+    (43, 43, 210, 213, "imparfait or passé composé"),
+    (44, 45, 214, 219, "plus-que-parfait; indirect speech in the past"),
+    (46, 47, 222, 227, "venir de, être en train de, être sur le point de; simple future"),
+    (48, 49, 228, 231, "futur antérieur; the conditional for imagining"),
+    (50, 50, 232, 237, "hypotheses with si: future, present, past"),
+    (51, 51, 238, 241, "subjunctive: il faut que and how it is formed"),
+    (51, 51, 242, 245, "verbs that take the subjunctive"),
+    (51, 51, 246, 249, "impersonal phrases; subjunctive or indicative; past subjunctive; conjunctions"),
+    (52, 52, 250, 253, "cause, consequence, purpose"),
+    (52, 52, 254, 255, "opposition and concession"),
+]
+# (first bilan, second bilan, last chapter covered, first page, second page)
+INT_BILANS = [(1, 2, 15, 72, 73), (3, 4, 31, 138, 139), (5, 6, 45, 220, 221), (7, 8, 52, 256, 257)]
+INT_FINAL_TEST = "p. 273–276"
+_int_gaps = {b[3]: b[4] for b in INT_BILANS}
+for _a, _b in zip(INT_DAYS, INT_DAYS[1:]):
+    _next = _a[3] + 1
+    assert _b[2] == (_int_gaps[_next] + 1 if _next in _int_gaps else _next), _a
+
 
 # chapter assignment: day -> (code, first, last)
 chapters = {}
+int_day = {}
 for code, _name, n, a, b in BOOKS:
     days = study_days(a, b)
     if code == "Déb.":
         assert len(days) == len(DEB_DAYS)
         for d, (lo, hi) in zip(days, DEB_DAYS):
             chapters[d] = (code, lo, hi)
+        continue
+    if code == "Int.":
+        assert len(days) == len(INT_DAYS)
+        for d, entry in zip(days, INT_DAYS):
+            chapters[d] = (code, entry[0], entry[1])
+            int_day[d] = entry
         continue
     k = len(days)
     for i, d in enumerate(days):
@@ -899,7 +979,7 @@ def tv5(d):
         return "TV5MONDE EDU · B1 · 3 exercises"
     if d < EXAM_MODE_START:
         return "TV5MONDE EDU · B2 · 3 exercises"
-    return "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min"
+    return "Timed TCF-style listening + reading (your mock bank, official samples): 50 min"
 
 
 def youtube(d):
@@ -910,6 +990,34 @@ def youtube(d):
     if d < EXAM_MODE_START:
         return "Easy French · next episode (French subtitles → none)"
     return "(replaced by timed listening)"
+
+
+def extras_for(d, ph):
+    """Tasks added on top of the core blocks: long reading, native audio and a human marker."""
+    out = []
+    if d >= ARTICLE_FROM:
+        if ph == 2:
+            out.append({"id": "article", "title": "Read one article: 1jour1actu",
+                        "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
+                        "minutes": 15, "link": JOUR_ACTU})
+        elif ph == 3:
+            out.append({"id": "article", "title": "Read one article: RFI français facile transcript",
+                        "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+                        "minutes": 20, "link": RFI_FACILE})
+        else:
+            out.append({"id": "article", "title": "Read one full news article against the clock (France Info)",
+                        "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
+                        "minutes": 20, "link": FRANCE_INFO})
+    if ph == 4:
+        out.append({"id": "native-audio", "title": "Native audio: RFI journal en français facile, then InnerFrench",
+                    "detail": "Listen once without the text and note the main points. Then check the transcript.",
+                    "minutes": 30, "link": RFI_FACILE})
+    if d >= TUTOR_FROM and (d.weekday() == 5 or (ph == 4 and d.weekday() == 2)):
+        out.append({"id": "tutor", "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
+                    "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. "
+                              "Bring your weakest task from the error log and write down the score you get.",
+                    "minutes": 50})
+    return out
 
 
 # counters per pool
@@ -954,6 +1062,7 @@ for d in all_days():
         continue
     study_n += 1
     row["sunday"] = False
+    row["extras"] = extras_for(d, ph)
     # book
     if ph < 4:
         row["book"] = ch_label(chapters[d])
@@ -963,6 +1072,9 @@ for d in all_days():
             row["book_topics"] = [{"ch": c, "topic": DEB_TOPICS[c - 1], "note": DEB_BRIEFS[c - 1]} for c in range(lo, hi + 1)]
             if (lo, hi) in DEB_ANNEX:
                 row["book_annex"] = DEB_ANNEX[(lo, hi)]
+        elif code == "Int.":
+            row["book_pages"] = f"p. {int_day[d][2]}–{int_day[d][3]}"
+            row["book_focus"] = int_day[d][4]
     else:
         row["book"] = "Error-log chapters: redo the 2 weakest (any volume)"
     # writing + speaking
@@ -1049,6 +1161,17 @@ def last_sunday_of_month(d):
     return is_sunday(d) and (d + timedelta(days=7)).month != d.month
 
 
+def int_bilans_due(sunday):
+    """The Intermédiaire bilans whose last chapter was finished in the week before this Sunday."""
+    week = [sunday - timedelta(days=i) for i in range(1, 7)]
+    due = []
+    for b in INT_BILANS:
+        last = max(x for x, e in int_day.items() if e[1] >= b[2] and e[0] <= b[2])
+        if last in week:
+            due.append(b)
+    return due
+
+
 MOCK_ROT = ["listening (35 min)", "reading (60 min)", "writing (60 min)", "speaking (12 min, recorded)"]
 month_start_marker = START
 mock_i = 0
@@ -1070,17 +1193,21 @@ for row in rows:
                      f"{final}. With time left, 1 exercise from each of {span(labs)}{vtxt}")
         bilan_pages = [q for _n, _last, pg in bilans for q in (pg, pg + 1)] + ([173] if final else [])
         row["sunday_answer_pages"] = {str(len(items) - 1): bilan_pages}
+    elif int_bilans_due(d):
+        b = int_bilans_due(d)[0]
+        items.append(f"Week re-test (60 min): Bilans {b[0]} and {b[1]} (p. {b[3]}–{b[4]}), no notes, then check the "
+                     f"Corrigés. With time left, 1 exercise from each of {span(labs)}{vtxt}")
     elif labs:
         items.append(f"Week re-test (60 min): 1 exercise from each of {span(labs)}{vtxt}, covered, from memory")
     elif d >= EXAM_MODE_START:
         items.append("Re-test (60 min): every error-log chapter you redid this week")
     items.append("Error log (30 min): group by type; anything 3×+ → redo that chapter")
     if d >= FULL_MOCK_FROM:
-        items.append("FULL MOCK, all 4 parts, real timing (≈3 h), then score it against the NCLC 7 table")
+        items.append("FULL MOCK from your mock bank, all 4 parts, real timing (≈3 h), then score it against the NCLC 7 table")
     else:
-        items.append("Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays")
+        items.append("Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays")
         if d >= date(2027, 2, 1):
-            items.append(f"Mock section (45–60 min): {MOCK_ROT[mock_i % 4]}")
+            items.append(f"Mock section from your mock bank (45–60 min): {MOCK_ROT[mock_i % 4]}")
             mock_i += 1
     if last_sunday_of_month(d):
         mlabs = []
@@ -1092,6 +1219,14 @@ for row in rows:
         if mlabs:
             items.append(f"MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of {span(mlabs)}")
         month_start_marker = d
+    if labs and any(b[2] == 52 for b in int_bilans_due(d)):
+        items.append(f"Intermédiaire final test ({INT_FINAL_TEST}, 30 min): no notes, then check the Corrigés")
+    if d == BASELINE_SUNDAY:
+        items.append("Baseline test (45 min): official TCF Canada samples, timed, no help. Write your score down. "
+                     "A low score is normal now; it only gives you something to measure against")
+    if d == BOOK_SEATS_SUNDAY:
+        items.append("Book your exam seats (20 min): a real TCF Canada sitting in mid-March as a checkpoint, and your "
+                     "main sitting in May. Sessions can fill up, and a retake needs a gap of 20–30 days")
     if d == ANNEX_SUNDAY:
         items.append(ANNEX_SUNDAY_ITEM)
         row["sunday_links"] = {str(len(items) - 1): annex_links}
@@ -1128,8 +1263,11 @@ L.append("**Vocabulary book:** Vocabulaire progressif du français, niveau inter
          "half a chapter on the evenings listed (10 Dec – 3 Apr); the other evenings use the flashcard word deck.")
 L.append("")
 L.append("**Book volumes:** Déb. = Niveau débutant 3e éd. (60 ch.) · Int. = Niveau intermédiaire 4e éd. "
-         "(planned as 52 ch.; if your copy differs, keep ~1 a day and let the dates slide) · "
-         "Av. = Niveau avancé 3e éd. (72 ch.).")
+         "(52 ch. of very different lengths, so days follow the pages: 2–8 pages a day) · "
+         "Av. = Niveau avancé 3e éd. (72 ch.; full work on chapters on the grammar checklist, one exercise on the rest).")
+L.append("")
+L.append("**Added tasks:** a daily article from 4 Jan, a TCF tutor lesson on Saturdays from 2 Jan (Wednesdays too from "
+         "8 Apr) and 30 min of native audio a day in exam mode. These are on top of the blocks above.")
 L.append("")
 L.append("**TCF tasks:** writing tâche 1 = message 60–120 words · tâche 2 = article/story 120–150 · "
          "tâche 3 = two opposing views + your opinion 120–180. Speaking tâche 1 = interview about you (2 min) · "
