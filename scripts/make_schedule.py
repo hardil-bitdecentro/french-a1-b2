@@ -23,6 +23,11 @@ ARTICLE_FROM = date(2027, 1, 4)  # a daily article, because the TCF reading pape
 TUTOR_FROM = date(2027, 1, 2)  # weekly human marking on Saturdays; twice a week once exam mode starts
 BASELINE_SUNDAY = date(2026, 11, 15)
 BOOK_SEATS_SUNDAY = date(2027, 2, 7)
+PRONUNCIATION_LESSONS = {date(2026, 11, 21), date(2026, 12, 5), date(2026, 12, 19)}  # human ears before habits set
+PLACEMENT_TEST_DAY = date(2026, 12, 10)  # the Intermédiaire final test, taken cold, to measure against on 14 Feb
+CONJUGATION_FROM = date(2026, 12, 13)
+CONJUGATION_SPREADS = ["p. 258–259", "p. 260–261", "p. 262–263"]  # each spread is one set of verbs, all tenses
+LIVRE_WEB = "http://livre-web.com/"  # the address on the back cover; a new copy has the activation code
 RFI_FACILE = "https://francaisfacile.rfi.fr/"
 INNERFRENCH = "https://innerfrench.com/podcast/"
 JOUR_ACTU = "https://www.1jour1actu.com/"
@@ -1167,10 +1172,26 @@ def extras_for(d, ph):
             out.append({"id": "article", "title": "Read one full news article against the clock (France Info)",
                         "detail": "Aim for about 90 seconds per paragraph. Write the main idea and the writer's view.",
                         "minutes": 20, "link": FRANCE_INFO})
-    if ph == 4:
+    if ph >= 3:
         out.append({"id": "native-audio", "title": "Native audio: RFI journal en français facile, then InnerFrench",
                     "detail": "Listen once without the text and note the main points. Then check the transcript.",
-                    "minutes": 30, "link": RFI_FACILE})
+                    "minutes": 20 if ph == 3 else 30, "link": RFI_FACILE})
+    if ph == 2:
+        out.append({"id": "online-practice", "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+                    "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's "
+                              "chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+                    "minutes": 15, "link": LIVRE_WEB})
+    if d == PLACEMENT_TEST_DAY:
+        out.append({"id": "placement", "title": f"Placement test: the Intermédiaire test, {INT_FINAL_TEST}",
+                    "detail": "No notes, no dictionary. Mark it with the answers on p. 280 and write your score out "
+                              "of 100. A low score is normal today. Each question names its chapter, so note the "
+                              "chapters you missed: those need the most care. You take it again on 14 Feb.",
+                    "minutes": 30})
+    if d in PRONUNCIATION_LESSONS:
+        out.append({"id": "pronunciation", "title": "Pronunciation lesson with a French teacher",
+                    "detail": "On italki or Preply. Read part of this week's chapter aloud and ask the teacher to "
+                              "correct your sounds. Write down the 3 to fix, then practise them with the recorder.",
+                    "minutes": 30, "link": "https://www.italki.com/"})
     if d >= TUTOR_FROM and (d.weekday() == 5 or (ph == 4 and d.weekday() == 2)):
         out.append({"id": "tutor", "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
                     "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. "
@@ -1350,6 +1371,7 @@ def av_bilans_due(sunday):
 MOCK_ROT = ["listening (35 min)", "reading (60 min)", "writing (60 min)", "speaking (12 min, recorded)"]
 month_start_marker = START
 mock_i = 0
+conj_i = 0
 for row in rows:
     if not row["sunday"]:
         continue
@@ -1385,6 +1407,13 @@ for row in rows:
         if d >= date(2027, 2, 1):
             items.append(f"Mock section from your mock bank (45–60 min): {MOCK_ROT[mock_i % 4]}")
             mock_i += 1
+    if any(c == "Int." for c, _lo, _hi in labs):
+        items.append("Online tests (15 min): the Je m'évalue tests for this week's chapters on livre-web.com. "
+                     "No code? Skip this")
+    if d >= CONJUGATION_FROM:
+        items.append(f"Conjugation tables (10 min): {CONJUGATION_SPREADS[conj_i % 3]}. Cover the page, write out "
+                     "2 verbs in every tense you've studied so far, then check")
+        conj_i += 1
     if last_sunday_of_month(d):
         mlabs = []
         x = month_start_marker
@@ -1396,7 +1425,9 @@ for row in rows:
             items.append(f"MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of {span(mlabs)}")
         month_start_marker = d
     if labs and any(b[2] == 52 for b in int_bilans_due(d)):
-        items.append(f"Intermédiaire final test ({INT_FINAL_TEST}, 30 min): no notes, then check the Corrigés")
+        items.append(f"Intermédiaire final test ({INT_FINAL_TEST}, 30 min): no notes, then mark it with the answers on "
+                     "p. 280. Each question names its chapter, so redo the chapters you missed. Compare your score "
+                     "with 10 Dec")
     if d == AV_FINAL_SUNDAY:
         items.append(f"Avancé final test ({AV_FINAL_TEST}, 30 min): no notes, then check the Corrigés")
     for sunday, pages, topic, _last in INT_ACTIVITIES + AV_ACTIVITIES:
@@ -1449,7 +1480,9 @@ L.append("**Book volumes:** Déb. = Niveau débutant 3e éd. (60 ch.) · Int. = 
          "Av. = Niveau avancé 3e éd. (27 ch., by pages; on light days read the rules and do the first exercise).")
 L.append("")
 L.append("**Added tasks:** a daily article from 4 Jan, a TCF tutor lesson on Saturdays from 2 Jan (Wednesdays too from "
-         "8 Apr) and 30 min of native audio a day in exam mode. These are on top of the blocks above.")
+         "8 Apr), native audio from 9 Feb (20 min a day, 30 min in exam mode), the Intermédiaire book's online "
+         "exercises from 10 Dec to 8 Feb, a placement test on 10 Dec and pronunciation lessons on 21 Nov, 5 Dec and "
+         "19 Dec. These are on top of the blocks above.")
 L.append("")
 L.append("**TCF tasks:** writing tâche 1 = message 60–120 words · tâche 2 = article/story 120–150 · "
          "tâche 3 = two opposing views + your opinion 120–180. Speaking tâche 1 = interview about you (2 min) · "

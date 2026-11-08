@@ -141,6 +141,7 @@ export function viewMaterials() {
       </ul>
       <p class="sub">Intermédiaire and Avancé grammar volumes: buy them this week, before you leave France; use the Amazon.fr / Fnac links in the book list above.</p>
       <p class="sub">Intermédiaire audio, for the Sunday communication activities: <a href="https://progressive.cle-international.com/9782090381030" target="_blank" rel="noopener">progressive.cle-international.com ↗</a></p>
+      <p class="sub">Intermédiaire online exercises and tests, in your plan from 10 Dec: <a href="http://livre-web.com/" target="_blank" rel="noopener">livre-web.com ↗</a>. You need the activation code that comes with the book, so buy this volume new: a scan or a second-hand copy won't give you a working code.</p>
     </section>
 
     <section class="card">
@@ -197,12 +198,13 @@ export function viewMaterials() {
     <section class="card">
       <h2>Human marking: a TCF tutor (paid)</h2>
       <p>Writing and speaking are half the exam. Book a teacher who has prepared TCF Canada candidates: Saturdays from 2 Jan, and Wednesdays too from 8 Apr. Each lesson is one timed speaking task and one writing task marked /20.</p>
+      <p>Before that, book three 30-minute pronunciation lessons with any French teacher: 21 Nov, 5 Dec and 19 Dec. Speaking habits form early, and a person can hear what an app misses.</p>
       <div class="acts"><a class="act" href="https://www.italki.com/" target="_blank" rel="noopener">italki ↗</a><a class="act" href="https://preply.com/" target="_blank" rel="noopener">Preply ↗</a></div>
     </section>
 
     <section class="card">
       <h2>Reading and native listening (free)</h2>
-      <p>A daily article from 4 Jan: 1jour1actu first, then RFI français facile, then France Info. In exam mode, 30 minutes of RFI and InnerFrench a day.</p>
+      <p>A daily article from 4 Jan: 1jour1actu first, then RFI français facile, then France Info. RFI and InnerFrench at native speed: 20 minutes a day from 9 Feb, 30 minutes in exam mode.</p>
       <div class="acts"><a class="act" href="https://www.1jour1actu.com/" target="_blank" rel="noopener">1jour1actu ↗</a><a class="act" href="https://francaisfacile.rfi.fr/" target="_blank" rel="noopener">RFI français facile ↗</a><a class="act" href="https://innerfrench.com/podcast/" target="_blank" rel="noopener">InnerFrench ↗</a><a class="act" href="https://www.francetvinfo.fr/" target="_blank" rel="noopener">France Info ↗</a></div>
     </section>`;
 }

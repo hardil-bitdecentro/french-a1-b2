@@ -407,8 +407,57 @@ describe('plan review changes', () => {
     expect(studyDays.filter((d) => d.date >= '2027-01-04').every((d) => ids(d).includes('article'))).toBe(true);
   });
 
-  it('keeps 30 minutes of native audio every exam-mode study day', () => {
-    for (const d of studyDays) expect(ids(d).includes('native-audio')).toBe(d.phase === 4);
+  it('has native audio from 9 Feb: 20 minutes during Avancé, 30 in exam mode', () => {
+    for (const d of studyDays) {
+      const audio = d.extras?.find((x) => x.id === 'native-audio');
+      expect(audio?.minutes).toBe({ 3: 20, 4: 30 }[d.phase]);
+    }
+    expect(studyDays.find((d) => ids(d).includes('native-audio')).date).toBe('2027-02-09');
+  });
+
+  it("sets the book's online exercises on every Intermédiaire study day and no other", () => {
+    for (const d of studyDays) expect(ids(d).includes('online-practice')).toBe(d.phase === 2);
+    expect(dated('2026-12-10').extras.find((x) => x.id === 'online-practice').link).toBe('http://livre-web.com/');
+  });
+
+  it('adds online tests only to Sundays that follow Intermédiaire chapters', () => {
+    const dates = plan.days.filter((d) => d.sunday_items?.some((i) => i.startsWith('Online tests'))).map((d) => d.date);
+    expect(dates[0]).toBe('2026-12-13');
+    expect(dates.at(-1)).toBe('2027-02-14');
+    expect(dates).toHaveLength(10);
+  });
+
+  it('books three pronunciation lessons on Saturdays before the TCF tutor starts', () => {
+    const lessons = studyDays.filter((d) => ids(d).includes('pronunciation'));
+    expect(lessons.map((d) => d.date)).toEqual(['2026-11-21', '2026-12-05', '2026-12-19']);
+    expect(lessons.every((d) => new Date(d.date).getUTCDay() === 6)).toBe(true);
+  });
+
+  it('takes the Intermédiaire test on 10 Dec and again on 14 Feb, marked from p. 280', () => {
+    const placement = studyDays.filter((d) => ids(d).includes('placement'));
+    expect(placement.map((d) => d.date)).toEqual(['2026-12-10']);
+    const task = placement[0].extras.find((x) => x.id === 'placement');
+    expect(task.title).toContain('p. 273–276');
+    expect(task.detail).toContain('p. 280');
+    const final = dated('2027-02-14').sunday_items.find((i) => i.startsWith('Intermédiaire final test'));
+    expect(final).toContain('p. 280');
+    expect(final).toContain('10 Dec');
+  });
+
+  it('rotates the conjugation tables every Sunday from 13 Dec', () => {
+    const sundays = plan.days.filter((d) => d.sunday && d.date >= '2026-12-13');
+    const spreads = sundays.map((d) => d.sunday_items.find((i) => i.startsWith('Conjugation tables')));
+    expect(spreads.every(Boolean)).toBe(true);
+    expect(spreads[0]).toContain('p. 258–259');
+    expect(spreads[1]).toContain('p. 260–261');
+    expect(spreads[2]).toContain('p. 262–263');
+    expect(spreads[3]).toContain('p. 258–259');
+    expect(
+      plan.days
+        .filter((d) => d.sunday && d.date < '2026-12-13')
+        .flatMap((d) => d.sunday_items)
+        .join(),
+    ).not.toMatch(/Conjugation tables/);
   });
 
   it('has a tutor weekly from 2 Jan and twice a week in exam mode', () => {

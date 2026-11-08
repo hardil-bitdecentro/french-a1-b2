@@ -931,7 +931,15 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
-   "extras": [],
+   "extras": [
+    {
+     "id": "pronunciation",
+     "title": "Pronunciation lesson with a French teacher",
+     "detail": "On italki or Preply. Read part of this week's chapter aloud and ask the teacher to correct your sounds. Write down the 3 to fix, then practise them with the recorder.",
+     "minutes": 30,
+     "link": "https://www.italki.com/"
+    }
+   ],
    "book": "Déb. 26–27",
    "book_pages": "p. 66–69",
    "book_topics": [
@@ -2045,7 +2053,15 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
-   "extras": [],
+   "extras": [
+    {
+     "id": "pronunciation",
+     "title": "Pronunciation lesson with a French teacher",
+     "detail": "On italki or Preply. Read part of this week's chapter aloud and ask the teacher to correct your sounds. Write down the 3 to fix, then practise them with the recorder.",
+     "minutes": 30,
+     "link": "https://www.italki.com/"
+    }
+   ],
    "book": "Déb. 53–54",
    "book_pages": "p. 132–135",
    "book_topics": [
@@ -2311,7 +2327,21 @@
    "vincent_later": null,
    "vocab": "ch. 1, first half",
    "sunday": false,
-   "extras": [],
+   "extras": [
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
+    },
+    {
+     "id": "placement",
+     "title": "Placement test: the Intermédiaire test, p. 273–276",
+     "detail": "No notes, no dictionary. Mark it with the answers on p. 280 and write your score out of 100. A low score is normal today. Each question names its chapter, so note the chapters you missed: those need the most care. You take it again on 14 Feb.",
+     "minutes": 30
+    }
+   ],
    "book": "Int. 1",
    "book_pages": "p. 8–11",
    "book_focus": "être and subject pronouns",
@@ -2337,7 +2367,15 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
-   "extras": [],
+   "extras": [
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
+    }
+   ],
    "book": "Int. 2",
    "book_pages": "p. 12–17",
    "book_focus": "adjectives: gender, plural, agreement",
@@ -2363,7 +2401,15 @@
    "vincent_later": null,
    "vocab": "ch. 1, second half",
    "sunday": false,
-   "extras": [],
+   "extras": [
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
+    }
+   ],
    "book": "Int. 3",
    "book_pages": "p. 18–21",
    "book_focus": "simple negation and questions",
@@ -2393,7 +2439,9 @@
     "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Int. 1–3 and Vocab. ch. 1, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays"
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
+    "Online tests (15 min): the Je m'évalue tests for this week's chapters on livre-web.com. No code? Skip this",
+    "Conjugation tables (10 min): p. 258–259. Cover the page, write out 2 verbs in every tense you've studied so far, then check"
    ],
    "week": 5
   },
@@ -2413,7 +2461,15 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
-   "extras": [],
+   "extras": [
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
+    }
+   ],
    "book": "Int. 4",
    "book_pages": "p. 22–25",
    "book_focus": "nouns: gender of people, things, animals",
@@ -2448,7 +2504,15 @@
    ],
    "vocab": "ch. 2, first half",
    "sunday": false,
-   "extras": [],
+   "extras": [
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
+    }
+   ],
    "book": "Int. 4",
    "book_pages": "p. 26–31",
    "book_focus": "noun plurals, articles, contractions with à and de",
@@ -2474,7 +2538,15 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
-   "extras": [],
+   "extras": [
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
+    }
+   ],
    "book": "Int. 5–6",
    "book_pages": "p. 32–37",
    "book_focus": "c'est or il est; possessives",
@@ -2508,7 +2580,15 @@
    ],
    "vocab": "ch. 2, second half",
    "sunday": false,
-   "extras": [],
+   "extras": [
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
+    }
+   ],
    "book": "Int. 7–9",
    "book_pages": "p. 38–43",
    "book_focus": "family and group nouns; demonstratives; il y a or c'est",
@@ -2533,7 +2613,15 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
-   "extras": [],
+   "extras": [
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
+    }
+   ],
    "book": "Int. 10",
    "book_pages": "p. 44–47",
    "book_focus": "prepositions for towns, countries, places",
@@ -2558,7 +2646,22 @@
    "vincent_later": null,
    "vocab": "ch. 3, first half",
    "sunday": false,
-   "extras": [],
+   "extras": [
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
+    },
+    {
+     "id": "pronunciation",
+     "title": "Pronunciation lesson with a French teacher",
+     "detail": "On italki or Preply. Read part of this week's chapter aloud and ask the teacher to correct your sounds. Write down the 3 to fix, then practise them with the recorder.",
+     "minutes": 30,
+     "link": "https://www.italki.com/"
+    }
+   ],
    "book": "Int. 11",
    "book_pages": "p. 48–53",
    "book_focus": "uses of avoir: age, hunger, appearance, negation",
@@ -2587,7 +2690,9 @@
     "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Int. 4–11 and Vocab. ch. 2–3, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays"
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
+    "Online tests (15 min): the Je m'évalue tests for this week's chapters on livre-web.com. No code? Skip this",
+    "Conjugation tables (10 min): p. 260–261. Cover the page, write out 2 verbs in every tense you've studied so far, then check"
    ],
    "week": 6
   },
@@ -2607,7 +2712,15 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
-   "extras": [],
+   "extras": [
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
+    }
+   ],
    "book": "Int. 12",
    "book_pages": "p. 54–57",
    "book_focus": "where adjectives go; special adjectives",
@@ -2632,7 +2745,15 @@
    "vincent_later": null,
    "vocab": "ch. 3, second half",
    "sunday": false,
-   "extras": [],
+   "extras": [
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
+    }
+   ],
    "book": "Int. 13",
    "book_pages": "p. 58–63",
    "book_focus": "numbers: cardinal, ordinal, spoken and written",
@@ -2657,7 +2778,15 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
-   "extras": [],
+   "extras": [
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
+    }
+   ],
    "book": "Int. 14",
    "book_pages": "p. 64–67",
    "book_focus": "days, dates, seasons, time, weather",
@@ -2682,7 +2811,15 @@
    "vincent_later": null,
    "vocab": "ch. 4, first half",
    "sunday": false,
-   "extras": [],
+   "extras": [
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
+    }
+   ],
    "book": "Int. 15",
    "book_pages": "p. 68–71",
    "book_focus": "indefinite adjectives and pronouns",
@@ -2707,7 +2844,15 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
-   "extras": [],
+   "extras": [
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
+    }
+   ],
    "book": "Int. 16",
    "book_pages": "p. 74–79",
    "book_focus": "-er verbs: forms, sound, spelling",
@@ -2749,7 +2894,15 @@
    ],
    "vocab": "ch. 4, second half",
    "sunday": false,
-   "extras": [],
+   "extras": [
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
+    }
+   ],
    "book": "Int. 17–18",
    "book_pages": "p. 80–85",
    "book_focus": "duration with depuis, pour, pendant, en; adverbs",
@@ -2779,6 +2932,8 @@
     "Week re-test (60 min): Bilans 1 and 2 (p. 72–73), no notes, then check the Corrigés. With time left, 1 exercise from each of Int. 12–18 and Vocab. ch. 3–4",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
+    "Online tests (15 min): the Je m'évalue tests for this week's chapters on livre-web.com. No code? Skip this",
+    "Conjugation tables (10 min): p. 262–263. Cover the page, write out 2 verbs in every tense you've studied so far, then check",
     "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Déb. 43–60, Int. 1–18"
    ],
    "week": 7
@@ -2799,7 +2954,15 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
-   "extras": [],
+   "extras": [
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
+    }
+   ],
    "book": "Int. 19",
    "book_pages": "p. 86–89",
    "book_focus": "quantities",
@@ -2824,7 +2987,15 @@
    "vincent_later": null,
    "vocab": "ch. 5, first half",
    "sunday": false,
-   "extras": [],
+   "extras": [
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
+    }
+   ],
    "book": "Int. 20–21",
    "book_pages": "p. 90–95",
    "book_focus": "the pronoun en; regions and origin",
@@ -2849,7 +3020,15 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
-   "extras": [],
+   "extras": [
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
+    }
+   ],
    "book": "Int. 22",
    "book_pages": "p. 96–101",
    "book_focus": "comparatives and superlatives; mieux or meilleur",
@@ -2883,7 +3062,15 @@
    ],
    "vocab": "ch. 5, second half",
    "sunday": false,
-   "extras": [],
+   "extras": [
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
+    }
+   ],
    "book": "Int. 23–25",
    "book_pages": "p. 102–107",
    "book_focus": "aller + place; the pronoun y; à, de, jusqu'à",
@@ -2908,7 +3095,15 @@
    "vincent_later": null,
    "vocab": null,
    "sunday": false,
-   "extras": [],
+   "extras": [
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
+    }
+   ],
    "book": "Int. 26",
    "book_pages": "p. 108–111",
    "book_focus": "-ir, -re, -oir verbs with two stems",
@@ -2944,6 +3139,13 @@
    "sunday": false,
    "extras": [
     {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
+    },
+    {
      "id": "tutor",
      "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
      "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
@@ -2978,7 +3180,9 @@
     "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Int. 19–26 and Vocab. ch. 5–6, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays"
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
+    "Online tests (15 min): the Je m'évalue tests for this week's chapters on livre-web.com. No code? Skip this",
+    "Conjugation tables (10 min): p. 258–259. Cover the page, write out 2 verbs in every tense you've studied so far, then check"
    ],
    "week": 8
   },
@@ -3005,6 +3209,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     }
    ],
    "book": "Int. 26",
@@ -3038,6 +3249,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     }
    ],
    "book": "Int. 26–27",
@@ -3071,6 +3289,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     }
    ],
    "book": "Int. 28",
@@ -3113,6 +3338,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     }
    ],
    "book": "Int. 28",
@@ -3163,6 +3395,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     }
    ],
    "book": "Int. 29–31",
@@ -3215,6 +3454,13 @@
      "link": "https://www.1jour1actu.com/"
     },
     {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
+    },
+    {
      "id": "tutor",
      "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
      "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
@@ -3249,7 +3495,9 @@
     "Flashcard reviews (15 min)",
     "Week re-test (60 min): Bilans 3 and 4 (p. 138–139), no notes, then check the Corrigés. With time left, 1 exercise from each of Int. 26–32 and Vocab. ch. 6–7",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays"
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
+    "Online tests (15 min): the Je m'évalue tests for this week's chapters on livre-web.com. No code? Skip this",
+    "Conjugation tables (10 min): p. 260–261. Cover the page, write out 2 verbs in every tense you've studied so far, then check"
    ],
    "week": 9
   },
@@ -3285,6 +3533,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     }
    ],
    "book": "Int. 32",
@@ -3327,6 +3582,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     }
    ],
    "book": "Int. 33",
@@ -3360,6 +3622,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     }
    ],
    "book": "Int. 34",
@@ -3393,6 +3662,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     }
    ],
    "book": "Int. 35–36",
@@ -3435,6 +3711,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     }
    ],
    "book": "Int. 37–38",
@@ -3479,6 +3762,13 @@
      "link": "https://www.1jour1actu.com/"
     },
     {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
+    },
+    {
      "id": "tutor",
      "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
      "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
@@ -3514,6 +3804,8 @@
     "Week re-test (60 min): 1 exercise from each of Int. 32–39 and Vocab. ch. 8–9, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
+    "Online tests (15 min): the Je m'évalue tests for this week's chapters on livre-web.com. No code? Skip this",
+    "Conjugation tables (10 min): p. 262–263. Cover the page, write out 2 verbs in every tense you've studied so far, then check",
     "Activité communicative (25 min): p. 266, relative pronouns. Listen to the recording if you have it, answer the questions, then do the free writing or speaking at the end"
    ],
    "week": 10
@@ -3550,6 +3842,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     }
    ],
    "book": "Int. 39",
@@ -3592,6 +3891,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     }
    ],
    "book": "Int. 40",
@@ -3634,6 +3940,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     }
    ],
    "book": "Int. 40",
@@ -3676,6 +3989,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     }
    ],
    "book": "Int. 40",
@@ -3726,6 +4046,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     }
    ],
    "book": "Int. 40",
@@ -3770,6 +4097,13 @@
      "link": "https://www.1jour1actu.com/"
     },
     {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
+    },
+    {
      "id": "tutor",
      "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
      "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
@@ -3804,7 +4138,9 @@
     "Flashcard reviews (15 min)",
     "Week re-test (60 min): 1 exercise from each of Int. 39–40 and Vocab. ch. 9–10, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays"
+    "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
+    "Online tests (15 min): the Je m'évalue tests for this week's chapters on livre-web.com. No code? Skip this",
+    "Conjugation tables (10 min): p. 258–259. Cover the page, write out 2 verbs in every tense you've studied so far, then check"
    ],
    "week": 11
   },
@@ -3831,6 +4167,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     }
    ],
    "book": "Int. 40",
@@ -3864,6 +4207,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     }
    ],
    "book": "Int. 41",
@@ -3897,6 +4247,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     }
    ],
    "book": "Int. 42–43",
@@ -3930,6 +4287,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     }
    ],
    "book": "Int. 43",
@@ -3972,6 +4336,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     }
    ],
    "book": "Int. 44–45",
@@ -4016,6 +4387,13 @@
      "link": "https://www.1jour1actu.com/"
     },
     {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
+    },
+    {
      "id": "tutor",
      "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
      "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
@@ -4051,6 +4429,8 @@
     "Week re-test (60 min): Bilans 5 and 6 (p. 220–221), no notes, then check the Corrigés. With time left, 1 exercise from each of Int. 40–47 and Vocab. ch. 11–12",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
+    "Online tests (15 min): the Je m'évalue tests for this week's chapters on livre-web.com. No code? Skip this",
+    "Conjugation tables (10 min): p. 260–261. Cover the page, write out 2 verbs in every tense you've studied so far, then check",
     "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Int. 19–47",
     "Activité communicative (25 min): p. 264, past tenses and the passive. Listen to the recording if you have it, answer the questions, then do the free writing or speaking at the end",
     "Activité communicative (25 min): p. 265, past tenses with the plus-que-parfait. Listen to the recording if you have it, answer the questions, then do the free writing or speaking at the end"
@@ -4080,6 +4460,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     }
    ],
    "book": "Int. 48–49",
@@ -4122,6 +4509,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     }
    ],
    "book": "Int. 50",
@@ -4155,6 +4549,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     }
    ],
    "book": "Int. 51",
@@ -4197,6 +4598,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     }
    ],
    "book": "Int. 51",
@@ -4230,6 +4638,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     }
    ],
    "book": "Int. 51",
@@ -4263,6 +4678,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     },
     {
      "id": "tutor",
@@ -4301,6 +4723,8 @@
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
     "Mock section from your mock bank (45–60 min): listening (35 min)",
+    "Online tests (15 min): the Je m'évalue tests for this week's chapters on livre-web.com. No code? Skip this",
+    "Conjugation tables (10 min): p. 262–263. Cover the page, write out 2 verbs in every tense you've studied so far, then check",
     "Activité communicative (25 min): p. 272, time expressions. Listen to the recording if you have it, answer the questions, then do the free writing or speaking at the end",
     "Activité communicative (25 min): p. 267, the conditional. Listen to the recording if you have it, answer the questions, then do the free writing or speaking at the end",
     "Book your exam seats (20 min): a real TCF Canada sitting in mid-March as a checkpoint, and your main sitting in May. Sessions can fill up, and a retake needs a gap of 20–30 days"
@@ -4330,6 +4754,13 @@
      "detail": "Say the main idea aloud, note 2 details, then make a flashcard from one new word.",
      "minutes": 15,
      "link": "https://www.1jour1actu.com/"
+    },
+    {
+     "id": "online-practice",
+     "title": "The book's online exercises: Je m'entraîne and Je m'évalue",
+     "detail": "Today's exercise pages show these buttons at the bottom. Do the ones for today's chapters on livre-web.com with the activation code from your book. No code? Skip this.",
+     "minutes": 15,
+     "link": "http://livre-web.com/"
     }
    ],
    "book": "Int. 52",
@@ -4361,6 +4792,13 @@
      "id": "article",
      "title": "Read one article: RFI français facile transcript",
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
     }
@@ -4406,6 +4844,13 @@
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
     }
    ],
    "book": "Av. 1",
@@ -4440,6 +4885,13 @@
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
     }
    ],
    "book": "Av. 1",
@@ -4472,6 +4924,13 @@
      "id": "article",
      "title": "Read one article: RFI français facile transcript",
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
     }
@@ -4519,6 +4978,13 @@
      "link": "https://francaisfacile.rfi.fr/"
     },
     {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
      "id": "tutor",
      "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
      "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
@@ -4556,7 +5022,9 @@
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
     "Mock section from your mock bank (45–60 min): reading (60 min)",
-    "Intermédiaire final test (p. 273–276, 30 min): no notes, then check the Corrigés",
+    "Online tests (15 min): the Je m'évalue tests for this week's chapters on livre-web.com. No code? Skip this",
+    "Conjugation tables (10 min): p. 258–259. Cover the page, write out 2 verbs in every tense you've studied so far, then check",
+    "Intermédiaire final test (p. 273–276, 30 min): no notes, then mark it with the answers on p. 280. Each question names its chapter, so redo the chapters you missed. Compare your score with 10 Dec",
     "Activité communicative (25 min): p. 268–269, the subjunctive. Listen to the recording if you have it, answer the questions, then do the free writing or speaking at the end"
    ],
    "week": 14
@@ -4582,6 +5050,13 @@
      "id": "article",
      "title": "Read one article: RFI français facile transcript",
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
     }
@@ -4616,6 +5091,13 @@
      "id": "article",
      "title": "Read one article: RFI français facile transcript",
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
     }
@@ -4661,6 +5143,13 @@
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
     }
    ],
    "book": "Av. 4",
@@ -4703,6 +5192,13 @@
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
     }
    ],
    "book": "Av. 4",
@@ -4743,6 +5239,13 @@
      "id": "article",
      "title": "Read one article: RFI français facile transcript",
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
     }
@@ -4798,6 +5301,13 @@
      "link": "https://francaisfacile.rfi.fr/"
     },
     {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
      "id": "tutor",
      "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
      "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
@@ -4834,6 +5344,7 @@
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
     "Mock section from your mock bank (45–60 min): writing (60 min)",
+    "Conjugation tables (10 min): p. 260–261. Cover the page, write out 2 verbs in every tense you've studied so far, then check",
     "Activité communicative (25 min): p. 270, cause, consequence, purpose. Listen to the recording if you have it, answer the questions, then do the free writing or speaking at the end",
     "Activité communicative (25 min): p. 271, opposition and concession. Listen to the recording if you have it, answer the questions, then do the free writing or speaking at the end"
    ],
@@ -4869,6 +5380,13 @@
      "id": "article",
      "title": "Read one article: RFI français facile transcript",
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
     }
@@ -4911,6 +5429,13 @@
      "id": "article",
      "title": "Read one article: RFI français facile transcript",
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
     }
@@ -4963,6 +5488,13 @@
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
     }
    ],
    "book": "Av. 5",
@@ -5003,6 +5535,13 @@
      "id": "article",
      "title": "Read one article: RFI français facile transcript",
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
     }
@@ -5063,6 +5602,13 @@
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
     }
    ],
    "book": "Av. 5",
@@ -5107,6 +5653,13 @@
      "link": "https://francaisfacile.rfi.fr/"
     },
     {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
      "id": "tutor",
      "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
      "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
@@ -5143,6 +5696,7 @@
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
     "Mock section from your mock bank (45–60 min): speaking (12 min, recorded)",
+    "Conjugation tables (10 min): p. 262–263. Cover the page, write out 2 verbs in every tense you've studied so far, then check",
     "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Int. 48–52, Av. 1–5"
    ],
    "week": 16
@@ -5168,6 +5722,13 @@
      "id": "article",
      "title": "Read one article: RFI français facile transcript",
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
     }
@@ -5220,6 +5781,13 @@
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
     }
    ],
    "book": "Av. 6",
@@ -5251,6 +5819,13 @@
      "id": "article",
      "title": "Read one article: RFI français facile transcript",
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
     }
@@ -5293,6 +5868,13 @@
      "id": "article",
      "title": "Read one article: RFI français facile transcript",
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
     }
@@ -5344,6 +5926,13 @@
      "id": "article",
      "title": "Read one article: RFI français facile transcript",
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
     }
@@ -5406,6 +5995,13 @@
      "link": "https://francaisfacile.rfi.fr/"
     },
     {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
      "id": "tutor",
      "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
      "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
@@ -5443,6 +6039,7 @@
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
     "Mock section from your mock bank (45–60 min): listening (35 min)",
+    "Conjugation tables (10 min): p. 258–259. Cover the page, write out 2 verbs in every tense you've studied so far, then check",
     "Activité communicative (25 min): p. 168–171, in the book's order. Listen to the recording if you have it, answer the questions, then do the free writing or speaking at the end"
    ],
    "week": 17
@@ -5468,6 +6065,13 @@
      "id": "article",
      "title": "Read one article: RFI français facile transcript",
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
     }
@@ -5512,6 +6116,13 @@
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
     }
    ],
    "book": "Av. 12–13",
@@ -5553,6 +6164,13 @@
      "id": "article",
      "title": "Read one article: RFI français facile transcript",
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
     }
@@ -5605,6 +6223,13 @@
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
     }
    ],
    "book": "Av. 14",
@@ -5645,6 +6270,13 @@
      "id": "article",
      "title": "Read one article: RFI français facile transcript",
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
     }
@@ -5691,6 +6323,13 @@
      "link": "https://francaisfacile.rfi.fr/"
     },
     {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
      "id": "tutor",
      "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
      "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
@@ -5727,7 +6366,8 @@
     "Week re-test (60 min): Avancé bilan 4 (p. 88–89), no notes, then check the Corrigés. With time left, 1 exercise from each of Av. 11–15 and Vocab. ch. 20–21",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
-    "Mock section from your mock bank (45–60 min): reading (60 min)"
+    "Mock section from your mock bank (45–60 min): reading (60 min)",
+    "Conjugation tables (10 min): p. 260–261. Cover the page, write out 2 verbs in every tense you've studied so far, then check"
    ],
    "week": 18
   },
@@ -5752,6 +6392,13 @@
      "id": "article",
      "title": "Read one article: RFI français facile transcript",
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
     }
@@ -5786,6 +6433,13 @@
      "id": "article",
      "title": "Read one article: RFI français facile transcript",
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
     }
@@ -5831,6 +6485,13 @@
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
     }
    ],
    "book": "Av. 16",
@@ -5865,6 +6526,13 @@
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
     }
    ],
    "book": "Av. 17",
@@ -5896,6 +6564,13 @@
      "id": "article",
      "title": "Read one article: RFI français facile transcript",
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
     }
@@ -5942,6 +6617,13 @@
      "link": "https://francaisfacile.rfi.fr/"
     },
     {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
      "id": "tutor",
      "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
      "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
@@ -5978,6 +6660,7 @@
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
     "Mock section from your mock bank (45–60 min): writing (60 min)",
+    "Conjugation tables (10 min): p. 262–263. Cover the page, write out 2 verbs in every tense you've studied so far, then check",
     "Activité communicative (25 min): p. 172–175, in the book's order. Listen to the recording if you have it, answer the questions, then do the free writing or speaking at the end"
    ],
    "week": 19
@@ -6003,6 +6686,13 @@
      "id": "article",
      "title": "Read one article: RFI français facile transcript",
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
     }
@@ -6047,6 +6737,13 @@
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
     }
    ],
    "book": "Av. 18",
@@ -6087,6 +6784,13 @@
      "id": "article",
      "title": "Read one article: RFI français facile transcript",
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
     }
@@ -6132,6 +6836,13 @@
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
     }
    ],
    "book": "Av. 20",
@@ -6172,6 +6883,13 @@
      "id": "article",
      "title": "Read one article: RFI français facile transcript",
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
     }
@@ -6218,6 +6936,13 @@
      "link": "https://francaisfacile.rfi.fr/"
     },
     {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
      "id": "tutor",
      "title": "TCF tutor lesson: one speaking task timed, one writing task marked /20",
      "detail": "On italki or Preply, with a teacher who has prepared TCF Canada candidates. Bring your weakest task from the error log and write down the score you get.",
@@ -6254,6 +6979,7 @@
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
     "Mock section from your mock bank (45–60 min): speaking (12 min, recorded)",
+    "Conjugation tables (10 min): p. 258–259. Cover the page, write out 2 verbs in every tense you've studied so far, then check",
     "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Av. 6–21",
     "Activité communicative (25 min): p. 176–179, in the book's order. Listen to the recording if you have it, answer the questions, then do the free writing or speaking at the end"
    ],
@@ -6289,6 +7015,13 @@
      "id": "article",
      "title": "Read one article: RFI français facile transcript",
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
     }
@@ -6333,6 +7066,13 @@
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
     }
    ],
    "book": "Av. 23",
@@ -6364,6 +7104,13 @@
      "id": "article",
      "title": "Read one article: RFI français facile transcript",
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
     }
@@ -6408,6 +7155,13 @@
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
     }
    ],
    "book": "Av. 24",
@@ -6450,6 +7204,13 @@
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
     }
    ],
    "book": "Av. 25",
@@ -6481,6 +7242,13 @@
      "id": "article",
      "title": "Read one article: RFI français facile transcript",
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
     },
@@ -6521,6 +7289,7 @@
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
     "Mock section from your mock bank (45–60 min): listening (35 min)",
+    "Conjugation tables (10 min): p. 260–261. Cover the page, write out 2 verbs in every tense you've studied so far, then check",
     "Activité communicative (25 min): p. 180–184, in the book's order. Listen to the recording if you have it, answer the questions, then do the free writing or speaking at the end"
    ],
    "week": 21
@@ -6557,6 +7326,13 @@
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
     }
    ],
    "book": "Av. 27",
@@ -6588,6 +7364,13 @@
      "id": "article",
      "title": "Read one article: RFI français facile transcript",
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
     }
@@ -6630,6 +7413,13 @@
      "id": "article",
      "title": "Read one article: RFI français facile transcript",
      "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    },
+    {
+     "id": "native-audio",
+     "title": "Native audio: RFI journal en français facile, then InnerFrench",
+     "detail": "Listen once without the text and note the main points. Then check the transcript.",
      "minutes": 20,
      "link": "https://francaisfacile.rfi.fr/"
     }
@@ -6784,6 +7574,7 @@
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
     "Mock section from your mock bank (45–60 min): reading (60 min)",
+    "Conjugation tables (10 min): p. 262–263. Cover the page, write out 2 verbs in every tense you've studied so far, then check",
     "Avancé final test (p. 185–186, 30 min): no notes, then check the Corrigés"
    ],
    "week": 22
@@ -7048,7 +7839,8 @@
     "Flashcard reviews (15 min)",
     "Re-test (60 min): every error-log chapter you redid this week",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "FULL MOCK from your mock bank, all 4 parts, real timing (≈3 h), then score it against the NCLC 7 table"
+    "FULL MOCK from your mock bank, all 4 parts, real timing (≈3 h), then score it against the NCLC 7 table",
+    "Conjugation tables (10 min): p. 258–259. Cover the page, write out 2 verbs in every tense you've studied so far, then check"
    ],
    "week": 23
   },
@@ -7313,6 +8105,7 @@
     "Re-test (60 min): every error-log chapter you redid this week",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "FULL MOCK from your mock bank, all 4 parts, real timing (≈3 h), then score it against the NCLC 7 table",
+    "Conjugation tables (10 min): p. 260–261. Cover the page, write out 2 verbs in every tense you've studied so far, then check",
     "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Av. 22–27"
    ],
    "week": 24
@@ -7577,7 +8370,8 @@
     "Flashcard reviews (15 min)",
     "Re-test (60 min): every error-log chapter you redid this week",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "FULL MOCK from your mock bank, all 4 parts, real timing (≈3 h), then score it against the NCLC 7 table"
+    "FULL MOCK from your mock bank, all 4 parts, real timing (≈3 h), then score it against the NCLC 7 table",
+    "Conjugation tables (10 min): p. 262–263. Cover the page, write out 2 verbs in every tense you've studied so far, then check"
    ],
    "week": 25
   },
@@ -7841,7 +8635,8 @@
     "Flashcard reviews (15 min)",
     "Re-test (60 min): every error-log chapter you redid this week",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "FULL MOCK from your mock bank, all 4 parts, real timing (≈3 h), then score it against the NCLC 7 table"
+    "FULL MOCK from your mock bank, all 4 parts, real timing (≈3 h), then score it against the NCLC 7 table",
+    "Conjugation tables (10 min): p. 258–259. Cover the page, write out 2 verbs in every tense you've studied so far, then check"
    ],
    "week": 26
   }
