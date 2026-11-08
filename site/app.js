@@ -523,16 +523,20 @@ function viewPlan() {
     })
     .join('');
   const phaseNow = (byDate.get(todayISO()) || {}).phase;
-  const stage = (ph, name, when) =>
-    `<div class="stage${phaseNow === ph ? ' now' : ''}"><span>${name}</span><span>${when}</span></div>`;
+  const dayMonth = (iso) => new Date(`${iso}T12:00:00`).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+  const stage = (ph, name) => {
+    const days = plan.days.filter((d) => d.phase === ph);
+    const when = `${dayMonth(days[0].date)} – ${dayMonth(days[days.length - 1].date)}`;
+    return `<div class="stage${phaseNow === ph ? ' now' : ''}"><span>${name}</span><span>${when}</span></div>`;
+  };
   return `
     <h1>Plan</h1>
-    <p class="sub">6 Nov → 6 May · ${overall.complete} of ${overall.total} days complete · streak ${st.current}${st.best > st.current ? ` (best ${st.best})` : ''}</p>
+    <p class="sub">${dayMonth(plan.start)} → ${dayMonth(plan.end)} · ${overall.complete} of ${overall.total} days complete · streak ${st.current}${st.best > st.current ? ` (best ${st.best})` : ''}</p>
     <section class="card stages">
-      ${stage(1, 'Débutant (A1)', '6 Nov – 5 Dec')}
-      ${stage(2, 'Intermédiaire (A2–B1)', '7 Dec – 4 Feb')}
-      ${stage(3, 'Avancé (B1–B2)', '5 Feb – 3 Apr')}
-      ${stage(4, 'TCF preparation', '5 Apr – 6 May')}
+      ${stage(1, 'Débutant (A1)')}
+      ${stage(2, 'Intermédiaire (A2–B1)')}
+      ${stage(3, 'Avancé (B1–B2)')}
+      ${stage(4, 'TCF preparation')}
     </section>
     ${weeks}`;
 }

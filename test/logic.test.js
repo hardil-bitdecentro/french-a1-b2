@@ -70,17 +70,17 @@ describe('dates', () => {
 });
 
 describe('schedule data', () => {
-  it('has 182 consecutive days from 6 Nov 2026 to 6 May 2027', () => {
-    expect(plan.start).toBe('2026-11-06');
-    expect(plan.end).toBe('2027-05-06');
+  it('has 182 consecutive days from 9 Nov 2026 to 9 May 2027', () => {
+    expect(plan.start).toBe('2026-11-09');
+    expect(plan.end).toBe('2027-05-09');
     expect(plan.days).toHaveLength(182);
     plan.days.forEach((d, i) => expect(d.date).toBe(addDays(plan.start, i)));
   });
 
-  it('marks exactly the Sundays as review days', () => {
+  it('marks exactly the Sundays, plus the end-of-Débutant review on 9 Dec, as review days', () => {
     for (const d of plan.days) {
-      const isSunday = new Date(`${d.date}T12:00:00`).getDay() === 0;
-      expect(d.sunday).toBe(isSunday);
+      const isReview = new Date(`${d.date}T12:00:00`).getDay() === 0 || d.date === '2026-12-09';
+      expect(d.sunday).toBe(isReview);
       if (d.sunday) expect(d.sunday_items.length).toBeGreaterThan(2);
       else expect(d.book && d.write && d.speak && d.retest).toBeTruthy();
     }
@@ -102,23 +102,23 @@ describe('schedule data', () => {
   });
 
   it('switches to exam mode on 5 Apr 2027 with no new chapters', () => {
-    for (const d of studyDays.filter((x) => x.date >= '2027-04-05')) {
+    for (const d of studyDays.filter((x) => x.date >= '2027-04-08')) {
       expect(d.phase).toBe(4);
       expect(d.book).toMatch(/^Error-log chapters/);
     }
   });
 
   it('has a full 4-part mock on the last three Sundays', () => {
-    for (const date of ['2027-04-18', '2027-04-25', '2027-05-02']) {
+    for (const date of ['2027-04-18', '2027-04-25', '2027-05-02', '2027-05-09']) {
       const d = plan.days.find((x) => x.date === date);
       expect(d.sunday_items.some((t) => t.startsWith('FULL MOCK'))).toBe(true);
     }
   });
 
-  it('groups into 27 Monday-to-Sunday weeks', () => {
+  it('groups into 26 Monday-to-Sunday weeks', () => {
     const weeks = groupByWeek(plan.days);
-    expect(weeks).toHaveLength(27);
-    expect(weeks[0].days).toHaveLength(3); // starts on a Friday
+    expect(weeks).toHaveLength(26);
+    expect(weeks[0].days).toHaveLength(7); // starts on a Monday
     expect(weeks[1].days[0].day).toMatch(/^Mon /);
   });
 });
@@ -228,8 +228,8 @@ describe('Débutant book (from its contents pages)', () => {
 
   it('keeps the first days and splits the passé composé across two days', () => {
     expect(deb.slice(0, 2).map((d) => d.book)).toEqual(['Déb. 1–2', 'Déb. 3–4']);
-    expect(plan.days.find((d) => d.date === '2026-11-27').book).toBe('Déb. 43–44');
-    expect(plan.days.find((d) => d.date === '2026-11-28').book).toBe('Déb. 45–46');
+    expect(plan.days.find((d) => d.date === '2026-11-30').book).toBe('Déb. 43–44');
+    expect(plan.days.find((d) => d.date === '2026-12-01').book).toBe('Déb. 45–46');
   });
 
   it('shows pages and topics on the book task, and skips the bilan pages', () => {
@@ -238,7 +238,7 @@ describe('Débutant book (from its contents pages)', () => {
     const book = sessionsFor(d)[0].tasks.find((t) => t.id === 'book');
     expect(book.title).toBe('Book: Déb. 3–4, p. 14–17');
     expect(book.detail).toContain('Ch. 4: être');
-    expect(plan.days.find((x) => x.date === '2026-12-01').book_pages).toBe('p. 122–123, 126–127');
+    expect(plan.days.find((x) => x.date === '2026-12-03').book_pages).toBe('p. 122–123, 126–127');
   });
 
   it('never assigns more than 8 pages in a morning', () => {
@@ -262,7 +262,7 @@ describe('Débutant book (from its contents pages)', () => {
     expect(t.detail).toContain('from memory');
   });
 
-  it('sets each of the 8 bilans once, on the first Sunday after its last chapter', () => {
+  it('sets each of the 8 bilans once, on the first review day after its last chapter', () => {
     const where = (n) => sundays.filter((d) => d.sunday_items.some((t) => t.includes(`Bilan ${n} (`)));
     const expected = {
       1: '2026-11-15',
@@ -272,20 +272,20 @@ describe('Débutant book (from its contents pages)', () => {
       5: '2026-11-29',
       6: '2026-12-06',
       7: '2026-12-06',
-      8: '2026-12-06',
+      8: '2026-12-09',
     };
     for (const [n, date] of Object.entries(expected)) expect(where(n).map((d) => d.date)).toEqual([date]);
-    const last = sundays.find((d) => d.date === '2026-12-06');
+    const last = sundays.find((d) => d.date === '2026-12-09');
     expect(last.sunday_items.some((t) => t.includes('final test on p. 173'))).toBe(true);
   });
 
   it('practises only grammar already reached in the book', () => {
     const before = (date) => deb.filter((d) => d.date < date);
-    for (const d of before('2026-11-27')) {
+    for (const d of before('2026-11-30')) {
       expect(`${d.write} ${d.speak}`).not.toMatch(/j'ai mangé|je suis arrivé|as fait hier|ton arrivée/i);
     }
-    for (const d of before('2026-11-30')) expect(`${d.write} ${d.speak}`).not.toMatch(/quand j'étais|ton enfance/i);
-    for (const d of before('2026-12-04')) expect(`${d.write} ${d.speak}`).not.toMatch(/j'en |avec en/i);
+    for (const d of before('2026-12-02')) expect(`${d.write} ${d.speak}`).not.toMatch(/quand j'étais|ton enfance/i);
+    for (const d of before('2026-12-07')) expect(`${d.write} ${d.speak}`).not.toMatch(/j'en |avec en/i);
     expect(deb[3].write).toContain('je me lève'); // reflexive verbs, ch. 9
     expect(deb.at(-1).speak).toContain('BILAN');
   });
@@ -315,10 +315,10 @@ describe('everyday French in the Débutant month', () => {
   const on = (date) => plan.days.find((d) => d.date === date);
 
   it('asks for practical writing: a form, a postcard, messages and a text', () => {
-    expect(on('2026-11-06').write).toContain('Remplis une fiche');
-    expect(on('2026-11-12').write).toContain('Carte postale');
-    expect(on('2026-11-20').write).toContain('rendez-vous');
-    expect(on('2026-11-26').write).toContain('SMS');
+    expect(on('2026-11-09').write).toContain('Remplis une fiche');
+    expect(on('2026-11-14').write).toContain('Carte postale');
+    expect(on('2026-11-23').write).toContain('rendez-vous');
+    expect(on('2026-11-28').write).toContain('SMS');
   });
 
   it('sets a different everyday reading task on every study day, and only in this month', () => {
@@ -330,10 +330,10 @@ describe('everyday French in the Débutant month', () => {
   });
 
   it('offers clothes and transport as one-tap flashcards on the right days', () => {
-    expect(on('2026-11-13').word_set).toBe('clothes');
-    expect(on('2026-11-26').word_set).toBe('transport');
+    expect(on('2026-11-16').word_set).toBe('clothes');
+    expect(on('2026-11-28').word_set).toBe('transport');
     expect(deb.filter((d) => d.word_set)).toHaveLength(2);
-    const t = sessionsFor(on('2026-11-26'))[2].tasks.find((x) => x.id === 'word-set');
+    const t = sessionsFor(on('2026-11-28'))[2].tasks.find((x) => x.id === 'word-set');
     expect(t.addWords).toBe('transport');
     expect(t.title).toBe('New words: transport (20 cards)');
     for (const set of Object.values(WORD_SETS)) {
@@ -377,11 +377,11 @@ describe('private answers', () => {
   });
 
   it('points each task at its pages', () => {
-    const book = sessionsFor(on('2026-11-07'))[0].tasks.find((t) => t.id === 'book');
+    const book = sessionsFor(on('2026-11-10'))[0].tasks.find((t) => t.id === 'book');
     expect(book.answerPages).toEqual([14, 15, 16, 17]);
-    const audio = sessionsFor(on('2026-11-16'))[1].tasks.find((t) => t.id === 'book-audio');
+    const audio = sessionsFor(on('2026-11-18'))[1].tasks.find((t) => t.id === 'book-audio');
     expect(audio.answerPages).toEqual([158]);
-    const song = sessionsFor(on('2026-11-09'))[1].tasks.find((t) => t.id === 'book-audio');
+    const song = sessionsFor(on('2026-11-11'))[1].tasks.find((t) => t.id === 'book-audio');
     expect(song.answerPages).toEqual([]);
   });
 
@@ -389,8 +389,9 @@ describe('private answers', () => {
     const retest = (date) => sessionsFor(on(date))[0].tasks.find((t) => t.title.startsWith('Week re-test'));
     expect(retest('2026-11-15').answerPages).toEqual([28, 29]);
     expect(retest('2026-11-22').answerPages).toEqual([54, 55, 70, 71]);
-    expect(retest('2026-12-06').answerPages).toEqual([124, 125, 136, 137, 150, 151, 173]);
-    expect(retest('2026-11-08').answerPages).toBeUndefined();
+    expect(retest('2026-12-06').answerPages).toEqual([124, 125, 136, 137]);
+    expect(retest('2026-12-09').answerPages).toEqual([150, 151, 173]);
+    expect(retest('2026-12-13').answerPages).toBeUndefined();
   });
 
   it('keeps no answers in the public plan', () => {
@@ -429,11 +430,11 @@ describe('English first in the Débutant month', () => {
         .yt_links.filter((l) => !l.first)
         .map((l) => l.topic)
         .join(' | ');
-    expect(first('2026-11-07')).toContain('être');
-    expect(later('2026-11-07')).toContain('Silent e (extra)');
-    expect(first('2026-11-27')).toContain('Passé composé');
-    expect(first('2026-11-21')).toContain('du, de la, des');
-    expect(later('2026-11-21')).toContain('Food words');
+    expect(first('2026-11-10')).toContain('être');
+    expect(later('2026-11-10')).toContain('Silent e (extra)');
+    expect(first('2026-11-30')).toContain('Passé composé');
+    expect(first('2026-11-24')).toContain('du, de la, des');
+    expect(later('2026-11-24')).toContain('Food words');
     for (const d of deb) {
       for (const l of d.yt_links.filter((x) => x.first)) expect(l.topic).not.toContain('(extra)');
     }
@@ -610,10 +611,10 @@ describe('the tutor page', () => {
 
   it('carries the whole plan, in step with the app', () => {
     expect(data.map((d) => d.date)).toEqual(plan.days.map((d) => d.date));
-    const day = data.find((d) => d.date === '2026-11-07');
+    const day = data.find((d) => d.date === '2026-11-10');
     expect(day.book).toBe('Déb. 3–4');
     expect(day.topics[0].ch).toBe(3);
-    expect(data.find((d) => d.date === '2026-11-08').book).toBeUndefined();
+    expect(data.find((d) => d.date === '2026-11-15').book).toBeUndefined();
   });
 
   it('holds no private material: only public plan fields', () => {
@@ -660,18 +661,18 @@ describe('book audio in the plan', () => {
   });
 
   it('never plays a recording before the grammar its label names', () => {
-    expect(dayOf(1) >= '2026-11-16').toBe(true); // être, avoir: ch. 19
-    expect(dayOf(9) >= '2026-11-20').toBe(true); // numbers: ch. 28
-    expect(dayOf(16) >= '2026-11-25').toBe(true); // -ir, -re, -oir: ch. 39
-    expect(dayOf(17) >= '2026-11-26').toBe(true); // vouloir, pouvoir, devoir: ch. 40
-    expect(dayOf(19) >= '2026-11-27').toBe(true); // near future: ch. 43
-    expect(dayOf(20) >= '2026-11-27').toBe(true); // passé composé in -é: ch. 44
-    expect(dayOf(22) >= '2026-11-28').toBe(true); // passé composé with être: ch. 46
-    expect(dayOf(26) >= '2026-11-30').toBe(true); // imparfait: ch. 47
-    expect(dayOf(27) >= '2026-11-30').toBe(true); // simple future: ch. 48
-    expect(dayOf(31) >= '2026-11-16').toBe(true); // song with pas de: ch. 20
-    expect(dayOf(35) >= '2026-12-02').toBe(true); // song with questions: ch. 51–52
-    expect(dayOf(37) >= '2026-12-03').toBe(true); // song with ne… plus: ch. 53
+    expect(dayOf(1) >= '2026-11-18').toBe(true); // être, avoir: ch. 19
+    expect(dayOf(9) >= '2026-11-23').toBe(true); // numbers: ch. 28
+    expect(dayOf(16) >= '2026-11-27').toBe(true); // -ir, -re, -oir: ch. 39
+    expect(dayOf(17) >= '2026-11-28').toBe(true); // vouloir, pouvoir, devoir: ch. 40
+    expect(dayOf(19) >= '2026-11-30').toBe(true); // near future: ch. 43
+    expect(dayOf(20) >= '2026-11-30').toBe(true); // passé composé in -é: ch. 44
+    expect(dayOf(22) >= '2026-12-01').toBe(true); // passé composé with être: ch. 46
+    expect(dayOf(26) >= '2026-12-02').toBe(true); // imparfait: ch. 47
+    expect(dayOf(27) >= '2026-12-02').toBe(true); // simple future: ch. 48
+    expect(dayOf(31) >= '2026-11-18').toBe(true); // song with pas de: ch. 20
+    expect(dayOf(35) >= '2026-12-04').toBe(true); // song with questions: ch. 51–52
+    expect(dayOf(37) >= '2026-12-05').toBe(true); // song with ne… plus: ch. 53
   });
 
   it('adds players for each recording, and keeps the video hour at 60 minutes', () => {
@@ -682,7 +683,7 @@ describe('book audio in the plan', () => {
       expect(audio.players[0].url).toContain('progressive.cle-international.com');
       expect(audio.links).toBeUndefined(); // a plain link to these files would download them
     }
-    const t = sessionsFor(plan.days.find((d) => d.date === '2026-11-16'))[1].tasks.find((x) => x.id === 'book-audio');
+    const t = sessionsFor(plan.days.find((d) => d.date === '2026-11-18'))[1].tasks.find((x) => x.id === 'book-audio');
     expect(t.title).toBe('Book audio: Dialogues 1–4 (p. 158), song: Oui et non');
   });
 });
@@ -692,24 +693,24 @@ describe('annexes (p. 152–153)', () => {
 
   it('reads each section once its chapters are done', () => {
     const detail = (date) => sessionsFor(on(date))[0].tasks.find((t) => t.id === 'book').detail;
-    expect(detail('2026-12-01')).toContain('Annexes §7');
-    expect(detail('2026-12-03')).toContain('Annexes §1–3');
-    expect(detail('2026-12-05')).toContain('Annexes §4');
-    expect(sessionsFor(on('2026-12-01'))[0].tasks.find((t) => t.id === 'book').title).toContain('+ Annexes');
+    expect(detail('2026-12-03')).toContain('Annexes §7');
+    expect(detail('2026-12-05')).toContain('Annexes §1–3');
+    expect(detail('2026-12-08')).toContain('Annexes §4');
+    expect(sessionsFor(on('2026-12-03'))[0].tasks.find((t) => t.id === 'book').title).toContain('+ Annexes');
     expect(
-      on('2026-12-03')
+      on('2026-12-05')
         .yt_links.map((l) => l.topic)
         .join(),
     ).toContain('Adverbs');
     expect(
-      on('2026-12-01')
+      on('2026-12-03')
         .yt_links.map((l) => l.topic)
         .join(),
     ).toContain('Recent past');
   });
 
-  it('finishes on Sunday 6 Dec with links to Vincent', () => {
-    const sunday = on('2026-12-06');
+  it('finishes on the review day, Wed 9 Dec, with links to Vincent', () => {
+    const sunday = on('2026-12-09');
     const task = sessionsFor(sunday)[0].tasks.find((t) => t.title.startsWith('Annexes §5'));
     const labels = task.links.map((l) => l.label).join(' | ');
     for (const t of ['Imperative', 'Indirect speech', 'celui, celle']) expect(labels).toContain(t);
@@ -720,13 +721,13 @@ describe('annexes (p. 152–153)', () => {
 describe('vocabulary book', () => {
   const vocabDays = plan.days.filter((d) => d.vocab);
 
-  it('covers chapters 1–25 in two halves each, in order, between 7 Dec and 2 Apr on study days', () => {
+  it('covers chapters 1–25 in two halves each, in order, between 10 Dec and 3 Apr on study days', () => {
     const expected = [];
     for (let c = 1; c <= 25; c++) expected.push(`ch. ${c}, first half`, `ch. ${c}, second half`);
     expect(vocabDays.map((d) => d.vocab)).toEqual(expected);
     for (const d of vocabDays) {
       expect(d.sunday).toBe(false);
-      expect(d.date >= '2026-12-07' && d.date <= '2027-04-02').toBe(true);
+      expect(d.date >= '2026-12-10' && d.date <= '2027-04-03').toBe(true);
     }
   });
 
@@ -790,30 +791,30 @@ describe('Vincent course (November)', () => {
         .find((d) => d.date === date)
         .yt_links.map((l) => l.topic)
         .join(' | ');
-    expect(topicsOn('2026-11-07')).toContain('être'); // ch. 4
-    expect(topicsOn('2026-11-10')).toContain('-er verbs: spelling changes'); // ch. 8
-    expect(topicsOn('2026-11-10')).toContain('Regular -er verbs'); // ch. 7, conjugation
-    expect(topicsOn('2026-11-16')).toContain('avoir'); // ch. 19, conjugation
-    expect(topicsOn('2026-11-17')).toContain('The preposition en'); // ch. 22
-    expect(topicsOn('2026-11-19')).toContain("c'est + adjective"); // ch. 27
-    expect(topicsOn('2026-11-20')).toContain('Numbers 0–9'); // ch. 28
-    expect(topicsOn('2026-11-20')).toContain('Telling the time'); // ch. 29
-    expect(topicsOn('2026-11-21')).toContain('Weather'); // ch. 30
-    expect(topicsOn('2026-11-25')).toContain('venir'); // ch. 39, three-form verb
-    expect(topicsOn('2026-11-27')).toContain('Passé composé of parler'); // ch. 44, -er verb
-    expect(topicsOn('2026-11-28')).toContain('Passé composé of avoir'); // ch. 45, irregular
-    expect(topicsOn('2026-11-28')).toContain('Verbs that take être'); // ch. 46
-    expect(topicsOn('2026-11-30')).toContain('Imparfait'); // ch. 47
-    expect(topicsOn('2026-12-02')).toContain('Three ways to ask a question'); // ch. 51
-    expect(topicsOn('2026-12-05')).toContain('Relative pronouns: qui, que'); // ch. 60
+    expect(topicsOn('2026-11-10')).toContain('être'); // ch. 4
+    expect(topicsOn('2026-11-12')).toContain('-er verbs: spelling changes'); // ch. 8
+    expect(topicsOn('2026-11-12')).toContain('Regular -er verbs'); // ch. 7, conjugation
+    expect(topicsOn('2026-11-18')).toContain('avoir'); // ch. 19, conjugation
+    expect(topicsOn('2026-11-19')).toContain('The preposition en'); // ch. 22
+    expect(topicsOn('2026-11-21')).toContain("c'est + adjective"); // ch. 27
+    expect(topicsOn('2026-11-23')).toContain('Numbers 0–9'); // ch. 28
+    expect(topicsOn('2026-11-23')).toContain('Telling the time'); // ch. 29
+    expect(topicsOn('2026-11-24')).toContain('Weather'); // ch. 30
+    expect(topicsOn('2026-11-27')).toContain('venir'); // ch. 39, three-form verb
+    expect(topicsOn('2026-11-30')).toContain('Passé composé of parler'); // ch. 44, -er verb
+    expect(topicsOn('2026-12-01')).toContain('Passé composé of avoir'); // ch. 45, irregular
+    expect(topicsOn('2026-12-01')).toContain('Verbs that take être'); // ch. 46
+    expect(topicsOn('2026-12-02')).toContain('Imparfait'); // ch. 47
+    expect(topicsOn('2026-12-04')).toContain('Three ways to ask a question'); // ch. 51
+    expect(topicsOn('2026-12-08')).toContain('Relative pronouns: qui, que'); // ch. 60
   });
 
   it('stops a long lesson where it leaves the chapter', () => {
     const link = (date, topic) => plan.days.find((d) => d.date === date).yt_links.find((l) => l.topic.includes(topic));
-    expect(link('2026-12-05', 'Relative pronouns').to).toBe(13690); // before agreement, dont, où
-    expect(link('2026-11-13', 'ce, cet, cette').to).toBe(11989); // before celui, celle
-    expect(link('2026-11-28', 'avoir or être + participle').to).toBe(24774); // before the advanced tenses
-    expect(link('2026-11-17', 'The preposition en').to).toBe(24380); // before en + -ant
+    expect(link('2026-12-08', 'Relative pronouns').to).toBe(13690); // before agreement, dont, où
+    expect(link('2026-11-16', 'ce, cet, cette').to).toBe(11989); // before celui, celle
+    expect(link('2026-12-01', 'avoir or être + participle').to).toBe(24774); // before the advanced tenses
+    expect(link('2026-11-19', 'The preposition en').to).toBe(24380); // before en + -ant
   });
 
   it("labels anything off the day's grammar as extra", () => {
@@ -864,7 +865,7 @@ describe('Vincent course (November)', () => {
 describe('the whole Vincent series', () => {
   const lengths = { 1: 15015, 2: 16978, 3: 28105, 4: 17995, 5: 14074 };
   const later = plan.days.filter((d) => d.vincent_later);
-  const sunday = plan.days.find((d) => d.date === '2026-12-06');
+  const sunday = plan.days.find((d) => d.date === '2026-12-09');
   const all = [
     ...plan.days.flatMap((d) => d.yt_links || []),
     ...plan.days.flatMap((d) => d.vincent_later || []),
@@ -885,7 +886,7 @@ describe('the whole Vincent series', () => {
       expect(d.sunday).toBe(false);
       expect([2, 3]).toContain(d.phase);
     }
-    expect(later.every((d) => d.date >= '2026-12-07' && d.date <= '2027-04-03')).toBe(true);
+    expect(later.every((d) => d.date >= '2026-12-10' && d.date <= '2027-04-07')).toBe(true);
   });
 
   it('keeps each phase to its level', () => {
@@ -930,8 +931,8 @@ describe('the whole Vincent series', () => {
 describe('sentences in the plan', () => {
   it('8 a day on study days from 4 Jan to 3 Apr, and the evening task says so', () => {
     const withSent = plan.days.filter((d) => d.sent);
-    expect(withSent[0].date).toBe('2027-01-04');
-    expect(withSent.at(-1).date).toBe('2027-04-03');
+    expect(withSent[0].date).toBe('2027-01-07');
+    expect(withSent.at(-1).date).toBe('2027-04-07');
     expect(withSent.every((d) => d.sent === 8 && !d.sunday)).toBe(true);
     const day = withSent.find((d) => !d.vocab);
     const t = sessionsFor(day)[2].tasks.find((x) => x.id === 'anki-new');
@@ -943,8 +944,8 @@ describe('sentences in the plan', () => {
 describe('speaking cards in the plan', () => {
   it('6 a day on study days from 11 Jan to 3 Apr, named in the evening task', () => {
     const withSay = plan.days.filter((d) => d.say);
-    expect(withSay[0].date).toBe('2027-01-11');
-    expect(withSay.at(-1).date).toBe('2027-04-03');
+    expect(withSay[0].date).toBe('2027-01-14');
+    expect(withSay.at(-1).date).toBe('2027-04-07');
     expect(withSay.every((d) => d.say === 6 && d.sent === 8 && !d.sunday)).toBe(true);
     const day = withSay.find((d) => !d.vocab);
     const t = sessionsFor(day)[2].tasks.find((x) => x.id === 'anki-new');

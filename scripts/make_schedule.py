@@ -6,18 +6,18 @@ from datetime import date, timedelta
 OUT_MD = sys.argv[1]
 OUT_CSV = sys.argv[2]
 
-START = date(2026, 11, 6)
-END = date(2027, 5, 6)
+START = date(2026, 11, 9)
+END = date(2027, 5, 9)
 # Progress last changed before this moment (ms) is cleared on every device: see applyReset in site/store.js.
 RESET_AT_MS = 1793910600000  # 5 Nov 2026 21:30 CET, when day 1 moved to 6 Nov
 
 # Book volumes: (code, name, chapters, first day, last day)
 BOOKS = [
-    ("Déb.", "Débutant 3e", 60, date(2026, 11, 6), date(2026, 12, 5)),
-    ("Int.", "Intermédiaire 4e", 52, date(2026, 12, 6), date(2027, 2, 4)),
-    ("Av.", "Avancé 3e", 72, date(2027, 2, 5), date(2027, 4, 4)),
+    ("Déb.", "Débutant 3e", 60, date(2026, 11, 9), date(2026, 12, 9)),
+    ("Int.", "Intermédiaire 4e", 52, date(2026, 12, 10), date(2027, 2, 8)),
+    ("Av.", "Avancé 3e", 72, date(2027, 2, 9), date(2027, 4, 7)),
 ]
-EXAM_MODE_START = date(2027, 4, 5)
+EXAM_MODE_START = date(2027, 4, 8)
 FULL_MOCK_FROM = date(2027, 4, 18)
 
 FR_MONTHS = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
@@ -28,8 +28,14 @@ def fmt(d):
     return f"{DAYS[d.weekday()]} {d.day} {FR_MONTHS[d.month]}"
 
 
+# A one-off review day: Débutant's last chapters land on Mon 7 and Tue 8 Dec, so its final test and the last Annexes
+# need a review day straight after them, not the Sunday before.
+EXTRA_REVIEW_DAYS = {date(2026, 12, 9)}
+
+
 def is_sunday(d):
-    return d.weekday() == 6
+    """A review day: every Sunday, plus the one-off above."""
+    return d.weekday() == 6 or d in EXTRA_REVIEW_DAYS
 
 
 # ---------- content pools ----------
@@ -585,9 +591,9 @@ for code, _name, n, a, b in BOOKS:
         chapters[d] = (code, lo, hi)
 
 # Vocabulary book (Vocabulaire progressif du français, intermédiaire): 25 chapters, each split into
-# two halves, on 50 evenly spaced study days between 7 Dec and 2 Apr. Other evenings use the word deck.
+# two halves, on 50 evenly spaced study days between 10 Dec and 3 Apr. Other evenings use the word deck.
 VOCAB_CHAPTERS = 25
-VOCAB_FROM, VOCAB_TO = date(2026, 12, 6), date(2027, 4, 2)
+VOCAB_FROM, VOCAB_TO = date(2026, 12, 10), date(2027, 4, 5)
 vocab = {}
 _vdays = study_days(VOCAB_FROM, VOCAB_TO)
 _units = VOCAB_CHAPTERS * 2
@@ -625,19 +631,19 @@ def phase_of(d):
     return 4
 
 
-SENTENCES_FROM = date(2027, 1, 4)
+SENTENCES_FROM = date(2027, 1, 7)
 SENTENCES_PER_DAY = 8
-SAY_FROM = date(2027, 1, 11)  # speaking cards start a week after reading, so there is something to unlock
+SAY_FROM = date(2027, 1, 14)  # speaking cards start a week after reading, so there is something to unlock
 SAY_PER_DAY = 6
 
 
 def sent_new(d):
-    """New reading sentences (French → English flashcards) per study day, 4 Jan → 3 Apr."""
+    """New reading sentences (French → English flashcards) per study day, 7 Jan → 7 Apr."""
     return SENTENCES_PER_DAY if SENTENCES_FROM <= d <= BOOKS[2][4] and not is_sunday(d) else 0
 
 
 def say_new(d):
-    """New speaking cards (English → say it in French) per study day, 11 Jan → 3 Apr."""
+    """New speaking cards (English → say it in French) per study day, 14 Jan → 7 Apr."""
     return SAY_PER_DAY if SAY_FROM <= d <= BOOKS[2][4] and not is_sunday(d) else 0
 
 
@@ -656,7 +662,7 @@ YOUTUBE_MINUTES = 60  # the phase 1 YouTube slot in site/logic.js
 # Vincent, "Learn French in 5 Days - The Legacy Version" (playlist PLdR5FaFp7N5M): video id, length (s), parts.
 # 256 lessons. Every start and topic was checked against the full transcript and the lesson's own title slide.
 # Four long lessons are cut where they leave the chapter's topic (marked "cut"), so a link can stop there.
-# Each part: start (s), topic, and where it is watched: a Débutant chapter, "sun" (Sunday 6 Dec, with the
+# Each part: start (s), topic, and where it is watched: a Débutant chapter, "sun" (Wed 9 Dec, with the
 # Annexes), or a later phase by level: "p2" (Intermédiaire) or "p3" (Avancé), in table order. Move those onto
 # their chapters' days once the books' contents are in.
 # "(extra)" = useful, but not on that day's grammar: pronunciation and word lists placed on days with room.
@@ -803,13 +809,13 @@ def audio_title(ns):
 
 
 # Annexes grammaticales (p. 152–153), read on the day after the chapters they build on. The rest of p. 153 goes on
-# Sunday 6 Dec. There is no Vincent lesson on §3, §4 or §9.
+# Wed 9 Dec. There is no Vincent lesson on §3, §4 or §9.
 DEB_ANNEX = {
     (49, 50): "Annexes §7, p. 153: passé récent",
     (53, 54): "Annexes §1–3, p. 152: adverbs, where adverbs and negatives go",
     (58, 60): "Annexes §4, p. 152: where object pronouns go",
 }
-ANNEX_SUNDAY = date(2026, 12, 6)
+ANNEX_SUNDAY = date(2026, 12, 9)
 ANNEX_SUNDAY_ITEM = ("Annexes §5, §6, §8, §9, p. 153 (45 min): imperative, indirect speech, demonstrative and possessive "
                      "pronouns. Read each one, then watch Vincent's lessons")
 
@@ -885,11 +891,11 @@ def vincent_later(days, parts):
 
 
 def tv5(d):
-    if d < date(2026, 12, 4):
+    if d < date(2026, 12, 7):
         return "TV5MONDE EDU · A1 · 2 exercises"
-    if d < date(2027, 1, 19):
+    if d < date(2027, 1, 22):
         return "TV5MONDE EDU · A2 · 3 exercises"
-    if d < date(2027, 3, 19):
+    if d < date(2027, 3, 22):
         return "TV5MONDE EDU · B1 · 3 exercises"
     if d < EXAM_MODE_START:
         return "TV5MONDE EDU · B2 · 3 exercises"
@@ -1017,11 +1023,13 @@ for d in all_days():
 
 # ---------- Sunday content ----------
 def week_chapters(sunday):
+    """The chapters since the previous review day."""
     labs = []
-    for i in range(6, 0, -1):
-        d = sunday - timedelta(days=i)
+    d = sunday - timedelta(days=1)
+    while d >= START and not is_sunday(d):
         if d in chapters:
-            labs.append(chapters[d])
+            labs.insert(0, chapters[d])
+        d -= timedelta(days=1)
     return labs
 
 
@@ -1095,7 +1103,7 @@ PHASE_NAME = {1: "Débutant (A1)", 2: "Intermédiaire (A2→B1)", 3: "Avancé (B
 L = []
 L.append("# French A1 → B2: day-by-day schedule")
 L.append("")
-L.append("Fri 6 Nov 2026 → Thu 6 May 2027 · at least 4 h/day · the full plan and the reasoning are in "
+L.append("Mon 9 Nov 2026 → Sun 9 May 2027 · at least 4 h/day · the full plan and the reasoning are in "
          "`French A1 to B2 in 6 months (TCF Canada).md` next to this file.")
 L.append("")
 L.append("## The same every day (only the items in the tables change)")
@@ -1117,7 +1125,7 @@ L.append("Minutes shift by phase (more writing/speaking later); see section 6 of
          "Any day can be swapped with the next Sunday; just keep the order.")
 L.append("")
 L.append("**Vocabulary book:** Vocabulaire progressif du français, niveau intermédiaire 3e éd. (25 ch.), "
-         "half a chapter on the evenings listed (7 Dec – 2 Apr); the other evenings use the flashcard word deck.")
+         "half a chapter on the evenings listed (10 Dec – 3 Apr); the other evenings use the flashcard word deck.")
 L.append("")
 L.append("**Book volumes:** Déb. = Niveau débutant 3e éd. (60 ch.) · Int. = Niveau intermédiaire 4e éd. "
          "(planned as 52 ch.; if your copy differs, keep ~1 a day and let the dates slide) · "
@@ -1273,7 +1281,7 @@ if len(sys.argv) > 4:
         if r["yt_rest"]:
             M.append(f"- Super Easy French: {r['yt_rest']} min")
         M.append("")
-    M.append("## Sun 6 Dec: Annexes §5, §6, §8, §9, p. 153")
+    M.append(f"## {fmt(ANNEX_SUNDAY)}: Annexes §5, §6, §8, §9, p. 153")
     M.extend(f"- Vincent: {l['topic']} ({(l['to'] - l['from']) // 60} min), Day {l['video']} video "
              f"{hms(l['from'])} → {hms(l['to'])}" for l in annex_links)
     with open(sys.argv[4], "w", encoding="utf-8") as f:

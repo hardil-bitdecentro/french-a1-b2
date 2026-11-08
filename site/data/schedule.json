@@ -1,11 +1,11 @@
 {
- "start": "2026-11-06",
- "end": "2027-05-06",
+ "start": "2026-11-09",
+ "end": "2027-05-09",
  "resetAt": 1793910600000,
  "days": [
   {
-   "date": "2026-11-06",
-   "day": "Fri 6 Nov",
+   "date": "2026-11-09",
+   "day": "Mon 9 Nov",
    "phase": 1,
    "anki": 25,
    "sent": 0,
@@ -97,8 +97,8 @@
    "week": 1
   },
   {
-   "date": "2026-11-07",
-   "day": "Sat 7 Nov",
+   "date": "2026-11-10",
+   "day": "Tue 10 Nov",
    "phase": 1,
    "anki": 25,
    "sent": 0,
@@ -167,32 +167,8 @@
    "week": 1
   },
   {
-   "date": "2026-11-08",
-   "day": "Sun 8 Nov",
-   "phase": 1,
-   "anki": 25,
-   "sent": 0,
-   "say": 0,
-   "tv5": "TV5MONDE EDU · A1 · 2 exercises",
-   "yt": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
-   "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": null,
-   "vocab": null,
-   "sunday": true,
-   "sunday_items": [
-    "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Déb. 1–4, covered, from memory",
-    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
-   ],
-   "week": 1
-  },
-  {
-   "date": "2026-11-09",
-   "day": "Mon 9 Nov",
+   "date": "2026-11-11",
+   "day": "Wed 11 Nov",
    "phase": 1,
    "anki": 25,
    "sent": 0,
@@ -256,11 +232,11 @@
    "read_task": "notices with ne… pas: ne pas fumer, ne pas toucher, ne pas entrer",
    "retest": "yesterday: Déb. 3–4",
    "retest_note": "Déb. 3–4: describing: plural adjectives; être; tu or vous; nous or on",
-   "week": 2
+   "week": 1
   },
   {
-   "date": "2026-11-10",
-   "day": "Tue 10 Nov",
+   "date": "2026-11-12",
+   "day": "Thu 12 Nov",
    "phase": 1,
    "anki": 25,
    "sent": 0,
@@ -329,11 +305,11 @@
    "read_task": "a supermarket leaflet: find 10 products you can name",
    "retest": "yesterday: Déb. 5–6",
    "retest_note": "Déb. 5–6: yes/no questions; ne… pas; -er verbs; aimer",
-   "week": 2
+   "week": 1
   },
   {
-   "date": "2026-11-11",
-   "day": "Wed 11 Nov",
+   "date": "2026-11-13",
+   "day": "Fri 13 Nov",
    "phase": 1,
    "anki": 25,
    "sent": 0,
@@ -399,11 +375,11 @@
    "read_task": "shop and aisle signs: note 8 words with un or une",
    "retest": "yesterday: Déb. 7–9",
    "retest_note": "Déb. 7–9: -er verbs: the full present; -er verbs: spelling changes; reflexive -er verbs",
-   "week": 2
+   "week": 1
   },
   {
-   "date": "2026-11-12",
-   "day": "Thu 12 Nov",
+   "date": "2026-11-14",
+   "day": "Sat 14 Nov",
    "phase": 1,
    "anki": 25,
    "sent": 0,
@@ -461,11 +437,41 @@
    "read_task": "street signs: centre-ville, gare, mairie, à la…, au…",
    "retest": "yesterday: Déb. 10–11",
    "retest_note": "Déb. 10–11: nouns: gender and articles; nouns: plural",
-   "week": 2
+   "week": 1
   },
   {
-   "date": "2026-11-13",
-   "day": "Fri 13 Nov",
+   "date": "2026-11-15",
+   "day": "Sun 15 Nov",
+   "phase": 1,
+   "anki": 25,
+   "sent": 0,
+   "say": 0,
+   "tv5": "TV5MONDE EDU · A1 · 2 exercises",
+   "yt": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
+   "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": null,
+   "vocab": null,
+   "sunday": true,
+   "sunday_answer_pages": {
+    "1": [
+     28,
+     29
+    ]
+   },
+   "sunday_items": [
+    "Flashcard reviews (15 min)",
+    "Week re-test (60 min): Bilan 1 (p. 28–29): recap exercises and test, no notes, then check the Corrigés. With time left, 1 exercise from each of Déb. 1–13",
+    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
+    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
+   ],
+   "week": 1
+  },
+  {
+   "date": "2026-11-16",
+   "day": "Mon 16 Nov",
    "phase": 1,
    "anki": 25,
    "sent": 0,
@@ -556,8 +562,8 @@
    "week": 2
   },
   {
-   "date": "2026-11-14",
-   "day": "Sat 14 Nov",
+   "date": "2026-11-17",
+   "day": "Tue 17 Nov",
    "phase": 1,
    "anki": 25,
    "sent": 0,
@@ -634,38 +640,8 @@
    "week": 2
   },
   {
-   "date": "2026-11-15",
-   "day": "Sun 15 Nov",
-   "phase": 1,
-   "anki": 25,
-   "sent": 0,
-   "say": 0,
-   "tv5": "TV5MONDE EDU · A1 · 2 exercises",
-   "yt": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
-   "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": null,
-   "vocab": null,
-   "sunday": true,
-   "sunday_answer_pages": {
-    "1": [
-     28,
-     29
-    ]
-   },
-   "sunday_items": [
-    "Flashcard reviews (15 min)",
-    "Week re-test (60 min): Bilan 1 (p. 28–29): recap exercises and test, no notes, then check the Corrigés. With time left, 1 exercise from each of Déb. 5–18",
-    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
-   ],
-   "week": 2
-  },
-  {
-   "date": "2026-11-16",
-   "day": "Mon 16 Nov",
+   "date": "2026-11-18",
+   "day": "Wed 18 Nov",
    "phase": 1,
    "anki": 25,
    "sent": 0,
@@ -725,11 +701,11 @@
    "read_task": "rules on a door or a bus: pas de…, il n'y a pas de…",
    "retest": "yesterday: Déb. 17–18 · day −7: Déb. 5–6",
    "retest_note": "Déb. 17–18: looks and age; aches, hunger, cold. Déb. 5–6: yes/no questions; ne… pas; -er verbs; aimer",
-   "week": 3
+   "week": 2
   },
   {
-   "date": "2026-11-17",
-   "day": "Tue 17 Nov",
+   "date": "2026-11-19",
+   "day": "Thu 19 Nov",
    "phase": 1,
    "anki": 25,
    "sent": 0,
@@ -816,11 +792,11 @@
    "read_task": "a neighbourhood map: à côté de, près de, loin de, devant",
    "retest": "yesterday: Déb. 19–20 · day −7: Déb. 7–9",
    "retest_note": "Déb. 19–20: avoir: the full present; pas le, pas la; pas de. Déb. 7–9: -er verbs: the full present; -er verbs: spelling changes; reflexive -er verbs",
-   "week": 3
+   "week": 2
   },
   {
-   "date": "2026-11-18",
-   "day": "Wed 18 Nov",
+   "date": "2026-11-20",
+   "day": "Fri 20 Nov",
    "phase": 1,
    "anki": 25,
    "sent": 0,
@@ -902,11 +878,11 @@
    "read_task": "a flat-rental ad: il y a, cuisine, chambre, meublé, charges",
    "retest": "yesterday: Déb. 21–23 · day −7: Déb. 10–11",
    "retest_note": "Déb. 21–23: place: à, de, chez, près de, loin de; cities and countries: à, au, en; dans, sur, sous, devant, derrière. Déb. 10–11: nouns: gender and articles; nouns: plural",
-   "week": 3
+   "week": 2
   },
   {
-   "date": "2026-11-19",
-   "day": "Thu 19 Nov",
+   "date": "2026-11-21",
+   "day": "Sat 21 Nov",
    "phase": 1,
    "anki": 25,
    "sent": 0,
@@ -962,11 +938,43 @@
    "read_task": "restaurant reviews: c'est bon, c'est cher, c'est beau",
    "retest": "yesterday: Déb. 24–25 · day −7: Déb. 12–13",
    "retest_note": "Déb. 24–25: il y a; il n'y a pas de; qui est-ce, qu'est-ce que c'est; ce n'est pas. Déb. 12–13: un, une, des; le, la, les; au, à la, aux; du, de la, des",
-   "week": 3
+   "week": 2
   },
   {
-   "date": "2026-11-20",
-   "day": "Fri 20 Nov",
+   "date": "2026-11-22",
+   "day": "Sun 22 Nov",
+   "phase": 1,
+   "anki": 25,
+   "sent": 0,
+   "say": 0,
+   "tv5": "TV5MONDE EDU · A1 · 2 exercises",
+   "yt": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
+   "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": null,
+   "vocab": null,
+   "sunday": true,
+   "sunday_answer_pages": {
+    "1": [
+     54,
+     55,
+     70,
+     71
+    ]
+   },
+   "sunday_items": [
+    "Flashcard reviews (15 min)",
+    "Week re-test (60 min): Bilan 2 (p. 54–55) + Bilan 3 (p. 70–71): recap exercises and test, no notes, then check the Corrigés. With time left, 1 exercise from each of Déb. 14–27",
+    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
+    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
+   ],
+   "week": 2
+  },
+  {
+   "date": "2026-11-23",
+   "day": "Mon 23 Nov",
    "phase": 1,
    "anki": 25,
    "sent": 0,
@@ -1066,8 +1074,8 @@
    "week": 3
   },
   {
-   "date": "2026-11-21",
-   "day": "Sat 21 Nov",
+   "date": "2026-11-24",
+   "day": "Tue 24 Nov",
    "phase": 1,
    "anki": 25,
    "sent": 0,
@@ -1168,40 +1176,8 @@
    "week": 3
   },
   {
-   "date": "2026-11-22",
-   "day": "Sun 22 Nov",
-   "phase": 1,
-   "anki": 25,
-   "sent": 0,
-   "say": 0,
-   "tv5": "TV5MONDE EDU · A1 · 2 exercises",
-   "yt": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
-   "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": null,
-   "vocab": null,
-   "sunday": true,
-   "sunday_answer_pages": {
-    "1": [
-     54,
-     55,
-     70,
-     71
-    ]
-   },
-   "sunday_items": [
-    "Flashcard reviews (15 min)",
-    "Week re-test (60 min): Bilan 2 (p. 54–55) + Bilan 3 (p. 70–71): recap exercises and test, no notes, then check the Corrigés. With time left, 1 exercise from each of Déb. 19–31",
-    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
-   ],
-   "week": 3
-  },
-  {
-   "date": "2026-11-23",
-   "day": "Mon 23 Nov",
+   "date": "2026-11-25",
+   "day": "Wed 25 Nov",
    "phase": 1,
    "anki": 25,
    "sent": 0,
@@ -1288,11 +1264,11 @@
    "read_task": "price tags at a market: le kilo, le litre, moins cher, plus cher",
    "retest": "yesterday: Déb. 30–31 · day −7: Déb. 19–20",
    "retest_note": "Déb. 30–31: weather, months, seasons; du, de la, des: some. Déb. 19–20: avoir: the full present; pas le, pas la; pas de",
-   "week": 4
+   "week": 3
   },
   {
-   "date": "2026-11-24",
-   "day": "Tue 24 Nov",
+   "date": "2026-11-26",
+   "day": "Thu 26 Nov",
    "phase": 1,
    "anki": 25,
    "sent": 0,
@@ -1357,11 +1333,11 @@
    "read_task": "cinema listings: le film, la séance, la durée, finit à",
    "retest": "yesterday: Déb. 32–34 · day −7: Déb. 21–23",
    "retest_note": "Déb. 32–34: amounts: un kilo de, beaucoup de, pas de; comparing: plus, moins, aussi; comparing amounts; superlatives. Déb. 21–23: place: à, de, chez, près de, loin de; cities and countries: à, au, en; dans, sur, sous, devant, derrière",
-   "week": 4
+   "week": 3
   },
   {
-   "date": "2026-11-25",
-   "day": "Wed 25 Nov",
+   "date": "2026-11-27",
+   "day": "Fri 27 Nov",
    "phase": 1,
    "anki": 25,
    "sent": 0,
@@ -1447,11 +1423,11 @@
    "read_task": "a library or school notice: inscription, horaires, à savoir",
    "retest": "yesterday: Déb. 35–36 · day −7: Déb. 24–25",
    "retest_note": "Déb. 35–36: -ir verbs like finir; -ir verbs like partir. Déb. 24–25: il y a; il n'y a pas de; qui est-ce, qu'est-ce que c'est; ce n'est pas",
-   "week": 4
+   "week": 3
   },
   {
-   "date": "2026-11-26",
-   "day": "Thu 26 Nov",
+   "date": "2026-11-28",
+   "day": "Sat 28 Nov",
    "phase": 1,
    "anki": 25,
    "sent": 0,
@@ -1546,11 +1522,44 @@
    "word_set": "transport",
    "retest": "yesterday: Déb. 37–39 · day −7: Déb. 26–27",
    "retest_note": "Déb. 37–39: -re verbs like écrire; savoir, connaître, croire, voir; three-form verbs like boire. Déb. 26–27: c'est or il est; c'est + adjective: general comments",
-   "week": 4
+   "week": 3
   },
   {
-   "date": "2026-11-27",
-   "day": "Fri 27 Nov",
+   "date": "2026-11-29",
+   "day": "Sun 29 Nov",
+   "phase": 1,
+   "anki": 25,
+   "sent": 0,
+   "say": 0,
+   "tv5": "TV5MONDE EDU · A1 · 2 exercises",
+   "yt": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
+   "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": null,
+   "vocab": null,
+   "sunday": true,
+   "sunday_answer_pages": {
+    "1": [
+     88,
+     89,
+     106,
+     107
+    ]
+   },
+   "sunday_items": [
+    "Flashcard reviews (15 min)",
+    "Week re-test (60 min): Bilan 4 (p. 88–89) + Bilan 5 (p. 106–107): recap exercises and test, no notes, then check the Corrigés. With time left, 1 exercise from each of Déb. 28–42",
+    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
+    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
+    "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Déb. 1–42"
+   ],
+   "week": 3
+  },
+  {
+   "date": "2026-11-30",
+   "day": "Mon 30 Nov",
    "phase": 1,
    "anki": 25,
    "sent": 0,
@@ -1636,8 +1645,8 @@
    "week": 4
   },
   {
-   "date": "2026-11-28",
-   "day": "Sat 28 Nov",
+   "date": "2026-12-01",
+   "day": "Tue 1 Dec",
    "phase": 1,
    "anki": 25,
    "sent": 0,
@@ -1729,41 +1738,8 @@
    "week": 4
   },
   {
-   "date": "2026-11-29",
-   "day": "Sun 29 Nov",
-   "phase": 1,
-   "anki": 25,
-   "sent": 0,
-   "say": 0,
-   "tv5": "TV5MONDE EDU · A1 · 2 exercises",
-   "yt": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
-   "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": null,
-   "vocab": null,
-   "sunday": true,
-   "sunday_answer_pages": {
-    "1": [
-     88,
-     89,
-     106,
-     107
-    ]
-   },
-   "sunday_items": [
-    "Flashcard reviews (15 min)",
-    "Week re-test (60 min): Bilan 4 (p. 88–89) + Bilan 5 (p. 106–107): recap exercises and test, no notes, then check the Corrigés. With time left, 1 exercise from each of Déb. 32–46",
-    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
-    "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Déb. 1–46"
-   ],
-   "week": 4
-  },
-  {
-   "date": "2026-11-30",
-   "day": "Mon 30 Nov",
+   "date": "2026-12-02",
+   "day": "Wed 2 Dec",
    "phase": 1,
    "anki": 25,
    "sent": 0,
@@ -1825,11 +1801,11 @@
    "read_task": "a horoscope: tu seras, tu auras, vous aurez",
    "retest": "yesterday: Déb. 45–46 · day −7: Déb. 32–34",
    "retest_note": "Déb. 45–46: passé composé with avoir: other verbs; passé composé with être. Déb. 32–34: amounts: un kilo de, beaucoup de, pas de; comparing: plus, moins, aussi; comparing amounts; superlatives",
-   "week": 5
+   "week": 4
   },
   {
-   "date": "2026-12-01",
-   "day": "Tue 1 Dec",
+   "date": "2026-12-03",
+   "day": "Thu 3 Dec",
    "phase": 1,
    "anki": 25,
    "sent": 0,
@@ -1896,11 +1872,11 @@
    "read_task": "a short biography on Vikidia: il est né en…, depuis, il y a",
    "retest": "yesterday: Déb. 47–48 · day −7: Déb. 35–36",
    "retest_note": "Déb. 47–48: imparfait; simple future. Déb. 35–36: -ir verbs like finir; -ir verbs like partir",
-   "week": 5
+   "week": 4
   },
   {
-   "date": "2026-12-02",
-   "day": "Wed 2 Dec",
+   "date": "2026-12-04",
+   "day": "Fri 4 Dec",
    "phase": 1,
    "anki": 25,
    "sent": 0,
@@ -1988,11 +1964,11 @@
    "read_task": "a shop's FAQ page: où, quand, comment, combien, pourquoi",
    "retest": "yesterday: Déb. 49–50 · day −7: Déb. 37–39",
    "retest_note": "Déb. 49–50: present, past, future: overview; il y a, pendant, depuis, dans. Déb. 37–39: -re verbs like écrire; savoir, connaître, croire, voir; three-form verbs like boire",
-   "week": 5
+   "week": 4
   },
   {
-   "date": "2026-12-03",
-   "day": "Thu 3 Dec",
+   "date": "2026-12-05",
+   "day": "Sat 5 Dec",
    "phase": 1,
    "anki": 25,
    "sent": 0,
@@ -2065,11 +2041,43 @@
    "read_task": "building or park rules: ne… jamais, rien, personne, plus de",
    "retest": "yesterday: Déb. 51–52 · day −7: Déb. 40–42",
    "retest_note": "Déb. 51–52: questions: où, quand, comment, combien, pourquoi; questions: qui, que, quel. Déb. 40–42: vouloir, pouvoir, devoir + infinitive; faire and dire; aller",
-   "week": 5
+   "week": 4
   },
   {
-   "date": "2026-12-04",
-   "day": "Fri 4 Dec",
+   "date": "2026-12-06",
+   "day": "Sun 6 Dec",
+   "phase": 1,
+   "anki": 25,
+   "sent": 0,
+   "say": 0,
+   "tv5": "TV5MONDE EDU · A1 · 2 exercises",
+   "yt": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
+   "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": null,
+   "vocab": null,
+   "sunday": true,
+   "sunday_answer_pages": {
+    "1": [
+     124,
+     125,
+     136,
+     137
+    ]
+   },
+   "sunday_items": [
+    "Flashcard reviews (15 min)",
+    "Week re-test (60 min): Bilan 6 (p. 124–125) + Bilan 7 (p. 136–137): recap exercises and test, no notes, then check the Corrigés. With time left, 1 exercise from each of Déb. 43–54",
+    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
+    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
+   ],
+   "week": 4
+  },
+  {
+   "date": "2026-12-07",
+   "day": "Mon 7 Dec",
    "phase": 1,
    "anki": 25,
    "sent": 0,
@@ -2127,8 +2135,8 @@
    "week": 5
   },
   {
-   "date": "2026-12-05",
-   "day": "Sat 5 Dec",
+   "date": "2026-12-08",
+   "day": "Tue 8 Dec",
    "phase": 1,
    "anki": 25,
    "sent": 0,
@@ -2201,15 +2209,15 @@
    "week": 5
   },
   {
-   "date": "2026-12-06",
-   "day": "Sun 6 Dec",
-   "phase": 2,
+   "date": "2026-12-09",
+   "day": "Wed 9 Dec",
+   "phase": 1,
    "anki": 25,
    "sent": 0,
    "say": 0,
    "tv5": "TV5MONDE EDU · A2 · 3 exercises",
-   "yt": "Easy French · 'Super Easy French' playlist, next video",
-   "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
+   "yt": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
+   "yt_kind": "Vincent lessons matched to the day's chapters (listed below), then Super Easy French: 1 hour together",
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
@@ -2218,10 +2226,6 @@
    "sunday": true,
    "sunday_answer_pages": {
     "1": [
-     124,
-     125,
-     136,
-     137,
      150,
      151,
      173
@@ -2257,7 +2261,7 @@
    },
    "sunday_items": [
     "Flashcard reviews (15 min)",
-    "Week re-test (60 min): Bilan 6 (p. 124–125) + Bilan 7 (p. 136–137) + Bilan 8 (p. 150–151): recap exercises and test, no notes, then check the Corrigés, then the final test on p. 173. With time left, 1 exercise from each of Déb. 47–60",
+    "Week re-test (60 min): Bilan 8 (p. 150–151): recap exercises and test, no notes, then check the Corrigés, then the final test on p. 173. With time left, 1 exercise from each of Déb. 55–60",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
     "Annexes §5, §6, §8, §9, p. 153 (45 min): imperative, indirect speech, demonstrative and possessive pronouns. Read each one, then watch Vincent's lessons"
@@ -2265,8 +2269,8 @@
    "week": 5
   },
   {
-   "date": "2026-12-07",
-   "day": "Mon 7 Dec",
+   "date": "2026-12-10",
+   "day": "Thu 10 Dec",
    "phase": 2,
    "anki": 25,
    "sent": 0,
@@ -2292,13 +2296,13 @@
    "book": "Int. 1",
    "write": "Tâche 1 (60–120 mots) : Invite un ami à ton anniversaire (date, lieu, quoi apporter).",
    "speak": "Tâche 2 : Tu veux t'inscrire dans une salle de sport : pose des questions (prix, horaires, cours)",
-   "retest": "yesterday: Déb. 58–60 · day −7: Déb. 47–48",
-   "retest_note": "Déb. 58–60: lui, leur: indirect object pronouns; moi, toi, lui: stressed pronouns; qui and que: relative pronouns. Déb. 47–48: imparfait; simple future",
-   "week": 6
+   "retest": "yesterday: Déb. 58–60 · day −7: Déb. 49–50",
+   "retest_note": "Déb. 58–60: lui, leur: indirect object pronouns; moi, toi, lui: stressed pronouns; qui and que: relative pronouns. Déb. 49–50: present, past, future: overview; il y a, pendant, depuis, dans",
+   "week": 5
   },
   {
-   "date": "2026-12-08",
-   "day": "Tue 8 Dec",
+   "date": "2026-12-11",
+   "day": "Fri 11 Dec",
    "phase": 2,
    "anki": 25,
    "sent": 0,
@@ -2315,13 +2319,13 @@
    "book": "Int. 2",
    "write": "Tâche 2 (120–150 mots) : Blog : ta première semaine en France.",
    "speak": "Tâche 1 : Présente-toi en détail (parcours, travail, projets), 2 min chrono",
-   "retest": "yesterday: Int. 1 · day −7: Déb. 49–50",
-   "retest_note": "Déb. 49–50: present, past, future: overview; il y a, pendant, depuis, dans",
-   "week": 6
+   "retest": "yesterday: Int. 1 · day −7: Déb. 51–52",
+   "retest_note": "Déb. 51–52: questions: où, quand, comment, combien, pourquoi; questions: qui, que, quel",
+   "week": 5
   },
   {
-   "date": "2026-12-09",
-   "day": "Wed 9 Dec",
+   "date": "2026-12-12",
+   "day": "Sat 12 Dec",
    "phase": 2,
    "anki": 25,
    "sent": 0,
@@ -2347,13 +2351,37 @@
    "book": "Int. 3",
    "write": "Tâche 1 (60–120 mots) : Excuse-toi auprès de ton voisin pour le bruit d'hier soir.",
    "speak": "Tâche 2 : Tu cherches une colocation : interroge le propriétaire",
-   "retest": "yesterday: Int. 2 · day −7: Déb. 51–52",
-   "retest_note": "Déb. 51–52: questions: où, quand, comment, combien, pourquoi; questions: qui, que, quel",
-   "week": 6
+   "retest": "yesterday: Int. 2 · day −7: Déb. 53–54",
+   "retest_note": "Déb. 53–54: ne… rien, jamais, plus, personne; negatives and questions in the passé composé",
+   "week": 5
   },
   {
-   "date": "2026-12-10",
-   "day": "Thu 10 Dec",
+   "date": "2026-12-13",
+   "day": "Sun 13 Dec",
+   "phase": 2,
+   "anki": 25,
+   "sent": 0,
+   "say": 0,
+   "tv5": "TV5MONDE EDU · A2 · 3 exercises",
+   "yt": "Easy French · 'Super Easy French' playlist, next video",
+   "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": null,
+   "vocab": null,
+   "sunday": true,
+   "sunday_items": [
+    "Flashcard reviews (15 min)",
+    "Week re-test (60 min): 1 exercise from each of Int. 1–3 and Vocab. ch. 1, covered, from memory",
+    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
+    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
+   ],
+   "week": 5
+  },
+  {
+   "date": "2026-12-14",
+   "day": "Mon 14 Dec",
    "phase": 2,
    "anki": 25,
    "sent": 0,
@@ -2370,13 +2398,13 @@
    "book": "Int. 4",
    "write": "Tâche 2 (120–150 mots) : Un repas de fête qui t'a marqué.",
    "speak": "Tâche 1 : Parle de ton parcours professionnel",
-   "retest": "yesterday: Int. 3 · day −7: Déb. 53–54",
-   "retest_note": "Déb. 53–54: ne… rien, jamais, plus, personne; negatives and questions in the passé composé",
+   "retest": "yesterday: Int. 3 · day −7: Déb. 55–57",
+   "retest_note": "Déb. 55–57: the pronoun en; the pronoun y; le, la, les: direct object pronouns",
    "week": 6
   },
   {
-   "date": "2026-12-11",
-   "day": "Fri 11 Dec",
+   "date": "2026-12-15",
+   "day": "Tue 15 Dec",
    "phase": 2,
    "anki": 25,
    "sent": 0,
@@ -2402,13 +2430,13 @@
    "book": "Int. 5",
    "write": "Tâche 1 (60–120 mots) : Demande à un collègue de changer la date d'une réunion.",
    "speak": "Tâche 2 : Ton ami organise un voyage : pose-lui des questions",
-   "retest": "yesterday: Int. 4 · day −7: Déb. 55–57",
-   "retest_note": "Déb. 55–57: the pronoun en; the pronoun y; le, la, les: direct object pronouns",
+   "retest": "yesterday: Int. 4 · day −7: Déb. 58–60",
+   "retest_note": "Déb. 58–60: lui, leur: indirect object pronouns; moi, toi, lui: stressed pronouns; qui and que: relative pronouns",
    "week": 6
   },
   {
-   "date": "2026-12-12",
-   "day": "Sat 12 Dec",
+   "date": "2026-12-16",
+   "day": "Wed 16 Dec",
    "phase": 2,
    "anki": 25,
    "sent": 0,
@@ -2434,37 +2462,12 @@
    "book": "Int. 6",
    "write": "Tâche 2 (120–150 mots) : Une personne qui t'a inspiré, et pourquoi.",
    "speak": "Tâche 1 : Pourquoi apprends-tu le français ?",
-   "retest": "yesterday: Int. 5 · day −7: Déb. 58–60",
-   "retest_note": "Déb. 58–60: lui, leur: indirect object pronouns; moi, toi, lui: stressed pronouns; qui and que: relative pronouns",
+   "retest": "yesterday: Int. 5",
    "week": 6
   },
   {
-   "date": "2026-12-13",
-   "day": "Sun 13 Dec",
-   "phase": 2,
-   "anki": 25,
-   "sent": 0,
-   "say": 0,
-   "tv5": "TV5MONDE EDU · A2 · 3 exercises",
-   "yt": "Easy French · 'Super Easy French' playlist, next video",
-   "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": null,
-   "vocab": null,
-   "sunday": true,
-   "sunday_items": [
-    "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Int. 1–6 and Vocab. ch. 1–2, covered, from memory",
-    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
-   ],
-   "week": 6
-  },
-  {
-   "date": "2026-12-14",
-   "day": "Mon 14 Dec",
+   "date": "2026-12-17",
+   "day": "Thu 17 Dec",
    "phase": 2,
    "anki": 25,
    "sent": 0,
@@ -2491,11 +2494,11 @@
    "write": "Tâche 1 (60–120 mots) : Demande des informations sur un cours à une école de langue.",
    "speak": "Tâche 2 : Tu veux suivre un cours de cuisine",
    "retest": "yesterday: Int. 6 · day −7: Int. 1",
-   "week": 7
+   "week": 6
   },
   {
-   "date": "2026-12-15",
-   "day": "Tue 15 Dec",
+   "date": "2026-12-18",
+   "day": "Fri 18 Dec",
    "phase": 2,
    "anki": 25,
    "sent": 0,
@@ -2522,11 +2525,11 @@
    "write": "Tâche 2 (120–150 mots) : Un voyage qui s'est mal passé.",
    "speak": "Tâche 1 : Décris une journée de travail récente",
    "retest": "yesterday: Int. 7 · day −7: Int. 2",
-   "week": 7
+   "week": 6
   },
   {
-   "date": "2026-12-16",
-   "day": "Wed 16 Dec",
+   "date": "2026-12-19",
+   "day": "Sat 19 Dec",
    "phase": 2,
    "anki": 25,
    "sent": 0,
@@ -2544,11 +2547,35 @@
    "write": "Tâche 1 (60–120 mots) : Conseille un restaurant à un ami.",
    "speak": "Tâche 2 : Tu veux acheter un vélo d'occasion",
    "retest": "yesterday: Int. 8 · day −7: Int. 3",
-   "week": 7
+   "week": 6
   },
   {
-   "date": "2026-12-17",
-   "day": "Thu 17 Dec",
+   "date": "2026-12-20",
+   "day": "Sun 20 Dec",
+   "phase": 2,
+   "anki": 25,
+   "sent": 0,
+   "say": 0,
+   "tv5": "TV5MONDE EDU · A2 · 3 exercises",
+   "yt": "Easy French · 'Super Easy French' playlist, next video",
+   "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": null,
+   "vocab": null,
+   "sunday": true,
+   "sunday_items": [
+    "Flashcard reviews (15 min)",
+    "Week re-test (60 min): 1 exercise from each of Int. 4–9 and Vocab. ch. 2–3, covered, from memory",
+    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
+    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
+   ],
+   "week": 6
+  },
+  {
+   "date": "2026-12-21",
+   "day": "Mon 21 Dec",
    "phase": 2,
    "anki": 25,
    "sent": 0,
@@ -2578,8 +2605,8 @@
    "week": 7
   },
   {
-   "date": "2026-12-18",
-   "day": "Fri 18 Dec",
+   "date": "2026-12-22",
+   "day": "Tue 22 Dec",
    "phase": 2,
    "anki": 25,
    "sent": 0,
@@ -2600,8 +2627,8 @@
    "week": 7
   },
   {
-   "date": "2026-12-19",
-   "day": "Sat 19 Dec",
+   "date": "2026-12-23",
+   "day": "Wed 23 Dec",
    "phase": 2,
    "anki": 25,
    "sent": 0,
@@ -2622,32 +2649,8 @@
    "week": 7
   },
   {
-   "date": "2026-12-20",
-   "day": "Sun 20 Dec",
-   "phase": 2,
-   "anki": 25,
-   "sent": 0,
-   "say": 0,
-   "tv5": "TV5MONDE EDU · A2 · 3 exercises",
-   "yt": "Easy French · 'Super Easy French' playlist, next video",
-   "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": null,
-   "vocab": null,
-   "sunday": true,
-   "sunday_items": [
-    "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Int. 7–12 and Vocab. ch. 2–3, covered, from memory",
-    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
-   ],
-   "week": 7
-  },
-  {
-   "date": "2026-12-21",
-   "day": "Mon 21 Dec",
+   "date": "2026-12-24",
+   "day": "Thu 24 Dec",
    "phase": 2,
    "anki": 25,
    "sent": 0,
@@ -2665,11 +2668,11 @@
    "write": "Tâche 1 (60–120 mots) : Écris à ton propriétaire : le chauffage ne marche pas.",
    "speak": "Tâche 2 : Tu veux t'inscrire à la médiathèque",
    "retest": "yesterday: Int. 12 · day −7: Int. 7",
-   "week": 8
+   "week": 7
   },
   {
-   "date": "2026-12-22",
-   "day": "Tue 22 Dec",
+   "date": "2026-12-25",
+   "day": "Fri 25 Dec",
    "phase": 2,
    "anki": 25,
    "sent": 0,
@@ -2696,11 +2699,11 @@
    "write": "Tâche 2 (120–150 mots) : Ta ville idéale.",
    "speak": "Tâche 1 : Comment fêtes-tu les fêtes de fin d'année ?",
    "retest": "yesterday: Int. 13 · day −7: Int. 8",
-   "week": 8
+   "week": 7
   },
   {
-   "date": "2026-12-23",
-   "day": "Wed 23 Dec",
+   "date": "2026-12-26",
+   "day": "Sat 26 Dec",
    "phase": 2,
    "anki": 25,
    "sent": 0,
@@ -2718,11 +2721,36 @@
    "write": "Tâche 1 (60–120 mots) : Annule un rendez-vous avec un ami et propose une autre date.",
    "speak": "Tâche 2 : Tu veux adopter un chat dans un refuge",
    "retest": "yesterday: Int. 14 · day −7: Int. 9",
-   "week": 8
+   "week": 7
   },
   {
-   "date": "2026-12-24",
-   "day": "Thu 24 Dec",
+   "date": "2026-12-27",
+   "day": "Sun 27 Dec",
+   "phase": 2,
+   "anki": 25,
+   "sent": 0,
+   "say": 0,
+   "tv5": "TV5MONDE EDU · A2 · 3 exercises",
+   "yt": "Easy French · 'Super Easy French' playlist, next video",
+   "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": null,
+   "vocab": null,
+   "sunday": true,
+   "sunday_items": [
+    "Flashcard reviews (15 min)",
+    "Week re-test (60 min): 1 exercise from each of Int. 10–15 and Vocab. ch. 3–4, covered, from memory",
+    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
+    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
+    "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Déb. 43–60, Int. 1–15"
+   ],
+   "week": 7
+  },
+  {
+   "date": "2026-12-28",
+   "day": "Mon 28 Dec",
    "phase": 2,
    "anki": 25,
    "sent": 0,
@@ -2743,8 +2771,8 @@
    "week": 8
   },
   {
-   "date": "2026-12-25",
-   "day": "Fri 25 Dec",
+   "date": "2026-12-29",
+   "day": "Tue 29 Dec",
    "phase": 2,
    "anki": 25,
    "sent": 0,
@@ -2774,8 +2802,8 @@
    "week": 8
   },
   {
-   "date": "2026-12-26",
-   "day": "Sat 26 Dec",
+   "date": "2026-12-30",
+   "day": "Wed 30 Dec",
    "phase": 2,
    "anki": 25,
    "sent": 0,
@@ -2805,33 +2833,8 @@
    "week": 8
   },
   {
-   "date": "2026-12-27",
-   "day": "Sun 27 Dec",
-   "phase": 2,
-   "anki": 25,
-   "sent": 0,
-   "say": 0,
-   "tv5": "TV5MONDE EDU · A2 · 3 exercises",
-   "yt": "Easy French · 'Super Easy French' playlist, next video",
-   "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": null,
-   "vocab": null,
-   "sunday": true,
-   "sunday_items": [
-    "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Int. 13–18 and Vocab. ch. 4–5, covered, from memory",
-    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
-    "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Déb. 47–60, Int. 1–18"
-   ],
-   "week": 8
-  },
-  {
-   "date": "2026-12-28",
-   "day": "Mon 28 Dec",
+   "date": "2026-12-31",
+   "day": "Thu 31 Dec",
    "phase": 2,
    "anki": 25,
    "sent": 0,
@@ -2849,11 +2852,11 @@
    "write": "Tâche 1 (60–120 mots) : Annonce : tu vends ton vélo.",
    "speak": "Tâche 2 : Tu veux réserver une salle pour une fête",
    "retest": "yesterday: Int. 18 · day −7: Int. 13",
-   "week": 9
+   "week": 8
   },
   {
-   "date": "2026-12-29",
-   "day": "Tue 29 Dec",
+   "date": "2027-01-01",
+   "day": "Fri 1 Jan",
    "phase": 2,
    "anki": 25,
    "sent": 0,
@@ -2880,11 +2883,11 @@
    "write": "Tâche 2 (120–150 mots) : Une journée sans téléphone.",
    "speak": "Tâche 1 : Tes projets pour les cinq prochaines années",
    "retest": "yesterday: Int. 19 · day −7: Int. 14",
-   "week": 9
+   "week": 8
   },
   {
-   "date": "2026-12-30",
-   "day": "Wed 30 Dec",
+   "date": "2027-01-02",
+   "day": "Sat 2 Jan",
    "phase": 2,
    "anki": 25,
    "sent": 0,
@@ -2902,11 +2905,35 @@
    "write": "Tâche 1 (60–120 mots) : Réserve une chambre d'hôtel (dates, demandes particulières).",
    "speak": "Tâche 2 : Un ami t'invite à un concert : pose des questions",
    "retest": "yesterday: Int. 20 · day −7: Int. 15",
-   "week": 9
+   "week": 8
   },
   {
-   "date": "2026-12-31",
-   "day": "Thu 31 Dec",
+   "date": "2027-01-03",
+   "day": "Sun 3 Jan",
+   "phase": 2,
+   "anki": 25,
+   "sent": 0,
+   "say": 0,
+   "tv5": "TV5MONDE EDU · A2 · 3 exercises",
+   "yt": "Easy French · 'Super Easy French' playlist, next video",
+   "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": null,
+   "vocab": null,
+   "sunday": true,
+   "sunday_items": [
+    "Flashcard reviews (15 min)",
+    "Week re-test (60 min): 1 exercise from each of Int. 16–21 and Vocab. ch. 5–6, covered, from memory",
+    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
+    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
+   ],
+   "week": 8
+  },
+  {
+   "date": "2027-01-04",
+   "day": "Mon 4 Jan",
    "phase": 2,
    "anki": 25,
    "sent": 0,
@@ -2936,8 +2963,8 @@
    "week": 9
   },
   {
-   "date": "2027-01-01",
-   "day": "Fri 1 Jan",
+   "date": "2027-01-05",
+   "day": "Tue 5 Jan",
    "phase": 2,
    "anki": 25,
    "sent": 0,
@@ -2967,8 +2994,8 @@
    "week": 9
   },
   {
-   "date": "2027-01-02",
-   "day": "Sat 2 Jan",
+   "date": "2027-01-06",
+   "day": "Wed 6 Jan",
    "phase": 2,
    "anki": 25,
    "sent": 0,
@@ -2998,32 +3025,8 @@
    "week": 9
   },
   {
-   "date": "2027-01-03",
-   "day": "Sun 3 Jan",
-   "phase": 2,
-   "anki": 25,
-   "sent": 0,
-   "say": 0,
-   "tv5": "TV5MONDE EDU · A2 · 3 exercises",
-   "yt": "Easy French · 'Super Easy French' playlist, next video",
-   "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": null,
-   "vocab": null,
-   "sunday": true,
-   "sunday_items": [
-    "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Int. 19–24 and Vocab. ch. 5–6, covered, from memory",
-    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
-   ],
-   "week": 9
-  },
-  {
-   "date": "2027-01-04",
-   "day": "Mon 4 Jan",
+   "date": "2027-01-07",
+   "day": "Thu 7 Jan",
    "phase": 2,
    "anki": 25,
    "sent": 8,
@@ -3050,11 +3053,11 @@
    "write": "Tâche 1 (60–120 mots) : Organise un week-end avec un ami.",
    "speak": "Tâche 2 : Tu veux ouvrir un compte en banque",
    "retest": "yesterday: Int. 24 · day −7: Int. 19",
-   "week": 10
+   "week": 9
   },
   {
-   "date": "2027-01-05",
-   "day": "Tue 5 Jan",
+   "date": "2027-01-08",
+   "day": "Fri 8 Jan",
    "phase": 2,
    "anki": 25,
    "sent": 8,
@@ -3081,11 +3084,11 @@
    "write": "Tâche 2 (120–150 mots) : Une rencontre importante dans ta vie.",
    "speak": "Tâche 1 : Tes habitudes alimentaires",
    "retest": "yesterday: Int. 25 · day −7: Int. 20",
-   "week": 10
+   "week": 9
   },
   {
-   "date": "2027-01-06",
-   "day": "Wed 6 Jan",
+   "date": "2027-01-09",
+   "day": "Sat 9 Jan",
    "phase": 2,
    "anki": 25,
    "sent": 8,
@@ -3112,11 +3115,35 @@
    "write": "Tâche 1 (60–120 mots) : Service client : ton colis n'est pas arrivé.",
    "speak": "Tâche 2 : Tu veux prendre des cours de danse",
    "retest": "yesterday: Int. 26 · day −7: Int. 21",
-   "week": 10
+   "week": 9
   },
   {
-   "date": "2027-01-07",
-   "day": "Thu 7 Jan",
+   "date": "2027-01-10",
+   "day": "Sun 10 Jan",
+   "phase": 2,
+   "anki": 25,
+   "sent": 0,
+   "say": 0,
+   "tv5": "TV5MONDE EDU · A2 · 3 exercises",
+   "yt": "Easy French · 'Super Easy French' playlist, next video",
+   "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": null,
+   "vocab": null,
+   "sunday": true,
+   "sunday_items": [
+    "Flashcard reviews (15 min)",
+    "Week re-test (60 min): 1 exercise from each of Int. 22–27 and Vocab. ch. 6–7, covered, from memory",
+    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
+    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
+   ],
+   "week": 9
+  },
+  {
+   "date": "2027-01-11",
+   "day": "Mon 11 Jan",
    "phase": 2,
    "anki": 25,
    "sent": 8,
@@ -3146,8 +3173,8 @@
    "week": 10
   },
   {
-   "date": "2027-01-08",
-   "day": "Fri 8 Jan",
+   "date": "2027-01-12",
+   "day": "Tue 12 Jan",
    "phase": 2,
    "anki": 25,
    "sent": 8,
@@ -3177,8 +3204,8 @@
    "week": 10
   },
   {
-   "date": "2027-01-09",
-   "day": "Sat 9 Jan",
+   "date": "2027-01-13",
+   "day": "Wed 13 Jan",
    "phase": 2,
    "anki": 25,
    "sent": 8,
@@ -3208,32 +3235,8 @@
    "week": 10
   },
   {
-   "date": "2027-01-10",
-   "day": "Sun 10 Jan",
-   "phase": 2,
-   "anki": 25,
-   "sent": 0,
-   "say": 0,
-   "tv5": "TV5MONDE EDU · A2 · 3 exercises",
-   "yt": "Easy French · 'Super Easy French' playlist, next video",
-   "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": null,
-   "vocab": null,
-   "sunday": true,
-   "sunday_items": [
-    "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Int. 25–30 and Vocab. ch. 7–8, covered, from memory",
-    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
-   ],
-   "week": 10
-  },
-  {
-   "date": "2027-01-11",
-   "day": "Mon 11 Jan",
+   "date": "2027-01-14",
+   "day": "Thu 14 Jan",
    "phase": 2,
    "anki": 25,
    "sent": 8,
@@ -3260,11 +3263,11 @@
    "write": "Tâche 1 (60–120 mots) : Demande à ton voisin de garder ton chat pendant tes vacances.",
    "speak": "Tâche 2 : Week-end en Normandie : interroge l'office de tourisme",
    "retest": "yesterday: Int. 30 · day −7: Int. 25",
-   "week": 11
+   "week": 10
   },
   {
-   "date": "2027-01-12",
-   "day": "Tue 12 Jan",
+   "date": "2027-01-15",
+   "day": "Fri 15 Jan",
    "phase": 2,
    "anki": 25,
    "sent": 8,
@@ -3291,11 +3294,11 @@
    "write": "Tâche 2 (120–150 mots) : Blog : conseils pour s'installer dans une nouvelle ville.",
    "speak": "Tâche 1 : Tes loisirs et ton sport préféré",
    "retest": "yesterday: Int. 31 · day −7: Int. 26",
-   "week": 11
+   "week": 10
   },
   {
-   "date": "2027-01-13",
-   "day": "Wed 13 Jan",
+   "date": "2027-01-16",
+   "day": "Sat 16 Jan",
    "phase": 2,
    "anki": 25,
    "sent": 8,
@@ -3322,11 +3325,35 @@
    "write": "Tâche 1 (60–120 mots) : Raconte ton dernier voyage à un ami.",
    "speak": "Tâche 2 : Tu veux acheter un ordinateur dans un magasin",
    "retest": "yesterday: Int. 32 · day −7: Int. 27",
-   "week": 11
+   "week": 10
   },
   {
-   "date": "2027-01-14",
-   "day": "Thu 14 Jan",
+   "date": "2027-01-17",
+   "day": "Sun 17 Jan",
+   "phase": 2,
+   "anki": 25,
+   "sent": 0,
+   "say": 0,
+   "tv5": "TV5MONDE EDU · A2 · 3 exercises",
+   "yt": "Easy French · 'Super Easy French' playlist, next video",
+   "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": null,
+   "vocab": null,
+   "sunday": true,
+   "sunday_items": [
+    "Flashcard reviews (15 min)",
+    "Week re-test (60 min): 1 exercise from each of Int. 28–33 and Vocab. ch. 8–9, covered, from memory",
+    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
+    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
+   ],
+   "week": 10
+  },
+  {
+   "date": "2027-01-18",
+   "day": "Mon 18 Jan",
    "phase": 2,
    "anki": 25,
    "sent": 8,
@@ -3356,8 +3383,8 @@
    "week": 11
   },
   {
-   "date": "2027-01-15",
-   "day": "Fri 15 Jan",
+   "date": "2027-01-19",
+   "day": "Tue 19 Jan",
    "phase": 2,
    "anki": 25,
    "sent": 8,
@@ -3387,8 +3414,8 @@
    "week": 11
   },
   {
-   "date": "2027-01-16",
-   "day": "Sat 16 Jan",
+   "date": "2027-01-20",
+   "day": "Wed 20 Jan",
    "phase": 2,
    "anki": 25,
    "sent": 8,
@@ -3418,32 +3445,8 @@
    "week": 11
   },
   {
-   "date": "2027-01-17",
-   "day": "Sun 17 Jan",
-   "phase": 2,
-   "anki": 25,
-   "sent": 0,
-   "say": 0,
-   "tv5": "TV5MONDE EDU · A2 · 3 exercises",
-   "yt": "Easy French · 'Super Easy French' playlist, next video",
-   "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": null,
-   "vocab": null,
-   "sunday": true,
-   "sunday_items": [
-    "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Int. 31–36 and Vocab. ch. 8–9, covered, from memory",
-    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
-   ],
-   "week": 11
-  },
-  {
-   "date": "2027-01-18",
-   "day": "Mon 18 Jan",
+   "date": "2027-01-21",
+   "day": "Thu 21 Jan",
    "phase": 2,
    "anki": 25,
    "sent": 8,
@@ -3461,11 +3464,11 @@
    "write": "Tâche 1 (60–120 mots) : Félicite un ami pour son nouveau travail.",
    "speak": "Tâche 2 : Tu veux t'inscrire à un club de randonnée",
    "retest": "yesterday: Int. 36 · day −7: Int. 31",
-   "week": 12
+   "week": 11
   },
   {
-   "date": "2027-01-19",
-   "day": "Tue 19 Jan",
+   "date": "2027-01-22",
+   "day": "Fri 22 Jan",
    "phase": 2,
    "anki": 25,
    "sent": 8,
@@ -3492,11 +3495,11 @@
    "write": "Tâche 2 (120–150 mots) : Le sport dans ta vie.",
    "speak": "Tâche 1 : Ton week-end dernier",
    "retest": "yesterday: Int. 37 · day −7: Int. 32",
-   "week": 12
+   "week": 11
   },
   {
-   "date": "2027-01-20",
-   "day": "Wed 20 Jan",
+   "date": "2027-01-23",
+   "day": "Sat 23 Jan",
    "phase": 2,
    "anki": 25,
    "sent": 8,
@@ -3514,11 +3517,35 @@
    "write": "Tâche 1 (60–120 mots) : Explique ton absence à ton professeur.",
    "speak": "Tâche 2 : Tu veux suivre une formation en ligne",
    "retest": "yesterday: Int. 38 · day −7: Int. 33",
-   "week": 12
+   "week": 11
   },
   {
-   "date": "2027-01-21",
-   "day": "Thu 21 Jan",
+   "date": "2027-01-24",
+   "day": "Sun 24 Jan",
+   "phase": 2,
+   "anki": 25,
+   "sent": 0,
+   "say": 0,
+   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
+   "yt": "Easy French · 'Super Easy French' playlist, next video",
+   "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": null,
+   "vocab": null,
+   "sunday": true,
+   "sunday_items": [
+    "Flashcard reviews (15 min)",
+    "Week re-test (60 min): 1 exercise from each of Int. 34–39 and Vocab. ch. 9–10, covered, from memory",
+    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
+    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
+   ],
+   "week": 11
+  },
+  {
+   "date": "2027-01-25",
+   "day": "Mon 25 Jan",
    "phase": 2,
    "anki": 25,
    "sent": 8,
@@ -3548,8 +3575,8 @@
    "week": 12
   },
   {
-   "date": "2027-01-22",
-   "day": "Fri 22 Jan",
+   "date": "2027-01-26",
+   "day": "Tue 26 Jan",
    "phase": 2,
    "anki": 25,
    "sent": 8,
@@ -3570,8 +3597,8 @@
    "week": 12
   },
   {
-   "date": "2027-01-23",
-   "day": "Sat 23 Jan",
+   "date": "2027-01-27",
+   "day": "Wed 27 Jan",
    "phase": 2,
    "anki": 25,
    "sent": 8,
@@ -3601,32 +3628,8 @@
    "week": 12
   },
   {
-   "date": "2027-01-24",
-   "day": "Sun 24 Jan",
-   "phase": 2,
-   "anki": 25,
-   "sent": 0,
-   "say": 0,
-   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
-   "yt": "Easy French · 'Super Easy French' playlist, next video",
-   "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": null,
-   "vocab": null,
-   "sunday": true,
-   "sunday_items": [
-    "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Int. 37–42 and Vocab. ch. 10–11, covered, from memory",
-    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays"
-   ],
-   "week": 12
-  },
-  {
-   "date": "2027-01-25",
-   "day": "Mon 25 Jan",
+   "date": "2027-01-28",
+   "day": "Thu 28 Jan",
    "phase": 2,
    "anki": 25,
    "sent": 8,
@@ -3644,11 +3647,11 @@
    "write": "Tâche 1 (60–120 mots) : Demande les tarifs et horaires d'une salle de sport.",
    "speak": "Tâche 2 : Ton voisin vend sa voiture : pose des questions",
    "retest": "yesterday: Int. 42 · day −7: Int. 37",
-   "week": 13
+   "week": 12
   },
   {
-   "date": "2027-01-26",
-   "day": "Tue 26 Jan",
+   "date": "2027-01-29",
+   "day": "Fri 29 Jan",
    "phase": 2,
    "anki": 25,
    "sent": 8,
@@ -3675,11 +3678,11 @@
    "write": "Tâche 2 (120–150 mots) : Une fois où tu as parlé français et tu étais fier/fière.",
    "speak": "Tâche 1 : Parle de ton quartier",
    "retest": "yesterday: Int. 43 · day −7: Int. 38",
-   "week": 13
+   "week": 12
   },
   {
-   "date": "2027-01-27",
-   "day": "Wed 27 Jan",
+   "date": "2027-01-30",
+   "day": "Sat 30 Jan",
    "phase": 2,
    "anki": 25,
    "sent": 8,
@@ -3706,18 +3709,43 @@
    "write": "Tâche 1 (60–120 mots) : Souhaite bonne année à tes collègues et raconte tes vacances.",
    "speak": "Tâche 2 : Tu veux participer à un échange linguistique",
    "retest": "yesterday: Int. 44 · day −7: Int. 39",
-   "week": 13
+   "week": 12
   },
   {
-   "date": "2027-01-28",
-   "day": "Thu 28 Jan",
+   "date": "2027-01-31",
+   "day": "Sun 31 Jan",
+   "phase": 2,
+   "anki": 25,
+   "sent": 0,
+   "say": 0,
+   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
+   "yt": "Easy French · 'Super Easy French' playlist, next video",
+   "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": null,
+   "vocab": null,
+   "sunday": true,
+   "sunday_items": [
+    "Flashcard reviews (15 min)",
+    "Week re-test (60 min): 1 exercise from each of Int. 40–45 and Vocab. ch. 11–12, covered, from memory",
+    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
+    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
+    "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Int. 16–45"
+   ],
+   "week": 12
+  },
+  {
+   "date": "2027-02-01",
+   "day": "Mon 1 Feb",
    "phase": 2,
    "anki": 25,
    "sent": 8,
    "say": 6,
    "tv5": "TV5MONDE EDU · B1 · 3 exercises",
-   "yt": "Easy French · 'Super Easy French' playlist, next video",
-   "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
+   "yt": "Easy French · next episode (French subtitles → none)",
+   "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
@@ -3740,15 +3768,15 @@
    "week": 13
   },
   {
-   "date": "2027-01-29",
-   "day": "Fri 29 Jan",
+   "date": "2027-02-02",
+   "day": "Tue 2 Feb",
    "phase": 2,
    "anki": 25,
    "sent": 8,
    "say": 6,
    "tv5": "TV5MONDE EDU · B1 · 3 exercises",
-   "yt": "Easy French · 'Super Easy French' playlist, next video",
-   "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
+   "yt": "Easy French · next episode (French subtitles → none)",
+   "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
@@ -3771,15 +3799,15 @@
    "week": 13
   },
   {
-   "date": "2027-01-30",
-   "day": "Sat 30 Jan",
+   "date": "2027-02-03",
+   "day": "Wed 3 Feb",
    "phase": 2,
    "anki": 25,
    "sent": 8,
    "say": 6,
    "tv5": "TV5MONDE EDU · B1 · 3 exercises",
-   "yt": "Easy French · 'Super Easy French' playlist, next video",
-   "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
+   "yt": "Easy French · next episode (French subtitles → none)",
+   "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
@@ -3802,33 +3830,8 @@
    "week": 13
   },
   {
-   "date": "2027-01-31",
-   "day": "Sun 31 Jan",
-   "phase": 2,
-   "anki": 25,
-   "sent": 0,
-   "say": 0,
-   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
-   "yt": "Easy French · 'Super Easy French' playlist, next video",
-   "yt_kind": "Easy French · 'Super Easy French' playlist, next video",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": null,
-   "vocab": null,
-   "sunday": true,
-   "sunday_items": [
-    "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Int. 43–48 and Vocab. ch. 11–12, covered, from memory",
-    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
-    "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Int. 19–48"
-   ],
-   "week": 13
-  },
-  {
-   "date": "2027-02-01",
-   "day": "Mon 1 Feb",
+   "date": "2027-02-04",
+   "day": "Thu 4 Feb",
    "phase": 2,
    "anki": 25,
    "sent": 8,
@@ -3846,11 +3849,11 @@
    "write": "Tâche 1 (60–120 mots) : Propose à un ami de faire un échange de langues.",
    "speak": "Tâche 2 : Tu veux t'inscrire à un cours de yoga",
    "retest": "yesterday: Int. 48 · day −7: Int. 43",
-   "week": 14
+   "week": 13
   },
   {
-   "date": "2027-02-02",
-   "day": "Tue 2 Feb",
+   "date": "2027-02-05",
+   "day": "Fri 5 Feb",
    "phase": 2,
    "anki": 25,
    "sent": 8,
@@ -3877,11 +3880,11 @@
    "write": "Tâche 2 (120–150 mots) : Ta meilleure journée de 2026.",
    "speak": "Tâche 1 : La musique que tu écoutes",
    "retest": "yesterday: Int. 49 · day −7: Int. 44",
-   "week": 14
+   "week": 13
   },
   {
-   "date": "2027-02-03",
-   "day": "Wed 3 Feb",
+   "date": "2027-02-06",
+   "day": "Sat 6 Feb",
    "phase": 2,
    "anki": 25,
    "sent": 8,
@@ -3899,11 +3902,36 @@
    "write": "Tâche 1 (60–120 mots) : Demande à ta banque un rendez-vous et explique pourquoi.",
    "speak": "Tâche 2 : Tu veux visiter un musée avec un groupe",
    "retest": "yesterday: Int. 50 · day −7: Int. 45",
-   "week": 14
+   "week": 13
   },
   {
-   "date": "2027-02-04",
-   "day": "Thu 4 Feb",
+   "date": "2027-02-07",
+   "day": "Sun 7 Feb",
+   "phase": 2,
+   "anki": 25,
+   "sent": 0,
+   "say": 0,
+   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
+   "yt": "Easy French · next episode (French subtitles → none)",
+   "yt_kind": "Easy French · next episode (French subtitles → none)",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": null,
+   "vocab": null,
+   "sunday": true,
+   "sunday_items": [
+    "Flashcard reviews (15 min)",
+    "Week re-test (60 min): 1 exercise from each of Int. 46–51 and Vocab. ch. 12–13, covered, from memory",
+    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
+    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
+    "Mock section (45–60 min): listening (35 min)"
+   ],
+   "week": 13
+  },
+  {
+   "date": "2027-02-08",
+   "day": "Mon 8 Feb",
    "phase": 2,
    "anki": 25,
    "sent": 8,
@@ -3933,8 +3961,8 @@
    "week": 14
   },
   {
-   "date": "2027-02-05",
-   "day": "Fri 5 Feb",
+   "date": "2027-02-09",
+   "day": "Tue 9 Feb",
    "phase": 3,
    "anki": 25,
    "sent": 8,
@@ -3955,8 +3983,8 @@
    "week": 14
   },
   {
-   "date": "2027-02-06",
-   "day": "Sat 6 Feb",
+   "date": "2027-02-10",
+   "day": "Wed 10 Feb",
    "phase": 3,
    "anki": 25,
    "sent": 8,
@@ -3986,33 +4014,8 @@
    "week": 14
   },
   {
-   "date": "2027-02-07",
-   "day": "Sun 7 Feb",
-   "phase": 3,
-   "anki": 25,
-   "sent": 0,
-   "say": 0,
-   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
-   "yt": "Easy French · next episode (French subtitles → none)",
-   "yt_kind": "Easy French · next episode (French subtitles → none)",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": null,
-   "vocab": null,
-   "sunday": true,
-   "sunday_items": [
-    "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Int. 49–52, Av. 1–2 and Vocab. ch. 13–14, covered, from memory",
-    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
-    "Mock section (45–60 min): listening (35 min)"
-   ],
-   "week": 14
-  },
-  {
-   "date": "2027-02-08",
-   "day": "Mon 8 Feb",
+   "date": "2027-02-11",
+   "day": "Thu 11 Feb",
    "phase": 3,
    "anki": 25,
    "sent": 8,
@@ -4030,11 +4033,11 @@
    "write": "Tâche 1 (60–120 mots) : Demande à ton manager une journée de télétravail par semaine, avec arguments.",
    "speak": "Tâche 3 (4 min 30) : Les réseaux sociaux sont-ils dangereux pour les jeunes ?",
    "retest": "yesterday: Av. 2 · day −7: Int. 49",
-   "week": 15
+   "week": 14
   },
   {
-   "date": "2027-02-09",
-   "day": "Tue 9 Feb",
+   "date": "2027-02-12",
+   "day": "Fri 12 Feb",
    "phase": 3,
    "anki": 25,
    "sent": 8,
@@ -4052,11 +4055,11 @@
    "write": "Tâche 2 (120–150 mots) : Blog d'expatriés : ce qui t'a surpris en France.",
    "speak": "Tâche 2 (5 min 30) : Appartement meublé : interroge l'agent immobilier",
    "retest": "yesterday: Av. 3–4 · day −7: Int. 50",
-   "week": 15
+   "week": 14
   },
   {
-   "date": "2027-02-10",
-   "day": "Wed 10 Feb",
+   "date": "2027-02-13",
+   "day": "Sat 13 Feb",
    "phase": 3,
    "anki": 25,
    "sent": 8,
@@ -4083,11 +4086,36 @@
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Les réseaux sociaux rapprochent-ils ou isolent-ils les gens ?",
    "speak": "Tâche 3 (4 min 30) : Faut-il apprendre plusieurs langues aujourd'hui ?",
    "retest": "yesterday: Av. 5 · day −7: Int. 51",
-   "week": 15
+   "week": 14
   },
   {
-   "date": "2027-02-11",
-   "day": "Thu 11 Feb",
+   "date": "2027-02-14",
+   "day": "Sun 14 Feb",
+   "phase": 3,
+   "anki": 25,
+   "sent": 0,
+   "say": 0,
+   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
+   "yt": "Easy French · next episode (French subtitles → none)",
+   "yt_kind": "Easy French · next episode (French subtitles → none)",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": null,
+   "vocab": null,
+   "sunday": true,
+   "sunday_items": [
+    "Flashcard reviews (15 min)",
+    "Week re-test (60 min): 1 exercise from each of Int. 52, Av. 1–7 and Vocab. ch. 14–15, covered, from memory",
+    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
+    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
+    "Mock section (45–60 min): reading (60 min)"
+   ],
+   "week": 14
+  },
+  {
+   "date": "2027-02-15",
+   "day": "Mon 15 Feb",
    "phase": 3,
    "anki": 25,
    "sent": 8,
@@ -4108,8 +4136,8 @@
    "week": 15
   },
   {
-   "date": "2027-02-12",
-   "day": "Fri 12 Feb",
+   "date": "2027-02-16",
+   "day": "Tue 16 Feb",
    "phase": 3,
    "anki": 25,
    "sent": 8,
@@ -4139,8 +4167,8 @@
    "week": 15
   },
   {
-   "date": "2027-02-13",
-   "day": "Sat 13 Feb",
+   "date": "2027-02-17",
+   "day": "Wed 17 Feb",
    "phase": 3,
    "anki": 25,
    "sent": 8,
@@ -4161,33 +4189,8 @@
    "week": 15
   },
   {
-   "date": "2027-02-14",
-   "day": "Sun 14 Feb",
-   "phase": 3,
-   "anki": 25,
-   "sent": 0,
-   "say": 0,
-   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
-   "yt": "Easy French · next episode (French subtitles → none)",
-   "yt_kind": "Easy French · next episode (French subtitles → none)",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": null,
-   "vocab": null,
-   "sunday": true,
-   "sunday_items": [
-    "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Av. 3–11 and Vocab. ch. 14–15, covered, from memory",
-    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
-    "Mock section (45–60 min): reading (60 min)"
-   ],
-   "week": 15
-  },
-  {
-   "date": "2027-02-15",
-   "day": "Mon 15 Feb",
+   "date": "2027-02-18",
+   "day": "Thu 18 Feb",
    "phase": 3,
    "anki": 25,
    "sent": 8,
@@ -4214,11 +4217,11 @@
    "write": "Tâche 1 (60–120 mots) : Convaincs un ami de participer à une course caritative.",
    "speak": "Tâche 3 (4 min 30) : L'argent fait-il le bonheur ?",
    "retest": "yesterday: Av. 11 · day −7: Av. 3–4",
-   "week": 16
+   "week": 15
   },
   {
-   "date": "2027-02-16",
-   "day": "Tue 16 Feb",
+   "date": "2027-02-19",
+   "day": "Fri 19 Feb",
    "phase": 3,
    "anki": 25,
    "sent": 8,
@@ -4236,11 +4239,11 @@
    "write": "Tâche 2 (120–150 mots) : Une expérience de bénévolat (réelle ou imaginaire).",
    "speak": "Tâche 2 (5 min 30) : Association écologique : questions avant d'adhérer",
    "retest": "yesterday: Av. 12 · day −7: Av. 5",
-   "week": 16
+   "week": 15
   },
   {
-   "date": "2027-02-17",
-   "day": "Wed 17 Feb",
+   "date": "2027-02-20",
+   "day": "Sat 20 Feb",
    "phase": 3,
    "anki": 25,
    "sent": 8,
@@ -4267,11 +4270,36 @@
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Un service civique obligatoire pour les jeunes ?",
    "speak": "Tâche 3 (4 min 30) : Vaut-il mieux vivre en ville ou à la campagne ?",
    "retest": "yesterday: Av. 13–14 · day −7: Av. 6–7",
-   "week": 16
+   "week": 15
   },
   {
-   "date": "2027-02-18",
-   "day": "Thu 18 Feb",
+   "date": "2027-02-21",
+   "day": "Sun 21 Feb",
+   "phase": 3,
+   "anki": 25,
+   "sent": 0,
+   "say": 0,
+   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
+   "yt": "Easy French · next episode (French subtitles → none)",
+   "yt_kind": "Easy French · next episode (French subtitles → none)",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": null,
+   "vocab": null,
+   "sunday": true,
+   "sunday_items": [
+    "Flashcard reviews (15 min)",
+    "Week re-test (60 min): 1 exercise from each of Av. 8–15 and Vocab. ch. 15–16, covered, from memory",
+    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
+    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
+    "Mock section (45–60 min): writing (60 min)"
+   ],
+   "week": 15
+  },
+  {
+   "date": "2027-02-22",
+   "day": "Mon 22 Feb",
    "phase": 3,
    "anki": 25,
    "sent": 8,
@@ -4301,8 +4329,8 @@
    "week": 16
   },
   {
-   "date": "2027-02-19",
-   "day": "Fri 19 Feb",
+   "date": "2027-02-23",
+   "day": "Tue 23 Feb",
    "phase": 3,
    "anki": 25,
    "sent": 8,
@@ -4323,8 +4351,8 @@
    "week": 16
   },
   {
-   "date": "2027-02-20",
-   "day": "Sat 20 Feb",
+   "date": "2027-02-24",
+   "day": "Wed 24 Feb",
    "phase": 3,
    "anki": 25,
    "sent": 8,
@@ -4345,33 +4373,8 @@
    "week": 16
   },
   {
-   "date": "2027-02-21",
-   "day": "Sun 21 Feb",
-   "phase": 3,
-   "anki": 25,
-   "sent": 0,
-   "say": 0,
-   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
-   "yt": "Easy French · next episode (French subtitles → none)",
-   "yt_kind": "Easy French · next episode (French subtitles → none)",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": null,
-   "vocab": null,
-   "sunday": true,
-   "sunday_items": [
-    "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Av. 12–20 and Vocab. ch. 16–17, covered, from memory",
-    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
-    "Mock section (45–60 min): writing (60 min)"
-   ],
-   "week": 16
-  },
-  {
-   "date": "2027-02-22",
-   "day": "Mon 22 Feb",
+   "date": "2027-02-25",
+   "day": "Thu 25 Feb",
    "phase": 3,
    "anki": 25,
    "sent": 8,
@@ -4398,11 +4401,11 @@
    "write": "Tâche 1 (60–120 mots) : Demande un remboursement à un organisme de formation.",
    "speak": "Tâche 3 (4 min 30) : Les voyages forment-ils la jeunesse ?",
    "retest": "yesterday: Av. 19–20 · day −7: Av. 12",
-   "week": 17
+   "week": 16
   },
   {
-   "date": "2027-02-23",
-   "day": "Tue 23 Feb",
+   "date": "2027-02-26",
+   "day": "Fri 26 Feb",
    "phase": 3,
    "anki": 25,
    "sent": 8,
@@ -4420,11 +4423,11 @@
    "write": "Tâche 2 (120–150 mots) : Un malentendu culturel que tu as vécu.",
    "speak": "Tâche 2 (5 min 30) : École pour un enfant : interroge la directrice",
    "retest": "yesterday: Av. 21 · day −7: Av. 13–14",
-   "week": 17
+   "week": 16
   },
   {
-   "date": "2027-02-24",
-   "day": "Wed 24 Feb",
+   "date": "2027-02-27",
+   "day": "Sat 27 Feb",
    "phase": 3,
    "anki": 25,
    "sent": 8,
@@ -4442,13 +4445,39 @@
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : La semaine de quatre jours : bonne ou mauvaise idée ?",
    "speak": "Tâche 3 (4 min 30) : Faut-il manger moins de viande ?",
    "retest": "yesterday: Av. 22–23 · day −7: Av. 15",
-   "week": 17
+   "week": 16
   },
   {
-   "date": "2027-02-25",
-   "day": "Thu 25 Feb",
+   "date": "2027-02-28",
+   "day": "Sun 28 Feb",
    "phase": 3,
    "anki": 25,
+   "sent": 0,
+   "say": 0,
+   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
+   "yt": "Easy French · next episode (French subtitles → none)",
+   "yt_kind": "Easy French · next episode (French subtitles → none)",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": null,
+   "vocab": null,
+   "sunday": true,
+   "sunday_items": [
+    "Flashcard reviews (15 min)",
+    "Week re-test (60 min): 1 exercise from each of Av. 16–24 and Vocab. ch. 17–18, covered, from memory",
+    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
+    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
+    "Mock section (45–60 min): speaking (12 min, recorded)",
+    "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Int. 46–52, Av. 1–24"
+   ],
+   "week": 16
+  },
+  {
+   "date": "2027-03-01",
+   "day": "Mon 1 Mar",
+   "phase": 3,
+   "anki": 20,
    "sent": 8,
    "say": 6,
    "tv5": "TV5MONDE EDU · B1 · 3 exercises",
@@ -4476,10 +4505,10 @@
    "week": 17
   },
   {
-   "date": "2027-02-26",
-   "day": "Fri 26 Feb",
+   "date": "2027-03-02",
+   "day": "Tue 2 Mar",
    "phase": 3,
-   "anki": 25,
+   "anki": 20,
    "sent": 8,
    "say": 6,
    "tv5": "TV5MONDE EDU · B1 · 3 exercises",
@@ -4498,10 +4527,10 @@
    "week": 17
   },
   {
-   "date": "2027-02-27",
-   "day": "Sat 27 Feb",
+   "date": "2027-03-03",
+   "day": "Wed 3 Mar",
    "phase": 3,
-   "anki": 25,
+   "anki": 20,
    "sent": 8,
    "say": 6,
    "tv5": "TV5MONDE EDU · B1 · 3 exercises",
@@ -4529,34 +4558,8 @@
    "week": 17
   },
   {
-   "date": "2027-02-28",
-   "day": "Sun 28 Feb",
-   "phase": 3,
-   "anki": 25,
-   "sent": 0,
-   "say": 0,
-   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
-   "yt": "Easy French · next episode (French subtitles → none)",
-   "yt_kind": "Easy French · next episode (French subtitles → none)",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": null,
-   "vocab": null,
-   "sunday": true,
-   "sunday_items": [
-    "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Av. 21–28 and Vocab. ch. 17–18, covered, from memory",
-    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
-    "Mock section (45–60 min): speaking (12 min, recorded)",
-    "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Int. 49–52, Av. 1–28"
-   ],
-   "week": 17
-  },
-  {
-   "date": "2027-03-01",
-   "day": "Mon 1 Mar",
+   "date": "2027-03-04",
+   "day": "Thu 4 Mar",
    "phase": 3,
    "anki": 20,
    "sent": 8,
@@ -4583,11 +4586,11 @@
    "write": "Tâche 1 (60–120 mots) : Propose une fête des voisins à ton immeuble.",
    "speak": "Tâche 3 (4 min 30) : Un téléphone avant 15 ans ?",
    "retest": "yesterday: Av. 28 · day −7: Av. 21",
-   "week": 18
+   "week": 17
   },
   {
-   "date": "2027-03-02",
-   "day": "Tue 2 Mar",
+   "date": "2027-03-05",
+   "day": "Fri 5 Mar",
    "phase": 3,
    "anki": 20,
    "sent": 8,
@@ -4614,11 +4617,11 @@
    "write": "Tâche 2 (120–150 mots) : Un échec qui t'a finalement aidé.",
    "speak": "Tâche 2 (5 min 30) : Changer de banque : interroge le conseiller",
    "retest": "yesterday: Av. 29–30 · day −7: Av. 22–23",
-   "week": 18
+   "week": 17
   },
   {
-   "date": "2027-03-03",
-   "day": "Wed 3 Mar",
+   "date": "2027-03-06",
+   "day": "Sat 6 Mar",
    "phase": 3,
    "anki": 20,
    "sent": 8,
@@ -4645,11 +4648,36 @@
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Les musées devraient-ils être gratuits ?",
    "speak": "Tâche 3 (4 min 30) : Faut-il garder sa culture d'origine quand on vit à l'étranger ?",
    "retest": "yesterday: Av. 31 · day −7: Av. 24",
-   "week": 18
+   "week": 17
   },
   {
-   "date": "2027-03-04",
-   "day": "Thu 4 Mar",
+   "date": "2027-03-07",
+   "day": "Sun 7 Mar",
+   "phase": 3,
+   "anki": 20,
+   "sent": 0,
+   "say": 0,
+   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
+   "yt": "Easy French · next episode (French subtitles → none)",
+   "yt_kind": "Easy French · next episode (French subtitles → none)",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": null,
+   "vocab": null,
+   "sunday": true,
+   "sunday_items": [
+    "Flashcard reviews (15 min)",
+    "Week re-test (60 min): 1 exercise from each of Av. 25–33 and Vocab. ch. 18–19, covered, from memory",
+    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
+    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
+    "Mock section (45–60 min): listening (35 min)"
+   ],
+   "week": 17
+  },
+  {
+   "date": "2027-03-08",
+   "day": "Mon 8 Mar",
    "phase": 3,
    "anki": 20,
    "sent": 8,
@@ -4679,8 +4707,8 @@
    "week": 18
   },
   {
-   "date": "2027-03-05",
-   "day": "Fri 5 Mar",
+   "date": "2027-03-09",
+   "day": "Tue 9 Mar",
    "phase": 3,
    "anki": 20,
    "sent": 8,
@@ -4710,8 +4738,8 @@
    "week": 18
   },
   {
-   "date": "2027-03-06",
-   "day": "Sat 6 Mar",
+   "date": "2027-03-10",
+   "day": "Wed 10 Mar",
    "phase": 3,
    "anki": 20,
    "sent": 8,
@@ -4741,33 +4769,8 @@
    "week": 18
   },
   {
-   "date": "2027-03-07",
-   "day": "Sun 7 Mar",
-   "phase": 3,
-   "anki": 20,
-   "sent": 0,
-   "say": 0,
-   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
-   "yt": "Easy French · next episode (French subtitles → none)",
-   "yt_kind": "Easy French · next episode (French subtitles → none)",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": null,
-   "vocab": null,
-   "sunday": true,
-   "sunday_items": [
-    "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Av. 29–37 and Vocab. ch. 19–20, covered, from memory",
-    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
-    "Mock section (45–60 min): listening (35 min)"
-   ],
-   "week": 18
-  },
-  {
-   "date": "2027-03-08",
-   "day": "Mon 8 Mar",
+   "date": "2027-03-11",
+   "day": "Thu 11 Mar",
    "phase": 3,
    "anki": 20,
    "sent": 8,
@@ -4794,11 +4797,11 @@
    "write": "Tâche 1 (60–120 mots) : Réagis à un article du journal local sur les pistes cyclables.",
    "speak": "Tâche 3 (4 min 30) : Diplôme ou expérience : qu'est-ce qui compte le plus ?",
    "retest": "yesterday: Av. 37 · day −7: Av. 29–30",
-   "week": 19
+   "week": 18
   },
   {
-   "date": "2027-03-09",
-   "day": "Tue 9 Mar",
+   "date": "2027-03-12",
+   "day": "Fri 12 Mar",
    "phase": 3,
    "anki": 20,
    "sent": 8,
@@ -4825,11 +4828,11 @@
    "write": "Tâche 2 (120–150 mots) : Un voyage qui a changé ta façon de voir le monde.",
    "speak": "Tâche 2 (5 min 30) : Gîte pour un week-end en famille",
    "retest": "yesterday: Av. 38 · day −7: Av. 31",
-   "week": 19
+   "week": 18
   },
   {
-   "date": "2027-03-10",
-   "day": "Wed 10 Mar",
+   "date": "2027-03-13",
+   "day": "Sat 13 Mar",
    "phase": 3,
    "anki": 20,
    "sent": 8,
@@ -4847,11 +4850,36 @@
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : L'intelligence artificielle : menace ou chance pour l'emploi ?",
    "speak": "Tâche 3 (4 min 30) : La télévision a-t-elle encore un avenir ?",
    "retest": "yesterday: Av. 39–40 · day −7: Av. 32–33",
-   "week": 19
+   "week": 18
   },
   {
-   "date": "2027-03-11",
-   "day": "Thu 11 Mar",
+   "date": "2027-03-14",
+   "day": "Sun 14 Mar",
+   "phase": 3,
+   "anki": 20,
+   "sent": 0,
+   "say": 0,
+   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
+   "yt": "Easy French · next episode (French subtitles → none)",
+   "yt_kind": "Easy French · next episode (French subtitles → none)",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": null,
+   "vocab": null,
+   "sunday": true,
+   "sunday_items": [
+    "Flashcard reviews (15 min)",
+    "Week re-test (60 min): 1 exercise from each of Av. 34–41 and Vocab. ch. 20–21, covered, from memory",
+    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
+    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
+    "Mock section (45–60 min): reading (60 min)"
+   ],
+   "week": 18
+  },
+  {
+   "date": "2027-03-15",
+   "day": "Mon 15 Mar",
    "phase": 3,
    "anki": 20,
    "sent": 8,
@@ -4872,8 +4900,8 @@
    "week": 19
   },
   {
-   "date": "2027-03-12",
-   "day": "Fri 12 Mar",
+   "date": "2027-03-16",
+   "day": "Tue 16 Mar",
    "phase": 3,
    "anki": 20,
    "sent": 8,
@@ -4903,8 +4931,8 @@
    "week": 19
   },
   {
-   "date": "2027-03-13",
-   "day": "Sat 13 Mar",
+   "date": "2027-03-17",
+   "day": "Wed 17 Mar",
    "phase": 3,
    "anki": 20,
    "sent": 8,
@@ -4925,33 +4953,8 @@
    "week": 19
   },
   {
-   "date": "2027-03-14",
-   "day": "Sun 14 Mar",
-   "phase": 3,
-   "anki": 20,
-   "sent": 0,
-   "say": 0,
-   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
-   "yt": "Easy French · next episode (French subtitles → none)",
-   "yt_kind": "Easy French · next episode (French subtitles → none)",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": null,
-   "vocab": null,
-   "sunday": true,
-   "sunday_items": [
-    "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Av. 38–46 and Vocab. ch. 20–21, covered, from memory",
-    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
-    "Mock section (45–60 min): reading (60 min)"
-   ],
-   "week": 19
-  },
-  {
-   "date": "2027-03-15",
-   "day": "Mon 15 Mar",
+   "date": "2027-03-18",
+   "day": "Thu 18 Mar",
    "phase": 3,
    "anki": 20,
    "sent": 8,
@@ -4978,11 +4981,11 @@
    "write": "Tâche 1 (60–120 mots) : Résilie ton abonnement au club de sport et explique pourquoi.",
    "speak": "Tâche 3 (4 min 30) : La mode éthique : effet de mode ou vraie prise de conscience ?",
    "retest": "yesterday: Av. 45–46 · day −7: Av. 38",
-   "week": 20
+   "week": 19
   },
   {
-   "date": "2027-03-16",
-   "day": "Tue 16 Mar",
+   "date": "2027-03-19",
+   "day": "Fri 19 Mar",
    "phase": 3,
    "anki": 20,
    "sent": 8,
@@ -5009,11 +5012,11 @@
    "write": "Tâche 2 (120–150 mots) : Une application qui a changé ton quotidien.",
    "speak": "Tâche 2 (5 min 30) : Fête de quartier : interroge la mairie",
    "retest": "yesterday: Av. 47 · day −7: Av. 39–40",
-   "week": 20
+   "week": 19
   },
   {
-   "date": "2027-03-17",
-   "day": "Wed 17 Mar",
+   "date": "2027-03-20",
+   "day": "Sat 20 Mar",
    "phase": 3,
    "anki": 20,
    "sent": 8,
@@ -5040,16 +5043,41 @@
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Le tourisme de masse : richesse ou problème ?",
    "speak": "Tâche 3 (4 min 30) : Les célébrités ont-elles une responsabilité envers leurs fans ?",
    "retest": "yesterday: Av. 48 · day −7: Av. 41",
-   "week": 20
+   "week": 19
   },
   {
-   "date": "2027-03-18",
-   "day": "Thu 18 Mar",
+   "date": "2027-03-21",
+   "day": "Sun 21 Mar",
+   "phase": 3,
+   "anki": 20,
+   "sent": 0,
+   "say": 0,
+   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
+   "yt": "Easy French · next episode (French subtitles → none)",
+   "yt_kind": "Easy French · next episode (French subtitles → none)",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": null,
+   "vocab": null,
+   "sunday": true,
+   "sunday_items": [
+    "Flashcard reviews (15 min)",
+    "Week re-test (60 min): 1 exercise from each of Av. 42–50 and Vocab. ch. 21–22, covered, from memory",
+    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
+    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
+    "Mock section (45–60 min): writing (60 min)"
+   ],
+   "week": 19
+  },
+  {
+   "date": "2027-03-22",
+   "day": "Mon 22 Mar",
    "phase": 3,
    "anki": 20,
    "sent": 8,
    "say": 6,
-   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
+   "tv5": "TV5MONDE EDU · B2 · 3 exercises",
    "yt": "Easy French · next episode (French subtitles → none)",
    "yt_kind": "Easy French · next episode (French subtitles → none)",
    "yt_links": null,
@@ -5074,8 +5102,8 @@
    "week": 20
   },
   {
-   "date": "2027-03-19",
-   "day": "Fri 19 Mar",
+   "date": "2027-03-23",
+   "day": "Tue 23 Mar",
    "phase": 3,
    "anki": 20,
    "sent": 8,
@@ -5105,8 +5133,8 @@
    "week": 20
   },
   {
-   "date": "2027-03-20",
-   "day": "Sat 20 Mar",
+   "date": "2027-03-24",
+   "day": "Wed 24 Mar",
    "phase": 3,
    "anki": 20,
    "sent": 8,
@@ -5136,33 +5164,8 @@
    "week": 20
   },
   {
-   "date": "2027-03-21",
-   "day": "Sun 21 Mar",
-   "phase": 3,
-   "anki": 20,
-   "sent": 0,
-   "say": 0,
-   "tv5": "TV5MONDE EDU · B2 · 3 exercises",
-   "yt": "Easy French · next episode (French subtitles → none)",
-   "yt_kind": "Easy French · next episode (French subtitles → none)",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": null,
-   "vocab": null,
-   "sunday": true,
-   "sunday_items": [
-    "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Av. 47–54 and Vocab. ch. 22–23, covered, from memory",
-    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
-    "Mock section (45–60 min): writing (60 min)"
-   ],
-   "week": 20
-  },
-  {
-   "date": "2027-03-22",
-   "day": "Mon 22 Mar",
+   "date": "2027-03-25",
+   "day": "Thu 25 Mar",
    "phase": 3,
    "anki": 20,
    "sent": 8,
@@ -5189,11 +5192,11 @@
    "write": "Tâche 1 (60–120 mots) : Compagnie aérienne : ton bagage est perdu.",
    "speak": "Tâche 3 (4 min 30) : Le bénévolat obligatoire pour les étudiants ?",
    "retest": "yesterday: Av. 54 · day −7: Av. 47",
-   "week": 21
+   "week": 20
   },
   {
-   "date": "2027-03-23",
-   "day": "Tue 23 Mar",
+   "date": "2027-03-26",
+   "day": "Fri 26 Mar",
    "phase": 3,
    "anki": 20,
    "sent": 8,
@@ -5220,11 +5223,11 @@
    "write": "Tâche 2 (120–150 mots) : Ton quartier et son ambiance.",
    "speak": "Tâche 2 (5 min 30) : Cours de cuisine française",
    "retest": "yesterday: Av. 55–56 · day −7: Av. 48",
-   "week": 21
+   "week": 20
   },
   {
-   "date": "2027-03-24",
-   "day": "Wed 24 Mar",
+   "date": "2027-03-27",
+   "day": "Sat 27 Mar",
    "phase": 3,
    "anki": 20,
    "sent": 8,
@@ -5251,11 +5254,37 @@
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Faut-il manger moins de viande pour la planète ?",
    "speak": "Tâche 3 (4 min 30) : Changer souvent d'emploi : bonne idée ?",
    "retest": "yesterday: Av. 57 · day −7: Av. 49–50",
-   "week": 21
+   "week": 20
   },
   {
-   "date": "2027-03-25",
-   "day": "Thu 25 Mar",
+   "date": "2027-03-28",
+   "day": "Sun 28 Mar",
+   "phase": 3,
+   "anki": 20,
+   "sent": 0,
+   "say": 0,
+   "tv5": "TV5MONDE EDU · B2 · 3 exercises",
+   "yt": "Easy French · next episode (French subtitles → none)",
+   "yt_kind": "Easy French · next episode (French subtitles → none)",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": null,
+   "vocab": null,
+   "sunday": true,
+   "sunday_items": [
+    "Flashcard reviews (15 min)",
+    "Week re-test (60 min): 1 exercise from each of Av. 51–59 and Vocab. ch. 23–24, covered, from memory",
+    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
+    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
+    "Mock section (45–60 min): speaking (12 min, recorded)",
+    "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Av. 25–59"
+   ],
+   "week": 20
+  },
+  {
+   "date": "2027-03-29",
+   "day": "Mon 29 Mar",
    "phase": 3,
    "anki": 20,
    "sent": 8,
@@ -5285,8 +5314,8 @@
    "week": 21
   },
   {
-   "date": "2027-03-26",
-   "day": "Fri 26 Mar",
+   "date": "2027-03-30",
+   "day": "Tue 30 Mar",
    "phase": 3,
    "anki": 20,
    "sent": 8,
@@ -5316,8 +5345,8 @@
    "week": 21
   },
   {
-   "date": "2027-03-27",
-   "day": "Sat 27 Mar",
+   "date": "2027-03-31",
+   "day": "Wed 31 Mar",
    "phase": 3,
    "anki": 20,
    "sent": 8,
@@ -5347,36 +5376,10 @@
    "week": 21
   },
   {
-   "date": "2027-03-28",
-   "day": "Sun 28 Mar",
+   "date": "2027-04-01",
+   "day": "Thu 1 Apr",
    "phase": 3,
-   "anki": 20,
-   "sent": 0,
-   "say": 0,
-   "tv5": "TV5MONDE EDU · B2 · 3 exercises",
-   "yt": "Easy French · next episode (French subtitles → none)",
-   "yt_kind": "Easy French · next episode (French subtitles → none)",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": null,
-   "vocab": null,
-   "sunday": true,
-   "sunday_items": [
-    "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Av. 55–63 and Vocab. ch. 23–24, covered, from memory",
-    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
-    "Mock section (45–60 min): speaking (12 min, recorded)",
-    "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Av. 29–63"
-   ],
-   "week": 21
-  },
-  {
-   "date": "2027-03-29",
-   "day": "Mon 29 Mar",
-   "phase": 3,
-   "anki": 20,
+   "anki": 15,
    "sent": 8,
    "say": 6,
    "tv5": "TV5MONDE EDU · B2 · 3 exercises",
@@ -5401,13 +5404,13 @@
    "write": "Tâche 1 (60–120 mots) : Recommande une série à un ami, en argumentant.",
    "speak": "Tâche 3 (4 min 30) : Faut-il limiter le tourisme dans certaines villes ?",
    "retest": "yesterday: Av. 62–63 · day −7: Av. 55–56",
-   "week": 22
+   "week": 21
   },
   {
-   "date": "2027-03-30",
-   "day": "Tue 30 Mar",
+   "date": "2027-04-02",
+   "day": "Fri 2 Apr",
    "phase": 3,
-   "anki": 20,
+   "anki": 15,
    "sent": 8,
    "say": 6,
    "tv5": "TV5MONDE EDU · B2 · 3 exercises",
@@ -5432,13 +5435,13 @@
    "write": "Tâche 2 (120–150 mots) : Ta vie au Canada dans cinq ans.",
    "speak": "Tâche 2 (5 min 30) : Réparer ton téléphone : interroge le technicien",
    "retest": "yesterday: Av. 64 · day −7: Av. 57",
-   "week": 22
+   "week": 21
   },
   {
-   "date": "2027-03-31",
-   "day": "Wed 31 Mar",
+   "date": "2027-04-03",
+   "day": "Sat 3 Apr",
    "phase": 3,
-   "anki": 20,
+   "anki": 15,
    "sent": 8,
    "say": 6,
    "tv5": "TV5MONDE EDU · B2 · 3 exercises",
@@ -5463,11 +5466,36 @@
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Faut-il limiter le temps d'écran des enfants ?",
    "speak": "Tâche 3 (4 min 30) : La lecture est-elle encore importante à l'ère numérique ?",
    "retest": "yesterday: Av. 65–66 · day −7: Av. 58–59",
-   "week": 22
+   "week": 21
   },
   {
-   "date": "2027-04-01",
-   "day": "Thu 1 Apr",
+   "date": "2027-04-04",
+   "day": "Sun 4 Apr",
+   "phase": 3,
+   "anki": 15,
+   "sent": 0,
+   "say": 0,
+   "tv5": "TV5MONDE EDU · B2 · 3 exercises",
+   "yt": "Easy French · next episode (French subtitles → none)",
+   "yt_kind": "Easy French · next episode (French subtitles → none)",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": null,
+   "vocab": null,
+   "sunday": true,
+   "sunday_items": [
+    "Flashcard reviews (15 min)",
+    "Week re-test (60 min): 1 exercise from each of Av. 60–67 and Vocab. ch. 24–25, covered, from memory",
+    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
+    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
+    "Mock section (45–60 min): listening (35 min)"
+   ],
+   "week": 21
+  },
+  {
+   "date": "2027-04-05",
+   "day": "Mon 5 Apr",
    "phase": 3,
    "anki": 15,
    "sent": 8,
@@ -5497,8 +5525,8 @@
    "week": 22
   },
   {
-   "date": "2027-04-02",
-   "day": "Fri 2 Apr",
+   "date": "2027-04-06",
+   "day": "Tue 6 Apr",
    "phase": 3,
    "anki": 15,
    "sent": 8,
@@ -5528,8 +5556,8 @@
    "week": 22
   },
   {
-   "date": "2027-04-03",
-   "day": "Sat 3 Apr",
+   "date": "2027-04-07",
+   "day": "Wed 7 Apr",
    "phase": 3,
    "anki": 15,
    "sent": 8,
@@ -5559,33 +5587,8 @@
    "week": 22
   },
   {
-   "date": "2027-04-04",
-   "day": "Sun 4 Apr",
-   "phase": 3,
-   "anki": 15,
-   "sent": 0,
-   "say": 0,
-   "tv5": "TV5MONDE EDU · B2 · 3 exercises",
-   "yt": "Easy French · next episode (French subtitles → none)",
-   "yt_kind": "Easy French · next episode (French subtitles → none)",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": null,
-   "vocab": null,
-   "sunday": true,
-   "sunday_items": [
-    "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Av. 64–72 and Vocab. ch. 25, covered, from memory",
-    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
-    "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
-    "Mock section (45–60 min): listening (35 min)"
-   ],
-   "week": 22
-  },
-  {
-   "date": "2027-04-05",
-   "day": "Mon 5 Apr",
+   "date": "2027-04-08",
+   "day": "Thu 8 Apr",
    "phase": 4,
    "anki": 15,
    "sent": 0,
@@ -5603,73 +5606,7 @@
    "write": "Tâche 3 timed (40 min) : Les livres papier vont-ils disparaître ?",
    "speak": "2nd attempt, compare with your first recording: T2 « Formation professionnelle : interroge le conseiller » + T3 « Le télétravail est-il l'avenir du travail ? »",
    "retest": "1 exercise from each error-log chapter done this week",
-   "week": 23
-  },
-  {
-   "date": "2027-04-06",
-   "day": "Tue 6 Apr",
-   "phase": 4,
-   "anki": 15,
-   "sent": 0,
-   "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
-   "yt": "(replaced by timed listening)",
-   "yt_kind": "(replaced by timed listening)",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": null,
-   "vocab": null,
-   "sunday": false,
-   "book": "Error-log chapters: redo the 2 weakest (any volume)",
-   "write": "Tâche 3 timed (40 min) : Grande entreprise ou start-up ?",
-   "speak": "2nd attempt, compare with your first recording: T2 « Appartement meublé : interroge l'agent immobilier » + T3 « Les réseaux sociaux sont-ils dangereux pour les jeunes ? »",
-   "retest": "1 exercise from each error-log chapter done this week",
-   "week": 23
-  },
-  {
-   "date": "2027-04-07",
-   "day": "Wed 7 Apr",
-   "phase": 4,
-   "anki": 15,
-   "sent": 0,
-   "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
-   "yt": "(replaced by timed listening)",
-   "yt_kind": "(replaced by timed listening)",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": null,
-   "vocab": null,
-   "sunday": false,
-   "book": "Error-log chapters: redo the 2 weakest (any volume)",
-   "write": "Tâche 3 timed (40 min) : Des transports en commun gratuits ?",
-   "speak": "2nd attempt, compare with your first recording: T2 « Séminaire d'entreprise : interroge le responsable de l'hôtel » + T3 « Faut-il apprendre plusieurs langues aujourd'hui ? »",
-   "retest": "1 exercise from each error-log chapter done this week",
-   "week": 23
-  },
-  {
-   "date": "2027-04-08",
-   "day": "Thu 8 Apr",
-   "phase": 4,
-   "anki": 15,
-   "sent": 0,
-   "say": 0,
-   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
-   "yt": "(replaced by timed listening)",
-   "yt_kind": "(replaced by timed listening)",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": null,
-   "vocab": null,
-   "sunday": false,
-   "book": "Error-log chapters: redo the 2 weakest (any volume)",
-   "write": "Tâche 3 timed (40 min) : Les applications de rencontre ont-elles changé l'amour ?",
-   "speak": "2nd attempt, compare with your first recording: T2 « Ton ami part travailler au Canada : questions sur son projet » + T3 « Les villes devraient-elles interdire les voitures ? »",
-   "retest": "1 exercise from each error-log chapter done this week",
-   "week": 23
+   "week": 22
   },
   {
    "date": "2027-04-09",
@@ -5688,10 +5625,10 @@
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
-   "write": "Tâche 3 timed (40 min) : Un uniforme à l'école ?",
-   "speak": "2nd attempt, compare with your first recording: T2 « Association écologique : questions avant d'adhérer » + T3 « L'argent fait-il le bonheur ? »",
+   "write": "Tâche 3 timed (40 min) : Grande entreprise ou start-up ?",
+   "speak": "2nd attempt, compare with your first recording: T2 « Appartement meublé : interroge l'agent immobilier » + T3 « Les réseaux sociaux sont-ils dangereux pour les jeunes ? »",
    "retest": "1 exercise from each error-log chapter done this week",
-   "week": 23
+   "week": 22
   },
   {
    "date": "2027-04-10",
@@ -5711,9 +5648,9 @@
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "FULL writing paper, 60 min timed: tâche 1 + 2 + 3 (pick unused prompts)",
-   "speak": "2nd attempt, compare with your first recording: T2 « Vélo électrique : interroge le vendeur » + T3 « Vaut-il mieux vivre en ville ou à la campagne ? »",
+   "speak": "2nd attempt, compare with your first recording: T2 « Séminaire d'entreprise : interroge le responsable de l'hôtel » + T3 « Faut-il apprendre plusieurs langues aujourd'hui ? »",
    "retest": "1 exercise from each error-log chapter done this week",
-   "week": 23
+   "week": 22
   },
   {
    "date": "2027-04-11",
@@ -5733,12 +5670,12 @@
    "sunday": true,
    "sunday_items": [
     "Flashcard reviews (15 min)",
-    "Re-test (60 min): every error-log chapter you redid this week",
+    "Week re-test (60 min): 1 exercise from each of Av. 68–72, covered, from memory",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): café-langue / Meetup / exchange partner, or 3 timed Claude role-plays",
     "Mock section (45–60 min): reading (60 min)"
    ],
-   "week": 23
+   "week": 22
   },
   {
    "date": "2027-04-12",
@@ -5757,10 +5694,10 @@
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
-   "write": "Tâche 3 timed (40 min) : L'immigration qualifiée : une chance pour le pays d'accueil ?",
-   "speak": "2nd attempt, compare with your first recording: T2 « Stage en start-up : interroge le recruteur » + T3 « L'IA va-t-elle remplacer les humains au travail ? »",
+   "write": "Tâche 3 timed (40 min) : Des transports en commun gratuits ?",
+   "speak": "2nd attempt, compare with your first recording: T2 « Ton ami part travailler au Canada : questions sur son projet » + T3 « Les villes devraient-elles interdire les voitures ? »",
    "retest": "1 exercise from each error-log chapter done this week",
-   "week": 24
+   "week": 23
   },
   {
    "date": "2027-04-13",
@@ -5779,10 +5716,10 @@
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
-   "write": "Tâche 3 timed (40 min) : Faut-il interdire les vols intérieurs courts ?",
-   "speak": "2nd attempt, compare with your first recording: T2 « École pour un enfant : interroge la directrice » + T3 « Les voyages forment-ils la jeunesse ? »",
+   "write": "Tâche 3 timed (40 min) : Les applications de rencontre ont-elles changé l'amour ?",
+   "speak": "2nd attempt, compare with your first recording: T2 « Association écologique : questions avant d'adhérer » + T3 « L'argent fait-il le bonheur ? »",
    "retest": "1 exercise from each error-log chapter done this week",
-   "week": 24
+   "week": 23
   },
   {
    "date": "2027-04-14",
@@ -5801,10 +5738,10 @@
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
-   "write": "Tâche 3 timed (40 min) : Le bilinguisme : atout indispensable au travail ?",
-   "speak": "2nd attempt, compare with your first recording: T2 « Voyage organisé : interroge l'agence » + T3 « Faut-il manger moins de viande ? »",
+   "write": "Tâche 3 timed (40 min) : Un uniforme à l'école ?",
+   "speak": "2nd attempt, compare with your first recording: T2 « Vélo électrique : interroge le vendeur » + T3 « Vaut-il mieux vivre en ville ou à la campagne ? »",
    "retest": "1 exercise from each error-log chapter done this week",
-   "week": 24
+   "week": 23
   },
   {
    "date": "2027-04-15",
@@ -5823,10 +5760,10 @@
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
-   "write": "Tâche 3 timed (40 min) : Faut-il taxer la malbouffe ?",
-   "speak": "2nd attempt, compare with your first recording: T2 « Marathon : interroge l'organisateur » + T3 « Le sport devrait-il être encouragé au travail ? »",
+   "write": "Tâche 3 timed (40 min) : L'immigration qualifiée : une chance pour le pays d'accueil ?",
+   "speak": "2nd attempt, compare with your first recording: T2 « Stage en start-up : interroge le recruteur » + T3 « L'IA va-t-elle remplacer les humains au travail ? »",
    "retest": "1 exercise from each error-log chapter done this week",
-   "week": 24
+   "week": 23
   },
   {
    "date": "2027-04-16",
@@ -5845,10 +5782,10 @@
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
-   "write": "Tâche 3 timed (40 min) : Les jeux vidéo : éducatifs ou perte de temps ?",
-   "speak": "2nd attempt, compare with your first recording: T2 « Changer de banque : interroge le conseiller » + T3 « Un téléphone avant 15 ans ? »",
+   "write": "Tâche 3 timed (40 min) : Faut-il interdire les vols intérieurs courts ?",
+   "speak": "2nd attempt, compare with your first recording: T2 « École pour un enfant : interroge la directrice » + T3 « Les voyages forment-ils la jeunesse ? »",
    "retest": "1 exercise from each error-log chapter done this week",
-   "week": 24
+   "week": 23
   },
   {
    "date": "2027-04-17",
@@ -5868,9 +5805,9 @@
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "FULL writing paper, 60 min timed: tâche 1 + 2 + 3 (pick unused prompts)",
-   "speak": "2nd attempt, compare with your first recording: T2 « Cours de théâtre : interroge le professeur » + T3 « Faut-il garder sa culture d'origine quand on vit à l'étranger ? »",
+   "speak": "2nd attempt, compare with your first recording: T2 « Voyage organisé : interroge l'agence » + T3 « Faut-il manger moins de viande ? »",
    "retest": "1 exercise from each error-log chapter done this week",
-   "week": 24
+   "week": 23
   },
   {
    "date": "2027-04-18",
@@ -5894,7 +5831,7 @@
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "FULL MOCK, all 4 parts, real timing (≈3 h), then score it against the NCLC 7 table"
    ],
-   "week": 24
+   "week": 23
   },
   {
    "date": "2027-04-19",
@@ -5913,10 +5850,10 @@
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
-   "write": "Tâche 3 timed (40 min) : Vivre seul ou en colocation ?",
-   "speak": "2nd attempt, compare with your first recording: T2 « Un collègue revient d'un congé sabbatique : pose-lui des questions » + T3 « Des transports publics gratuits ? »",
+   "write": "Tâche 3 timed (40 min) : Le bilinguisme : atout indispensable au travail ?",
+   "speak": "2nd attempt, compare with your first recording: T2 « Marathon : interroge l'organisateur » + T3 « Le sport devrait-il être encouragé au travail ? »",
    "retest": "1 exercise from each error-log chapter done this week",
-   "week": 25
+   "week": 24
   },
   {
    "date": "2027-04-20",
@@ -5935,10 +5872,10 @@
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
-   "write": "Tâche 3 timed (40 min) : Faut-il travailler pendant ses études ?",
-   "speak": "2nd attempt, compare with your first recording: T2 « Gîte pour un week-end en famille » + T3 « Diplôme ou expérience : qu'est-ce qui compte le plus ? »",
+   "write": "Tâche 3 timed (40 min) : Faut-il taxer la malbouffe ?",
+   "speak": "2nd attempt, compare with your first recording: T2 « Changer de banque : interroge le conseiller » + T3 « Un téléphone avant 15 ans ? »",
    "retest": "1 exercise from each error-log chapter done this week",
-   "week": 25
+   "week": 24
   },
   {
    "date": "2027-04-21",
@@ -5957,10 +5894,10 @@
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
-   "write": "Tâche 3 timed (40 min) : Interdire la publicité destinée aux enfants ?",
-   "speak": "2nd attempt, compare with your first recording: T2 « Voiture d'occasion chez un particulier » + T3 « La télévision a-t-elle encore un avenir ? »",
+   "write": "Tâche 3 timed (40 min) : Les jeux vidéo : éducatifs ou perte de temps ?",
+   "speak": "2nd attempt, compare with your first recording: T2 « Cours de théâtre : interroge le professeur » + T3 « Faut-il garder sa culture d'origine quand on vit à l'étranger ? »",
    "retest": "1 exercise from each error-log chapter done this week",
-   "week": 25
+   "week": 24
   },
   {
    "date": "2027-04-22",
@@ -5979,10 +5916,10 @@
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
-   "write": "Tâche 3 timed (40 min) : Un monde sans argent liquide : progrès ou danger ?",
-   "speak": "2nd attempt, compare with your first recording: T2 « Salle d'escalade : inscription » + T3 « Faut-il travailler moins pour vivre mieux ? »",
+   "write": "Tâche 3 timed (40 min) : Vivre seul ou en colocation ?",
+   "speak": "2nd attempt, compare with your first recording: T2 « Un collègue revient d'un congé sabbatique : pose-lui des questions » + T3 « Des transports publics gratuits ? »",
    "retest": "1 exercise from each error-log chapter done this week",
-   "week": 25
+   "week": 24
   },
   {
    "date": "2027-04-23",
@@ -6001,10 +5938,10 @@
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
-   "write": "Tâche 3 timed (40 min) : Un animal de compagnie en appartement : bonne idée ?",
-   "speak": "2nd attempt, compare with your first recording: T2 « Fête de quartier : interroge la mairie » + T3 « La mode éthique : effet de mode ou vraie prise de conscience ? »",
+   "write": "Tâche 3 timed (40 min) : Faut-il travailler pendant ses études ?",
+   "speak": "2nd attempt, compare with your first recording: T2 « Gîte pour un week-end en famille » + T3 « Diplôme ou expérience : qu'est-ce qui compte le plus ? »",
    "retest": "1 exercise from each error-log chapter done this week",
-   "week": 25
+   "week": 24
   },
   {
    "date": "2027-04-24",
@@ -6024,9 +5961,9 @@
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "FULL writing paper, 60 min timed: tâche 1 + 2 + 3 (pick unused prompts)",
-   "speak": "2nd attempt, compare with your first recording: T2 « Abonnement de transport annuel » + T3 « Les célébrités ont-elles une responsabilité envers leurs fans ? »",
+   "speak": "2nd attempt, compare with your first recording: T2 « Voiture d'occasion chez un particulier » + T3 « La télévision a-t-elle encore un avenir ? »",
    "retest": "1 exercise from each error-log chapter done this week",
-   "week": 25
+   "week": 24
   },
   {
    "date": "2027-04-25",
@@ -6049,9 +5986,9 @@
     "Re-test (60 min): every error-log chapter you redid this week",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "FULL MOCK, all 4 parts, real timing (≈3 h), then score it against the NCLC 7 table",
-    "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Av. 64–72"
+    "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Av. 60–72"
    ],
-   "week": 25
+   "week": 24
   },
   {
    "date": "2027-04-26",
@@ -6070,10 +6007,10 @@
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
-   "write": "Tâche 3 timed (40 min) : Le droit de vote à 16 ans ?",
-   "speak": "2nd attempt, compare with your first recording: T2 « Ton ami a déménagé : questions sur sa nouvelle vie » + T3 « Faut-il interdire la publicité dans l'espace public ? »",
+   "write": "Tâche 3 timed (40 min) : Interdire la publicité destinée aux enfants ?",
+   "speak": "2nd attempt, compare with your first recording: T2 « Salle d'escalade : inscription » + T3 « Faut-il travailler moins pour vivre mieux ? »",
    "retest": "1 exercise from each error-log chapter done this week",
-   "week": 26
+   "week": 25
   },
   {
    "date": "2027-04-27",
@@ -6092,10 +6029,10 @@
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
-   "write": "Tâche 3 timed (40 min) : Cuisine maison ou plats livrés ?",
-   "speak": "2nd attempt, compare with your first recording: T2 « Cours de cuisine française » + T3 « Le bénévolat obligatoire pour les étudiants ? »",
+   "write": "Tâche 3 timed (40 min) : Un monde sans argent liquide : progrès ou danger ?",
+   "speak": "2nd attempt, compare with your first recording: T2 « Fête de quartier : interroge la mairie » + T3 « La mode éthique : effet de mode ou vraie prise de conscience ? »",
    "retest": "1 exercise from each error-log chapter done this week",
-   "week": 26
+   "week": 25
   },
   {
    "date": "2027-04-28",
@@ -6114,10 +6051,10 @@
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
-   "write": "Tâche 3 timed (40 min) : Influenceur : un vrai métier ?",
-   "speak": "2nd attempt, compare with your first recording: T2 « Colocation avec un(e) inconnu(e) » + T3 « Changer souvent d'emploi : bonne idée ? »",
+   "write": "Tâche 3 timed (40 min) : Un animal de compagnie en appartement : bonne idée ?",
+   "speak": "2nd attempt, compare with your first recording: T2 « Abonnement de transport annuel » + T3 « Les célébrités ont-elles une responsabilité envers leurs fans ? »",
    "retest": "1 exercise from each error-log chapter done this week",
-   "week": 26
+   "week": 25
   },
   {
    "date": "2027-04-29",
@@ -6136,10 +6073,10 @@
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
-   "write": "Tâche 3 timed (40 min) : Faut-il protéger les petits commerces face aux grandes surfaces ?",
-   "speak": "2nd attempt, compare with your first recording: T2 « Covoiturage régulier : interroge le conducteur » + T3 « L'immigration enrichit-elle un pays ? »",
+   "write": "Tâche 3 timed (40 min) : Le droit de vote à 16 ans ?",
+   "speak": "2nd attempt, compare with your first recording: T2 « Ton ami a déménagé : questions sur sa nouvelle vie » + T3 « Faut-il interdire la publicité dans l'espace public ? »",
    "retest": "1 exercise from each error-log chapter done this week",
-   "week": 26
+   "week": 25
   },
   {
    "date": "2027-04-30",
@@ -6158,10 +6095,10 @@
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
-   "write": "Tâche 3 timed (40 min) : Le bénévolat devrait-il compter sur un CV ?",
-   "speak": "2nd attempt, compare with your first recording: T2 « Réparer ton téléphone : interroge le technicien » + T3 « Faut-il limiter le tourisme dans certaines villes ? »",
+   "write": "Tâche 3 timed (40 min) : Cuisine maison ou plats livrés ?",
+   "speak": "2nd attempt, compare with your first recording: T2 « Cours de cuisine française » + T3 « Le bénévolat obligatoire pour les étudiants ? »",
    "retest": "1 exercise from each error-log chapter done this week",
-   "week": 26
+   "week": 25
   },
   {
    "date": "2027-05-01",
@@ -6181,9 +6118,9 @@
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
    "write": "FULL writing paper, 60 min timed: tâche 1 + 2 + 3 (pick unused prompts)",
-   "speak": "2nd attempt, compare with your first recording: T2 « Club de lecture : inscription » + T3 « La lecture est-elle encore importante à l'ère numérique ? »",
+   "speak": "2nd attempt, compare with your first recording: T2 « Colocation avec un(e) inconnu(e) » + T3 « Changer souvent d'emploi : bonne idée ? »",
    "retest": "1 exercise from each error-log chapter done this week",
-   "week": 26
+   "week": 25
   },
   {
    "date": "2027-05-02",
@@ -6207,7 +6144,7 @@
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "FULL MOCK, all 4 parts, real timing (≈3 h), then score it against the NCLC 7 table"
    ],
-   "week": 26
+   "week": 25
   },
   {
    "date": "2027-05-03",
@@ -6226,10 +6163,10 @@
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
-   "write": "Tâche 3 timed (40 min) : Apprendre en ligne ou en classe ?",
-   "speak": "2nd attempt, compare with your first recording: T2 « Randonnée guidée en montagne » + T3 « Peut-on être heureux sans internet ? »",
+   "write": "Tâche 3 timed (40 min) : Influenceur : un vrai métier ?",
+   "speak": "2nd attempt, compare with your first recording: T2 « Covoiturage régulier : interroge le conducteur » + T3 « L'immigration enrichit-elle un pays ? »",
    "retest": "1 exercise from each error-log chapter done this week",
-   "week": 27
+   "week": 26
   },
   {
    "date": "2027-05-04",
@@ -6248,10 +6185,10 @@
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
-   "write": "Tâche 3 timed (40 min) : Faut-il encourager la voiture électrique ?",
-   "speak": "2nd attempt, compare with your first recording: T2 « Formation professionnelle : interroge le conseiller » + T3 « Le télétravail est-il l'avenir du travail ? »",
+   "write": "Tâche 3 timed (40 min) : Faut-il protéger les petits commerces face aux grandes surfaces ?",
+   "speak": "2nd attempt, compare with your first recording: T2 « Réparer ton téléphone : interroge le technicien » + T3 « Faut-il limiter le tourisme dans certaines villes ? »",
    "retest": "1 exercise from each error-log chapter done this week",
-   "week": 27
+   "week": 26
   },
   {
    "date": "2027-05-05",
@@ -6270,10 +6207,10 @@
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
-   "write": "Tâche 3 timed (40 min) : Les grandes villes sont-elles encore agréables à vivre ?",
-   "speak": "2nd attempt, compare with your first recording: T2 « Appartement meublé : interroge l'agent immobilier » + T3 « Les réseaux sociaux sont-ils dangereux pour les jeunes ? »",
+   "write": "Tâche 3 timed (40 min) : Le bénévolat devrait-il compter sur un CV ?",
+   "speak": "2nd attempt, compare with your first recording: T2 « Club de lecture : inscription » + T3 « La lecture est-elle encore importante à l'ère numérique ? »",
    "retest": "1 exercise from each error-log chapter done this week",
-   "week": 27
+   "week": 26
   },
   {
    "date": "2027-05-06",
@@ -6292,10 +6229,78 @@
    "vocab": null,
    "sunday": false,
    "book": "Error-log chapters: redo the 2 weakest (any volume)",
-   "write": "Tâche 3 timed (40 min) : Open space : efficacité ou stress ?",
-   "speak": "2nd attempt, compare with your first recording: T2 « Séminaire d'entreprise : interroge le responsable de l'hôtel » + T3 « Faut-il apprendre plusieurs langues aujourd'hui ? »",
+   "write": "Tâche 3 timed (40 min) : Apprendre en ligne ou en classe ?",
+   "speak": "2nd attempt, compare with your first recording: T2 « Randonnée guidée en montagne » + T3 « Peut-on être heureux sans internet ? »",
    "retest": "1 exercise from each error-log chapter done this week",
-   "week": 27
+   "week": 26
+  },
+  {
+   "date": "2027-05-07",
+   "day": "Fri 7 May",
+   "phase": 4,
+   "anki": 15,
+   "sent": 0,
+   "say": 0,
+   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "yt": "(replaced by timed listening)",
+   "yt_kind": "(replaced by timed listening)",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": null,
+   "vocab": null,
+   "sunday": false,
+   "book": "Error-log chapters: redo the 2 weakest (any volume)",
+   "write": "Tâche 3 timed (40 min) : Faut-il encourager la voiture électrique ?",
+   "speak": "2nd attempt, compare with your first recording: T2 « Formation professionnelle : interroge le conseiller » + T3 « Le télétravail est-il l'avenir du travail ? »",
+   "retest": "1 exercise from each error-log chapter done this week",
+   "week": 26
+  },
+  {
+   "date": "2027-05-08",
+   "day": "Sat 8 May",
+   "phase": 4,
+   "anki": 15,
+   "sent": 0,
+   "say": 0,
+   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "yt": "(replaced by timed listening)",
+   "yt_kind": "(replaced by timed listening)",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": null,
+   "vocab": null,
+   "sunday": false,
+   "book": "Error-log chapters: redo the 2 weakest (any volume)",
+   "write": "FULL writing paper, 60 min timed: tâche 1 + 2 + 3 (pick unused prompts)",
+   "speak": "2nd attempt, compare with your first recording: T2 « Appartement meublé : interroge l'agent immobilier » + T3 « Les réseaux sociaux sont-ils dangereux pour les jeunes ? »",
+   "retest": "1 exercise from each error-log chapter done this week",
+   "week": 26
+  },
+  {
+   "date": "2027-05-09",
+   "day": "Sun 9 May",
+   "phase": 4,
+   "anki": 15,
+   "sent": 0,
+   "say": 0,
+   "tv5": "Timed TCF-style listening + reading (official samples, TV5MONDE B2): 50 min",
+   "yt": "(replaced by timed listening)",
+   "yt_kind": "(replaced by timed listening)",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": null,
+   "vocab": null,
+   "sunday": true,
+   "sunday_items": [
+    "Flashcard reviews (15 min)",
+    "Re-test (60 min): every error-log chapter you redid this week",
+    "Error log (30 min): group by type; anything 3×+ → redo that chapter",
+    "FULL MOCK, all 4 parts, real timing (≈3 h), then score it against the NCLC 7 table"
+   ],
+   "week": 26
   }
  ]
 }

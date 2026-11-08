@@ -231,8 +231,8 @@ function homePage(ctx) {
       <h2>My decks</h2>
       <ul class="plain packets">
         <li><div><p class="task-title">Words</p><p class="sub">${deck ? `${deck.words.length.toLocaleString('en')} most frequent words, in order` : 'Import the deck below'}</p></div><b class="count">${count('deck')}</b></li>
-        <li><div><p class="task-title">Sentences to read</p><p class="sub">${deck?.sentences ? `${deck.sentences.length.toLocaleString('en')} sentences. Starts 4 Jan, 8 a day` : 'Not in this deck'}</p></div><b class="count">${count('sent')}</b></li>
-        <li><div><p class="task-title">Sentences to say</p><p class="sub">See the English, say the French. Starts 11 Jan, 6 a day</p></div><b class="count">${count('say')}</b></li>
+        <li><div><p class="task-title">Sentences to read</p><p class="sub">${deck?.sentences ? `${deck.sentences.length.toLocaleString('en')} sentences. Starts 7 Jan, 8 a day` : 'Not in this deck'}</p></div><b class="count">${count('sent')}</b></li>
+        <li><div><p class="task-title">Sentences to say</p><p class="sub">See the English, say the French. Starts 14 Jan, 6 a day</p></div><b class="count">${count('say')}</b></li>
         <li><div><p class="task-title">My cards</p><p class="sub">From the books and your mistakes</p></div><b class="count">${mine.length}</b></li>
       </ul>
     </section>
