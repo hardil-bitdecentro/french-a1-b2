@@ -15,7 +15,7 @@ RESET_AT_MS = 1793910600000  # 5 Nov 2026 21:30 CET, when day 1 moved to 6 Nov
 BOOKS = [
     ("Déb.", "Débutant 3e", 60, date(2026, 11, 9), date(2026, 12, 9)),
     ("Int.", "Intermédiaire 4e", 52, date(2026, 12, 10), date(2027, 2, 8)),
-    ("Av.", "Avancé 3e", 72, date(2027, 2, 9), date(2027, 4, 7)),
+    ("Av.", "Avancé 3e", 27, date(2027, 2, 9), date(2027, 4, 7)),
 ]
 EXAM_MODE_START = date(2027, 4, 8)
 FULL_MOCK_FROM = date(2027, 4, 18)
@@ -681,9 +681,105 @@ for _a, _b in zip(INT_DAYS, INT_DAYS[1:]):
     assert _b[2] == (_int_gaps[_next] + 1 if _next in _int_gaps else _next), _a
 
 
+# ---------- Avancé 3e, from the book's contents pages (labels are our own) ----------
+# First chapter, last chapter, first page, last page, focus, light. Light days cover less exam-critical pages:
+# read the rules and do the first exercise. Every page is still scheduled.
+AV_DAYS = [
+    (1, 1, 6, 9, "articles: indefinite, definite, generalising", True),
+    (1, 1, 10, 13, "the partitive; when no article is used", True),
+    (1, 1, 14, 17, "no article: more cases", True),
+    (1, 2, 18, 21, "what each article implies; number adjectives", True),
+    (2, 2, 22, 25, "indefinite adjectives; where adjectives go", True),
+    (3, 3, 26, 29, "types of negation and where they go", True),
+    (4, 4, 34, 37, "the present; overview of the past tenses", True),
+    (4, 4, 38, 39, "the imparfait", False),
+    (4, 4, 40, 41, "the passé composé", False),
+    (4, 4, 42, 45, "the passé simple, to recognise it; the future", True),
+    (4, 4, 46, 47, "anteriority: what happened before", False),
+    (4, 4, 48, 49, "posteriority: what happens after", False),
+    (5, 5, 52, 53, "subjunctive: forms and features", False),
+    (5, 5, 54, 55, "when to use the subjunctive", False),
+    (5, 5, 56, 57, "subjunctive tenses", False),
+    (5, 5, 58, 59, "subjunctive or indicative", False),
+    (5, 5, 60, 61, "subjunctive or indicative: more cases", False),
+    (6, 6, 62, 63, "conditional: forms and features", False),
+    (6, 6, 64, 65, "uses of the conditional", False),
+    (6, 6, 66, 67, "uses of the conditional: more cases", False),
+    (7, 7, 70, 73, "the infinitive: features, uses, limits", True),
+    (8, 9, 74, 77, "present participle and gerund", False),
+    (10, 11, 78, 81, "verbal adjectives; building the passive", True),
+    (11, 11, 82, 83, "when to use the passive", False),
+    (12, 13, 84, 87, "reflexive and impersonal forms", True),
+    (14, 14, 90, 91, "indirect questions and indirect speech", False),
+    (14, 14, 92, 93, "sequence of tenses", False),
+    (14, 14, 94, 95, "time expressions in indirect speech; free indirect speech", False),
+    (15, 15, 96, 99, "adverbs: features and modal adverbs", True),
+    (15, 15, 100, 103, "-ment adverbs, special adverbs, word order", True),
+    (16, 16, 104, 107, "the prepositions à and de", True),
+    (16, 16, 108, 111, "the prepositions en, par, pour", True),
+    (17, 17, 114, 115, "simple relative pronouns", False),
+    (17, 17, 116, 117, "simple relative pronouns: more cases", False),
+    (17, 17, 118, 119, "compound relative pronouns", False),
+    (17, 17, 120, 121, "compound relative pronouns: more cases", False),
+    (18, 18, 122, 125, "object pronouns: order; le, en, y", False),
+    (19, 19, 126, 127, "indefinite pronouns", True),
+    (20, 20, 130, 131, "placing events in time", False),
+    (20, 20, 132, 133, "expressing duration", False),
+    (21, 21, 134, 137, "expressing cause", False),
+    (22, 22, 138, 141, "expressing consequence", False),
+    (23, 23, 142, 145, "expressing comparison", False),
+    (24, 24, 148, 149, "expressing opposition", False),
+    (24, 24, 150, 151, "expressing concession", False),
+    (25, 25, 152, 153, "expressing purpose", False),
+    (26, 26, 154, 155, "condition and hypothesis", False),
+    (27, 27, 156, 159, "communication and nuance, part 1", False),
+    (27, 27, 160, 163, "communication and nuance, part 2", False),
+    (27, 27, 164, 165, "communication and nuance, part 3", False),
+]
+# (bilan number, last chapter covered, first page, last page)
+AV_BILANS = [(1, 3, 30, 33), (2, 4, 50, 51), (3, 6, 68, 69), (4, 13, 88, 89), (5, 16, 112, 113), (6, 19, 128, 129),
+             (7, 23, 146, 147), (8, 27, 166, 167)]
+AV_FINAL_TEST = "p. 185–186"
+AV_FINAL_SUNDAY = date(2027, 4, 11)
+_av_gaps = {b[2]: b[3] for b in AV_BILANS}
+for _a, _b in zip(AV_DAYS, AV_DAYS[1:]):
+    _next = _a[3] + 1
+    assert _b[2] == (_av_gaps[_next] + 1 if _next in _av_gaps else _next), _a
+AV_VINCENT = {
+    "Past participles that never change": 40,
+    "Future perfect": 46,
+    "Other compound tenses": 46,
+    "Subjunctive": 52,
+    "Subjunctive: opinion, doubt": 54,
+    "Subjunctive: feelings": 54,
+    "Subjunctive: advice, wishes, orders": 54,
+    "Past subjunctive": 56,
+    "Subjunctive with conjunctions": 58,
+    "Subjunctive: negative structures": 58,
+    "Verbs with que + indicative": 58,
+    "Past conditional": 64,
+    "Present participle": 74,
+    "Gerund": 74,
+    "en + -ant": 74,
+    "Present participle or verbal adjective": 78,
+    "Passive: conjugation": 78,
+    "Passive": 78,
+    "Indirect speech: sentence changes": 90,
+    "Indirect speech: tense changes": 92,
+    "Indirect speech: time words": 94,
+}
+# The activities follow the order of the book. Their pages weren't available, so they run in page order.
+AV_ACTIVITIES = [
+    (date(2027, 3, 7), "p. 168–171", "in the book's order", 0),
+    (date(2027, 3, 21), "p. 172–175", "in the book's order", 0),
+    (date(2027, 3, 28), "p. 176–179", "in the book's order", 0),
+    (date(2027, 4, 4), "p. 180–184", "in the book's order", 0),
+]
+
 # chapter assignment: day -> (code, first, last)
 chapters = {}
 int_day = {}
+av_day = {}
 for code, _name, n, a, b in BOOKS:
     days = study_days(a, b)
     if code == "Déb.":
@@ -696,6 +792,12 @@ for code, _name, n, a, b in BOOKS:
         for d, entry in zip(days, INT_DAYS):
             chapters[d] = (code, entry[0], entry[1])
             int_day[d] = entry
+        continue
+    if code == "Av.":
+        assert len(days) == len(AV_DAYS)
+        for d, entry in zip(days, AV_DAYS):
+            chapters[d] = (code, entry[0], entry[1])
+            av_day[d] = entry
         continue
     k = len(days)
     for i, d in enumerate(days):
@@ -1007,18 +1109,19 @@ def vincent_later(days, parts):
     return {d: links_for(segs) for d, segs in spread_parts(days, parts).items()}
 
 
-def vincent_intermediate(days, parts):
+def vincent_by_book(days, parts, by_day, mapping, run=(None, None)):
     """Put each lesson on the day its grammar is in the book. Lessons with no matching chapter are spread out."""
-    page_day = {e[2]: d for d, e in int_day.items()}
-    name, page = INT_VERBS_PREP
-    verb_days = iter([d for d in days if d >= page_day[page]])
+    assert set(mapping) <= {g["topics"][0] for g in parts}, set(mapping) - {g["topics"][0] for g in parts}
+    page_day = {e[2]: d for d, e in by_day.items()}
+    name, page = run
+    verb_days = iter([d for d in days if d >= page_day[page]]) if name else iter(())
     per_day, rest = {}, []
     for g in parts:
         topic = g["topics"][0]
         if topic == name:
             per_day.setdefault(next(verb_days), []).append(g)
-        elif topic in INT_VINCENT:
-            per_day.setdefault(page_day[INT_VINCENT[topic]], []).append(g)
+        elif topic in mapping:
+            per_day.setdefault(page_day[mapping[topic]], []).append(g)
         else:
             rest.append(g)
     for d, segs in spread_parts(days, rest).items():
@@ -1090,8 +1193,8 @@ _vparts = vincent_parts()
 assert set(k for k in _vparts if not isinstance(k, int)) == {"sun", "p2", "p3"}
 vincent = vincent_days(study_days(BOOKS[0][3], BOOKS[0][4]), _vparts)
 annex_links = links_for(_vparts["sun"])
-later = {**vincent_intermediate(study_days(BOOKS[1][3], BOOKS[1][4]), _vparts["p2"]),
-         **vincent_later(study_days(BOOKS[2][3], BOOKS[2][4]), _vparts["p3"])}
+later = {**vincent_by_book(study_days(BOOKS[1][3], BOOKS[1][4]), _vparts["p2"], int_day, INT_VINCENT, INT_VERBS_PREP),
+         **vincent_by_book(study_days(BOOKS[2][3], BOOKS[2][4]), _vparts["p3"], av_day, AV_VINCENT)}
 rows = []
 study_n = 0
 for d in all_days():
@@ -1131,6 +1234,11 @@ for d in all_days():
         elif code == "Int.":
             row["book_pages"] = f"p. {int_day[d][2]}–{int_day[d][3]}"
             row["book_focus"] = int_day[d][4]
+        elif code == "Av.":
+            row["book_pages"] = f"p. {av_day[d][2]}–{av_day[d][3]}"
+            row["book_focus"] = av_day[d][4]
+            if av_day[d][5]:
+                row["book_light"] = True
     else:
         row["book"] = "Error-log chapters: redo the 2 weakest (any volume)"
     # writing + speaking
@@ -1228,6 +1336,17 @@ def int_bilans_due(sunday):
     return due
 
 
+def av_bilans_due(sunday):
+    """The Avancé bilans whose last chapter was finished in the week before this Sunday."""
+    week = [sunday - timedelta(days=i) for i in range(1, 7)]
+    due = []
+    for b in AV_BILANS:
+        last = max(x for x, e in av_day.items() if e[1] >= b[1] and e[0] <= b[1])
+        if last in week:
+            due.append(b)
+    return due
+
+
 MOCK_ROT = ["listening (35 min)", "reading (60 min)", "writing (60 min)", "speaking (12 min, recorded)"]
 month_start_marker = START
 mock_i = 0
@@ -1249,9 +1368,10 @@ for row in rows:
                      f"{final}. With time left, 1 exercise from each of {span(labs)}{vtxt}")
         bilan_pages = [q for _n, _last, pg in bilans for q in (pg, pg + 1)] + ([173] if final else [])
         row["sunday_answer_pages"] = {str(len(items) - 1): bilan_pages}
-    elif int_bilans_due(d):
-        b = int_bilans_due(d)[0]
-        items.append(f"Week re-test (60 min): Bilans {b[0]} and {b[1]} (p. {b[3]}–{b[4]}), no notes, then check the "
+    elif int_bilans_due(d) or av_bilans_due(d):
+        names = [f"Bilans {b[0]} and {b[1]} (p. {b[3]}–{b[4]})" for b in int_bilans_due(d)]
+        names += [f"Avancé bilan {b[0]} (p. {b[2]}–{b[3]})" for b in av_bilans_due(d)]
+        items.append(f"Week re-test (60 min): {' + '.join(names)}, no notes, then check the "
                      f"Corrigés. With time left, 1 exercise from each of {span(labs)}{vtxt}")
     elif labs:
         items.append(f"Week re-test (60 min): 1 exercise from each of {span(labs)}{vtxt}, covered, from memory")
@@ -1277,7 +1397,9 @@ for row in rows:
         month_start_marker = d
     if labs and any(b[2] == 52 for b in int_bilans_due(d)):
         items.append(f"Intermédiaire final test ({INT_FINAL_TEST}, 30 min): no notes, then check the Corrigés")
-    for sunday, pages, topic, _last in INT_ACTIVITIES:
+    if d == AV_FINAL_SUNDAY:
+        items.append(f"Avancé final test ({AV_FINAL_TEST}, 30 min): no notes, then check the Corrigés")
+    for sunday, pages, topic, _last in INT_ACTIVITIES + AV_ACTIVITIES:
         if d == sunday:
             items.append(f"Activité communicative (25 min): {pages}, {topic}. Listen to the recording if you have it, "
                          "answer the questions, then do the free writing or speaking at the end")
@@ -1324,7 +1446,7 @@ L.append("**Vocabulary book:** Vocabulaire progressif du français, niveau inter
 L.append("")
 L.append("**Book volumes:** Déb. = Niveau débutant 3e éd. (60 ch.) · Int. = Niveau intermédiaire 4e éd. "
          "(52 ch. of very different lengths, so days follow the pages: 2–8 pages a day) · "
-         "Av. = Niveau avancé 3e éd. (72 ch.; full work on chapters on the grammar checklist, one exercise on the rest).")
+         "Av. = Niveau avancé 3e éd. (27 ch., by pages; on light days read the rules and do the first exercise).")
 L.append("")
 L.append("**Added tasks:** a daily article from 4 Jan, a TCF tutor lesson on Saturdays from 2 Jan (Wednesdays too from "
          "8 Apr) and 30 min of native audio a day in exam mode. These are on top of the blocks above.")

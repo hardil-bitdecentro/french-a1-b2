@@ -4366,6 +4366,9 @@
     }
    ],
    "book": "Av. 1",
+   "book_pages": "p. 6–9",
+   "book_focus": "articles: indefinite, definite, generalising",
+   "book_light": true,
    "write": "Tâche 2 (120–150 mots) : Une décision difficile que tu as prise et ses conséquences.",
    "speak": "Tâche 3 (4 min 30) : Le télétravail est-il l'avenir du travail ?",
    "retest": "yesterday: Int. 52 · day −7: Int. 50",
@@ -4386,11 +4389,11 @@
    "book_audio": null,
    "vincent_later": [
     {
-     "video": 3,
-     "id": "12YUmS3rNr8",
-     "from": 5728,
-     "to": 6982,
-     "topic": "Past conditional",
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 8905,
+     "to": 9191,
+     "topic": "Homographs",
      "first": true
     }
    ],
@@ -4405,7 +4408,10 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 2",
+   "book": "Av. 1",
+   "book_pages": "p. 10–13",
+   "book_focus": "the partitive; when no article is used",
+   "book_light": true,
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Le télétravail : liberté ou isolement ?",
    "speak": "Tâche 2 (5 min 30) : Formation professionnelle : interroge le conseiller",
    "retest": "yesterday: Av. 1 · day −7: Int. 51",
@@ -4436,10 +4442,13 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 3–4",
+   "book": "Av. 1",
+   "book_pages": "p. 14–17",
+   "book_focus": "no article: more cases",
+   "book_light": true,
    "write": "Tâche 1 (60–120 mots) : Demande à ton manager une journée de télétravail par semaine, avec arguments.",
    "speak": "Tâche 3 (4 min 30) : Les réseaux sociaux sont-ils dangereux pour les jeunes ?",
-   "retest": "yesterday: Av. 2 · day −7: Int. 51",
+   "retest": "yesterday: Av. 1 · day −7: Int. 51",
    "week": 14
   },
   {
@@ -4467,10 +4476,13 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 5",
+   "book": "Av. 1–2",
+   "book_pages": "p. 18–21",
+   "book_focus": "what each article implies; number adjectives",
+   "book_light": true,
    "write": "Tâche 2 (120–150 mots) : Blog d'expatriés : ce qui t'a surpris en France.",
    "speak": "Tâche 2 (5 min 30) : Appartement meublé : interroge l'agent immobilier",
-   "retest": "yesterday: Av. 3–4 · day −7: Int. 51",
+   "retest": "yesterday: Av. 1 · day −7: Int. 51",
    "week": 14
   },
   {
@@ -4488,11 +4500,11 @@
    "book_audio": null,
    "vincent_later": [
     {
-     "video": 3,
-     "id": "12YUmS3rNr8",
-     "from": 10419,
-     "to": 10961,
-     "topic": "Passive",
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 9191,
+     "to": 9489,
+     "topic": "Homophones",
      "first": true
     }
    ],
@@ -4513,10 +4525,13 @@
      "minutes": 50
     }
    ],
-   "book": "Av. 6–7",
+   "book": "Av. 2",
+   "book_pages": "p. 22–25",
+   "book_focus": "indefinite adjectives; where adjectives go",
+   "book_light": true,
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Les réseaux sociaux rapprochent-ils ou isolent-ils les gens ?",
    "speak": "Tâche 3 (4 min 30) : Faut-il apprendre plusieurs langues aujourd'hui ?",
-   "retest": "yesterday: Av. 5 · day −7: Int. 52",
+   "retest": "yesterday: Av. 1–2 · day −7: Int. 52",
    "week": 14
   },
   {
@@ -4537,7 +4552,7 @@
    "sunday": true,
    "sunday_items": [
     "Flashcard reviews (15 min)",
-    "Week re-test (60 min): Bilans 7 and 8 (p. 256–257), no notes, then check the Corrigés. With time left, 1 exercise from each of Int. 52, Av. 1–7 and Vocab. ch. 14–15",
+    "Week re-test (60 min): Bilans 7 and 8 (p. 256–257), no notes, then check the Corrigés. With time left, 1 exercise from each of Int. 52, Av. 1–2 and Vocab. ch. 14–15",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
     "Mock section from your mock bank (45–60 min): reading (60 min)",
@@ -4571,10 +4586,13 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 8",
+   "book": "Av. 3",
+   "book_pages": "p. 26–29",
+   "book_focus": "types of negation and where they go",
+   "book_light": true,
    "write": "Tâche 1 (60–120 mots) : Plains-toi auprès d'une agence immobilière d'un retard de travaux.",
    "speak": "Tâche 2 (5 min 30) : Séminaire d'entreprise : interroge le responsable de l'hôtel",
-   "retest": "yesterday: Av. 6–7 · day −7: Int. 52",
+   "retest": "yesterday: Av. 2 · day −7: Int. 52",
    "week": 15
   },
   {
@@ -4590,16 +4608,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 3,
-     "id": "12YUmS3rNr8",
-     "from": 10961,
-     "to": 11466,
-     "topic": "Passive: conjugation",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": "ch. 15, second half",
    "sunday": false,
    "extras": [
@@ -4611,10 +4620,13 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 9–10",
+   "book": "Av. 4",
+   "book_pages": "p. 34–37",
+   "book_focus": "the present; overview of the past tenses",
+   "book_light": true,
    "write": "Tâche 2 (120–150 mots) : Un projet professionnel dont tu es fier/fière.",
    "speak": "Tâche 3 (4 min 30) : Les villes devraient-elles interdire les voitures ?",
-   "retest": "yesterday: Av. 8 · day −7: Av. 1",
+   "retest": "yesterday: Av. 3 · day −7: Av. 1",
    "week": 15
   },
   {
@@ -4630,7 +4642,16 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 9489,
+     "to": 9766,
+     "topic": "Homophones",
+     "first": true
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "extras": [
@@ -4642,10 +4663,12 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 11",
+   "book": "Av. 4",
+   "book_pages": "p. 38–39",
+   "book_focus": "the imparfait",
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Faut-il interdire les voitures dans le centre des villes ?",
    "speak": "Tâche 2 (5 min 30) : Ton ami part travailler au Canada : questions sur son projet",
-   "retest": "yesterday: Av. 9–10 · day −7: Av. 2",
+   "retest": "yesterday: Av. 4 · day −7: Av. 1",
    "week": 15
   },
   {
@@ -4663,11 +4686,11 @@
    "book_audio": null,
    "vincent_later": [
     {
-     "video": 3,
-     "id": "12YUmS3rNr8",
-     "from": 16621,
-     "to": 17753,
-     "topic": "Future perfect",
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 8926,
+     "to": 9341,
+     "topic": "Past participles that never change",
      "first": true
     }
    ],
@@ -4682,10 +4705,12 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 12",
+   "book": "Av. 4",
+   "book_pages": "p. 40–41",
+   "book_focus": "the passé composé",
    "write": "Tâche 1 (60–120 mots) : Convaincs un ami de participer à une course caritative.",
    "speak": "Tâche 3 (4 min 30) : L'argent fait-il le bonheur ?",
-   "retest": "yesterday: Av. 11 · day −7: Av. 3–4",
+   "retest": "yesterday: Av. 4 · day −7: Av. 1",
    "week": 15
   },
   {
@@ -4701,7 +4726,16 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 9766,
+     "to": 9977,
+     "topic": "Homophones",
+     "first": true
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "extras": [
@@ -4713,10 +4747,13 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 13–14",
+   "book": "Av. 4",
+   "book_pages": "p. 42–45",
+   "book_focus": "the passé simple, to recognise it; the future",
+   "book_light": true,
    "write": "Tâche 2 (120–150 mots) : Une expérience de bénévolat (réelle ou imaginaire).",
    "speak": "Tâche 2 (5 min 30) : Association écologique : questions avant d'adhérer",
-   "retest": "yesterday: Av. 12 · day −7: Av. 5",
+   "retest": "yesterday: Av. 4 · day −7: Av. 1–2",
    "week": 15
   },
   {
@@ -4736,9 +4773,17 @@
     {
      "video": 3,
      "id": "12YUmS3rNr8",
-     "from": 24380,
-     "to": 24529,
-     "topic": "en + -ant",
+     "from": 16621,
+     "to": 17753,
+     "topic": "Future perfect",
+     "first": true
+    },
+    {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 24774,
+     "to": 25230,
+     "topic": "Other compound tenses",
      "first": true
     }
    ],
@@ -4759,10 +4804,12 @@
      "minutes": 50
     }
    ],
-   "book": "Av. 15",
+   "book": "Av. 4",
+   "book_pages": "p. 46–47",
+   "book_focus": "anteriority: what happened before",
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Un service civique obligatoire pour les jeunes ?",
    "speak": "Tâche 3 (4 min 30) : Vaut-il mieux vivre en ville ou à la campagne ?",
-   "retest": "yesterday: Av. 13–14 · day −7: Av. 6–7",
+   "retest": "yesterday: Av. 4 · day −7: Av. 2",
    "week": 15
   },
   {
@@ -4783,7 +4830,7 @@
    "sunday": true,
    "sunday_items": [
     "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Av. 8–15 and Vocab. ch. 15–16, covered, from memory",
+    "Week re-test (60 min): Avancé bilan 1 (p. 30–33), no notes, then check the Corrigés. With time left, 1 exercise from each of Av. 3–4 and Vocab. ch. 15–16",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
     "Mock section from your mock bank (45–60 min): writing (60 min)",
@@ -4807,11 +4854,11 @@
    "book_audio": null,
    "vincent_later": [
     {
-     "video": 3,
-     "id": "12YUmS3rNr8",
-     "from": 24774,
-     "to": 25230,
-     "topic": "Other compound tenses",
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 9977,
+     "to": 10234,
+     "topic": "Homophones",
      "first": true
     }
    ],
@@ -4826,77 +4873,17 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 16–17",
+   "book": "Av. 4",
+   "book_pages": "p. 48–49",
+   "book_focus": "posteriority: what happens after",
    "write": "Tâche 1 (60–120 mots) : Propose à la mairie une amélioration pour ton quartier.",
    "speak": "Tâche 2 (5 min 30) : Vélo électrique : interroge le vendeur",
-   "retest": "yesterday: Av. 15 · day −7: Av. 8",
+   "retest": "yesterday: Av. 4 · day −7: Av. 3",
    "week": 16
   },
   {
    "date": "2027-02-23",
    "day": "Tue 23 Feb",
-   "phase": 3,
-   "anki": 25,
-   "sent": 8,
-   "say": 6,
-   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
-   "yt": "Easy French · next episode (French subtitles → none)",
-   "yt_kind": "Easy French · next episode (French subtitles → none)",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": null,
-   "vocab": "ch. 17, first half",
-   "sunday": false,
-   "extras": [
-    {
-     "id": "article",
-     "title": "Read one article: RFI français facile transcript",
-     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
-     "minutes": 20,
-     "link": "https://francaisfacile.rfi.fr/"
-    }
-   ],
-   "book": "Av. 18",
-   "write": "Tâche 2 (120–150 mots) : L'évolution de ton métier depuis dix ans.",
-   "speak": "Tâche 3 (4 min 30) : L'IA va-t-elle remplacer les humains au travail ?",
-   "retest": "yesterday: Av. 16–17 · day −7: Av. 9–10",
-   "week": 16
-  },
-  {
-   "date": "2027-02-24",
-   "day": "Wed 24 Feb",
-   "phase": 3,
-   "anki": 25,
-   "sent": 8,
-   "say": 6,
-   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
-   "yt": "Easy French · next episode (French subtitles → none)",
-   "yt_kind": "Easy French · next episode (French subtitles → none)",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": null,
-   "vocab": null,
-   "sunday": false,
-   "extras": [
-    {
-     "id": "article",
-     "title": "Read one article: RFI français facile transcript",
-     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
-     "minutes": 20,
-     "link": "https://francaisfacile.rfi.fr/"
-    }
-   ],
-   "book": "Av. 19–20",
-   "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Apprendre une langue étrangère dès la maternelle ?",
-   "speak": "Tâche 2 (5 min 30) : Stage en start-up : interroge le recruteur",
-   "retest": "yesterday: Av. 18 · day −7: Av. 11",
-   "week": 16
-  },
-  {
-   "date": "2027-02-25",
-   "day": "Thu 25 Feb",
    "phase": 3,
    "anki": 25,
    "sent": 8,
@@ -4917,6 +4904,98 @@
      "first": true
     }
    ],
+   "vocab": "ch. 17, first half",
+   "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
+   "book": "Av. 5",
+   "book_pages": "p. 52–53",
+   "book_focus": "subjunctive: forms and features",
+   "write": "Tâche 2 (120–150 mots) : L'évolution de ton métier depuis dix ans.",
+   "speak": "Tâche 3 (4 min 30) : L'IA va-t-elle remplacer les humains au travail ?",
+   "retest": "yesterday: Av. 4 · day −7: Av. 4",
+   "week": 16
+  },
+  {
+   "date": "2027-02-24",
+   "day": "Wed 24 Feb",
+   "phase": 3,
+   "anki": 25,
+   "sent": 8,
+   "say": 6,
+   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
+   "yt": "Easy French · next episode (French subtitles → none)",
+   "yt_kind": "Easy French · next episode (French subtitles → none)",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 2762,
+     "to": 3585,
+     "topic": "Subjunctive: opinion, doubt, Subjunctive: feelings, Subjunctive: advice, wishes, orders",
+     "first": true
+    },
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 10234,
+     "to": 10417,
+     "topic": "Prefixes",
+     "first": true
+    }
+   ],
+   "vocab": null,
+   "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
+   "book": "Av. 5",
+   "book_pages": "p. 54–55",
+   "book_focus": "when to use the subjunctive",
+   "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Apprendre une langue étrangère dès la maternelle ?",
+   "speak": "Tâche 2 (5 min 30) : Stage en start-up : interroge le recruteur",
+   "retest": "yesterday: Av. 5 · day −7: Av. 4",
+   "week": 16
+  },
+  {
+   "date": "2027-02-25",
+   "day": "Thu 25 Feb",
+   "phase": 3,
+   "anki": 25,
+   "sent": 8,
+   "say": 6,
+   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
+   "yt": "Easy French · next episode (French subtitles → none)",
+   "yt_kind": "Easy French · next episode (French subtitles → none)",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 1389,
+     "to": 2500,
+     "topic": "Past subjunctive",
+     "first": true
+    }
+   ],
    "vocab": "ch. 17, second half",
    "sunday": false,
    "extras": [
@@ -4928,10 +5007,12 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 21",
+   "book": "Av. 5",
+   "book_pages": "p. 56–57",
+   "book_focus": "subjunctive tenses",
    "write": "Tâche 1 (60–120 mots) : Demande un remboursement à un organisme de formation.",
    "speak": "Tâche 3 (4 min 30) : Les voyages forment-ils la jeunesse ?",
-   "retest": "yesterday: Av. 19–20 · day −7: Av. 12",
+   "retest": "yesterday: Av. 5 · day −7: Av. 4",
    "week": 16
   },
   {
@@ -4947,7 +5028,32 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 2500,
+     "to": 2762,
+     "topic": "Subjunctive with conjunctions",
+     "first": true
+    },
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 3585,
+     "to": 3822,
+     "topic": "Subjunctive: negative structures",
+     "first": true
+    },
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 8238,
+     "to": 8592,
+     "topic": "Verbs with que + indicative",
+     "first": true
+    }
+   ],
    "vocab": null,
    "sunday": false,
    "extras": [
@@ -4959,10 +5065,12 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 22–23",
+   "book": "Av. 5",
+   "book_pages": "p. 58–59",
+   "book_focus": "subjunctive or indicative",
    "write": "Tâche 2 (120–150 mots) : Un malentendu culturel que tu as vécu.",
    "speak": "Tâche 2 (5 min 30) : École pour un enfant : interroge la directrice",
-   "retest": "yesterday: Av. 21 · day −7: Av. 13–14",
+   "retest": "yesterday: Av. 5 · day −7: Av. 4",
    "week": 16
   },
   {
@@ -4978,7 +5086,16 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 10417,
+     "to": 10681,
+     "topic": "Prefixes",
+     "first": true
+    }
+   ],
    "vocab": "ch. 18, first half",
    "sunday": false,
    "extras": [
@@ -4996,10 +5113,12 @@
      "minutes": 50
     }
    ],
-   "book": "Av. 24",
+   "book": "Av. 5",
+   "book_pages": "p. 60–61",
+   "book_focus": "subjunctive or indicative: more cases",
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : La semaine de quatre jours : bonne ou mauvaise idée ?",
    "speak": "Tâche 3 (4 min 30) : Faut-il manger moins de viande ?",
-   "retest": "yesterday: Av. 22–23 · day −7: Av. 15",
+   "retest": "yesterday: Av. 5 · day −7: Av. 4",
    "week": 16
   },
   {
@@ -5020,11 +5139,11 @@
    "sunday": true,
    "sunday_items": [
     "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Av. 16–24 and Vocab. ch. 17–18, covered, from memory",
+    "Week re-test (60 min): Avancé bilan 2 (p. 50–51), no notes, then check the Corrigés. With time left, 1 exercise from each of Av. 4–5 and Vocab. ch. 17–18",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
     "Mock section from your mock bank (45–60 min): speaking (12 min, recorded)",
-    "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Int. 48–52, Av. 1–24"
+    "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Int. 48–52, Av. 1–5"
    ],
    "week": 16
   },
@@ -5041,16 +5160,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 4,
-     "id": "ppYImLa36ug",
-     "from": 1389,
-     "to": 2500,
-     "topic": "Past subjunctive",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "extras": [
@@ -5062,10 +5172,12 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 25",
+   "book": "Av. 6",
+   "book_pages": "p. 62–63",
+   "book_focus": "conditional: forms and features",
    "write": "Tâche 1 (60–120 mots) : Explique à un ami pourquoi tu ne peux pas venir à son mariage.",
    "speak": "Tâche 2 (5 min 30) : Voyage organisé : interroge l'agence",
-   "retest": "yesterday: Av. 24 · day −7: Av. 16–17",
+   "retest": "yesterday: Av. 5 · day −7: Av. 4",
    "week": 17
   },
   {
@@ -5081,7 +5193,24 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": null,
+   "vincent_later": [
+    {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 5728,
+     "to": 6982,
+     "topic": "Past conditional",
+     "first": true
+    },
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 10681,
+     "to": 10897,
+     "topic": "Prefixes",
+     "first": true
+    }
+   ],
    "vocab": "ch. 18, second half",
    "sunday": false,
    "extras": [
@@ -5093,10 +5222,12 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 26–27",
+   "book": "Av. 6",
+   "book_pages": "p. 64–65",
+   "book_focus": "uses of the conditional",
    "write": "Tâche 2 (120–150 mots) : Comment tu organises ton temps pour apprendre le français.",
    "speak": "Tâche 3 (4 min 30) : Le sport devrait-il être encouragé au travail ?",
-   "retest": "yesterday: Av. 25 · day −7: Av. 18",
+   "retest": "yesterday: Av. 6 · day −7: Av. 5",
    "week": 17
   },
   {
@@ -5112,16 +5243,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 4,
-     "id": "ppYImLa36ug",
-     "from": 2500,
-     "to": 2762,
-     "topic": "Subjunctive with conjunctions",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "extras": [
@@ -5133,10 +5255,12 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 28",
+   "book": "Av. 6",
+   "book_pages": "p. 66–67",
+   "book_focus": "uses of the conditional: more cases",
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Les devoirs à la maison sont-ils utiles ?",
    "speak": "Tâche 2 (5 min 30) : Marathon : interroge l'organisateur",
-   "retest": "yesterday: Av. 26–27 · day −7: Av. 19–20",
+   "retest": "yesterday: Av. 6 · day −7: Av. 5",
    "week": 17
   },
   {
@@ -5156,9 +5280,9 @@
     {
      "video": 4,
      "id": "ppYImLa36ug",
-     "from": 2762,
-     "to": 3016,
-     "topic": "Subjunctive: opinion, doubt",
+     "from": 10897,
+     "to": 11053,
+     "topic": "Prefixes",
      "first": true
     }
    ],
@@ -5173,10 +5297,13 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 29–30",
+   "book": "Av. 7",
+   "book_pages": "p. 70–73",
+   "book_focus": "the infinitive: features, uses, limits",
+   "book_light": true,
    "write": "Tâche 1 (60–120 mots) : Propose une fête des voisins à ton immeuble.",
    "speak": "Tâche 3 (4 min 30) : Un téléphone avant 15 ans ?",
-   "retest": "yesterday: Av. 28 · day −7: Av. 21",
+   "retest": "yesterday: Av. 6 · day −7: Av. 5",
    "week": 17
   },
   {
@@ -5194,11 +5321,19 @@
    "book_audio": null,
    "vincent_later": [
     {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 24380,
+     "to": 24529,
+     "topic": "en + -ant",
+     "first": true
+    },
+    {
      "video": 4,
      "id": "ppYImLa36ug",
-     "from": 3016,
-     "to": 3301,
-     "topic": "Subjunctive: feelings",
+     "from": 3822,
+     "to": 4775,
+     "topic": "Present participle, Gerund",
      "first": true
     }
    ],
@@ -5213,10 +5348,12 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 31",
+   "book": "Av. 8–9",
+   "book_pages": "p. 74–77",
+   "book_focus": "present participle and gerund",
    "write": "Tâche 2 (120–150 mots) : Un échec qui t'a finalement aidé.",
    "speak": "Tâche 2 (5 min 30) : Changer de banque : interroge le conseiller",
-   "retest": "yesterday: Av. 29–30 · day −7: Av. 22–23",
+   "retest": "yesterday: Av. 7 · day −7: Av. 5",
    "week": 17
   },
   {
@@ -5234,11 +5371,27 @@
    "book_audio": null,
    "vincent_later": [
     {
+     "video": 3,
+     "id": "12YUmS3rNr8",
+     "from": 10419,
+     "to": 11466,
+     "topic": "Passive, Passive: conjugation",
+     "first": true
+    },
+    {
+     "video": 5,
+     "id": "b1sXCZDuxSY",
+     "from": 6851,
+     "to": 7125,
+     "topic": "Present participle or verbal adjective",
+     "first": true
+    },
+    {
      "video": 4,
      "id": "ppYImLa36ug",
-     "from": 3301,
-     "to": 3585,
-     "topic": "Subjunctive: advice, wishes, orders",
+     "from": 11053,
+     "to": 11286,
+     "topic": "Suffixes",
      "first": true
     }
    ],
@@ -5259,10 +5412,13 @@
      "minutes": 50
     }
    ],
-   "book": "Av. 32–33",
+   "book": "Av. 10–11",
+   "book_pages": "p. 78–81",
+   "book_focus": "verbal adjectives; building the passive",
+   "book_light": true,
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Les musées devraient-ils être gratuits ?",
    "speak": "Tâche 3 (4 min 30) : Faut-il garder sa culture d'origine quand on vit à l'étranger ?",
-   "retest": "yesterday: Av. 31 · day −7: Av. 24",
+   "retest": "yesterday: Av. 8–9 · day −7: Av. 5",
    "week": 17
   },
   {
@@ -5283,10 +5439,11 @@
    "sunday": true,
    "sunday_items": [
     "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Av. 25–33 and Vocab. ch. 18–19, covered, from memory",
+    "Week re-test (60 min): Avancé bilan 3 (p. 68–69), no notes, then check the Corrigés. With time left, 1 exercise from each of Av. 6–11 and Vocab. ch. 18–19",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
-    "Mock section from your mock bank (45–60 min): listening (35 min)"
+    "Mock section from your mock bank (45–60 min): listening (35 min)",
+    "Activité communicative (25 min): p. 168–171, in the book's order. Listen to the recording if you have it, answer the questions, then do the free writing or speaking at the end"
    ],
    "week": 17
   },
@@ -5303,16 +5460,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 4,
-     "id": "ppYImLa36ug",
-     "from": 3585,
-     "to": 3822,
-     "topic": "Subjunctive: negative structures",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "extras": [
@@ -5324,10 +5472,12 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 34",
+   "book": "Av. 11",
+   "book_pages": "p. 82–83",
+   "book_focus": "when to use the passive",
    "write": "Tâche 1 (60–120 mots) : Réponds à une offre d'emploi de développeur.",
    "speak": "Tâche 2 (5 min 30) : Cours de théâtre : interroge le professeur",
-   "retest": "yesterday: Av. 32–33 · day −7: Av. 25",
+   "retest": "yesterday: Av. 10–11 · day −7: Av. 6",
    "week": 18
   },
   {
@@ -5347,9 +5497,9 @@
     {
      "video": 4,
      "id": "ppYImLa36ug",
-     "from": 3822,
-     "to": 4349,
-     "topic": "Present participle",
+     "from": 11286,
+     "to": 11534,
+     "topic": "Suffixes",
      "first": true
     }
    ],
@@ -5364,95 +5514,18 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 35–36",
+   "book": "Av. 12–13",
+   "book_pages": "p. 84–87",
+   "book_focus": "reflexive and impersonal forms",
+   "book_light": true,
    "write": "Tâche 2 (120–150 mots) : Une tradition de ton pays, pour des lecteurs français.",
    "speak": "Tâche 3 (4 min 30) : Des transports publics gratuits ?",
-   "retest": "yesterday: Av. 34 · day −7: Av. 26–27",
+   "retest": "yesterday: Av. 11 · day −7: Av. 6",
    "week": 18
   },
   {
    "date": "2027-03-10",
    "day": "Wed 10 Mar",
-   "phase": 3,
-   "anki": 20,
-   "sent": 8,
-   "say": 6,
-   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
-   "yt": "Easy French · next episode (French subtitles → none)",
-   "yt_kind": "Easy French · next episode (French subtitles → none)",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 4,
-     "id": "ppYImLa36ug",
-     "from": 4349,
-     "to": 4775,
-     "topic": "Gerund",
-     "first": true
-    }
-   ],
-   "vocab": null,
-   "sunday": false,
-   "extras": [
-    {
-     "id": "article",
-     "title": "Read one article: RFI français facile transcript",
-     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
-     "minutes": 20,
-     "link": "https://francaisfacile.rfi.fr/"
-    }
-   ],
-   "book": "Av. 37",
-   "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Vivre en ville ou à la campagne ?",
-   "speak": "Tâche 2 (5 min 30) : Un collègue revient d'un congé sabbatique : pose-lui des questions",
-   "retest": "yesterday: Av. 35–36 · day −7: Av. 28",
-   "week": 18
-  },
-  {
-   "date": "2027-03-11",
-   "day": "Thu 11 Mar",
-   "phase": 3,
-   "anki": 20,
-   "sent": 8,
-   "say": 6,
-   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
-   "yt": "Easy French · next episode (French subtitles → none)",
-   "yt_kind": "Easy French · next episode (French subtitles → none)",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 4,
-     "id": "ppYImLa36ug",
-     "from": 6430,
-     "to": 6643,
-     "topic": "Indirect speech: time words",
-     "first": true
-    }
-   ],
-   "vocab": "ch. 20, second half",
-   "sunday": false,
-   "extras": [
-    {
-     "id": "article",
-     "title": "Read one article: RFI français facile transcript",
-     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
-     "minutes": 20,
-     "link": "https://francaisfacile.rfi.fr/"
-    }
-   ],
-   "book": "Av. 38",
-   "write": "Tâche 1 (60–120 mots) : Réagis à un article du journal local sur les pistes cyclables.",
-   "speak": "Tâche 3 (4 min 30) : Diplôme ou expérience : qu'est-ce qui compte le plus ?",
-   "retest": "yesterday: Av. 37 · day −7: Av. 29–30",
-   "week": 18
-  },
-  {
-   "date": "2027-03-12",
-   "day": "Fri 12 Mar",
    "phase": 3,
    "anki": 20,
    "sent": 8,
@@ -5484,10 +5557,104 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 39–40",
+   "book": "Av. 14",
+   "book_pages": "p. 90–91",
+   "book_focus": "indirect questions and indirect speech",
+   "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Vivre en ville ou à la campagne ?",
+   "speak": "Tâche 2 (5 min 30) : Un collègue revient d'un congé sabbatique : pose-lui des questions",
+   "retest": "yesterday: Av. 12–13 · day −7: Av. 6",
+   "week": 18
+  },
+  {
+   "date": "2027-03-11",
+   "day": "Thu 11 Mar",
+   "phase": 3,
+   "anki": 20,
+   "sent": 8,
+   "say": 6,
+   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
+   "yt": "Easy French · next episode (French subtitles → none)",
+   "yt_kind": "Easy French · next episode (French subtitles → none)",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 7312,
+     "to": 8238,
+     "topic": "Indirect speech: tense changes",
+     "first": true
+    },
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 11534,
+     "to": 11707,
+     "topic": "Suffixes",
+     "first": true
+    }
+   ],
+   "vocab": "ch. 20, second half",
+   "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
+   "book": "Av. 14",
+   "book_pages": "p. 92–93",
+   "book_focus": "sequence of tenses",
+   "write": "Tâche 1 (60–120 mots) : Réagis à un article du journal local sur les pistes cyclables.",
+   "speak": "Tâche 3 (4 min 30) : Diplôme ou expérience : qu'est-ce qui compte le plus ?",
+   "retest": "yesterday: Av. 14 · day −7: Av. 7",
+   "week": 18
+  },
+  {
+   "date": "2027-03-12",
+   "day": "Fri 12 Mar",
+   "phase": 3,
+   "anki": 20,
+   "sent": 8,
+   "say": 6,
+   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
+   "yt": "Easy French · next episode (French subtitles → none)",
+   "yt_kind": "Easy French · next episode (French subtitles → none)",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 6430,
+     "to": 6643,
+     "topic": "Indirect speech: time words",
+     "first": true
+    }
+   ],
+   "vocab": null,
+   "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
+   "book": "Av. 14",
+   "book_pages": "p. 94–95",
+   "book_focus": "time expressions in indirect speech; free indirect speech",
    "write": "Tâche 2 (120–150 mots) : Un voyage qui a changé ta façon de voir le monde.",
    "speak": "Tâche 2 (5 min 30) : Gîte pour un week-end en famille",
-   "retest": "yesterday: Av. 38 · day −7: Av. 31",
+   "retest": "yesterday: Av. 14 · day −7: Av. 8–9",
    "week": 18
   },
   {
@@ -5503,7 +5670,16 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 14399,
+     "to": 14678,
+     "topic": "Shortened words",
+     "first": true
+    }
+   ],
    "vocab": "ch. 21, first half",
    "sunday": false,
    "extras": [
@@ -5521,10 +5697,13 @@
      "minutes": 50
     }
    ],
-   "book": "Av. 41",
+   "book": "Av. 15",
+   "book_pages": "p. 96–99",
+   "book_focus": "adverbs: features and modal adverbs",
+   "book_light": true,
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : L'intelligence artificielle : menace ou chance pour l'emploi ?",
    "speak": "Tâche 3 (4 min 30) : La télévision a-t-elle encore un avenir ?",
-   "retest": "yesterday: Av. 39–40 · day −7: Av. 32–33",
+   "retest": "yesterday: Av. 14 · day −7: Av. 10–11",
    "week": 18
   },
   {
@@ -5545,7 +5724,7 @@
    "sunday": true,
    "sunday_items": [
     "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Av. 34–41 and Vocab. ch. 20–21, covered, from memory",
+    "Week re-test (60 min): Avancé bilan 4 (p. 88–89), no notes, then check the Corrigés. With time left, 1 exercise from each of Av. 11–15 and Vocab. ch. 20–21",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
     "Mock section from your mock bank (45–60 min): reading (60 min)"
@@ -5577,10 +5756,13 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 42–43",
+   "book": "Av. 15",
+   "book_pages": "p. 100–103",
+   "book_focus": "-ment adverbs, special adverbs, word order",
+   "book_light": true,
    "write": "Tâche 1 (60–120 mots) : Demande une recommandation à un ancien collègue.",
    "speak": "Tâche 2 (5 min 30) : Voiture d'occasion chez un particulier",
-   "retest": "yesterday: Av. 41 · day −7: Av. 34",
+   "retest": "yesterday: Av. 15 · day −7: Av. 11",
    "week": 19
   },
   {
@@ -5596,16 +5778,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 4,
-     "id": "ppYImLa36ug",
-     "from": 7312,
-     "to": 8238,
-     "topic": "Indirect speech: tense changes",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": "ch. 21, second half",
    "sunday": false,
    "extras": [
@@ -5617,15 +5790,94 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 44",
+   "book": "Av. 16",
+   "book_pages": "p. 104–107",
+   "book_focus": "the prepositions à and de",
+   "book_light": true,
    "write": "Tâche 2 (120–150 mots) : Le jour où tu as reçu une très bonne nouvelle.",
    "speak": "Tâche 3 (4 min 30) : Faut-il travailler moins pour vivre mieux ?",
-   "retest": "yesterday: Av. 42–43 · day −7: Av. 35–36",
+   "retest": "yesterday: Av. 15 · day −7: Av. 12–13",
    "week": 19
   },
   {
    "date": "2027-03-17",
    "day": "Wed 17 Mar",
+   "phase": 3,
+   "anki": 20,
+   "sent": 8,
+   "say": 6,
+   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
+   "yt": "Easy French · next episode (French subtitles → none)",
+   "yt_kind": "Easy French · next episode (French subtitles → none)",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": [
+    {
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 14678,
+     "to": 14982,
+     "topic": "Verbs with prefixes",
+     "first": true
+    }
+   ],
+   "vocab": null,
+   "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
+   "book": "Av. 16",
+   "book_pages": "p. 108–111",
+   "book_focus": "the prepositions en, par, pour",
+   "book_light": true,
+   "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Faut-il interdire les téléphones à l'école ?",
+   "speak": "Tâche 2 (5 min 30) : Salle d'escalade : inscription",
+   "retest": "yesterday: Av. 16 · day −7: Av. 14",
+   "week": 19
+  },
+  {
+   "date": "2027-03-18",
+   "day": "Thu 18 Mar",
+   "phase": 3,
+   "anki": 20,
+   "sent": 8,
+   "say": 6,
+   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
+   "yt": "Easy French · next episode (French subtitles → none)",
+   "yt_kind": "Easy French · next episode (French subtitles → none)",
+   "yt_links": null,
+   "yt_rest": null,
+   "book_audio": null,
+   "vincent_later": null,
+   "vocab": "ch. 22, first half",
+   "sunday": false,
+   "extras": [
+    {
+     "id": "article",
+     "title": "Read one article: RFI français facile transcript",
+     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
+     "minutes": 20,
+     "link": "https://francaisfacile.rfi.fr/"
+    }
+   ],
+   "book": "Av. 17",
+   "book_pages": "p. 114–115",
+   "book_focus": "simple relative pronouns",
+   "write": "Tâche 1 (60–120 mots) : Résilie ton abonnement au club de sport et explique pourquoi.",
+   "speak": "Tâche 3 (4 min 30) : La mode éthique : effet de mode ou vraie prise de conscience ?",
+   "retest": "yesterday: Av. 16 · day −7: Av. 14",
+   "week": 19
+  },
+  {
+   "date": "2027-03-19",
+   "day": "Fri 19 Mar",
    "phase": 3,
    "anki": 20,
    "sent": 8,
@@ -5648,90 +5900,12 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 45–46",
-   "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Faut-il interdire les téléphones à l'école ?",
-   "speak": "Tâche 2 (5 min 30) : Salle d'escalade : inscription",
-   "retest": "yesterday: Av. 44 · day −7: Av. 37",
-   "week": 19
-  },
-  {
-   "date": "2027-03-18",
-   "day": "Thu 18 Mar",
-   "phase": 3,
-   "anki": 20,
-   "sent": 8,
-   "say": 6,
-   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
-   "yt": "Easy French · next episode (French subtitles → none)",
-   "yt_kind": "Easy French · next episode (French subtitles → none)",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 4,
-     "id": "ppYImLa36ug",
-     "from": 8238,
-     "to": 8592,
-     "topic": "Verbs with que + indicative",
-     "first": true
-    }
-   ],
-   "vocab": "ch. 22, first half",
-   "sunday": false,
-   "extras": [
-    {
-     "id": "article",
-     "title": "Read one article: RFI français facile transcript",
-     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
-     "minutes": 20,
-     "link": "https://francaisfacile.rfi.fr/"
-    }
-   ],
-   "book": "Av. 47",
-   "write": "Tâche 1 (60–120 mots) : Résilie ton abonnement au club de sport et explique pourquoi.",
-   "speak": "Tâche 3 (4 min 30) : La mode éthique : effet de mode ou vraie prise de conscience ?",
-   "retest": "yesterday: Av. 45–46 · day −7: Av. 38",
-   "week": 19
-  },
-  {
-   "date": "2027-03-19",
-   "day": "Fri 19 Mar",
-   "phase": 3,
-   "anki": 20,
-   "sent": 8,
-   "say": 6,
-   "tv5": "TV5MONDE EDU · B1 · 3 exercises",
-   "yt": "Easy French · next episode (French subtitles → none)",
-   "yt_kind": "Easy French · next episode (French subtitles → none)",
-   "yt_links": null,
-   "yt_rest": null,
-   "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 4,
-     "id": "ppYImLa36ug",
-     "from": 8905,
-     "to": 9191,
-     "topic": "Homographs",
-     "first": true
-    }
-   ],
-   "vocab": null,
-   "sunday": false,
-   "extras": [
-    {
-     "id": "article",
-     "title": "Read one article: RFI français facile transcript",
-     "detail": "Read it once without a dictionary. Write the main idea and 2 details, then check.",
-     "minutes": 20,
-     "link": "https://francaisfacile.rfi.fr/"
-    }
-   ],
-   "book": "Av. 48",
+   "book": "Av. 17",
+   "book_pages": "p. 116–117",
+   "book_focus": "simple relative pronouns: more cases",
    "write": "Tâche 2 (120–150 mots) : Une application qui a changé ton quotidien.",
    "speak": "Tâche 2 (5 min 30) : Fête de quartier : interroge la mairie",
-   "retest": "yesterday: Av. 47 · day −7: Av. 39–40",
+   "retest": "yesterday: Av. 17 · day −7: Av. 14",
    "week": 19
   },
   {
@@ -5751,9 +5925,9 @@
     {
      "video": 4,
      "id": "ppYImLa36ug",
-     "from": 9191,
-     "to": 9766,
-     "topic": "Homophones",
+     "from": 14982,
+     "to": 15296,
+     "topic": "Verbs with prefixes",
      "first": true
     }
    ],
@@ -5774,10 +5948,12 @@
      "minutes": 50
     }
    ],
-   "book": "Av. 49–50",
+   "book": "Av. 17",
+   "book_pages": "p. 118–119",
+   "book_focus": "compound relative pronouns",
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Le tourisme de masse : richesse ou problème ?",
    "speak": "Tâche 3 (4 min 30) : Les célébrités ont-elles une responsabilité envers leurs fans ?",
-   "retest": "yesterday: Av. 48 · day −7: Av. 41",
+   "retest": "yesterday: Av. 17 · day −7: Av. 15",
    "week": 19
   },
   {
@@ -5798,10 +5974,11 @@
    "sunday": true,
    "sunday_items": [
     "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Av. 42–50 and Vocab. ch. 21–22, covered, from memory",
+    "Week re-test (60 min): Avancé bilan 5 (p. 112–113), no notes, then check the Corrigés. With time left, 1 exercise from each of Av. 15–17 and Vocab. ch. 21–22",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
-    "Mock section from your mock bank (45–60 min): writing (60 min)"
+    "Mock section from your mock bank (45–60 min): writing (60 min)",
+    "Activité communicative (25 min): p. 172–175, in the book's order. Listen to the recording if you have it, answer the questions, then do the free writing or speaking at the end"
    ],
    "week": 19
   },
@@ -5818,16 +5995,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 4,
-     "id": "ppYImLa36ug",
-     "from": 9766,
-     "to": 9977,
-     "topic": "Homophones",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "extras": [
@@ -5839,10 +6007,12 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 51",
+   "book": "Av. 17",
+   "book_pages": "p. 120–121",
+   "book_focus": "compound relative pronouns: more cases",
    "write": "Tâche 1 (60–120 mots) : Conseille un ami qui hésite à partir au Canada.",
    "speak": "Tâche 2 (5 min 30) : Abonnement de transport annuel",
-   "retest": "yesterday: Av. 49–50 · day −7: Av. 42–43",
+   "retest": "yesterday: Av. 17 · day −7: Av. 15",
    "week": 20
   },
   {
@@ -5862,9 +6032,9 @@
     {
      "video": 4,
      "id": "ppYImLa36ug",
-     "from": 9977,
-     "to": 10417,
-     "topic": "Homophones, Prefixes",
+     "from": 15296,
+     "to": 15389,
+     "topic": "Verbs with prefixes",
      "first": true
     }
    ],
@@ -5879,10 +6049,12 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 52–53",
+   "book": "Av. 18",
+   "book_pages": "p. 122–125",
+   "book_focus": "object pronouns: order; le, en, y",
    "write": "Tâche 2 (120–150 mots) : Ta première conversation entièrement en français.",
    "speak": "Tâche 3 (4 min 30) : Faut-il interdire la publicité dans l'espace public ?",
-   "retest": "yesterday: Av. 51 · day −7: Av. 44",
+   "retest": "yesterday: Av. 17 · day −7: Av. 16",
    "week": 20
   },
   {
@@ -5902,9 +6074,9 @@
     {
      "video": 4,
      "id": "ppYImLa36ug",
-     "from": 10417,
-     "to": 10681,
-     "topic": "Prefixes",
+     "from": 15389,
+     "to": 15478,
+     "topic": "Verbs with prefixes",
      "first": true
     }
    ],
@@ -5919,10 +6091,13 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 54",
+   "book": "Av. 19",
+   "book_pages": "p. 126–127",
+   "book_focus": "indefinite pronouns",
+   "book_light": true,
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Acheter d'occasion : mode passagère ou vrai changement ?",
    "speak": "Tâche 2 (5 min 30) : Ton ami a déménagé : questions sur sa nouvelle vie",
-   "retest": "yesterday: Av. 52–53 · day −7: Av. 45–46",
+   "retest": "yesterday: Av. 18 · day −7: Av. 16",
    "week": 20
   },
   {
@@ -5942,9 +6117,9 @@
     {
      "video": 4,
      "id": "ppYImLa36ug",
-     "from": 10681,
-     "to": 11053,
-     "topic": "Prefixes",
+     "from": 15478,
+     "to": 15541,
+     "topic": "Verbs with prefixes",
      "first": true
     }
    ],
@@ -5959,10 +6134,12 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 55–56",
+   "book": "Av. 20",
+   "book_pages": "p. 130–131",
+   "book_focus": "placing events in time",
    "write": "Tâche 1 (60–120 mots) : Compagnie aérienne : ton bagage est perdu.",
    "speak": "Tâche 3 (4 min 30) : Le bénévolat obligatoire pour les étudiants ?",
-   "retest": "yesterday: Av. 54 · day −7: Av. 47",
+   "retest": "yesterday: Av. 19 · day −7: Av. 17",
    "week": 20
   },
   {
@@ -5982,9 +6159,9 @@
     {
      "video": 4,
      "id": "ppYImLa36ug",
-     "from": 11053,
-     "to": 11286,
-     "topic": "Suffixes",
+     "from": 15541,
+     "to": 15662,
+     "topic": "Verbs with prefixes",
      "first": true
     }
    ],
@@ -5999,10 +6176,12 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 57",
+   "book": "Av. 20",
+   "book_pages": "p. 132–133",
+   "book_focus": "expressing duration",
    "write": "Tâche 2 (120–150 mots) : Ton quartier et son ambiance.",
    "speak": "Tâche 2 (5 min 30) : Cours de cuisine française",
-   "retest": "yesterday: Av. 55–56 · day −7: Av. 48",
+   "retest": "yesterday: Av. 20 · day −7: Av. 17",
    "week": 20
   },
   {
@@ -6022,9 +6201,9 @@
     {
      "video": 4,
      "id": "ppYImLa36ug",
-     "from": 11286,
-     "to": 11707,
-     "topic": "Suffixes",
+     "from": 15662,
+     "to": 15749,
+     "topic": "Verbs with prefixes",
      "first": true
     }
    ],
@@ -6045,10 +6224,12 @@
      "minutes": 50
     }
    ],
-   "book": "Av. 58–59",
+   "book": "Av. 21",
+   "book_pages": "p. 134–137",
+   "book_focus": "expressing cause",
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Faut-il manger moins de viande pour la planète ?",
    "speak": "Tâche 3 (4 min 30) : Changer souvent d'emploi : bonne idée ?",
-   "retest": "yesterday: Av. 57 · day −7: Av. 49–50",
+   "retest": "yesterday: Av. 20 · day −7: Av. 17",
    "week": 20
   },
   {
@@ -6069,11 +6250,12 @@
    "sunday": true,
    "sunday_items": [
     "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Av. 51–59 and Vocab. ch. 23–24, covered, from memory",
+    "Week re-test (60 min): Avancé bilan 6 (p. 128–129), no notes, then check the Corrigés. With time left, 1 exercise from each of Av. 17–21 and Vocab. ch. 23–24",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
     "Mock section from your mock bank (45–60 min): speaking (12 min, recorded)",
-    "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Av. 25–59"
+    "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Av. 6–21",
+    "Activité communicative (25 min): p. 176–179, in the book's order. Listen to the recording if you have it, answer the questions, then do the free writing or speaking at the end"
    ],
    "week": 20
   },
@@ -6094,9 +6276,9 @@
     {
      "video": 4,
      "id": "ppYImLa36ug",
-     "from": 14399,
-     "to": 14678,
-     "topic": "Shortened words",
+     "from": 15749,
+     "to": 15850,
+     "topic": "Verbs with prefixes",
      "first": true
     }
    ],
@@ -6111,10 +6293,12 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 60",
+   "book": "Av. 22",
+   "book_pages": "p. 138–141",
+   "book_focus": "expressing consequence",
    "write": "Tâche 1 (60–120 mots) : Propose à une bibliothèque de créer un club de conversation.",
    "speak": "Tâche 2 (5 min 30) : Colocation avec un(e) inconnu(e)",
-   "retest": "yesterday: Av. 58–59 · day −7: Av. 51",
+   "retest": "yesterday: Av. 21 · day −7: Av. 17",
    "week": 21
   },
   {
@@ -6134,8 +6318,8 @@
     {
      "video": 4,
      "id": "ppYImLa36ug",
-     "from": 14678,
-     "to": 14982,
+     "from": 15850,
+     "to": 16052,
      "topic": "Verbs with prefixes",
      "first": true
     }
@@ -6151,10 +6335,12 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 61",
+   "book": "Av. 23",
+   "book_pages": "p. 142–145",
+   "book_focus": "expressing comparison",
    "write": "Tâche 2 (120–150 mots) : Une fois où tu as aidé un inconnu.",
    "speak": "Tâche 3 (4 min 30) : L'immigration enrichit-elle un pays ?",
-   "retest": "yesterday: Av. 60 · day −7: Av. 52–53",
+   "retest": "yesterday: Av. 22 · day −7: Av. 18",
    "week": 21
   },
   {
@@ -6170,16 +6356,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 4,
-     "id": "ppYImLa36ug",
-     "from": 14982,
-     "to": 15389,
-     "topic": "Verbs with prefixes",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "extras": [
@@ -6191,10 +6368,12 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 62–63",
+   "book": "Av. 24",
+   "book_pages": "p. 148–149",
+   "book_focus": "expressing opposition",
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Étudier à l'étranger : indispensable pour une carrière ?",
    "speak": "Tâche 2 (5 min 30) : Covoiturage régulier : interroge le conducteur",
-   "retest": "yesterday: Av. 61 · day −7: Av. 54",
+   "retest": "yesterday: Av. 23 · day −7: Av. 19",
    "week": 21
   },
   {
@@ -6214,8 +6393,8 @@
     {
      "video": 4,
      "id": "ppYImLa36ug",
-     "from": 15389,
-     "to": 15749,
+     "from": 16052,
+     "to": 16219,
      "topic": "Verbs with prefixes",
      "first": true
     }
@@ -6231,10 +6410,12 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 64",
+   "book": "Av. 24",
+   "book_pages": "p. 150–151",
+   "book_focus": "expressing concession",
    "write": "Tâche 1 (60–120 mots) : Recommande une série à un ami, en argumentant.",
    "speak": "Tâche 3 (4 min 30) : Faut-il limiter le tourisme dans certaines villes ?",
-   "retest": "yesterday: Av. 62–63 · day −7: Av. 55–56",
+   "retest": "yesterday: Av. 24 · day −7: Av. 20",
    "week": 21
   },
   {
@@ -6254,8 +6435,8 @@
     {
      "video": 4,
      "id": "ppYImLa36ug",
-     "from": 15749,
-     "to": 16052,
+     "from": 16219,
+     "to": 16352,
      "topic": "Verbs with prefixes",
      "first": true
     }
@@ -6271,10 +6452,12 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 65–66",
+   "book": "Av. 25",
+   "book_pages": "p. 152–153",
+   "book_focus": "expressing purpose",
    "write": "Tâche 2 (120–150 mots) : Ta vie au Canada dans cinq ans.",
    "speak": "Tâche 2 (5 min 30) : Réparer ton téléphone : interroge le technicien",
-   "retest": "yesterday: Av. 64 · day −7: Av. 57",
+   "retest": "yesterday: Av. 24 · day −7: Av. 20",
    "week": 21
   },
   {
@@ -6290,16 +6473,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 4,
-     "id": "ppYImLa36ug",
-     "from": 16052,
-     "to": 16352,
-     "topic": "Verbs with prefixes",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": "ch. 25, second half",
    "sunday": false,
    "extras": [
@@ -6317,10 +6491,12 @@
      "minutes": 50
     }
    ],
-   "book": "Av. 67",
+   "book": "Av. 26",
+   "book_pages": "p. 154–155",
+   "book_focus": "condition and hypothesis",
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Faut-il limiter le temps d'écran des enfants ?",
    "speak": "Tâche 3 (4 min 30) : La lecture est-elle encore importante à l'ère numérique ?",
-   "retest": "yesterday: Av. 65–66 · day −7: Av. 58–59",
+   "retest": "yesterday: Av. 25 · day −7: Av. 21",
    "week": 21
   },
   {
@@ -6341,10 +6517,11 @@
    "sunday": true,
    "sunday_items": [
     "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Av. 60–67 and Vocab. ch. 24–25, covered, from memory",
+    "Week re-test (60 min): Avancé bilan 7 (p. 146–147), no notes, then check the Corrigés. With time left, 1 exercise from each of Av. 22–26 and Vocab. ch. 24–25",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
-    "Mock section from your mock bank (45–60 min): listening (35 min)"
+    "Mock section from your mock bank (45–60 min): listening (35 min)",
+    "Activité communicative (25 min): p. 180–184, in the book's order. Listen to the recording if you have it, answer the questions, then do the free writing or speaking at the end"
    ],
    "week": 21
   },
@@ -6366,7 +6543,7 @@
      "video": 4,
      "id": "ppYImLa36ug",
      "from": 16352,
-     "to": 16696,
+     "to": 16493,
      "topic": "Verbs with prefixes",
      "first": true
     }
@@ -6382,10 +6559,12 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 68–69",
+   "book": "Av. 27",
+   "book_pages": "p. 156–159",
+   "book_focus": "communication and nuance, part 1",
    "write": "Tâche 1 (60–120 mots) : Négocie le loyer avec ton propriétaire.",
    "speak": "Tâche 2 (5 min 30) : Club de lecture : inscription",
-   "retest": "yesterday: Av. 67 · day −7: Av. 60",
+   "retest": "yesterday: Av. 26 · day −7: Av. 22",
    "week": 22
   },
   {
@@ -6401,16 +6580,7 @@
    "yt_links": null,
    "yt_rest": null,
    "book_audio": null,
-   "vincent_later": [
-    {
-     "video": 5,
-     "id": "b1sXCZDuxSY",
-     "from": 6851,
-     "to": 7125,
-     "topic": "Present participle or verbal adjective",
-     "first": true
-    }
-   ],
+   "vincent_later": null,
    "vocab": null,
    "sunday": false,
    "extras": [
@@ -6422,10 +6592,12 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 70",
+   "book": "Av. 27",
+   "book_pages": "p. 160–163",
+   "book_focus": "communication and nuance, part 2",
    "write": "Tâche 2 (120–150 mots) : Les avantages et difficultés du travail à distance.",
    "speak": "Tâche 3 (4 min 30) : Peut-on être heureux sans internet ?",
-   "retest": "yesterday: Av. 68–69 · day −7: Av. 61",
+   "retest": "yesterday: Av. 27 · day −7: Av. 23",
    "week": 22
   },
   {
@@ -6443,11 +6615,11 @@
    "book_audio": null,
    "vincent_later": [
     {
-     "video": 5,
-     "id": "b1sXCZDuxSY",
-     "from": 8926,
-     "to": 9341,
-     "topic": "Past participles that never change",
+     "video": 4,
+     "id": "ppYImLa36ug",
+     "from": 16493,
+     "to": 16696,
+     "topic": "Verbs with prefixes",
      "first": true
     }
    ],
@@ -6462,10 +6634,12 @@
      "link": "https://francaisfacile.rfi.fr/"
     }
    ],
-   "book": "Av. 71–72",
+   "book": "Av. 27",
+   "book_pages": "p. 164–165",
+   "book_focus": "communication and nuance, part 3",
    "write": "Tâche 3 (120–180 mots, 2 points de vue + ton avis) : Le vélo en ville : avenir ou danger ?",
    "speak": "Tâche 2 (5 min 30) : Randonnée guidée en montagne",
-   "retest": "yesterday: Av. 70 · day −7: Av. 62–63",
+   "retest": "yesterday: Av. 27 · day −7: Av. 24",
    "week": 22
   },
   {
@@ -6606,10 +6780,11 @@
    "sunday": true,
    "sunday_items": [
     "Flashcard reviews (15 min)",
-    "Week re-test (60 min): 1 exercise from each of Av. 68–72, covered, from memory",
+    "Week re-test (60 min): Avancé bilan 8 (p. 166–167), no notes, then check the Corrigés. With time left, 1 exercise from each of Av. 27",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "Long speaking (90 min): a Tandem or HelloTalk partner, or 3 timed Claude role-plays",
-    "Mock section from your mock bank (45–60 min): reading (60 min)"
+    "Mock section from your mock bank (45–60 min): reading (60 min)",
+    "Avancé final test (p. 185–186, 30 min): no notes, then check the Corrigés"
    ],
    "week": 22
   },
@@ -7138,7 +7313,7 @@
     "Re-test (60 min): every error-log chapter you redid this week",
     "Error log (30 min): group by type; anything 3×+ → redo that chapter",
     "FULL MOCK from your mock bank, all 4 parts, real timing (≈3 h), then score it against the NCLC 7 table",
-    "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Av. 60–72"
+    "MONTHLY REVIEW (+30 days): skim + redo the 'bilan' of Av. 22–27"
    ],
    "week": 24
   },

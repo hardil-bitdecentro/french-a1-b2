@@ -234,7 +234,8 @@ export const BOOK_WORDS = [
 export const WRITING_PROMPT = (topic) =>
   `Corrige ce texte (niveau visé : B2, TCF Canada). Sujet : ${topic}\n` +
   `Donne-moi : 1) la version corrigée, 2) chaque erreur avec la règle expliquée en anglais, ` +
-  `3) une note estimée /20 selon les critères du TCF, 4) trois tournures plus naturelles.\n\n` +
+  `3) une note estimée /20 selon les critères du TCF, 4) trois tournures plus naturelles.\n` +
+  `Compte aussi mes mots et dis-moi si je respecte la limite demandée.\n\n` +
   `Mon texte :\n`;
 
 export const SPEAKING_PROMPT = (task, phase) =>
@@ -293,8 +294,47 @@ export function formatClock(seconds) {
 // A Débutant chapter takes about this long, so a two or three chapter day shows its real length.
 export const MINUTES_PER_DEB_CHAPTER = 40;
 
-export const AVANCE_TRIAGE =
-  ' If this chapter is on your grammar checklist, do all of it. If it is not, do the first exercise only and put the time you save into speaking.';
+export const AVANCE_LIGHT =
+  ' Lighter day: read the rules and do the first exercise on each double page, then put the time you save into speaking.';
+
+// The official word limits for the three TCF Canada writing tasks.
+export const WORD_LIMITS = { 1: [60, 120], 2: [120, 150], 3: [120, 180] };
+export const TYPING_FROM = '2027-02-01';
+
+export function wordLimit(write) {
+  const m = String(write).match(/^Tâche ([123])/);
+  return m ? WORD_LIMITS[m[1]] : null;
+}
+
+export function countWords(text) {
+  return (String(text).trim().match(/\S+/g) || []).length;
+}
+
+/** What the word counter shows: the count, and whether it is inside the limit. */
+export function wordStatus(count, limit) {
+  const words = `${count} ${count === 1 ? 'word' : 'words'}`;
+  if (!limit || !count) return { text: words, off: false };
+  if (count < limit[0]) return { text: `${words}: ${limit[0] - count} short of the ${limit[0]} minimum`, off: true };
+  if (count > limit[1]) return { text: `${words}: ${count - limit[1]} over the ${limit[1]} maximum`, off: true };
+  return { text: `${words}: inside the ${limit[0]}–${limit[1]} limit`, off: false };
+}
+
+export const SOURCES_PROMPT = (write) =>
+  `Écris deux courts textes d'opinion (environ 90 mots chacun, niveau B2, style presse) qui défendent des points de vue opposés sur ce sujet : ` +
+  `${String(write).split(' : ').slice(1).join(' : ')} Donne seulement les deux textes, sans ton avis.`;
+
+function writeDetail(day) {
+  const limit = wordLimit(day.write);
+  const parts = [];
+  if (/^Tâche 3/.test(day.write))
+    parts.push('Exam style: get two source texts first, read them, then compare the two views and give your opinion.');
+  if (limit)
+    parts.push(`Stay within ${limit[0]}–${limit[1]} words: a task outside the limit can be marked down to A1.`);
+  if (/^FULL writing/.test(day.write))
+    parts.push('Stay within the limits: tâche 1 60–120 words, tâche 2 120–150, tâche 3 120–180.');
+  if (day.date >= TYPING_FROM) parts.push('Type this, with the accents, the way you will on exam day.');
+  return parts.join(' ');
+}
 
 /** Minutes to put on the timer: the task's own, or the "(60 min)" in a Sunday task's title. */
 export function taskMinutes(task) {
@@ -514,7 +554,7 @@ export function sessionsFor(day) {
         (day.book_annex ? `${day.book_annex}. ` : '') +
         (day.book_topics ? 'Read the examples on the left page, then the rule' : 'Read the rule') +
         ' → close the book, say it aloud → exercises without looking → check your answers (Corrigés, or the button below). Take as long as it needs.' +
-        (/^Av\. /.test(day.book) ? AVANCE_TRIAGE : ''),
+        (day.book_light ? AVANCE_LIGHT : ''),
       ...(day.book_topics ? { action: { label: 'French words in the book', href: '#/book-words' } } : {}),
       minutes: day.book_topics ? Math.max(m.book, day.book_topics.length * MINUTES_PER_DEB_CHAPTER) : m.book,
       kind: 'explain',
@@ -534,8 +574,12 @@ export function sessionsFor(day) {
     id: 'write',
     title: `Write: ${day.write}`,
     kind: 'write',
+    detail: writeDetail(day) || undefined,
     minutes: m.write,
     copy: WRITING_PROMPT(day.write),
+    limit: wordLimit(day.write) || undefined,
+    counter: Boolean(wordLimit(day.write)) || /^FULL writing/.test(day.write),
+    sources: /^Tâche 3/.test(day.write) ? SOURCES_PROMPT(day.write) : undefined,
   });
 
   const afternoon = [{ id: 'input', title: day.tv5, minutes: m.input, link: exam ? LINKS.tcf : LINKS.tv5 }];

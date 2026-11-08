@@ -58,7 +58,7 @@ export function viewMaterials() {
       <ul class="plain volumes">
         <li><p class="vol-when">Buy now · used 9 Nov – 9 Dec · A1</p><p class="task-title">Niveau débutant, 3e éd. (2025 "+ appli" printing), 60 chapters + Corrigés</p><p class="sub">ISBN 9782090398502 · ${isbn('9782090398502')} · Corrigés 9782090381023</p></li>
         <li><p class="vol-when">Buy this week · used 10 Dec – 8 Feb · A2–B1</p><p class="task-title">Niveau intermédiaire, 4e éd. + Corrigés</p><p class="sub">ISBN 9782090381030 · ${isbn('9782090381030')} · Corrigés 9782090381047</p></li>
-        <li><p class="vol-when">Buy this week · used 9 Feb – 7 Apr · B1–B2</p><p class="task-title">Niveau avancé, 3e éd., 72 chapters + Corrigés</p><p class="sub">ISBN 9782090381979 · ${isbn('9782090381979')} · Corrigés 9782090381986</p></li>
+        <li><p class="vol-when">Buy this week · used 9 Feb – 7 Apr · B1–B2</p><p class="task-title">Niveau avancé, 3e éd., 27 chapters + Corrigés</p><p class="sub">ISBN 9782090381979 · ${isbn('9782090381979')} · Corrigés 9782090381986</p></li>
       </ul>
       <div class="acts"><a class="act" href="#/audio">Débutant audio: 28 dialogues + 10 songs →</a></div>
       <p class="sub">Also at Gibert Joseph, Decitre and Cultura, or borrow them free from your médiathèque. The plan assumes 52 chapters in Intermédiaire; if your copy has a different number, keep about one a day and let the dates slide.</p>
@@ -128,7 +128,7 @@ export function viewMaterials() {
 
     <section class="card">
       <h2>Exam papers: official TCF Canada samples (free)</h2>
-      <p>From the people who write the test, but only a small set. Use them for your baseline on 15 Nov, then alongside a mock bank.</p>
+      <p>From the people who write the test, but only a small set. Use them for your baseline on 15 Nov, then alongside a mock bank. AF Delhi and AF Bengal run it on computer, with speaking face to face, so type your writing from February and check how your centre handles accents.</p>
       <div class="acts"><a class="act" href="${LINKS.tcf}" target="_blank" rel="noopener">france-education-international.fr ↗</a></div>
     </section>
 

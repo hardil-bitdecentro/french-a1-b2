@@ -5,6 +5,8 @@ import {
   timerLeft,
   formatClock,
   taskMinutes,
+  countWords,
+  wordStatus,
   splitTitle,
   detailParts,
   mistakeLines,
@@ -265,6 +267,8 @@ function taskActions(iso, t) {
     actions.push(
       iso >= '2027-02-01' ? tutorLink('exam', 'Mark it like the exam') : tutorLink('write', 'Correct my writing'),
     );
+  if (t.sources)
+    actions.push(`<button class="act" type="button" data-copy="${esc(t.sources)}">Copy source-text prompt</button>`);
   if (t.action) actions.push(`<a class="act" href="${esc(t.action.href)}">${esc(t.action.label)} →</a>`);
   if (t.link) actions.push(`<a class="act" href="${esc(t.link)}" target="_blank" rel="noopener">Open ↗</a>`);
   if (t.kind === 'speak') {
@@ -278,6 +282,16 @@ function taskActions(iso, t) {
         : `<button class="act" type="button" data-add-words="${esc(t.addWords)}">Add ${WORD_SETS[t.addWords].words.length} flashcards</button>`,
     );
   return actions;
+}
+
+/** A live word count for the writing tasks. What you paste here is never saved. */
+function wordCounterHtml(t) {
+  const limit = t.limit ? ` data-min="${t.limit[0]}" data-max="${t.limit[1]}"` : '';
+  return `<div class="word-count">
+    <label for="wc-text">Paste or type your text to count its words</label>
+    <textarea id="wc-text" rows="4" lang="fr"${limit}></textarea>
+    <p class="sub" id="wc-out" role="status">0 words</p>
+  </div>`;
 }
 
 /** The older route: a ready-made prompt to paste into Claude, in case the tutor page can't be used. */
@@ -354,6 +368,7 @@ function viewTask(iso, id) {
       .join('')}
     ${actions.length ? `<div class="acts">${actions.join('')}</div>` : ''}
     ${copyPrompts(t)}
+    ${t.counter ? wordCounterHtml(t) : ''}
     ${answersBlock(t)}
     ${t.id === 'errorlog' ? todaysMistakes(iso) : ''}
     ${t.kind === 'speak' ? `<div style="margin-top:0.9rem">${recorderHtml({ date: iso, title: head.replace(/^Speak:\s*/, '') })}</div>` : ''}
@@ -984,6 +999,14 @@ app.addEventListener('submit', async (e) => {
 
 let noteTimer;
 app.addEventListener('input', (e) => {
+  if (e.target.id === 'wc-text') {
+    const { min, max } = e.target.dataset;
+    const status = wordStatus(countWords(e.target.value), min ? [Number(min), Number(max)] : null);
+    const out = document.getElementById('wc-out');
+    out.textContent = status.text;
+    out.classList.toggle('word-off', status.off);
+    return;
+  }
   if (e.target.id !== 'notes') return;
   const { date } = e.target.dataset;
   clearTimeout(noteTimer);

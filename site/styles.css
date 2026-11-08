@@ -1164,3 +1164,15 @@ code {
     white-space: normal;
   }
 }
+
+.word-count {
+  margin-top: 0.9rem;
+}
+.word-count label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+.word-count .word-off {
+  color: var(--red);
+}

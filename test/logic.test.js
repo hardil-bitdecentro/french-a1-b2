@@ -2,6 +2,9 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
   MINUTES,
+  wordLimit,
+  countWords,
+  wordStatus,
   EXPLAIN_PROMPT,
   CHECK_PROMPT,
   timerLeft,
@@ -90,7 +93,7 @@ describe('schedule data', () => {
   });
 
   it('covers every chapter of each volume exactly once, in order', () => {
-    const volumes = { 'Déb.': 60, 'Int.': 52, 'Av.': 72 };
+    const volumes = { 'Déb.': 60, 'Int.': 52, 'Av.': 27 };
     for (const [code, count] of Object.entries(volumes)) {
       const seen = [];
       for (const d of studyDays) {
@@ -262,6 +265,105 @@ describe('Intermédiaire: videos, activities and prompts follow the book', () =>
   });
 });
 
+describe('Avancé, mapped to the book', () => {
+  const av = studyDays.filter((d) => /^Av\. /.test(d.book));
+  const pages = (d) =>
+    d.book_pages
+      .match(/p\. (\d+)–(\d+)/)
+      .slice(1)
+      .map(Number);
+  const book = (d) => sessionsFor(d)[0].tasks.find((t) => t.id === 'book');
+  const on = (needle) => plan.days.filter((d) => d.sunday_items?.some((i) => i.includes(needle)));
+
+  it('runs from p. 6 to p. 165 with no gap except the bilan pages', () => {
+    const skip = { 30: 34, 50: 52, 68: 70, 88: 90, 112: 114, 128: 130, 146: 148 };
+    expect(pages(av[0])[0]).toBe(6);
+    expect(pages(av.at(-1))[1]).toBe(165);
+    av.slice(1).forEach((d, i) => {
+      const next = pages(av[i])[1] + 1;
+      expect(pages(d)[0]).toBe(skip[next] ?? next);
+    });
+  });
+
+  it('never sets more than 4 pages a day, and only some days are light', () => {
+    for (const d of av) expect(pages(d)[1] - pages(d)[0] + 1).toBeLessThanOrEqual(4);
+    const light = av.filter((d) => d.book_light);
+    expect(light.length).toBeGreaterThan(0);
+    expect(light.every((d) => book(d).detail.includes('Lighter day'))).toBe(true);
+    expect(av.filter((d) => !d.book_light).every((d) => !book(d).detail.includes('Lighter day'))).toBe(true);
+  });
+
+  it('never makes the subjunctive, conditional or linking chapters light', () => {
+    const core = av.filter((d) =>
+      /subjunctive|conditional|cause|consequence|opposition|concession|purpose/.test(d.book_focus),
+    );
+    expect(core.length).toBeGreaterThan(8);
+    expect(core.every((d) => !d.book_light)).toBe(true);
+  });
+
+  it('sets every bilan once, then the final test and the activities', () => {
+    for (let n = 1; n <= 8; n++) expect(on(`Avancé bilan ${n} `)).toHaveLength(1);
+    expect(on('Avancé final test').map((d) => d.date)).toEqual(['2027-04-11']);
+    expect(on('Activité communicative (25 min): p. 168–171')).toHaveLength(1);
+    expect(on('Activité communicative (25 min): p. 180–184')).toHaveLength(1);
+  });
+
+  it('puts Vincent on the matching chapters', () => {
+    const topics = (p) =>
+      av
+        .find((d) => d.book_pages === p)
+        .vincent_later.map((l) => l.topic)
+        .join(' | ');
+    expect(topics('p. 52–53')).toContain('Subjunctive');
+    expect(topics('p. 64–65')).toContain('Past conditional');
+    expect(topics('p. 92–93')).toContain('tense changes');
+  });
+
+  it('does not offer Débutant answers on these pages', () => {
+    expect(book(av[0]).answerPages).toBeUndefined();
+  });
+});
+
+describe('writing practice matches the exam', () => {
+  const write = (d) => sessionsFor(d)[0].tasks.find((t) => t.id === 'write');
+  const find = (re, from = '') => studyDays.find((d) => d.date >= from && re.test(d.write));
+
+  it('knows the word limit of each task', () => {
+    expect(wordLimit('Tâche 1 (60–120 mots) : x')).toEqual([60, 120]);
+    expect(wordLimit('Tâche 2 (120–150 mots) : x')).toEqual([120, 150]);
+    expect(wordLimit('Tâche 3 timed (40 min) : x')).toEqual([120, 180]);
+    expect(wordLimit('Remplis une fiche')).toBeNull();
+  });
+
+  it('counts words and flags anything outside the limit', () => {
+    expect(countWords("  J'ai  mangé\nune pomme. ")).toBe(4);
+    expect(countWords('   ')).toBe(0);
+    expect(wordStatus(50, [60, 120])).toEqual({ text: '50 words: 10 short of the 60 minimum', off: true });
+    expect(wordStatus(130, [60, 120])).toEqual({ text: '130 words: 10 over the 120 maximum', off: true });
+    expect(wordStatus(100, [60, 120]).off).toBe(false);
+    expect(wordStatus(1, null)).toEqual({ text: '1 word', off: false });
+  });
+
+  it('offers source texts on essay days only, with the topic and no leftover label', () => {
+    const essay = find(/^Tâche 3/);
+    expect(write(essay).sources).toContain(essay.write.split(' : ')[1]);
+    expect(write(essay).sources).not.toContain('Tâche 3');
+    expect(write(find(/^Tâche 1/)).sources).toBeUndefined();
+  });
+
+  it('asks you to type from 1 Feb, and not before', () => {
+    expect(write(find(/^Tâche 1/)).detail).not.toContain('Type this');
+    expect(write(find(/^Tâche 1/, '2027-02-01')).detail).toContain('Type this');
+  });
+
+  it('shows the counter on exam tasks but not on the beginner forms', () => {
+    expect(write(studyDays[0]).counter).toBe(false);
+    expect(write(find(/^Tâche 2/)).counter).toBe(true);
+    expect(write(find(/^FULL writing/)).counter).toBe(true);
+    expect(write(find(/^FULL writing/)).limit).toBeUndefined();
+  });
+});
+
 describe('plan review changes', () => {
   const dated = (iso) => plan.days.find((d) => d.date === iso);
   const ids = (d) => (d.extras || []).map((x) => x.id);
@@ -287,14 +389,6 @@ describe('plan review changes', () => {
     const d = dated('2027-04-10');
     const tasks = sessionsFor(d)[1].tasks;
     for (const x of d.extras) expect(tasks.find((t) => t.id === x.id).minutes).toBe(x.minutes);
-  });
-
-  it('keeps all 72 Avancé chapters and tells you how to triage them', () => {
-    const av = studyDays.filter((d) => /^Av\. /.test(d.book));
-    const book = (d) => sessionsFor(d)[0].tasks.find((t) => t.id === 'book');
-    expect(av.every((d) => book(d).detail.includes('grammar checklist'))).toBe(true);
-    const other = studyDays.find((d) => /^Int\. /.test(d.book));
-    expect(book(other).detail).not.toContain('grammar checklist');
   });
 
   it('shows the real length of a multi-chapter Débutant day', () => {
