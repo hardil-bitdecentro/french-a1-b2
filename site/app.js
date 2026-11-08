@@ -33,7 +33,7 @@ import { createSync } from './syncctl.js';
 import { createReminders } from './reminders.js';
 import { recorderHtml, mountRecorder, speakClick, isBusy } from './speak.js';
 import { photoHtml, photoClick, photoChange } from './photo-view.js';
-import { viewBookWords, viewAudio, viewMaterials, viewMethod } from './pages.js';
+import { viewBookWords, viewAudio, viewMaterials, viewMethod, viewCanada } from './pages.js';
 import { idbGet, idbSet } from './db.js';
 import { SYNC_URL, TUTOR_URL } from './config.js';
 import qrcode from './vendor/qrcode.mjs';
@@ -699,6 +699,7 @@ function viewMore() {
       <h2>Study</h2>
       <ul class="links-list">
         <li><a href="${TUTOR_URL}" target="_blank" rel="noopener">AI tutor ↗ <span>Explains, marks and quizzes, on claude.ai</span></a></li>
+        <li><a href="#/canada">Canada roadmap <span>Every step to permanent residence</span></a></li>
         <li><a href="#/recordings">My recordings <span>Your voice, by date</span></a></li>
         <li><a href="#/audio">Book audio <span>28 dialogues, 10 songs</span></a></li>
         <li><a href="#/book-words">French words in the book <span>The ones it uses constantly</span></a></li>
@@ -784,7 +785,10 @@ function route() {
     tab = 'more';
   } else if (name === 'materials') html = viewMaterials();
   else if (name === 'method') html = viewMethod(state);
-  else if (name === 'audio') {
+  else if (name === 'canada') {
+    html = viewCanada(state);
+    tab = 'more';
+  } else if (name === 'audio') {
     html = viewAudio(plan);
     tab = 'materials';
   } else if (name === 'book-words') {
@@ -882,6 +886,13 @@ app.addEventListener('click', async (e) => {
   if (check && check.dataset.grammar !== undefined) {
     const i = Number(check.dataset.grammar);
     S.setGrammar(state, i, !S.grammarOn(state, i));
+    save();
+    rerender();
+    return;
+  }
+  if (check && check.dataset.canada !== undefined) {
+    const name = `canada:${check.dataset.canada}`;
+    S.setSetting(state, name, !S.setting(state, name, false));
     save();
     rerender();
     return;

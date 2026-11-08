@@ -336,6 +336,112 @@ function writeDetail(day) {
   return parts.join(' ');
 }
 
+// The route to permanent residence in Canada. Public site: steps and dates only, nothing private.
+export const CANADA_PLAN = [
+  {
+    when: 'Now to December 2026',
+    title: 'The slow paperwork',
+    steps: [
+      [
+        'eca',
+        'Start the ECA with WES. Ask your university to send your transcripts now: that is usually the slowest part, and WES then takes about 30–35 business days. Without it your degree scores nothing.',
+      ],
+      ['ielts', 'Check your IELTS is General Training and will still be valid when you apply. Results last 2 years.'],
+      [
+        'letters',
+        'Collect a reference letter from each employer: job title, duties, hours, pay and dates. Three years or more earns full points.',
+      ],
+      ['passport', 'Check your passport will not expire during the process.'],
+      [
+        'funds',
+        'Start saving settlement funds: CAD 15,263 for one person (July 2025 figure, updated each year). It must be your own money, not a loan.',
+      ],
+    ],
+  },
+  {
+    when: 'January to March 2027',
+    title: 'French checkpoints',
+    steps: [
+      ['tutor', 'Start weekly TCF tutor lessons from 2 Jan.'],
+      ['seats', 'Book your exam seats by 7 Feb: a checkpoint in mid-March and your main sitting in May or June.'],
+      ['checkpoint', 'Sit the mid-March checkpoint and note your NCLC level in each skill.'],
+      [
+        'mobility',
+        'If you reach NCLC 5 in speaking and listening, offer employers outside Quebec the Francophone Mobility work permit, which needs no LMIA. Confirm it is still open first.',
+      ],
+    ],
+  },
+  {
+    when: 'May to July 2027',
+    title: 'TCF Canada',
+    steps: [
+      [
+        'tcf',
+        'Sit the exam after two full mocks in a row at NCLC 7. You need listening 458, reading 453, writing 10 and speaking 10.',
+      ],
+      [
+        'results',
+        'Results come within about 15 working days and last 2 years. If one skill is short, retake after the 20–30 day gap.',
+      ],
+    ],
+  },
+  {
+    when: 'As soon as you have your results',
+    title: 'Express Entry',
+    steps: [
+      ['check', "Run IRCC's official eligibility tool and CRS calculator with your real results."],
+      [
+        'profile',
+        'Create your Express Entry profile under the Federal Skilled Worker Program, for a province outside Quebec.',
+      ],
+      ['rounds', 'Watch for French-category rounds. Keep your profile up to date while you wait.'],
+    ],
+  },
+  {
+    when: 'When you are invited',
+    title: 'The full application (60 days)',
+    steps: [
+      ['police', 'Get police certificates for every country where you lived 6 months or more in the last 10 years.'],
+      ['medical', 'Book the immigration medical with an approved doctor.'],
+      ['apply', 'Send the full application with your letters, ECA, test results and proof of funds, within 60 days.'],
+    ],
+  },
+  {
+    when: 'After approval',
+    title: 'Landing in Canada',
+    steps: [
+      ['land', 'Land before your visa expires, with your Confirmation of Permanent Residence and proof of funds.'],
+      ['work', 'Line up work before you travel, and apply for your SIN on arrival.'],
+    ],
+  },
+];
+
+export const CANADA_POINTS = [
+  ['Today: no ECA, IELTS 7.5 in every band', 257],
+  ['Add the ECA', 402],
+  ['ECA + IELTS 8 in every band', 463],
+  ['ECA + IELTS 7.5 + French NCLC 7', 464],
+  ['ECA + IELTS 8 + French NCLC 7', 525],
+  ['ECA + IELTS 8 + French + software job offer', 595],
+];
+
+// Spending up to the PR visa, at about ₹63 to CAD 1. Rough planning figures, except the IRCC fee.
+export const CANADA_COSTS = [
+  ['ECA with WES, courier and university fees', 'about ₹25,000'],
+  ['TCF Canada, two sittings', 'about ₹52,000'],
+  ['IELTS General, if you need a new one', 'about ₹18,000'],
+  ['Mock test bank', '₹7,000–10,000'],
+  ['TCF tutor, about 25 lessons', '₹35,000–60,000'],
+  ['PR application and right of PR fee (CAD 1,590)', 'about ₹1,00,000'],
+  ['Biometrics, medical, police certificate', 'about ₹15,000'],
+];
+
+export function canadaProgress(isDone) {
+  const ids = CANADA_PLAN.flatMap((stage) => stage.steps.map(([id]) => id));
+  const done = ids.filter(isDone).length;
+  return { done, total: ids.length };
+}
+
 /** Minutes to put on the timer: the task's own, or the "(60 min)" in a Sunday task's title. */
 export function taskMinutes(task) {
   if (task.minutes) return task.minutes;

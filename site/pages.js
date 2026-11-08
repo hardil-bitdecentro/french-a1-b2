@@ -1,5 +1,17 @@
 // The longer reference pages: materials, method, book audio, and the French words the book uses.
-import { LINKS, BOOK_AUDIO, BOOK_WORDS, WRITING_PROMPT, SPEAKING_PROMPT, EXPLAIN_PROMPT, esc } from './logic.js';
+import {
+  LINKS,
+  BOOK_AUDIO,
+  BOOK_WORDS,
+  WRITING_PROMPT,
+  SPEAKING_PROMPT,
+  EXPLAIN_PROMPT,
+  CANADA_PLAN,
+  CANADA_POINTS,
+  CANADA_COSTS,
+  canadaProgress,
+  esc,
+} from './logic.js';
 import * as S from './store.js';
 
 export function viewBookWords() {
@@ -42,6 +54,50 @@ export function viewAudio(plan) {
     <section class="card">
       <h2>Songs: La grammaire en chantant</h2>
       <ul class="plain">${rows('song')}</ul>
+    </section>`;
+}
+
+export function viewCanada(state) {
+  const isDone = (id) => S.setting(state, `canada:${id}`, false);
+  const { done, total } = canadaProgress(isDone);
+  return `
+    <p class="crumb"><a href="#/more">← More</a></p>
+    <h1>Canada roadmap</h1>
+    <p class="sub">Express Entry through the French category, with a job and work permit as the faster route if one comes first. ${done} of ${total} steps done.</p>
+    ${CANADA_PLAN.map(
+      (stage) => `
+      <section class="card">
+        <p class="vol-when">${esc(stage.when)}</p>
+        <h2>${esc(stage.title)}</h2>
+        <ul class="tasks">${stage.steps
+          .map(([id, text]) => {
+            const on = isDone(id);
+            return `<li class="task${on ? ' done' : ''}"><button class="check" type="button" role="checkbox" aria-checked="${on}" data-canada="${esc(id)}" aria-label="Done: ${esc(text)}"></button><div class="task-body"><p class="task-title">${esc(text)}</p></div></li>`;
+          })
+          .join('')}</ul>
+      </section>`,
+    ).join('')}
+    <section class="card">
+      <h2>My points (CRS estimate)</h2>
+      <table class="tbl"><tbody>
+        ${CANADA_POINTS.map(([label, score]) => `<tr><td>${esc(label)}</td><td><b>${score}</b></td></tr>`).join('')}
+      </tbody></table>
+      <p class="sub">French draws in 2026 cut off between 382 and 435. There has been no all-programs draw since April 2024, so French or Canadian work experience is what gets an invitation.</p>
+    </section>
+    <section class="card">
+      <h2>Money up to the PR visa</h2>
+      <table class="tbl"><tbody>
+        ${CANADA_COSTS.map(([label, cost]) => `<tr><td>${esc(label)}</td><td><b>${esc(cost)}</b></td></tr>`).join('')}
+        <tr><td><b>Total you spend</b></td><td><b>about ₹2.3–2.8 lakh</b></td></tr>
+        <tr><td><b>Settlement funds to show (you keep this)</b></td><td><b>CAD 15,263, about ₹9.6 lakh</b></td></tr>
+      </tbody></table>
+      <p class="sub">Each retake of the TCF adds about ₹26,000. Settlement funds rise most years, so aim for about ₹10 lakh. They must be in your own name when you apply and when the visa is issued. Check current amounts on canada.ca before paying.</p>
+    </section>
+    <section class="card">
+      <h2>If a job comes first</h2>
+      <p>A job offer with a work permit (LMIA or Global Talent Stream) is the fastest way in. A year of work in Canada then opens the Canadian Experience Class.</p>
+      <p>A qualifying offer adds points without an LMIA, reported as 70 for software roles, but a work permit to start before PR still needs one, unless Francophone Mobility applies.</p>
+      <p class="sub">Express Entry and Francophone Mobility are for living outside Quebec. Quebec has its own system. Never pay anyone for a job offer or an LMIA. Rules change, so check canada.ca or a licensed consultant before filing.</p>
     </section>`;
 }
 

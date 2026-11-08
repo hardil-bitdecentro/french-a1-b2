@@ -2,6 +2,10 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
   MINUTES,
+  CANADA_PLAN,
+  CANADA_POINTS,
+  CANADA_COSTS,
+  canadaProgress,
   wordLimit,
   countWords,
   wordStatus,
@@ -361,6 +365,36 @@ describe('writing practice matches the exam', () => {
     expect(write(find(/^Tâche 2/)).counter).toBe(true);
     expect(write(find(/^FULL writing/)).counter).toBe(true);
     expect(write(find(/^FULL writing/)).limit).toBeUndefined();
+  });
+});
+
+describe('Canada roadmap', () => {
+  const ids = CANADA_PLAN.flatMap((stage) => stage.steps.map(([id]) => id));
+
+  it('gives every step a unique id, for saving its tick', () => {
+    expect(new Set(ids).size).toBe(ids.length);
+  });
+
+  it('counts finished steps', () => {
+    expect(canadaProgress(() => false)).toEqual({ done: 0, total: ids.length });
+    expect(canadaProgress((id) => id === 'eca').done).toBe(1);
+  });
+
+  it('starts with the ECA and uses the official NCLC 7 scores', () => {
+    expect(CANADA_PLAN[0].steps[0][0]).toBe('eca');
+    const text = JSON.stringify(CANADA_PLAN);
+    for (const score of ['458', '453']) expect(text).toContain(score);
+  });
+
+  it('lists only costs up to the visa, with the official PR fee', () => {
+    const text = JSON.stringify(CANADA_COSTS);
+    expect(text).toContain('CAD 1,590');
+    expect(text).not.toMatch(/rent|groceries/i);
+  });
+
+  it('keeps the point estimates in rising order', () => {
+    const scores = CANADA_POINTS.map(([, s]) => s);
+    expect(scores).toEqual([...scores].sort((a, b) => a - b));
   });
 });
 
